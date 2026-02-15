@@ -14,11 +14,13 @@ _PACKAGE_DIR = Path(__file__).resolve().parent
 PDF_STORE_DIR: Path = _PACKAGE_DIR / "pdf_store"
 DATA_OUTPUT_DIR: Path = _PACKAGE_DIR.parent / "data"
 
-# === Claude model selection ===
+# === Gemini model selection ===
+# Switched from Claude to Gemini per user request (02-04 plan).
+# Gemini 2.0 Flash for cost-efficient extraction with PDF understanding.
 
-CLAUDE_MODEL: str = "claude-sonnet-4-5-20250514"
-CLAUDE_MODEL_CHEAP: str = "claude-haiku-4-5-20250514"
-MAX_TOKENS: int = 4096
+GEMINI_MODEL: str = "gemini-2.0-flash"
+GEMINI_MODEL_CHEAP: str = "gemini-2.0-flash-lite"
+MAX_TOKENS: int = 8192
 
 # === Manufacturer configuration ===
 

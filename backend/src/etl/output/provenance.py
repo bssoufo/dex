@@ -1,7 +1,7 @@
 """Builds SourceReference metadata from extraction results.
 
 Every data point in the Dex system is traceable back to a page and
-section in a source document.  This module translates Claude's
+section in a source document.  This module translates the LLM's
 extraction metadata (page numbers, section titles) into the
 ``SourceReference`` model defined in the Phase 1 schema.
 """
@@ -11,7 +11,7 @@ from __future__ import annotations
 from datetime import date
 
 from ...schema.parts import SourceReference
-from ..extract.claude_extractor import CategoryExtraction
+from ..extract.gemini_extractor import CategoryExtraction
 
 
 def build_source_reference(

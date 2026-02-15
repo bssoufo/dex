@@ -1,7 +1,7 @@
-"""Maps raw Claude extraction dicts to validated Pydantic SpaModel instances.
+"""Maps raw extraction dicts to validated Pydantic SpaModel instances.
 
 Takes the per-category ``CategoryExtraction`` results produced by
-``claude_extractor.extract_model_specs`` and assembles them into a single
+``gemini_extractor.extract_model_specs`` and assembles them into a single
 ``SpaModel`` that conforms to the Phase 1 schema.
 """
 
@@ -17,7 +17,7 @@ from pydantic import ValidationError
 from ...schema.models import SpaModel
 from ...schema.parts import SourceReference
 from ..config import DATA_OUTPUT_DIR
-from ..extract.claude_extractor import CategoryExtraction
+from ..extract.gemini_extractor import CategoryExtraction
 
 logger = logging.getLogger(__name__)
 

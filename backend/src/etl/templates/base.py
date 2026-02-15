@@ -14,8 +14,8 @@ class ManufacturerTemplate(ABC):
     """Abstract base for manufacturer extraction templates.
 
     Subclasses implement manufacturer-specific extraction prompts and
-    page hints that guide Claude's PDF API to the right pages and
-    format expectations for each spec category.
+    page hints that guide the LLM's PDF understanding to the right
+    pages and format expectations for each spec category.
     """
 
     @property

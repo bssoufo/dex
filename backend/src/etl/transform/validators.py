@@ -1,4 +1,4 @@
-"""Post-extraction sanity checks for Claude extraction results.
+"""Post-extraction sanity checks for extraction results.
 
 These are *warnings*, not hard blockers.  The pipeline logs them and
 continues -- the goal is to flag implausible values, low-confidence
@@ -11,7 +11,7 @@ import json
 import logging
 from typing import Any
 
-from ..extract.claude_extractor import CategoryExtraction
+from ..extract.gemini_extractor import CategoryExtraction
 
 logger = logging.getLogger(__name__)
 

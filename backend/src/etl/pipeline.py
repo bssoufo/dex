@@ -1,7 +1,7 @@
 """Main extraction pipeline orchestrator.
 
 Single entry point for running PDF-to-JSON extractions. Ties together
-manufacturer templates, Claude extractor, schema mapper, validators,
+manufacturer templates, Gemini extractor, schema mapper, validators,
 provenance builder, and JSON writer into a cohesive pipeline.
 
 Usage:
@@ -23,7 +23,7 @@ from pathlib import Path
 
 from ..schema.models import SpaModel
 from .config import DATA_OUTPUT_DIR, MANUFACTURERS, PDF_STORE_DIR
-from .extract.claude_extractor import CategoryExtraction, extract_model_specs
+from .extract.gemini_extractor import CategoryExtraction, extract_model_specs
 from .output.provenance import build_all_source_refs
 from .output.writer import write_model_json, write_raw_json
 from .templates.bullfrog import BullfrogMSeriesTemplate
@@ -58,7 +58,7 @@ def run_model(
 ) -> SpaModel | None:
     """Extract specifications for a single spa model from its PDF.
 
-    Runs the full pipeline: extract (Claude API) -> validate -> provenance
+    Runs the full pipeline: extract (Gemini API) -> validate -> provenance
     -> map (to SpaModel) -> write (JSON file).
 
     Args:
@@ -92,7 +92,7 @@ def run_model(
     print(f"PDF: {pdf_path.name}")
     print(f"{'='*60}")
 
-    # 1. Extract all categories from PDF via Claude API
+    # 1. Extract all categories from PDF via Gemini API
     extractions: dict[str, CategoryExtraction] = extract_model_specs(
         pdf_path, template, model_name
     )
