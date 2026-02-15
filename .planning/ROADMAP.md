@@ -34,11 +34,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. The schema models cross-reference relationships (which parts fit which models, supersession chains)
   3. Three pilot model files (one per manufacturer: Sundance Aspen, Hot Spring Grandee, Bullfrog M9) validate that the schema handles real-world data complexity (multi-pump positions, series-level shared specs)
   4. JSON Schema export from Pydantic produces valid schema files that can be used for validation
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Define Pydantic schema: enums, shared models (PartReference, SourceReference), 10 category models, SpaModel
+- [ ] 01-02-PLAN.md -- Create 3 pilot data files (Aspen, Grandee, M9), export JSON Schema, validate round-trip
 
 ### Phase 2: PDF Extraction Pipeline
 **Goal**: Automated extraction of technical specs from manufacturer PDF manuals into structured JSON matching the Phase 1 schema
@@ -190,7 +190,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Data Schema Design | 0/TBD | Not started | - |
+| 1. Data Schema Design | 0/2 | Planned | - |
 | 2. PDF Extraction Pipeline | 0/TBD | Not started | - |
 | 3. Web Scraping Pipeline | 0/TBD | Not started | - |
 | 4. Data Verification and Population | 0/TBD | Not started | - |
