@@ -1,0 +1,6 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Downloaded manufacturer PDFs (large binaries)
+backend/src/etl/pdf_store/**/*.pdf
