@@ -37,7 +37,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Define Pydantic schema: enums, shared models (PartReference, SourceReference), 10 category models, SpaModel
+- [x] 01-01-PLAN.md -- Define Pydantic schema: enums, shared models (PartReference, SourceReference), 10 category models, SpaModel
 - [ ] 01-02-PLAN.md -- Create 3 pilot data files (Aspen, Grandee, M9), export JSON Schema, validate round-trip
 
 ### Phase 2: PDF Extraction Pipeline
@@ -190,7 +190,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Data Schema Design | 0/2 | Planned | - |
+| 1. Data Schema Design | 1/2 | In progress | - |
 | 2. PDF Extraction Pipeline | 0/TBD | Not started | - |
 | 3. Web Scraping Pipeline | 0/TBD | Not started | - |
 | 4. Data Verification and Population | 0/TBD | Not started | - |
