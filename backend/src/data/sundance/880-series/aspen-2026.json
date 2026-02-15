@@ -1,0 +1,117 @@
+{
+  "manufacturer": "sundance",
+  "series": "880 Series",
+  "model_name": "Aspen",
+  "year": 2026,
+  "seating_capacity": 7,
+  "jet_pumps": {
+    "pumps": [
+      {
+        "position": 1,
+        "horsepower_continuous": 2.5,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56 Frame",
+        "voltage": 240
+      },
+      {
+        "position": 2,
+        "horsepower_continuous": 2.5,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56 Frame",
+        "voltage": 240
+      }
+    ],
+    "diverter_valves": 2,
+    "shared_with_series": false
+  },
+  "circulation_pump": {
+    "is_dedicated": true,
+    "description": "Dedicated circulation pump",
+    "shared_with_series": true
+  },
+  "spa_pak": {
+    "model_name": "Advanced Touch Control",
+    "display_type": "Color touchscreen",
+    "voltage": 240,
+    "frequency_hz": 60,
+    "features": ["SmartTub compatible"],
+    "shared_with_series": true
+  },
+  "topside_control": {
+    "type": "Color touchscreen",
+    "features": ["Icon-driven menus", "Glowing color display"],
+    "smart_connectivity": "SmartTub System (optional)",
+    "shared_with_series": true
+  },
+  "jets": {
+    "total_jet_count": 66,
+    "jet_system_type": "fixed",
+    "jets_by_type": [
+      {
+        "jet_type": "Fluidix",
+        "quantity": 66,
+        "zone": "full-body"
+      }
+    ],
+    "shared_with_series": false
+  },
+  "headrests": {
+    "headrests": [],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
+      {
+        "system_name": "MicroClean Ultra II",
+        "filter_type": "Cartridge",
+        "filtration_area_sqft": 130.0,
+        "quantity": 2,
+        "description": "Dual interlocking cartridge filters"
+      }
+    ],
+    "shared_with_series": true
+  },
+  "heater": {
+    "model_name": "Smart Heater",
+    "wattage": 5500,
+    "voltage": 240,
+    "part_number": {
+      "part_number": "6500-310",
+      "supersedes": "6500-301",
+      "fits_years": "2000+"
+    },
+    "shared_with_series": true
+  },
+  "lighting": {
+    "lights": [
+      {"location": "interior", "type": "Multicolor SunGlow LED"},
+      {"location": "waterfall", "type": "SunGlow LED"},
+      {"location": "footwell", "type": "SunGlow LED"},
+      {"location": "grab_bar", "type": "Backlit LED"},
+      {"location": "exterior", "type": "LED accent"}
+    ],
+    "shared_with_series": true
+  },
+  "cover": {
+    "features": ["Energy Efficiency package available"],
+    "shared_with_series": false
+  },
+  "dimensions": {
+    "length_inches": 110.0,
+    "width_inches": 89.0,
+    "height_inches": 40.0,
+    "dry_weight_lbs": 1240.0,
+    "water_capacity_gallons": 505.0
+  },
+  "voltage": 240,
+  "amperage": 50,
+  "source_documents": [
+    {
+      "source_type": "website",
+      "url": "https://www.sundancespas.com/en-us/aspen-880-series/Aspen.html",
+      "accessed_date": "2026-02-15"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "manufacturer": "bullfrog",
+  "series": "M Series",
+  "model_name": "M9",
+  "year": 2026,
+  "seating_capacity": 8,
+  "jet_pumps": {
+    "pumps": [
+      {
+        "position": 1,
+        "horsepower_continuous": 4.8,
+        "speed": "2-speed",
+        "voltage": 240
+      },
+      {
+        "position": 2,
+        "horsepower_continuous": 4.8,
+        "speed": "2-speed",
+        "voltage": 240
+      },
+      {
+        "position": 3,
+        "horsepower_continuous": 4.8,
+        "speed": "2-speed",
+        "voltage": 240
+      }
+    ],
+    "total_brake_horsepower": 14.40,
+    "shared_with_series": false
+  },
+  "circulation_pump": {
+    "is_dedicated": true,
+    "description": "Dedicated circulation pump",
+    "shared_with_series": true
+  },
+  "spa_pak": {
+    "model_name": "M Series Touch Screen",
+    "display_type": "Capacitive touch",
+    "voltage": 240,
+    "amperage": 60,
+    "features": [],
+    "shared_with_series": true
+  },
+  "topside_control": {
+    "type": "Capacitive touch",
+    "features": [],
+    "shared_with_series": true
+  },
+  "jets": {
+    "total_jet_count": 29,
+    "jet_system_type": "modular_jetpak",
+    "jets_by_type": [
+      {
+        "jet_type": "Therapy",
+        "quantity": 29,
+        "zone": "full-body"
+      }
+    ],
+    "jetpak_count": 6,
+    "jetpak_options": 16,
+    "therapy_jet_count": 29,
+    "max_jet_count": 323,
+    "shared_with_series": false
+  },
+  "headrests": {
+    "headrests": [
+      {
+        "type": "Adjustable"
+      }
+    ],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
+      {
+        "system_name": "Simplicity",
+        "filter_type": "Flat filter",
+        "shared_with_series": true
+      }
+    ],
+    "shared_with_series": true
+  },
+  "heater": {
+    "shared_with_series": true
+  },
+  "lighting": {
+    "lights": [
+      {"location": "interior", "type": "Premium LED surround"},
+      {"location": "exterior", "type": "Rim lighting"}
+    ],
+    "water_feature": "Premium waterfall",
+    "shared_with_series": false
+  },
+  "cover": {
+    "model_name": "Patio Performance",
+    "features": ["Smart sensor technology"],
+    "shared_with_series": false
+  },
+  "dimensions": {
+    "length_inches": 94.0,
+    "width_inches": 94.0,
+    "height_inches": 38.0,
+    "water_capacity_gallons": 420.0
+  },
+  "voltage": 240,
+  "amperage": 60,
+  "source_documents": [
+    {
+      "source_type": "website",
+      "url": "https://patiosplash.com/bullfrog-spas/m-series/m9/",
+      "accessed_date": "2026-02-15"
+    }
+  ]
+}
