@@ -1,7 +1,7 @@
-# Requirements: Dex — Technical Knowledge Assistant
+# Requirements: Dex -- Technical Knowledge Assistant
 
 **Defined:** 2026-02-14
-**Core Value:** 100% accurate retrieval of technical specifications and part numbers — a wrong part is a failure.
+**Core Value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
 
 ## v1 Requirements
 
@@ -59,14 +59,14 @@
 
 ### Enhanced Query
 
-- **EQUERY-01**: Bulk query mode — compare specs across an entire series
+- **EQUERY-01**: Bulk query mode -- compare specs across an entire series
 - **EQUERY-02**: Confidence indicators on responses (HIGH/LOW certainty)
 - **EQUERY-03**: Contextual help suggestions after answering a question
 
 ### Analytics & Monitoring
 
-- **ANALY-01**: Query analytics dashboard — track most asked questions, response success rates
-- **ANALY-02**: ETL diff detection — flag when manufacturer data changes
+- **ANALY-01**: Query analytics dashboard -- track most asked questions, response success rates
+- **ANALY-02**: ETL diff detection -- flag when manufacturer data changes
 
 ### Expanded Coverage
 
@@ -83,56 +83,56 @@
 
 | Feature | Reason |
 |---------|--------|
-| RAG / vector similarity search | Wrong parts are unacceptable — vector search returns "similar" not "exact" |
-| AI-generated spec descriptions | LLMs fabricate plausible-but-wrong specs — template responses with verified data only |
+| RAG / vector similarity search | Wrong parts are unacceptable -- vector search returns "similar" not "exact" |
+| AI-generated spec descriptions | LLMs fabricate plausible-but-wrong specs -- template responses with verified data only |
 | Auto-updating from manufacturer sites | Unverified auto-updates could introduce silent errors |
 | Voice input / phone integration | Adds STT complexity, introduces transcription errors for part numbers |
-| End-customer access | Different UX, trust model, and scope — internal staff only for POC |
+| End-customer access | Different UX, trust model, and scope -- internal staff only for POC |
 | Pricing in POC | Comes from separate Spaparts system, adds complexity without proving core hypothesis |
-| Models outside 2026 | Full solution scope — POC proves concept with 19 models |
+| Models outside 2026 | Full solution scope -- POC proves concept with 19 models |
 | Multi-language support | All 3 POC manufacturers publish in English |
 | Full-text PDF search fallback | Bypasses structured data layer, reintroduces manual lookup problem |
-| General-purpose chatbot personality | Staff need fast answers, not conversation — professional and concise |
+| General-purpose chatbot personality | Staff need fast answers, not conversation -- professional and concise |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ETL-01 | TBD | Pending |
-| ETL-02 | TBD | Pending |
-| ETL-03 | TBD | Pending |
-| ETL-04 | TBD | Pending |
-| ETL-05 | TBD | Pending |
-| DATA-01 | TBD | Pending |
-| DATA-02 | TBD | Pending |
-| DATA-03 | TBD | Pending |
-| AGENT-01 | TBD | Pending |
-| AGENT-02 | TBD | Pending |
-| AGENT-03 | TBD | Pending |
-| AGENT-04 | TBD | Pending |
-| AGENT-05 | TBD | Pending |
-| QUERY-01 | TBD | Pending |
-| QUERY-02 | TBD | Pending |
-| QUERY-03 | TBD | Pending |
-| QUERY-04 | TBD | Pending |
-| QUERY-05 | TBD | Pending |
-| RESP-01 | TBD | Pending |
-| RESP-02 | TBD | Pending |
-| RESP-03 | TBD | Pending |
-| RESP-04 | TBD | Pending |
-| RESP-05 | TBD | Pending |
-| RESP-06 | TBD | Pending |
-| UI-01 | TBD | Pending |
-| UI-02 | TBD | Pending |
-| UI-03 | TBD | Pending |
-| DEPLOY-01 | TBD | Pending |
-| DEPLOY-02 | TBD | Pending |
+| ETL-01 | Phase 2 | Pending |
+| ETL-02 | Phase 3 | Pending |
+| ETL-03 | Phase 4 | Pending |
+| ETL-04 | Phase 4 | Pending |
+| ETL-05 | Phase 4 | Pending |
+| DATA-01 | Phase 1 | Pending |
+| DATA-02 | Phase 1 | Pending |
+| DATA-03 | Phase 4 | Pending |
+| AGENT-01 | Phase 7 | Pending |
+| AGENT-02 | Phase 6 | Pending |
+| AGENT-03 | Phase 7 | Pending |
+| AGENT-04 | Phase 7 | Pending |
+| AGENT-05 | Phase 7 | Pending |
+| QUERY-01 | Phase 6 | Pending |
+| QUERY-02 | Phase 7 | Pending |
+| QUERY-03 | Phase 5 | Pending |
+| QUERY-04 | Phase 5 | Pending |
+| QUERY-05 | Phase 6 | Pending |
+| RESP-01 | Phase 8 | Pending |
+| RESP-02 | Phase 6 | Pending |
+| RESP-03 | Phase 6 | Pending |
+| RESP-04 | Phase 8 | Pending |
+| RESP-05 | Phase 8 | Pending |
+| RESP-06 | Phase 6 | Pending |
+| UI-01 | Phase 9 | Pending |
+| UI-02 | Phase 9 | Pending |
+| UI-03 | Phase 9 | Pending |
+| DEPLOY-01 | Phase 10 | Pending |
+| DEPLOY-02 | Phase 10 | Pending |
 
 **Coverage:**
 - v1 requirements: 29 total
-- Mapped to phases: 0
-- Unmapped: 29 (pending roadmap creation)
+- Mapped to phases: 29
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-14*
-*Last updated: 2026-02-14 after initial definition*
+*Last updated: 2026-02-14 after roadmap creation*
