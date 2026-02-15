@@ -12,7 +12,7 @@ Dex delivers a zero-hallucination technical knowledge assistant for Spaparts sta
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Data Schema Design** - Define the canonical JSON schema for all 10 spec categories
+- [x] **Phase 1: Data Schema Design** - Define the canonical JSON schema for all 10 spec categories
 - [ ] **Phase 2: PDF Extraction Pipeline** - Build automated extraction from manufacturer PDF manuals
 - [ ] **Phase 3: Web Scraping Pipeline** - Build automated extraction from manufacturer websites
 - [ ] **Phase 4: Data Verification and Population** - Verify and populate all 190 data points with source tracking
@@ -38,7 +38,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md -- Define Pydantic schema: enums, shared models (PartReference, SourceReference), 10 category models, SpaModel
-- [ ] 01-02-PLAN.md -- Create 3 pilot data files (Aspen, Grandee, M9), export JSON Schema, validate round-trip
+- [x] 01-02-PLAN.md -- Create 3 pilot data files (Aspen, Grandee, M9), export JSON Schema, validate round-trip
 
 ### Phase 2: PDF Extraction Pipeline
 **Goal**: Automated extraction of technical specs from manufacturer PDF manuals into structured JSON matching the Phase 1 schema
