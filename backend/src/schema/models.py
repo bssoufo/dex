@@ -7,7 +7,7 @@ structure that ETL writes to and MCP tools read from.
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from .enums import JetSystemType, Manufacturer, PumpSpeed
 from .parts import DimensionsSpec, PartReference, SourceReference
@@ -24,21 +24,22 @@ class JetPumpSpec(BaseModel):
         description="Pump position number (1, 2, 3, etc.)",
     )
     model_name: str | None = None
-    horsepower_continuous: float = Field(
+    horsepower_continuous: float | None = Field(
+        default=None,
         description="Continuous-duty horsepower rating",
     )
     horsepower_breakdown: float | None = None
-    speed: PumpSpeed
+    speed: PumpSpeed | None = None
     amperage_max: float | None = None
     frame: str | None = None
-    voltage: int = 240
+    voltage: int | None = 240
     part_number: PartReference | None = None
 
 
 class JetPumpSpecs(BaseModel):
     """All jet pump specs for a spa model. Models have 1-4 jet pumps."""
 
-    pumps: list[JetPumpSpec] = Field(min_length=1, max_length=4)
+    pumps: list[JetPumpSpec] = Field(default_factory=list, max_length=4)
     diverter_valves: int | None = None
     total_brake_horsepower: float | None = None
     shared_with_series: bool = False
@@ -64,11 +65,11 @@ class CirculationPumpSpec(BaseModel):
 class SpaPakSpec(BaseModel):
     """Spa pak / control box specification."""
 
-    model_name: str
+    model_name: str | None = None
     display_type: str | None = None
-    voltage: int = 240
+    voltage: int | None = 240
     amperage: int | None = None
-    frequency_hz: int = 60
+    frequency_hz: int | None = 60
     features: list[str] = Field(default_factory=list)
     part_number: PartReference | None = None
     shared_with_series: bool = False
@@ -94,7 +95,7 @@ class TopsideControlSpec(BaseModel):
 class JetTypeEntry(BaseModel):
     """A specific jet type and its quantity within the spa."""
 
-    jet_type: str
+    jet_type: str | None = None
     quantity: int = Field(ge=0)
     zone: str | None = None
     part_number: PartReference | None = None
@@ -109,7 +110,8 @@ class JetSpecs(BaseModel):
     jetpak_count and jetpak_options fields.
     """
 
-    total_jet_count: int = Field(
+    total_jet_count: int | None = Field(
+        default=None,
         description="Total number of jets in the spa",
     )
     jet_system_type: JetSystemType = JetSystemType.FIXED
@@ -131,6 +133,21 @@ class HeadrestSpec(BaseModel):
     quantity: int | None = None
     part_number: PartReference | None = None
     description: str | None = None
+
+    @field_validator("quantity", mode="before")
+    @classmethod
+    def _coerce_quantity(cls, v: object) -> int | None:
+        if v is None:
+            return None
+        if isinstance(v, int):
+            return v
+        if isinstance(v, str):
+            # Try to parse numeric strings; return None for text like "one or more"
+            try:
+                return int(v)
+            except ValueError:
+                return None
+        return None
 
 
 class HeadrestSpecs(BaseModel):
@@ -158,7 +175,7 @@ class FilterSpec(BaseModel):
 class FilterSpecs(BaseModel):
     """All filter specifications for a model."""
 
-    filters: list[FilterSpec] = Field(min_length=1)
+    filters: list[FilterSpec] = Field(default_factory=list)
     shared_with_series: bool = False
 
 
@@ -170,7 +187,7 @@ class HeaterSpec(BaseModel):
 
     model_name: str | None = None
     wattage: int | None = None
-    voltage: int = 240
+    voltage: int | None = 240
     material: str | None = None
     part_number: PartReference | None = None
     shared_with_series: bool = False
@@ -182,8 +199,8 @@ class HeaterSpec(BaseModel):
 class LightSpec(BaseModel):
     """Specification for a single light/LED."""
 
-    location: str
-    type: str
+    location: str | None = None
+    type: str | None = None
     description: str | None = None
     part_number: PartReference | None = None
 
@@ -240,17 +257,17 @@ class SpaModel(BaseModel):
     year: int
     seating_capacity: int
 
-    # 10 Spec Categories
-    jet_pumps: JetPumpSpecs
+    # 10 Spec Categories (all optional to tolerate extraction gaps)
+    jet_pumps: JetPumpSpecs | None = None
     circulation_pump: CirculationPumpSpec | None = None
-    spa_pak: SpaPakSpec
-    topside_control: TopsideControlSpec
-    jets: JetSpecs
-    headrests: HeadrestSpecs
-    filters: FilterSpecs
-    heater: HeaterSpec
-    lighting: LightingSpecs
-    cover: CoverSpec
+    spa_pak: SpaPakSpec | None = None
+    topside_control: TopsideControlSpec | None = None
+    jets: JetSpecs | None = None
+    headrests: HeadrestSpecs | None = None
+    filters: FilterSpecs | None = None
+    heater: HeaterSpec | None = None
+    lighting: LightingSpecs | None = None
+    cover: CoverSpec | None = None
 
     # Physical dimensions
     dimensions: DimensionsSpec

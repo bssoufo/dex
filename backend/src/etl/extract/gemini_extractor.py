@@ -205,7 +205,8 @@ def _parse_gemini_response(response_text: str) -> CategoryExtraction:
     """Parse a Gemini response into a CategoryExtraction.
 
     Handles common response formats: plain JSON, markdown-fenced JSON,
-    and nested JSON with raw_data_json as either string or dict.
+    arrays (unwrap first element), and nested JSON with raw_data_json
+    as either string or dict.
     """
     text = response_text.strip()
 
@@ -226,6 +227,23 @@ def _parse_gemini_response(response_text: str) -> CategoryExtraction:
             f"Response text (first 500 chars): {text[:500]}"
         ) from exc
 
+    # Gemini sometimes wraps the response in an array -- unwrap it
+    if isinstance(parsed, list):
+        if len(parsed) == 1 and isinstance(parsed[0], dict):
+            parsed = parsed[0]
+        elif len(parsed) > 0 and isinstance(parsed[0], dict):
+            # Take the first element that looks like a CategoryExtraction
+            for item in parsed:
+                if isinstance(item, dict) and "model_name" in item:
+                    parsed = item
+                    break
+            else:
+                parsed = parsed[0]
+        else:
+            raise ExtractionError(
+                f"Gemini returned an unexpected array: {text[:500]}"
+            )
+
     # If raw_data_json is a dict, convert to JSON string for Pydantic
     if isinstance(parsed.get("raw_data_json"), dict):
         parsed["raw_data_json"] = json.dumps(parsed["raw_data_json"])
@@ -238,6 +256,10 @@ def _parse_gemini_response(response_text: str) -> CategoryExtraction:
 # ---------------------------------------------------------------------------
 
 
+_MAX_RETRIES = 4
+_BASE_DELAY = 5  # seconds
+
+
 def extract_spec_category(
     pdf_path: Path,
     extraction_prompt: str,
@@ -247,7 +269,8 @@ def extract_spec_category(
     """Extract a single spec category from a PDF via the Gemini API.
 
     Uploads the PDF (or reuses cached upload) and sends the extraction
-    prompt with the full document context.
+    prompt with the full document context.  Retries with exponential
+    backoff on 429 RESOURCE_EXHAUSTED errors.
 
     Args:
         pdf_path: Path to the manufacturer PDF file.
@@ -275,33 +298,51 @@ def extract_spec_category(
     # Build the request
     model_name = model or GEMINI_MODEL
 
-    try:
-        response = client.models.generate_content(
-            model=model_name,
-            contents=[
-                types.Content(
-                    role="user",
-                    parts=[
-                        types.Part.from_uri(
-                            file_uri=uploaded_file.uri,
-                            mime_type="application/pdf",
-                        ),
-                        types.Part.from_text(text=extraction_prompt),
-                    ],
+    last_exc: Exception | None = None
+    for attempt in range(_MAX_RETRIES + 1):
+        try:
+            response = client.models.generate_content(
+                model=model_name,
+                contents=[
+                    types.Content(
+                        role="user",
+                        parts=[
+                            types.Part.from_uri(
+                                file_uri=uploaded_file.uri,
+                                mime_type="application/pdf",
+                            ),
+                            types.Part.from_text(text=extraction_prompt),
+                        ],
+                    ),
+                ],
+                config=types.GenerateContentConfig(
+                    system_instruction=_SYSTEM_INSTRUCTION,
+                    temperature=0.1,
+                    max_output_tokens=MAX_TOKENS,
+                    response_mime_type="application/json",
                 ),
-            ],
-            config=types.GenerateContentConfig(
-                system_instruction=_SYSTEM_INSTRUCTION,
-                temperature=0.1,
-                max_output_tokens=MAX_TOKENS,
-                response_mime_type="application/json",
-            ),
-        )
-    except Exception as exc:
-        raise ExtractionError(
-            f"Gemini API error extracting from {pdf_path.name}: {exc}",
-            pdf_path=pdf_path,
-        ) from exc
+            )
+            break  # Success
+        except Exception as exc:
+            last_exc = exc
+            exc_str = str(exc)
+            is_rate_limit = (
+                "429" in exc_str
+                or "RESOURCE_EXHAUSTED" in exc_str
+                or "rate" in exc_str.lower()
+            )
+            if is_rate_limit and attempt < _MAX_RETRIES:
+                delay = _BASE_DELAY * (2 ** attempt)
+                print(
+                    f"    Rate limited (attempt {attempt + 1}/{_MAX_RETRIES + 1}), "
+                    f"retrying in {delay}s..."
+                )
+                time.sleep(delay)
+                continue
+            raise ExtractionError(
+                f"Gemini API error extracting from {pdf_path.name}: {exc}",
+                pdf_path=pdf_path,
+            ) from exc
 
     # Parse the structured output
     try:
@@ -341,7 +382,7 @@ def extract_model_specs(
     """
     results: dict[str, CategoryExtraction] = {}
 
-    for category in SPEC_CATEGORIES:
+    for i, category in enumerate(SPEC_CATEGORIES):
         try:
             prompt = template.get_extraction_prompt(model_name, category)
             extraction = extract_spec_category(
@@ -360,5 +401,9 @@ def extract_model_specs(
                 exc,
             )
             print(f"Extracting {model_name} / {category}... FAILED: {exc}")
+
+        # Brief pause between calls to avoid rate limits
+        if i < len(SPEC_CATEGORIES) - 1:
+            time.sleep(1)
 
     return results
