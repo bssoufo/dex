@@ -1,0 +1,307 @@
+{
+  "manufacturer": "hotspring",
+  "series": "Highlife Collection",
+  "model_name": "Vanguard",
+  "year": 2026,
+  "seating_capacity": 6,
+  "jet_pumps": {
+    "pumps": [
+      {
+        "position": 1,
+        "model_name": "Wavemaster",
+        "horsepower_continuous": 1.0,
+        "horsepower_breakdown": null,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": 240,
+        "part_number": null
+      },
+      {
+        "position": 2,
+        "model_name": "Wavemaster",
+        "horsepower_continuous": 1.0,
+        "horsepower_breakdown": null,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": 240,
+        "part_number": null
+      }
+    ],
+    "diverter_valves": null,
+    "total_brake_horsepower": null,
+    "shared_with_series": false
+  },
+  "circulation_pump": {
+    "model_name": "Silent Flo 5000",
+    "description": "dedicated, water cooled, energy efficient, quiet pump that provides continuous filtration for the spa.",
+    "is_dedicated": true,
+    "wattage": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "spa_pak": {
+    "model_name": "VANGUARD (MODEL VVN)",
+    "display_type": "LCD touchscreen",
+    "voltage": 230,
+    "amperage": 20,
+    "frequency_hz": 60,
+    "features": [
+      "integrated with FreshWater salt system",
+      "power indicator",
+      "diagnostic function"
+    ],
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "topside_control": {
+    "model_name": "VANGUARD",
+    "type": "IQ 2020 touchscreen",
+    "features": [
+      "temperature setting",
+      "jet control",
+      "lights control",
+      "music control",
+      "memory settings",
+      "clean cycle",
+      "soak timer"
+    ],
+    "smart_connectivity": "Bluetooth, WiFi",
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "jets": {
+    "total_jet_count": 20,
+    "jet_system_type": "fixed",
+    "jets_by_type": [
+      {
+        "jet_type": "PRECISION with MOTO-MASSAGE DX",
+        "quantity": 4,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "HYDROSTREAM",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "PRECISION",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "PRECISION",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "HYDROSTREAM",
+        "quantity": 6,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "JETSTREAM",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "PRECISION",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "jetpak_count": null,
+    "jetpak_options": null,
+    "therapy_jet_count": null,
+    "max_jet_count": null,
+    "shared_with_series": false
+  },
+  "headrests": {
+    "headrests": [
+      {
+        "type": "Comfort Pillow",
+        "quantity": null,
+        "part_number": null,
+        "description": "All Highlife Collection models come with one or more comfortable headrests."
+      }
+    ],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
+      {
+        "system_name": "Tri-X",
+        "filter_type": null,
+        "filtration_area_sqft": 325.0,
+        "quantity": null,
+        "description": "100% No-Bypass filtration",
+        "no_bypass": true,
+        "part_number": null
+      }
+    ],
+    "shared_with_series": false
+  },
+  "heater": {
+    "model_name": null,
+    "wattage": 4000,
+    "voltage": 230,
+    "material": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "lighting": {
+    "lights": [
+      {
+        "location": "underwater",
+        "type": "LED",
+        "description": "blue",
+        "part_number": null
+      },
+      {
+        "location": "Bartop/pillow",
+        "type": "LED",
+        "description": "aqua",
+        "part_number": null
+      },
+      {
+        "location": "Exterior",
+        "type": "LED",
+        "description": "white",
+        "part_number": null
+      },
+      {
+        "location": "Water feature",
+        "type": "LED",
+        "description": "aqua",
+        "part_number": null
+      },
+      {
+        "location": "Logo",
+        "type": "LED",
+        "description": "teal and blue",
+        "part_number": null
+      }
+    ],
+    "water_feature": "BellaFontana water feature",
+    "shared_with_series": false
+  },
+  "cover": {
+    "model_name": "VANGUARD",
+    "thickness": null,
+    "material": null,
+    "features": [],
+    "length_inches": 87.0,
+    "width_inches": 87.0,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "dimensions": {
+    "length_inches": 87.0,
+    "width_inches": 87.0,
+    "height_inches": 36.0,
+    "dry_weight_lbs": 710.0,
+    "filled_weight_lbs": 4890.0,
+    "water_capacity_gallons": 375.0
+  },
+  "voltage": 230,
+  "amperage": 30,
+  "requires_gfci": true,
+  "compatibility_notes": [],
+  "source_documents": [
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 27,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 7,
+      "section": "EQUIPMENT COMPARTMENT",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 37,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 17,
+      "section": "OPERATING INSTRUCTIONS",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 7,
+      "section": "Spa Features",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 3,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 45,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 7,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    }
+  ]
+}

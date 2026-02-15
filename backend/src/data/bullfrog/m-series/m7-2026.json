@@ -1,7 +1,7 @@
 {
   "manufacturer": "bullfrog",
   "series": "M Series",
-  "model_name": "M9",
+  "model_name": "M7",
   "year": 2026,
   "seating_capacity": 0,
   "jet_pumps": {
@@ -55,31 +55,26 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": null,
+    "voltage": 240,
     "amperage": null,
-    "frequency_hz": null,
+    "frequency_hz": 60,
     "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "M9",
+    "model_name": null,
     "type": "Premium Touch Screen Control (K1000)",
     "features": [
-      "Time display",
-      "Jet control",
-      "Light control",
-      "Screen orientation",
-      "Water temperature display",
-      "Heating/cooling status",
-      "Settings menu",
-      "Water Care presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
-      "Maintenance reminders",
+      "Adjustable Temperature",
+      "Water Care Presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
+      "Maintenance Reminders",
+      "Invert Screen",
       "Standby/Lock",
-      "Audio controls (optional)",
-      "Invert Screen"
+      "Light control",
+      "Audio System Controls (Optional)"
     ],
-    "smart_connectivity": "Bluetooth (optional)",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -87,7 +82,7 @@
     "total_jet_count": null,
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [],
-    "jetpak_count": 6,
+    "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
@@ -96,10 +91,10 @@
   "headrests": {
     "headrests": [
       {
-        "type": "adjustable",
+        "type": "Adjustable",
         "quantity": null,
         "part_number": null,
-        "description": null
+        "description": "Item 4 in the overview diagram"
       }
     ],
     "shared_with_series": false
@@ -111,7 +106,7 @@
         "filter_type": "pleated flat",
         "filtration_area_sqft": null,
         "quantity": 1,
-        "description": "It is recommended that the pleated flat Simplicity filter used in M Series spas be cleaned or replaced every 4 weeks, or sooner if needed. You may prefer to simply replace monthly, or Simplicity filters can be cleaned by spraying along the pleats from one side of the filter to the other with a garden hose and nozzle, then rinsing thoroughly. Even with regular cleaning, Simplicity filters will eventually become less effective and should be replaced at least every 12-16 weeks.",
+        "description": "used in M Series spas, can be cleaned by spraying along the pleats from one side of the filter to the other with a garden hose and nozzle, then rinsing thoroughly. Even with regular cleaning, Simplicity filters will eventually become less effective and should be replaced at least every 12-16 weeks.",
         "no_bypass": null,
         "part_number": null
       }
@@ -129,8 +124,14 @@
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
+        "location": "interior",
         "type": "LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "exterior",
+        "type": "sconce",
         "description": null,
         "part_number": null
       }
@@ -143,21 +144,21 @@
     "thickness": null,
     "material": null,
     "features": [],
-    "length_inches": 110.0,
-    "width_inches": 94.0,
+    "length_inches": 91.0,
+    "width_inches": 91.0,
     "part_number": null,
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 94.0,
-    "width_inches": 110.0,
-    "height_inches": 38.0,
+    "length_inches": 91.0,
+    "width_inches": 91.0,
+    "height_inches": 37.0,
     "dry_weight_lbs": null,
     "filled_weight_lbs": null,
     "water_capacity_gallons": null
   },
   "voltage": 240,
-  "amperage": 60,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -167,26 +168,6 @@
       "document_name": "m-series.pdf",
       "page_number": 9,
       "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 9,
-      "section": "Equipment Compartment Overview",
-      "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 11,
-      "section": "Premium Touch Screen Control (K1000)",
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null

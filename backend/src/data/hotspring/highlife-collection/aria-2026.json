@@ -1,0 +1,277 @@
+{
+  "manufacturer": "hotspring",
+  "series": "Highlife Collection",
+  "model_name": "Aria",
+  "year": 2026,
+  "seating_capacity": 5,
+  "jet_pumps": {
+    "pumps": [
+      {
+        "position": 1,
+        "model_name": "Wavemaster",
+        "horsepower_continuous": 1.0,
+        "horsepower_breakdown": null,
+        "speed": "1-speed",
+        "amperage_max": null,
+        "frame": null,
+        "voltage": 240,
+        "part_number": null
+      },
+      {
+        "position": 2,
+        "model_name": null,
+        "horsepower_continuous": 1.0,
+        "horsepower_breakdown": null,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
+        "part_number": null
+      }
+    ],
+    "diverter_valves": null,
+    "total_brake_horsepower": null,
+    "shared_with_series": false
+  },
+  "circulation_pump": {
+    "model_name": null,
+    "description": "SILENT FLO 5000 circulation pump is a dedicated, water cooled, energy efficient, quiet pump that provides continuous filtration for the spa.",
+    "is_dedicated": true,
+    "wattage": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "spa_pak": {
+    "model_name": "ARIA",
+    "display_type": "LCD touchscreen",
+    "voltage": null,
+    "amperage": null,
+    "frequency_hz": 60,
+    "features": [
+      "full color display",
+      "temperature setting",
+      "jet control",
+      "lights control",
+      "memory",
+      "clean cycle",
+      "music",
+      "FreshWater salt system integration"
+    ],
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "topside_control": {
+    "model_name": null,
+    "type": "IQ 2020 touchscreen",
+    "features": [
+      "temperature setting",
+      "activate jets",
+      "lights control",
+      "memory",
+      "clean cycle"
+    ],
+    "smart_connectivity": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "jets": {
+    "total_jet_count": 18,
+    "jet_system_type": "fixed",
+    "jets_by_type": [
+      {
+        "jet_type": "PRECISION jets with MOTO-MASSAGE DX",
+        "quantity": 4,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "HYDROSTREAM jets",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "PRECISION jets",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "PRECISION jets",
+        "quantity": 10,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "jetpak_count": null,
+    "jetpak_options": null,
+    "therapy_jet_count": null,
+    "max_jet_count": null,
+    "shared_with_series": false
+  },
+  "headrests": {
+    "headrests": [
+      {
+        "type": "pillow",
+        "quantity": null,
+        "part_number": null,
+        "description": "All Highlife Collection\u00ae models come with one or more comfortable headrests."
+      }
+    ],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
+      {
+        "system_name": "Tri-X",
+        "filter_type": null,
+        "filtration_area_sqft": 325.0,
+        "quantity": null,
+        "description": "100% No-Bypass filtration",
+        "no_bypass": true,
+        "part_number": null
+      }
+    ],
+    "shared_with_series": false
+  },
+  "heater": {
+    "model_name": null,
+    "wattage": 4000,
+    "voltage": 230,
+    "material": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "lighting": {
+    "lights": [
+      {
+        "location": "underwater",
+        "type": "LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "bartop & pillows",
+        "type": "LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "exterior",
+        "type": "LED",
+        "description": null,
+        "part_number": null
+      }
+    ],
+    "water_feature": "illuminated arcs of dancing water",
+    "shared_with_series": false
+  },
+  "cover": {
+    "model_name": null,
+    "thickness": null,
+    "material": null,
+    "features": [],
+    "length_inches": 87.0,
+    "width_inches": 87.0,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "dimensions": {
+    "length_inches": 87.0,
+    "width_inches": 87.0,
+    "height_inches": 36.0,
+    "dry_weight_lbs": 680.0,
+    "filled_weight_lbs": 4600.0,
+    "water_capacity_gallons": 365.0
+  },
+  "voltage": 230,
+  "amperage": 30,
+  "requires_gfci": true,
+  "compatibility_notes": [],
+  "source_documents": [
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 25,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 41,
+      "section": "SILENT FLO 5000 CIRCULATION PUMP AND CIRCULATION PUMP THERMAL CUT-OFF",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 7,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 17,
+      "section": "MAIN CONTROL PANEL",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 25,
+      "section": "JET PUMP 1-JET SYSTEM 1",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 7,
+      "section": "Spa Features",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 3,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "highlife-2026.pdf",
+      "page_number": 45,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    }
+  ]
+}

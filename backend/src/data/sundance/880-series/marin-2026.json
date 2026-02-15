@@ -1,40 +1,51 @@
 {
   "manufacturer": "sundance",
   "series": "880 Series",
-  "model_name": "Aspen",
+  "model_name": "Marin",
   "year": 2026,
-  "seating_capacity": 0,
+  "seating_capacity": 5,
   "jet_pumps": {
     "pumps": [
       {
-        "position": 2,
+        "position": 1,
         "model_name": null,
         "horsepower_continuous": 1.1,
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.0,
-        "frame": "56 Frame",
+        "frame": null,
         "voltage": 240,
+        "part_number": null
+      },
+      {
+        "position": 2,
+        "model_name": null,
+        "horsepower_continuous": 1.0,
+        "horsepower_breakdown": null,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
         "part_number": null
       },
       {
         "position": 3,
         "model_name": null,
-        "horsepower_continuous": 1.1,
+        "horsepower_continuous": 1.0,
         "horsepower_breakdown": null,
-        "speed": "1-speed",
-        "amperage_max": 11.0,
-        "frame": "56 Frame",
-        "voltage": 240,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
         "part_number": null
       }
     ],
-    "diverter_valves": null,
+    "diverter_valves": 1,
     "total_brake_horsepower": null,
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "Aspen",
+    "model_name": "Marin",
     "description": null,
     "is_dedicated": true,
     "wattage": null,
@@ -42,98 +53,103 @@
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "Aspen",
+    "model_name": "Marin",
     "display_type": null,
     "voltage": 240,
     "amperage": null,
     "frequency_hz": 60,
     "features": [
       "Ozone",
-      "UV",
-      "Heater",
-      "Pumps",
-      "Blower",
-      "Light",
-      "Auxiliary Input"
+      "Audio System",
+      "Chromazone",
+      "Clim8zone",
+      "Wifi"
     ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": null,
-    "type": "touch-sensitive control panel",
+    "type": "touch-sensitive",
     "features": [
       "icon-driven menus",
-      "interactive control panel",
-      "LCD display"
+      "LCD display",
+      "interactive control panel"
     ],
     "smart_connectivity": "SmartTub System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 60,
+    "total_jet_count": 53,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
         "jet_type": "Fluidix Nex",
-        "quantity": 8,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix Intelli-Jet",
         "quantity": 6,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Whirlpool",
+        "jet_type": "Fluidix Intelli-Jet",
         "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Accu-Pressure",
-        "quantity": 8,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix ST",
-        "quantity": 16,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Focus Relief",
-        "quantity": 8,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Vortex",
-        "quantity": 4,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
         "jet_type": "Fluidix Reflex",
+        "quantity": 6,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Fluidix ST",
         "quantity": 12,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
+        "jet_type": "Vortex",
+        "quantity": 6,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
         "jet_type": "Fluidix PT",
+        "quantity": 1,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Focus-Relief",
+        "quantity": 10,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Accu-Pressure",
         "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Whirlpool",
+        "quantity": 4,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": null,
+        "quantity": 4,
         "zone": null,
         "part_number": null,
         "description": null
@@ -148,7 +164,7 @@
   "headrests": {
     "headrests": [
       {
-        "type": null,
+        "type": "Pillows",
         "quantity": 4,
         "part_number": null,
         "description": null
@@ -156,20 +172,7 @@
     ],
     "shared_with_series": false
   },
-  "filters": {
-    "filters": [
-      {
-        "system_name": "MicroClean Ultra",
-        "filter_type": "pleated cartridge and insert",
-        "filtration_area_sqft": null,
-        "quantity": 2,
-        "description": "outer pleated filter and center insert",
-        "no_bypass": null,
-        "part_number": null
-      }
-    ],
-    "shared_with_series": false
-  },
+  "filters": null,
   "heater": {
     "model_name": null,
     "wattage": 5500,
@@ -183,19 +186,7 @@
       {
         "location": "interior",
         "type": "SunGlow LED",
-        "description": "Lights (2 ea.)",
-        "part_number": null
-      },
-      {
-        "location": "handrail",
-        "type": "SunGlow LED",
-        "description": "Handrail with LED Light",
-        "part_number": null
-      },
-      {
-        "location": "air controls",
-        "type": "SunGlow LED",
-        "description": "Air Controls with LED Light (7 ea.)",
+        "description": null,
         "part_number": null
       }
     ],
@@ -205,7 +196,7 @@
   "cover": {
     "model_name": null,
     "thickness": null,
-    "material": "SUNSTRONGM/SUNSTRONG\u2122 Extreme encasement",
+    "material": "SUNSTRONG\u2122/SUNSTRONG\u2122 Extreme encasement",
     "features": [],
     "length_inches": null,
     "width_inches": null,
@@ -218,7 +209,7 @@
     "height_inches": 0.0,
     "dry_weight_lbs": null,
     "filled_weight_lbs": null,
-    "water_capacity_gallons": null
+    "water_capacity_gallons": 295.0
   },
   "voltage": 240,
   "amperage": 39,
@@ -249,17 +240,7 @@
       "source_type": "pdf",
       "url": null,
       "document_name": "880-series-2026.pdf",
-      "page_number": 43,
-      "section": "Registration and Start-up",
-      "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 28,
+      "page_number": 90,
       "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
@@ -269,8 +250,38 @@
       "source_type": "pdf",
       "url": null,
       "document_name": "880-series-2026.pdf",
-      "page_number": 74,
-      "section": "Water Quality Maintenance",
+      "page_number": 43,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "880-series-2026.pdf",
+      "page_number": 68,
+      "section": "Cleaning/Replacing the Filter Cartridge",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "880-series-2026.pdf",
+      "page_number": 86,
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "880-series-2026.pdf",
+      "page_number": 37,
+      "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null

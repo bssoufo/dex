@@ -1,24 +1,13 @@
 {
   "manufacturer": "sundance",
   "series": "880 Series",
-  "model_name": "Aspen",
+  "model_name": "Vistamar",
   "year": 2026,
   "seating_capacity": 0,
   "jet_pumps": {
     "pumps": [
       {
-        "position": 2,
-        "model_name": null,
-        "horsepower_continuous": 1.1,
-        "horsepower_breakdown": null,
-        "speed": "1-speed",
-        "amperage_max": 11.0,
-        "frame": "56 Frame",
-        "voltage": 240,
-        "part_number": null
-      },
-      {
-        "position": 3,
+        "position": 1,
         "model_name": null,
         "horsepower_continuous": 1.1,
         "horsepower_breakdown": null,
@@ -34,7 +23,7 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "Aspen",
+    "model_name": "Vistamar",
     "description": null,
     "is_dedicated": true,
     "wattage": null,
@@ -42,19 +31,15 @@
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "Aspen",
+    "model_name": "Vistamar",
     "display_type": null,
     "voltage": 240,
     "amperage": null,
     "frequency_hz": 60,
     "features": [
-      "Ozone",
-      "UV",
-      "Heater",
-      "Pumps",
-      "Blower",
-      "Light",
-      "Auxiliary Input"
+      "ClearRay Active Oxygen system",
+      "integrated audio system",
+      "SmartTub system (optional)"
     ],
     "part_number": null,
     "shared_with_series": false
@@ -64,76 +49,62 @@
     "type": "touch-sensitive control panel",
     "features": [
       "icon-driven menus",
-      "interactive control panel",
-      "LCD display"
+      "LCD display",
+      "interactive control panel"
     ],
-    "smart_connectivity": "SmartTub System",
+    "smart_connectivity": "SmartTub System, WiFi or cellular network",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 60,
+    "total_jet_count": 44,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
         "jet_type": "Fluidix Nex",
-        "quantity": 8,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix Intelli-Jet",
-        "quantity": 6,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Whirlpool",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Accu-Pressure",
-        "quantity": 8,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix ST",
-        "quantity": 16,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Focus Relief",
-        "quantity": 8,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Vortex",
         "quantity": 4,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Fluidix Reflex",
+        "jet_type": "Fluidix Intelli-Jet",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Fluidix ST",
         "quantity": 12,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Fluidix PT",
+        "jet_type": "Vortex",
         "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Fluidix Reflex",
+        "quantity": 8,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Focus-Relief",
+        "quantity": 4,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Accu-Pressure",
+        "quantity": 12,
         "zone": null,
         "part_number": null,
         "description": null
@@ -183,7 +154,7 @@
       {
         "location": "interior",
         "type": "SunGlow LED",
-        "description": "Lights (2 ea.)",
+        "description": "Light",
         "part_number": null
       },
       {
@@ -195,7 +166,7 @@
       {
         "location": "air controls",
         "type": "SunGlow LED",
-        "description": "Air Controls with LED Light (7 ea.)",
+        "description": "Air Controls w/LED Light (5 ea.)",
         "part_number": null
       }
     ],
@@ -203,7 +174,7 @@
     "shared_with_series": false
   },
   "cover": {
-    "model_name": null,
+    "model_name": "Vistamar",
     "thickness": null,
     "material": "SUNSTRONGM/SUNSTRONG\u2122 Extreme encasement",
     "features": [],
@@ -218,10 +189,10 @@
     "height_inches": 0.0,
     "dry_weight_lbs": null,
     "filled_weight_lbs": null,
-    "water_capacity_gallons": null
+    "water_capacity_gallons": 330.0
   },
   "voltage": 240,
-  "amperage": 39,
+  "amperage": 28,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -250,7 +221,7 @@
       "url": null,
       "document_name": "880-series-2026.pdf",
       "page_number": 43,
-      "section": "Registration and Start-up",
+      "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null
@@ -259,7 +230,7 @@
       "source_type": "pdf",
       "url": null,
       "document_name": "880-series-2026.pdf",
-      "page_number": 28,
+      "page_number": 40,
       "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
@@ -270,7 +241,17 @@
       "url": null,
       "document_name": "880-series-2026.pdf",
       "page_number": 74,
-      "section": "Water Quality Maintenance",
+      "section": null,
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "880-series-2026.pdf",
+      "page_number": 86,
+      "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null

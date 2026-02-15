@@ -1,7 +1,7 @@
 {
   "manufacturer": "bullfrog",
   "series": "M Series",
-  "model_name": "M9",
+  "model_name": "M6",
   "year": 2026,
   "seating_capacity": 0,
   "jet_pumps": {
@@ -27,17 +27,6 @@
         "frame": null,
         "voltage": 240,
         "part_number": null
-      },
-      {
-        "position": 3,
-        "model_name": null,
-        "horsepower_continuous": 1.0,
-        "horsepower_breakdown": null,
-        "speed": "2-speed",
-        "amperage_max": null,
-        "frame": null,
-        "voltage": 240,
-        "part_number": null
       }
     ],
     "diverter_valves": null,
@@ -53,31 +42,43 @@
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": null,
-    "display_type": null,
-    "voltage": null,
+    "model_name": "K1000",
+    "display_type": "touch screen",
+    "voltage": 240,
     "amperage": null,
-    "frequency_hz": null,
-    "features": [],
+    "frequency_hz": 60,
+    "features": [
+      "in.stream 2 audio controls (optional)",
+      "premium touch screen control",
+      "GFCI protected",
+      "in.mix PCB integration",
+      "WellSpring High Output ozone purification system (optional)",
+      "Clear Comfort AOP System (CCW25) (Swim Series spas)"
+    ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "M9",
+    "model_name": "M6",
     "type": "Premium Touch Screen Control (K1000)",
     "features": [
       "Time display",
       "Jet control",
       "Light control",
+      "Temperature adjustment",
       "Screen orientation",
-      "Water temperature display",
-      "Heating/cooling status",
+      "Heating/Cooling status",
       "Settings menu",
-      "Water Care presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
       "Maintenance reminders",
+      "Status light",
+      "Invert Screen Button",
+      "Water Care Presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
+      "Adjustable Water Care Schedules",
+      "Date and Time Setting",
+      "Configuration Menu",
       "Standby/Lock",
-      "Audio controls (optional)",
-      "Invert Screen"
+      "Electrical Configuration",
+      "Audio System Controls (Optional)"
     ],
     "smart_connectivity": "Bluetooth (optional)",
     "part_number": null,
@@ -87,7 +88,7 @@
     "total_jet_count": null,
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [],
-    "jetpak_count": 6,
+    "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
@@ -99,7 +100,7 @@
         "type": "adjustable",
         "quantity": null,
         "part_number": null,
-        "description": null
+        "description": "Adjustable headrest"
       }
     ],
     "shared_with_series": false
@@ -107,7 +108,7 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity",
+        "system_name": "Simplicity Filter",
         "filter_type": "pleated flat",
         "filtration_area_sqft": null,
         "quantity": 1,
@@ -129,7 +130,7 @@
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
+        "location": "interior",
         "type": "LED",
         "description": null,
         "part_number": null
@@ -143,21 +144,21 @@
     "thickness": null,
     "material": null,
     "features": [],
-    "length_inches": 110.0,
-    "width_inches": 94.0,
+    "length_inches": 91.0,
+    "width_inches": 80.0,
     "part_number": null,
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 94.0,
-    "width_inches": 110.0,
-    "height_inches": 38.0,
+    "length_inches": 80.0,
+    "width_inches": 91.0,
+    "height_inches": 34.0,
     "dry_weight_lbs": null,
     "filled_weight_lbs": null,
     "water_capacity_gallons": null
   },
   "voltage": 240,
-  "amperage": 60,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -165,7 +166,7 @@
       "source_type": "pdf",
       "url": null,
       "document_name": "m-series.pdf",
-      "page_number": 9,
+      "page_number": 32,
       "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
@@ -176,17 +177,7 @@
       "url": null,
       "document_name": "m-series.pdf",
       "page_number": 9,
-      "section": "Equipment Compartment Overview",
-      "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 11,
-      "section": "Premium Touch Screen Control (K1000)",
+      "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null
@@ -205,8 +196,8 @@
       "source_type": "pdf",
       "url": null,
       "document_name": "m-series.pdf",
-      "page_number": 8,
-      "section": null,
+      "page_number": 11,
+      "section": "Premium Touch Screen Control (K1000)",
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null
@@ -216,16 +207,6 @@
       "url": null,
       "document_name": "m-series.pdf",
       "page_number": 8,
-      "section": "Spa Overview",
-      "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 32,
       "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,

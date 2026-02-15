@@ -1,7 +1,7 @@
 {
   "manufacturer": "bullfrog",
   "series": "M Series",
-  "model_name": "M9",
+  "model_name": "M8",
   "year": 2026,
   "seating_capacity": 0,
   "jet_pumps": {
@@ -63,7 +63,7 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "M9",
+    "model_name": null,
     "type": "Premium Touch Screen Control (K1000)",
     "features": [
       "Time display",
@@ -74,12 +74,12 @@
       "Heating/cooling status",
       "Settings menu",
       "Water Care presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
-      "Maintenance reminders",
+      "Maintenance Reminders",
       "Standby/Lock",
-      "Audio controls (optional)",
-      "Invert Screen"
+      "Electrical Configuration",
+      "Audio System Controls (Optional)"
     ],
-    "smart_connectivity": "Bluetooth (optional)",
+    "smart_connectivity": "Bluetooth (Optional)",
     "part_number": null,
     "shared_with_series": false
   },
@@ -87,7 +87,7 @@
     "total_jet_count": null,
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [],
-    "jetpak_count": 6,
+    "jetpak_count": 4,
     "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
@@ -99,7 +99,7 @@
         "type": "adjustable",
         "quantity": null,
         "part_number": null,
-        "description": null
+        "description": "Adjustable headrest"
       }
     ],
     "shared_with_series": false
@@ -129,7 +129,13 @@
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
+        "location": "interior",
+        "type": "LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "exterior sconce",
         "type": "LED",
         "description": null,
         "part_number": null
@@ -139,18 +145,18 @@
     "shared_with_series": false
   },
   "cover": {
-    "model_name": null,
+    "model_name": "M8",
     "thickness": null,
     "material": null,
     "features": [],
-    "length_inches": 110.0,
+    "length_inches": 94.0,
     "width_inches": 94.0,
     "part_number": null,
     "shared_with_series": false
   },
   "dimensions": {
     "length_inches": 94.0,
-    "width_inches": 110.0,
+    "width_inches": 94.0,
     "height_inches": 38.0,
     "dry_weight_lbs": null,
     "filled_weight_lbs": null,
@@ -185,8 +191,8 @@
       "source_type": "pdf",
       "url": null,
       "document_name": "m-series.pdf",
-      "page_number": 11,
-      "section": "Premium Touch Screen Control (K1000)",
+      "page_number": 12,
+      "section": "PREMIUM TOUCH SCREEN CONTROL (K1000)",
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null
@@ -206,6 +212,16 @@
       "url": null,
       "document_name": "m-series.pdf",
       "page_number": 8,
+      "section": "Spa Overview",
+      "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "pdf",
+      "url": null,
+      "document_name": "m-series.pdf",
+      "page_number": 25,
       "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
@@ -216,7 +232,7 @@
       "url": null,
       "document_name": "m-series.pdf",
       "page_number": 8,
-      "section": "Spa Overview",
+      "section": null,
       "accessed_date": "2026-02-15",
       "verified_by": null,
       "verified_date": null
