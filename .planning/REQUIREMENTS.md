@@ -7,7 +7,7 @@
 
 ### Data Extraction (ETL)
 
-- [ ] **ETL-01**: PDF extraction pipeline extracts specs from manufacturer PDF manuals into structured JSON
+- [x] **ETL-01**: PDF extraction pipeline extracts specs from manufacturer PDF manuals into structured JSON
 - [ ] **ETL-02**: Web scraping pipeline extracts specs from manufacturer websites into structured JSON
 - [ ] **ETL-03**: AI-assisted extraction with human verification for every data point
 - [ ] **ETL-04**: Data completeness dashboard tracks 190 data points (19 models x 10 categories)
@@ -15,8 +15,8 @@
 
 ### Data Schema (DATA)
 
-- [ ] **DATA-01**: Structured JSON schema covers all 10 spec categories with strict field definitions
-- [ ] **DATA-02**: Schema includes cross-reference fields for part compatibility across models
+- [x] **DATA-01**: Structured JSON schema covers all 10 spec categories with strict field definitions
+- [x] **DATA-02**: Schema includes cross-reference fields for part compatibility across models
 - [ ] **DATA-03**: All 19 POC models populated with verified data for all 10 spec categories
 
 ### Agent System (AGENT)

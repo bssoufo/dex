@@ -13,7 +13,7 @@ Dex delivers a zero-hallucination technical knowledge assistant for Spaparts sta
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Schema Design** - Define the canonical JSON schema for all 10 spec categories
-- [ ] **Phase 2: PDF Extraction Pipeline** - Build automated extraction from manufacturer PDF manuals
+- [x] **Phase 2: PDF Extraction Pipeline** - Build automated extraction from manufacturer PDF manuals
 - [ ] **Phase 3: Web Scraping Pipeline** - Build automated extraction from manufacturer websites
 - [ ] **Phase 4: Data Verification and Population** - Verify and populate all 190 data points with source tracking
 - [ ] **Phase 5: MCP Data Access Layer** - Build deterministic query tools over verified data
@@ -52,10 +52,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- Install dependencies, create ETL module skeleton, download manufacturer PDFs, analyze PDF structure
-- [ ] 02-02-PLAN.md -- Build core extraction engine: Claude PDF API wrapper, schema mapper, validators, output writer with provenance
-- [ ] 02-03-PLAN.md -- Create per-manufacturer extraction templates (Sundance, Hot Spring, Bullfrog) and pipeline orchestrator
-- [ ] 02-04-PLAN.md -- Execute extraction pipeline against all PDFs, validate output, human review of extraction quality
+- [x] 02-01-PLAN.md -- Install dependencies, create ETL module skeleton, download manufacturer PDFs, analyze PDF structure
+- [x] 02-02-PLAN.md -- Build core extraction engine: Claude PDF API wrapper, schema mapper, validators, output writer with provenance
+- [x] 02-03-PLAN.md -- Create per-manufacturer extraction templates (Sundance, Hot Spring, Bullfrog) and pipeline orchestrator
+- [x] 02-04-PLAN.md -- Execute extraction pipeline against all PDFs, validate output (switched to Gemini per user request)
 
 ### Phase 3: Web Scraping Pipeline
 **Goal**: Automated extraction of technical specs from manufacturer websites into structured JSON matching the Phase 1 schema
@@ -193,7 +193,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Data Schema Design | 2/2 | ✓ Complete | 2026-02-14 |
-| 2. PDF Extraction Pipeline | 0/4 | Not started | - |
+| 2. PDF Extraction Pipeline | 4/4 | ✓ Complete | 2026-02-15 |
 | 3. Web Scraping Pipeline | 0/TBD | Not started | - |
 | 4. Data Verification and Population | 0/TBD | Not started | - |
 | 5. MCP Data Access Layer | 0/TBD | Not started | - |

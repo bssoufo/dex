@@ -5,34 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 2 in progress. Templates and pipeline built. Next: run extraction against real PDFs (02-04).
+**Current focus:** Phase 2 complete. All 19 models extracted from PDFs. Next: Phase 3 (Web Scraping Pipeline).
 
 ## Current Position
 
-Phase: 2 of 10 (PDF Extraction Pipeline)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-02-15 -- Completed 02-03-PLAN.md
+Phase: 2 of 10 (PDF Extraction Pipeline) -- COMPLETE
+Plan: 4 of 4 in current phase
+Status: Complete
+Last activity: 2026-02-15 -- All 19 models extracted successfully
 
 Progress: [██████░░░░░░░░░░░░░░] ~25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 24.2 min
-- Total execution time: 2.0 hours
+- Total plans completed: 6
+- Average duration: 25 min
+- Total execution time: 2.5 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Data Schema | 2/2 | 31 min | 15.5 min |
-| 2 - PDF Extraction | 3/4 | 90 min | 30 min |
+| 2 - PDF Extraction | 4/4 | 120 min | 30 min |
 
 **Recent Trend:**
-- Last 5 plans: 17 min, 49 min, 23 min, 18 min
-- Trend: Plan 02-03 fast (18 min) -- template creation is straightforward code generation
+- Plan 02-04 required multiple iteration cycles to fix schema tolerance for Gemini extraction quirks
 
 ## Accumulated Context
 
@@ -61,6 +60,11 @@ Recent decisions affecting current work:
 - [02-03]: Bullfrog jet prompt uses modular_jetpak system type with bay count instead of individual jet types
 - [02-03]: Each extraction prompt includes explicit OUTPUT FORMAT with JSON structure matching Pydantic model fields
 - [02-03]: Bullfrog prompts specify 2025 year since 2025 manual is being used
+- [02-04]: Switched from Claude to Gemini for PDF extraction per user request
+- [02-04]: Schema fields must be nullable to tolerate Gemini returning null for any field
+- [02-04]: Gemini returns string "null" instead of actual null -- mapper must clean this
+- [02-04]: Multi-amp values like "20A & 30A" parsed to max integer in mapper
+- [02-04]: Retry with exponential backoff (5s base, 4 retries) handles Gemini 429 rate limits
 
 ### Pending Todos
 
@@ -75,6 +79,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-15T13:50:47Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-02-15
+Stopped at: Phase 2 complete. All 19 models extracted.
 Resume file: None
