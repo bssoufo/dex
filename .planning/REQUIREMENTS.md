@@ -103,8 +103,8 @@
 | ETL-03 | Phase 4 | Pending |
 | ETL-04 | Phase 4 | Pending |
 | ETL-05 | Phase 4 | Pending |
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
+| DATA-02 | Phase 1 | Complete |
 | DATA-03 | Phase 4 | Pending |
 | AGENT-01 | Phase 7 | Pending |
 | AGENT-02 | Phase 6 | Pending |
