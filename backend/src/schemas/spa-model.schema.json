@@ -1,0 +1,1284 @@
+{
+  "$defs": {
+    "CirculationPumpSpec": {
+      "description": "Dedicated circulation pump specification.",
+      "properties": {
+        "model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Name"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "is_dedicated": {
+          "default": true,
+          "title": "Is Dedicated",
+          "type": "boolean"
+        },
+        "wattage": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wattage"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "title": "CirculationPumpSpec",
+      "type": "object"
+    },
+    "CoverSpec": {
+      "description": "Spa cover specification.",
+      "properties": {
+        "model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Name"
+        },
+        "thickness": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Thickness"
+        },
+        "material": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Material"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Features",
+          "type": "array"
+        },
+        "length_inches": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Length Inches"
+        },
+        "width_inches": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Width Inches"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "title": "CoverSpec",
+      "type": "object"
+    },
+    "DimensionsSpec": {
+      "description": "Physical dimensions of the spa.",
+      "properties": {
+        "length_inches": {
+          "title": "Length Inches",
+          "type": "number"
+        },
+        "width_inches": {
+          "title": "Width Inches",
+          "type": "number"
+        },
+        "height_inches": {
+          "title": "Height Inches",
+          "type": "number"
+        },
+        "dry_weight_lbs": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dry Weight Lbs"
+        },
+        "filled_weight_lbs": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Filled Weight Lbs"
+        },
+        "water_capacity_gallons": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Water Capacity Gallons"
+        }
+      },
+      "required": [
+        "length_inches",
+        "width_inches",
+        "height_inches"
+      ],
+      "title": "DimensionsSpec",
+      "type": "object"
+    },
+    "FilterSpec": {
+      "description": "Specification for a filter cartridge.",
+      "properties": {
+        "system_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "System Name"
+        },
+        "filter_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Filter Type"
+        },
+        "filtration_area_sqft": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Filtration Area Sqft"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quantity"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "no_bypass": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "No Bypass"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "FilterSpec",
+      "type": "object"
+    },
+    "FilterSpecs": {
+      "description": "All filter specifications for a model.",
+      "properties": {
+        "filters": {
+          "items": {
+            "$ref": "#/$defs/FilterSpec"
+          },
+          "minItems": 1,
+          "title": "Filters",
+          "type": "array"
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "filters"
+      ],
+      "title": "FilterSpecs",
+      "type": "object"
+    },
+    "HeadrestSpec": {
+      "description": "Specification for a single headrest/pillow type.",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Type"
+        },
+        "quantity": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quantity"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        }
+      },
+      "title": "HeadrestSpec",
+      "type": "object"
+    },
+    "HeadrestSpecs": {
+      "description": "All headrest specifications for a model.",
+      "properties": {
+        "headrests": {
+          "items": {
+            "$ref": "#/$defs/HeadrestSpec"
+          },
+          "title": "Headrests",
+          "type": "array"
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "title": "HeadrestSpecs",
+      "type": "object"
+    },
+    "HeaterSpec": {
+      "description": "Heater element specification.",
+      "properties": {
+        "model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Name"
+        },
+        "wattage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wattage"
+        },
+        "voltage": {
+          "default": 240,
+          "title": "Voltage",
+          "type": "integer"
+        },
+        "material": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Material"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "title": "HeaterSpec",
+      "type": "object"
+    },
+    "JetPumpSpec": {
+      "description": "Specification for a single jet pump position.",
+      "properties": {
+        "position": {
+          "description": "Pump position number (1, 2, 3, etc.)",
+          "minimum": 1,
+          "title": "Position",
+          "type": "integer"
+        },
+        "model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Name"
+        },
+        "horsepower_continuous": {
+          "description": "Continuous-duty horsepower rating",
+          "title": "Horsepower Continuous",
+          "type": "number"
+        },
+        "horsepower_breakdown": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Horsepower Breakdown"
+        },
+        "speed": {
+          "$ref": "#/$defs/PumpSpeed"
+        },
+        "amperage_max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Amperage Max"
+        },
+        "frame": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Frame"
+        },
+        "voltage": {
+          "default": 240,
+          "title": "Voltage",
+          "type": "integer"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "position",
+        "horsepower_continuous",
+        "speed"
+      ],
+      "title": "JetPumpSpec",
+      "type": "object"
+    },
+    "JetPumpSpecs": {
+      "description": "All jet pump specs for a spa model. Models have 1-4 jet pumps.",
+      "properties": {
+        "pumps": {
+          "items": {
+            "$ref": "#/$defs/JetPumpSpec"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "title": "Pumps",
+          "type": "array"
+        },
+        "diverter_valves": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Diverter Valves"
+        },
+        "total_brake_horsepower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Total Brake Horsepower"
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pumps"
+      ],
+      "title": "JetPumpSpecs",
+      "type": "object"
+    },
+    "JetSpecs": {
+      "description": "Complete jet specification for a model.\n\nAccommodates both fixed-jet systems (Sundance, Hot Spring) via\njets_by_type, and Bullfrog's modular JetPak system via\njetpak_count and jetpak_options fields.",
+      "properties": {
+        "total_jet_count": {
+          "description": "Total number of jets in the spa",
+          "title": "Total Jet Count",
+          "type": "integer"
+        },
+        "jet_system_type": {
+          "$ref": "#/$defs/JetSystemType",
+          "default": "fixed"
+        },
+        "jets_by_type": {
+          "items": {
+            "$ref": "#/$defs/JetTypeEntry"
+          },
+          "title": "Jets By Type",
+          "type": "array"
+        },
+        "jetpak_count": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Jetpak Count"
+        },
+        "jetpak_options": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Jetpak Options"
+        },
+        "therapy_jet_count": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Therapy Jet Count"
+        },
+        "max_jet_count": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Jet Count"
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "total_jet_count"
+      ],
+      "title": "JetSpecs",
+      "type": "object"
+    },
+    "JetSystemType": {
+      "description": "Jet installation architecture.\n\nFixed jets are permanently mounted (Sundance, Hot Spring).\nModular JetPak jets are swappable cartridges (Bullfrog).",
+      "enum": [
+        "fixed",
+        "modular_jetpak"
+      ],
+      "title": "JetSystemType",
+      "type": "string"
+    },
+    "JetTypeEntry": {
+      "description": "A specific jet type and its quantity within the spa.",
+      "properties": {
+        "jet_type": {
+          "title": "Jet Type",
+          "type": "string"
+        },
+        "quantity": {
+          "minimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "zone": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Zone"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        }
+      },
+      "required": [
+        "jet_type",
+        "quantity"
+      ],
+      "title": "JetTypeEntry",
+      "type": "object"
+    },
+    "LightSpec": {
+      "description": "Specification for a single light/LED.",
+      "properties": {
+        "location": {
+          "title": "Location",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "location",
+        "type"
+      ],
+      "title": "LightSpec",
+      "type": "object"
+    },
+    "LightingSpecs": {
+      "description": "All lighting specifications for a model.",
+      "properties": {
+        "lights": {
+          "items": {
+            "$ref": "#/$defs/LightSpec"
+          },
+          "title": "Lights",
+          "type": "array"
+        },
+        "water_feature": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Water Feature"
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "title": "LightingSpecs",
+      "type": "object"
+    },
+    "Manufacturer": {
+      "description": "Spa manufacturer supported in the Dex POC.",
+      "enum": [
+        "sundance",
+        "hotspring",
+        "bullfrog"
+      ],
+      "title": "Manufacturer",
+      "type": "string"
+    },
+    "PartReference": {
+      "description": "A part number with its supersession and compatibility context.\n\nPart numbers are not simple strings -- they carry information about\nwhich parts they replace, which parts replace them, and which models\nand years they fit. This context is critical for cross-reference\nqueries (\"what other models use this part?\").",
+      "properties": {
+        "part_number": {
+          "description": "Primary part number identifier (e.g. '6500-310', '73250')",
+          "title": "Part Number",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Supersedes"
+        },
+        "superseded_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Superseded By"
+        },
+        "fits_models": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Fits Models",
+          "type": "array"
+        },
+        "fits_years": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fits Years"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "part_number"
+      ],
+      "title": "PartReference",
+      "type": "object"
+    },
+    "PumpSpeed": {
+      "description": "Jet pump speed configuration.",
+      "enum": [
+        "1-speed",
+        "2-speed",
+        "variable"
+      ],
+      "title": "PumpSpeed",
+      "type": "string"
+    },
+    "SourceReference": {
+      "description": "Provenance tracking for a data point.\n\nEvery spec value in the system must be traceable back to a source\ndocument (PDF page, website URL, or manual entry). This enables\nverification and trust -- when a technician questions a value,\nwe can point to exactly where it came from.",
+      "properties": {
+        "source_type": {
+          "enum": [
+            "pdf",
+            "website",
+            "manual_entry"
+          ],
+          "title": "Source Type",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "document_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Name"
+        },
+        "page_number": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Number"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "accessed_date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Accessed Date"
+        },
+        "verified_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified By"
+        },
+        "verified_date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified Date"
+        }
+      },
+      "required": [
+        "source_type"
+      ],
+      "title": "SourceReference",
+      "type": "object"
+    },
+    "SpaPakSpec": {
+      "description": "Spa pak / control box specification.",
+      "properties": {
+        "model_name": {
+          "title": "Model Name",
+          "type": "string"
+        },
+        "display_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Display Type"
+        },
+        "voltage": {
+          "default": 240,
+          "title": "Voltage",
+          "type": "integer"
+        },
+        "amperage": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Amperage"
+        },
+        "frequency_hz": {
+          "default": 60,
+          "title": "Frequency Hz",
+          "type": "integer"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Features",
+          "type": "array"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "model_name"
+      ],
+      "title": "SpaPakSpec",
+      "type": "object"
+    },
+    "TopsideControlSpec": {
+      "description": "Topside control panel specification.",
+      "properties": {
+        "model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Name"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Type"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Features",
+          "type": "array"
+        },
+        "smart_connectivity": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Smart Connectivity"
+        },
+        "part_number": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PartReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "shared_with_series": {
+          "default": false,
+          "title": "Shared With Series",
+          "type": "boolean"
+        }
+      },
+      "title": "TopsideControlSpec",
+      "type": "object"
+    }
+  },
+  "description": "Canonical spa model specification for Dex knowledge system",
+  "properties": {
+    "manufacturer": {
+      "$ref": "#/$defs/Manufacturer",
+      "description": "Spa manufacturer (sundance, hotspring, bullfrog)"
+    },
+    "series": {
+      "title": "Series",
+      "type": "string"
+    },
+    "model_name": {
+      "description": "Model name within the series (e.g. 'Aspen', 'Grandee', 'M9')",
+      "title": "Model Name",
+      "type": "string"
+    },
+    "year": {
+      "title": "Year",
+      "type": "integer"
+    },
+    "seating_capacity": {
+      "title": "Seating Capacity",
+      "type": "integer"
+    },
+    "jet_pumps": {
+      "$ref": "#/$defs/JetPumpSpecs"
+    },
+    "circulation_pump": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CirculationPumpSpec"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "spa_pak": {
+      "$ref": "#/$defs/SpaPakSpec"
+    },
+    "topside_control": {
+      "$ref": "#/$defs/TopsideControlSpec"
+    },
+    "jets": {
+      "$ref": "#/$defs/JetSpecs"
+    },
+    "headrests": {
+      "$ref": "#/$defs/HeadrestSpecs"
+    },
+    "filters": {
+      "$ref": "#/$defs/FilterSpecs"
+    },
+    "heater": {
+      "$ref": "#/$defs/HeaterSpec"
+    },
+    "lighting": {
+      "$ref": "#/$defs/LightingSpecs"
+    },
+    "cover": {
+      "$ref": "#/$defs/CoverSpec"
+    },
+    "dimensions": {
+      "$ref": "#/$defs/DimensionsSpec"
+    },
+    "voltage": {
+      "default": 240,
+      "title": "Voltage",
+      "type": "integer"
+    },
+    "amperage": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Amperage"
+    },
+    "requires_gfci": {
+      "default": true,
+      "title": "Requires Gfci",
+      "type": "boolean"
+    },
+    "compatibility_notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Compatibility Notes",
+      "type": "array"
+    },
+    "source_documents": {
+      "items": {
+        "$ref": "#/$defs/SourceReference"
+      },
+      "title": "Source Documents",
+      "type": "array"
+    }
+  },
+  "required": [
+    "manufacturer",
+    "series",
+    "model_name",
+    "year",
+    "seating_capacity",
+    "jet_pumps",
+    "spa_pak",
+    "topside_control",
+    "jets",
+    "headrests",
+    "filters",
+    "heater",
+    "lighting",
+    "cover",
+    "dimensions"
+  ],
+  "title": "SpaModel",
+  "type": "object"
+}
