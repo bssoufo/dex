@@ -49,11 +49,13 @@ Plans:
   2. Extracted data conforms to the Phase 1 Pydantic schema and passes validation
   3. Manufacturer-specific extraction templates handle different PDF layouts (tables, multi-column, embedded specs)
   4. Extraction output includes page number and section reference for traceability back to source
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- Install dependencies, create ETL module skeleton, download manufacturer PDFs, analyze PDF structure
+- [ ] 02-02-PLAN.md -- Build core extraction engine: Claude PDF API wrapper, schema mapper, validators, output writer with provenance
+- [ ] 02-03-PLAN.md -- Create per-manufacturer extraction templates (Sundance, Hot Spring, Bullfrog) and pipeline orchestrator
+- [ ] 02-04-PLAN.md -- Execute extraction pipeline against all PDFs, validate output, human review of extraction quality
 
 ### Phase 3: Web Scraping Pipeline
 **Goal**: Automated extraction of technical specs from manufacturer websites into structured JSON matching the Phase 1 schema
@@ -191,7 +193,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Data Schema Design | 2/2 | ✓ Complete | 2026-02-14 |
-| 2. PDF Extraction Pipeline | 0/TBD | Not started | - |
+| 2. PDF Extraction Pipeline | 0/4 | Not started | - |
 | 3. Web Scraping Pipeline | 0/TBD | Not started | - |
 | 4. Data Verification and Population | 0/TBD | Not started | - |
 | 5. MCP Data Access Layer | 0/TBD | Not started | - |
