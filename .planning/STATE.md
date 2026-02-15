@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 2 in progress. Extraction engine built (claude_extractor, schema_mapper, validators, writer, provenance). Next: manufacturer-specific templates (02-03).
+**Current focus:** Phase 2 in progress. Templates and pipeline built. Next: run extraction against real PDFs (02-04).
 
 ## Current Position
 
 Phase: 2 of 10 (PDF Extraction Pipeline)
-Plan: 2 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-02-15 -- Completed 02-02-PLAN.md
+Last activity: 2026-02-15 -- Completed 02-03-PLAN.md
 
-Progress: [████░░░░░░░░░░░░░░░░] ~20%
+Progress: [██████░░░░░░░░░░░░░░] ~25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 25.8 min
-- Total execution time: 1.7 hours
+- Total plans completed: 5
+- Average duration: 24.2 min
+- Total execution time: 2.0 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Data Schema | 2/2 | 31 min | 15.5 min |
-| 2 - PDF Extraction | 2/4 | 72 min | 36 min |
+| 2 - PDF Extraction | 3/4 | 90 min | 30 min |
 
 **Recent Trend:**
-- Last 5 plans: 14 min, 17 min, 49 min, 23 min
-- Trend: Plan 02-02 faster than 02-01 (no PDF downloads or external I/O)
+- Last 5 plans: 17 min, 49 min, 23 min, 18 min
+- Trend: Plan 02-03 fast (18 min) -- template creation is straightforward code generation
 
 ## Accumulated Context
 
@@ -57,6 +57,10 @@ Recent decisions affecting current work:
 - [02-02]: raw_data_json as JSON string instead of dict -- Anthropic SDK transform_schema sets additionalProperties:false on dict types, preventing Claude from returning arbitrary key/value pairs
 - [02-02]: Non-blocking validation pattern -- sanity checks return warnings, do not raise exceptions or block extraction
 - [02-02]: Slugified directory structure for JSON output paths (e.g. "880 Series" -> "880-series")
+- [02-03]: General fields piggybacked on jet_pumps prompt to avoid extra API call per model
+- [02-03]: Bullfrog jet prompt uses modular_jetpak system type with bay count instead of individual jet types
+- [02-03]: Each extraction prompt includes explicit OUTPUT FORMAT with JSON structure matching Pydantic model fields
+- [02-03]: Bullfrog prompts specify 2025 year since 2025 manual is being used
 
 ### Pending Todos
 
@@ -71,6 +75,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-15T18:08:06Z
-Stopped at: Completed 02-02-PLAN.md
+Last session: 2026-02-15T13:50:47Z
+Stopped at: Completed 02-03-PLAN.md
 Resume file: None
