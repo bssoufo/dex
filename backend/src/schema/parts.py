@@ -52,6 +52,21 @@ class SourceReference(BaseModel):
     verified_date: str | None = None
 
 
+class DataQuality(BaseModel):
+    """Verification and quality metadata for a spa model's data.
+
+    Added in Phase 4 as an optional field on SpaModel. Existing JSON files
+    without this field still validate because SpaModel.data_quality defaults
+    to None.
+    """
+
+    verification_date: str | None = None
+    verified_by: str | None = None
+    not_available_fields: list[str] = Field(default_factory=list)
+    anomalies_reviewed: list[dict] = Field(default_factory=list)
+    completeness_pct: float | None = None
+
+
 class DimensionsSpec(BaseModel):
     """Physical dimensions of the spa."""
 

@@ -10,7 +10,7 @@ from __future__ import annotations
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from .enums import JetSystemType, Manufacturer, PumpSpeed
-from .parts import DimensionsSpec, PartReference, SourceReference
+from .parts import DataQuality, DimensionsSpec, PartReference, SourceReference
 
 
 # === CATEGORY 1: JET PUMPS ===
@@ -280,3 +280,4 @@ class SpaModel(BaseModel):
     # Metadata
     compatibility_notes: list[str] = Field(default_factory=list)
     source_documents: list[SourceReference] = Field(default_factory=list)
+    data_quality: DataQuality | None = None
