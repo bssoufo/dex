@@ -125,8 +125,8 @@
 | UI-01 | Phase 9 | Complete |
 | UI-02 | Phase 9 | Complete |
 | UI-03 | Phase 9 | Complete |
-| DEPLOY-01 | Phase 10 | Pending |
-| DEPLOY-02 | Phase 10 | Pending |
+| DEPLOY-01 | Phase 10 | Complete |
+| DEPLOY-02 | Phase 10 | Complete |
 
 **Coverage:**
 - v1 requirements: 29 total
