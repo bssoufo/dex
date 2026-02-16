@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 7 in progress. Multi-agent wired into API with conversation sessions and validator (07-02). Next: TBD (07-03 or Phase 8).
+**Current focus:** Phase 7 complete. Multi-agent system fully tested with 313 total tests (295 unit + 18 integration). Next: Phase 8 (Response Quality) or Phase 9 (Frontend).
 
 ## Current Position
 
-Phase: 7 of 10 (Multi-Agent Orchestration)
-Plan: 2 of TBD in current phase
-Status: In progress
-Last activity: 2026-02-16 -- Completed 07-02-PLAN.md
+Phase: 7 of 10 (Multi-Agent Orchestration) -- COMPLETE
+Plan: 3 of 3 in current phase (all complete)
+Status: Phase complete
+Last activity: 2026-02-16 -- Completed 07-03-PLAN.md
 
-Progress: [█████████████████████░] ~68%
+Progress: [██████████████████████░░░░░░░░░] ~70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 19
-- Average duration: 13.2 min
-- Total execution time: 4.23 hours
+- Total plans completed: 20
+- Average duration: 13.5 min
+- Total execution time: 4.50 hours
 
 **By Phase:**
 
@@ -33,12 +33,12 @@ Progress: [█████████████████████░] ~
 | 4 - Data Verification | 3/3 | 14 min | 4.7 min |
 | 5 - MCP Data Access | 2/2 | 11 min | 5.5 min |
 | 6 - Single Agent Core | 3/3 | 38 min | 12.7 min |
-| 7 - Multi-Agent Orchestration | 2/TBD | 14 min | 7 min |
+| 7 - Multi-Agent Orchestration | 3/3 | 30 min | 10 min |
 
 **Recent Trend:**
+- Plan 07-03 completed in 16 min -- integration test verification with real Gemini API (18/18 tests pass, 313 total)
 - Plan 07-02 completed in 5 min -- conversation sessions + validator wiring into API (295 total tests)
 - Plan 07-01 completed in 9 min -- langgraph-supervisor multi-agent with 62 unit tests (291 total)
-- Plan 06-03 completed in 26 min -- 15 integration tests with real Gemini + MCP (longer due to iterative debugging of MCP subprocess env and Gemini content format)
 
 ## Accumulated Context
 
@@ -121,6 +121,10 @@ Recent decisions affecting current work:
 - [07-01]: create_dex_agent kept as deprecated wrapper for backward compatibility
 - [07-02]: validate_response imported lazily inside /query handler (not at module top level)
 - [07-02]: Empty warnings list converted to None for cleaner JSON responses
+- [07-03]: Multi-turn timeout 180s (vs 60s single-turn) -- 2 sequential supervisor invocations with MCP subprocess startup
+- [07-03]: Performance threshold 45s (up from 30s) -- supervisor routing adds one extra LLM call
+- [07-03]: pytest-rerunfailures for LLM non-determinism -- handles ~10-15% flaky runs gracefully
+- [07-03]: Longest AI message heuristic for answer extraction -- supervisor handoff messages are shorter than data answers
 
 ### Pending Todos
 
@@ -128,8 +132,7 @@ None.
 
 ### Blockers/Concerns
 
-- [07-01]: Supervisor adds one LLM call for routing on top of agent calls. Latency impact TBD in integration testing (07-02+).
-- [06-03]: Single agent response time is 8-15s due to MCP subprocess startup (~5s per tool call). Persistent MCP connections would reduce this significantly. Address in Phase 7+.
+- [07-03]: Multi-agent response time is 12-15s per query (supervisor routing + MCP subprocess + Gemini API). Persistent MCP connections would reduce by ~5s.
 - [02-01]: Bullfrog 2026 manual not yet published. Using 2025 v1.1 -- specs likely carry forward but must verify when 2026 becomes available.
 - [02-01]: Part numbers are sparse in all 3 owner's manuals. Phase 3 web scraping and Phase 4 manual entry will be critical for part number population.
 - [03-Research]: Part numbers NOT available on manufacturer product pages. 274/274 still null. Must defer to Phase 4 manual entry or separate retailer-site scraping effort.
@@ -140,5 +143,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 07-02-PLAN.md. Next: TBD (07-03 or Phase 8).
+Stopped at: Completed 07-03-PLAN.md. Phase 7 complete. Next: Phase 8 (Response Quality) or Phase 9 (Frontend).
 Resume file: None
