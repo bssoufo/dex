@@ -82,3 +82,66 @@ def get_model(manufacturer: str, model_name: str) -> SpaModel | None:
         The SpaModel if found, None otherwise.
     """
     return get_store().get((manufacturer.lower(), model_name.lower()))
+
+
+def find_cross_references(
+    manufacturer: str,
+    model_name: str,
+    category: str,
+    exclude_keys: tuple[str, ...] = ("part_number", "shared_with_series", "model_name"),
+) -> list[str]:
+    """Find other models from the same manufacturer that share identical specs for a category.
+
+    Compares the target model's category data (minus exclude_keys) against
+    all other models from the same manufacturer using dict equality on
+    Pydantic model_dump() output.
+
+    Args:
+        manufacturer: Manufacturer identifier (e.g., "sundance", "hotspring").
+        model_name: Model name (e.g., "Aspen", "M9").
+        category: Spec category field name (e.g., "heater", "circulation_pump").
+        exclude_keys: Top-level keys to remove before comparison. Defaults to
+            part_number (mostly null), shared_with_series (metadata), and
+            model_name (always differs).
+
+    Returns:
+        Sorted list of model names that share identical specs, empty if
+        target not found or category data is None.
+    """
+    target = get_model(manufacturer, model_name)
+    if target is None:
+        return []
+
+    target_data = getattr(target, category, None)
+    if target_data is None:
+        return []
+
+    # Build comparison signature for the target
+    target_sig = target_data.model_dump()
+    for key in exclude_keys:
+        target_sig.pop(key, None)
+
+    # Compare against all other models from the same manufacturer
+    store = get_store()
+    mfr_lower = manufacturer.lower()
+    target_name_lower = model_name.lower()
+    matches: list[str] = []
+
+    for (store_mfr, store_model_lower), spa_model in store.items():
+        if store_mfr != mfr_lower:
+            continue
+        if store_model_lower == target_name_lower:
+            continue
+
+        other_data = getattr(spa_model, category, None)
+        if other_data is None:
+            continue
+
+        other_sig = other_data.model_dump()
+        for key in exclude_keys:
+            other_sig.pop(key, None)
+
+        if other_sig == target_sig:
+            matches.append(spa_model.model_name)
+
+    return sorted(matches)
