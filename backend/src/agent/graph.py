@@ -1,89 +1,97 @@
-"""Dex single agent -- LangGraph ReAct agent with MCP tools.
+"""Dex multi-agent supervisor graph.
 
-Creates a ReAct agent graph that connects to the MCP data server
-via stdio transport for tool calling. Uses Gemini 2.5 Flash for
-deterministic spec lookups with temperature=0.
+Creates a supervisor-orchestrated multi-agent graph with:
+- Concierge: Clarifies ambiguous queries (has list_models tool only)
+- Specialist: Answers spec questions (has all 3 MCP tools)
+- Supervisor: Routes queries to the appropriate agent
+
+Uses InMemorySaver checkpointer for multi-turn conversation via thread_id.
+The Validator is NOT part of the graph -- it is a separate pure Python
+function called by the API layer after agent.ainvoke() returns.
 """
 
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
-
-from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_mcp_adapters.client import MultiServerMCPClient
+from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
+from langgraph_supervisor import create_supervisor
 
-from backend.src.agent.prompts import SYSTEM_PROMPT
-
-# Project root: resolve from this file's location (backend/src/agent/graph.py -> root)
-_PROJECT_ROOT = str(Path(__file__).resolve().parents[3])
-
-load_dotenv(dotenv_path=Path(_PROJECT_ROOT) / "backend" / ".env")
-
-
-def _create_model() -> ChatGoogleGenerativeAI:
-    """Create the Gemini Flash model for tool-calling.
-
-    Returns:
-        ChatGoogleGenerativeAI configured with gemini-2.5-flash,
-        temperature=0, and max 1024 output tokens.
-    """
-    return ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash",
-        google_api_key=os.getenv("GEMINI_API_KEY"),
-        temperature=0,
-        max_output_tokens=1024,
-    )
+from backend.src.agent.config import create_mcp_client, create_model
+from backend.src.agent.prompts import (
+    CONCIERGE_PROMPT,
+    SPECIALIST_PROMPT,
+    SUPERVISOR_PROMPT,
+)
 
 
-def _create_mcp_client() -> MultiServerMCPClient:
-    """Create MCP client with stdio transport to Dex data server.
+async def create_multi_agent(mcp_tools=None):
+    """Create the Dex multi-agent supervisor graph.
 
-    Sets cwd and PYTHONPATH to the project root so the subprocess
-    can always resolve ``backend.src.mcp`` regardless of the caller's
-    working directory.
+    Builds a supervisor graph with Concierge and Specialist agents.
+    The Concierge has only the list_models tool for disambiguation.
+    The Specialist has all MCP tools for data lookup.
+
+    Args:
+        mcp_tools: Optional list of MCP tools. If None, creates an MCP
+            client and loads tools automatically.
 
     Returns:
-        MultiServerMCPClient configured with the dex_data server.
+        Tuple of (compiled_graph, mcp_client_or_none).
+        mcp_client is returned only if this function created it (so the
+        caller can manage its lifecycle). If mcp_tools were passed in,
+        returns None for the client.
     """
-    # Build env from current process env + explicit PYTHONPATH to project root
-    env = {**os.environ, "PYTHONPATH": _PROJECT_ROOT}
+    client = None
+    if mcp_tools is None:
+        client = create_mcp_client()
+        mcp_tools = await client.get_tools()
 
-    return MultiServerMCPClient(
-        {
-            "dex_data": {
-                "command": sys.executable,
-                "args": ["-m", "backend.src.mcp"],
-                "transport": "stdio",
-                "cwd": _PROJECT_ROOT,
-                "env": env,
-            }
-        }
+    model = create_model()
+
+    # Find the list_models tool for the Concierge
+    list_models_tool = next(
+        (t for t in mcp_tools if t.name == "list_models"),
+        None,
     )
+    # Concierge gets list_models only; fallback to all tools if not found
+    concierge_tools = [list_models_tool] if list_models_tool else mcp_tools
+
+    concierge = create_react_agent(
+        model=model,
+        tools=concierge_tools,
+        name="concierge",
+        prompt=CONCIERGE_PROMPT,
+    )
+
+    specialist = create_react_agent(
+        model=model,
+        tools=mcp_tools,
+        name="specialist",
+        prompt=SPECIALIST_PROMPT,
+    )
+
+    workflow = create_supervisor(
+        agents=[concierge, specialist],
+        model=model,
+        prompt=SUPERVISOR_PROMPT,
+        include_agent_name="inline",
+        output_mode="last_message",
+    )
+
+    checkpointer = InMemorySaver()
+    app = workflow.compile(checkpointer=checkpointer)
+
+    return app, client
 
 
 async def create_dex_agent():
-    """Create the Dex ReAct agent connected to MCP tools.
+    """Create the Dex agent (backward compatibility wrapper).
 
-    Instantiates an MCP client, loads tools from the Dex data server,
-    and creates a LangGraph ReAct agent with the system prompt.
-
-    The MultiServerMCPClient creates a new stdio session per tool call,
-    so no persistent connection management is needed by the caller.
+    .. deprecated::
+        Use :func:`create_multi_agent` instead. This wrapper exists
+        only for backward compatibility during migration.
 
     Returns:
         Tuple of (agent_graph, mcp_client).
     """
-    client = _create_mcp_client()
-    tools = await client.get_tools()
-    model = _create_model()
-
-    agent = create_react_agent(
-        model=model,
-        tools=tools,
-        prompt=SYSTEM_PROMPT,
-    )
-    return agent, client
+    return await create_multi_agent()
