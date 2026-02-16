@@ -1,35 +1,42 @@
-"""Unit tests for the Dex agent package.
+"""Unit tests for the Dex multi-agent package.
 
 Tests validate:
-- System prompt content (anti-hallucination rules, model listing, etc.)
+- Per-agent prompt content (supervisor routing, concierge clarification,
+  specialist anti-hallucination rules, model listings)
 - Model creation configuration (Gemini 2.5 Flash, temperature=0)
+- Deterministic validator behavior (no tool calls, short answers, null detection)
 
 All tests are unit-level -- no LLM calls or MCP connections needed.
 """
 
 from __future__ import annotations
 
-import os
+from types import SimpleNamespace
 
 import pytest
 
-from backend.src.agent.prompts import SYSTEM_PROMPT
+from backend.src.agent.prompts import (
+    CONCIERGE_PROMPT,
+    SPECIALIST_PROMPT,
+    SUPERVISOR_PROMPT,
+)
+from backend.src.agent.validator import validate_response
 
 
-# ---------- System prompt content tests ----------
+# ---------- Specialist prompt content tests ----------
 
 
-def test_system_prompt_contains_anti_hallucination_rules():
-    """System prompt must contain critical anti-hallucination instructions."""
-    assert "NEVER fabricate" in SYSTEM_PROMPT
-    assert "ALWAYS use tools" in SYSTEM_PROMPT
+def test_specialist_prompt_contains_anti_hallucination_rules():
+    """Specialist prompt must contain critical anti-hallucination instructions."""
+    assert "NEVER fabricate" in SPECIALIST_PROMPT
+    assert "ALWAYS use tools" in SPECIALIST_PROMPT
 
 
-def test_system_prompt_lists_all_manufacturers():
-    """System prompt must mention all 3 manufacturers."""
-    assert "Sundance" in SYSTEM_PROMPT
-    assert "Hot Spring" in SYSTEM_PROMPT
-    assert "Bullfrog" in SYSTEM_PROMPT
+def test_specialist_prompt_lists_all_manufacturers():
+    """Specialist prompt must mention all 3 manufacturers."""
+    assert "Sundance" in SPECIALIST_PROMPT
+    assert "Hot Spring" in SPECIALIST_PROMPT
+    assert "Bullfrog" in SPECIALIST_PROMPT
 
 
 ALL_19_MODELS = [
@@ -59,46 +66,230 @@ ALL_19_MODELS = [
 
 
 @pytest.mark.parametrize("model_name", ALL_19_MODELS)
-def test_system_prompt_lists_all_19_models(model_name: str):
-    """System prompt must list every one of the 19 POC model names."""
-    assert model_name in SYSTEM_PROMPT, (
-        f"Model '{model_name}' not found in SYSTEM_PROMPT"
+def test_specialist_prompt_lists_all_19_models(model_name: str):
+    """Specialist prompt must list every one of the 19 POC model names."""
+    assert model_name in SPECIALIST_PROMPT, (
+        f"Model '{model_name}' not found in SPECIALIST_PROMPT"
     )
 
 
-def test_system_prompt_contains_out_of_scope_handling():
-    """System prompt must instruct agent on out-of-scope queries."""
-    prompt_lower = SYSTEM_PROMPT.lower()
+def test_specialist_prompt_contains_out_of_scope_handling():
+    """Specialist prompt must instruct agent on out-of-scope queries."""
+    prompt_lower = SPECIALIST_PROMPT.lower()
     assert "pricing" in prompt_lower
-    assert "out of scope" in prompt_lower or "out-of-scope" in prompt_lower
 
 
-def test_system_prompt_contains_not_available_handling():
-    """System prompt must instruct agent on not-available fields."""
-    assert "not_available_fields" in SYSTEM_PROMPT
+def test_specialist_prompt_contains_not_available_handling():
+    """Specialist prompt must instruct agent on not-available fields."""
+    assert "not_available_fields" in SPECIALIST_PROMPT
+
+
+def test_specialist_prompt_contains_tool_instructions():
+    """Specialist prompt must reference all 3 MCP tools."""
+    assert "list_models" in SPECIALIST_PROMPT
+    assert "get_model_overview" in SPECIALIST_PROMPT
+    assert "get_spec_category" in SPECIALIST_PROMPT
+
+
+# ---------- Supervisor prompt tests ----------
+
+
+def test_supervisor_prompt_routes_to_agents():
+    """Supervisor prompt must reference both concierge and specialist agents."""
+    assert "concierge" in SUPERVISOR_PROMPT
+    assert "specialist" in SUPERVISOR_PROMPT
+
+
+def test_supervisor_prompt_prefers_specialist():
+    """Supervisor prompt must indicate most queries go to specialist."""
+    prompt_lower = SUPERVISOR_PROMPT.lower()
+    assert "most queries should go directly to specialist" in prompt_lower
+
+
+# ---------- Concierge prompt tests ----------
+
+
+def test_concierge_prompt_never_answers():
+    """Concierge prompt must instruct to NEVER answer spec questions."""
+    assert "NEVER answer spec questions" in CONCIERGE_PROMPT
+
+
+def test_concierge_prompt_never_fabricates():
+    """Concierge prompt must instruct to NEVER fabricate data."""
+    assert "NEVER fabricate" in CONCIERGE_PROMPT
+
+
+def test_concierge_prompt_lists_all_manufacturers():
+    """Concierge prompt must mention all 3 manufacturers."""
+    assert "Sundance" in CONCIERGE_PROMPT
+    assert "Hot Spring" in CONCIERGE_PROMPT
+    assert "Bullfrog" in CONCIERGE_PROMPT
+
+
+@pytest.mark.parametrize("model_name", ALL_19_MODELS)
+def test_concierge_prompt_lists_all_19_models(model_name: str):
+    """Concierge prompt must list every one of the 19 POC model names."""
+    assert model_name in CONCIERGE_PROMPT, (
+        f"Model '{model_name}' not found in CONCIERGE_PROMPT"
+    )
+
+
+def test_concierge_prompt_mentions_list_models():
+    """Concierge prompt must mention the list_models tool."""
+    assert "list_models" in CONCIERGE_PROMPT
+
+
+# ---------- Validator tests ----------
+
+
+def _make_ai_message(content: str):
+    """Create a mock AI message."""
+    return SimpleNamespace(type="ai", content=content)
+
+
+def _make_tool_message(name: str = "get_spec_category", content: str = "{}"):
+    """Create a mock tool message."""
+    return SimpleNamespace(type="tool", name=name, content=content)
+
+
+def test_validate_response_no_tool_calls():
+    """Validator warns when no tool call messages are present."""
+    state = {
+        "messages": [
+            _make_ai_message("The Aspen uses a 2.5HP pump."),
+        ]
+    }
+    warnings = validate_response(state)
+    assert any("No tool calls" in w for w in warnings)
+
+
+def test_validate_response_short_answer():
+    """Validator warns when the AI response is too short."""
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message("OK"),
+        ]
+    }
+    warnings = validate_response(state)
+    assert any("too short" in w.lower() for w in warnings)
+
+
+def test_validate_response_contains_null():
+    """Validator warns when the AI response contains literal 'null'."""
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message(
+                "The Aspen pump part number is null according to our records."
+            ),
+        ]
+    }
+    warnings = validate_response(state)
+    assert any("null" in w.lower() for w in warnings)
+
+
+def test_validate_response_clean():
+    """Validator returns no warnings for a proper response."""
+    state = {
+        "messages": [
+            _make_tool_message("list_models", '{"models": [...]}'),
+            _make_tool_message(
+                "get_spec_category", '{"jet_pumps": {"hp": 2.5}}'
+            ),
+            _make_ai_message(
+                "The Sundance Aspen uses a 2.5 HP jet pump (Wavemaster 8000)."
+            ),
+        ]
+    }
+    warnings = validate_response(state)
+    assert warnings == []
+
+
+def test_validate_response_empty_state():
+    """Validator handles empty messages gracefully."""
+    state = {"messages": []}
+    warnings = validate_response(state)
+    assert any("No messages" in w for w in warnings)
+
+
+def test_validate_response_missing_messages_key():
+    """Validator handles missing messages key gracefully."""
+    state = {}
+    warnings = validate_response(state)
+    assert any("No messages" in w for w in warnings)
+
+
+def test_validate_response_null_not_in_longer_words():
+    """Validator does not flag 'null' inside longer words like 'nullable'."""
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message(
+                "The field is nullable and may not have a value assigned yet."
+            ),
+        ]
+    }
+    warnings = validate_response(state)
+    # "nullable" should NOT trigger the null warning
+    assert not any("null" in w.lower() for w in warnings)
 
 
 # ---------- Model creation tests ----------
 
 
 def test_create_model_returns_gemini_instance(monkeypatch):
-    """_create_model returns a ChatGoogleGenerativeAI instance with gemini-2.5-flash."""
+    """create_model returns a ChatGoogleGenerativeAI with gemini-2.5-flash."""
     monkeypatch.setenv("GEMINI_API_KEY", "test-dummy-key")
 
     from langchain_google_genai import ChatGoogleGenerativeAI
 
-    from backend.src.agent.graph import _create_model
+    from backend.src.agent.config import create_model
 
-    model = _create_model()
+    model = create_model()
     assert isinstance(model, ChatGoogleGenerativeAI)
     assert "gemini-2.5-flash" in model.model
 
 
 def test_create_model_temperature_zero(monkeypatch):
-    """_create_model sets temperature to 0 for deterministic outputs."""
+    """create_model sets temperature to 0 for deterministic outputs."""
     monkeypatch.setenv("GEMINI_API_KEY", "test-dummy-key")
 
-    from backend.src.agent.graph import _create_model
+    from backend.src.agent.config import create_model
 
-    model = _create_model()
+    model = create_model()
     assert model.temperature == 0
+
+
+# ---------- Graph structure tests ----------
+
+
+def test_graph_imports_no_validator():
+    """graph.py must NOT import validate_response (separation of concerns)."""
+    import inspect
+
+    from backend.src.agent import graph
+
+    source = inspect.getsource(graph)
+    assert "validate_response" not in source
+
+
+def test_init_exports_validate_response():
+    """__init__.py must re-export validate_response for API layer access."""
+    from backend.src.agent import validate_response as vr
+
+    assert callable(vr)
+
+
+def test_init_exports_create_multi_agent():
+    """__init__.py must export create_multi_agent as the primary factory."""
+    from backend.src.agent import create_multi_agent
+
+    assert callable(create_multi_agent)
+
+
+def test_init_exports_create_dex_agent_compat():
+    """__init__.py must export create_dex_agent for backward compatibility."""
+    from backend.src.agent import create_dex_agent
+
+    assert callable(create_dex_agent)
