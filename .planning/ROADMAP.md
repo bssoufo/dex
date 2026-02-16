@@ -164,12 +164,12 @@ Plans:
   2. Technical specs with multiple fields (e.g., all jet part numbers for a model) render as properly formatted tables, not raw text
   3. The interface presents a professional, concise persona -- no chatty filler, no unnecessary animations, fast and functional
   4. The chat interface connects to the FastAPI backend and handles the full query lifecycle (input -> streaming response -> rendered output)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 09-01: TBD
-- [ ] 09-02: TBD
-- [ ] 09-03: TBD
+- [ ] 09-01-PLAN.md -- Add SSE streaming endpoint (/query/stream) to FastAPI backend
+- [ ] 09-02-PLAN.md -- Scaffold React + Vite + Tailwind frontend with chat UI, SSE hook, and markdown table rendering
+- [ ] 09-03-PLAN.md -- CORS middleware, end-to-end integration, and human verification of complete chat interface
 
 ### Phase 10: Deployment and Hardening
 **Goal**: Dex is hosted and accessible by Adam and Stephen for remote testing, stable enough for demo sessions
@@ -202,5 +202,5 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 6. Single Agent Core | 3/3 | ✓ Complete | 2026-02-16 |
 | 7. Multi-Agent Orchestration | 3/3 | ✓ Complete | 2026-02-16 |
 | 8. Response Quality | 3/3 | ✓ Complete | 2026-02-16 |
-| 9. Frontend | 0/TBD | Not started | - |
+| 9. Frontend | 0/3 | In Progress | - |
 | 10. Deployment and Hardening | 0/TBD | Not started | - |
