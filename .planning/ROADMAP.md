@@ -133,12 +133,12 @@ Plans:
   3. Multi-agent orchestration via LangGraph supervisor pattern routes queries through Concierge -> Specialist -> Validator without error propagation across agent boundaries
   4. A user can ask follow-up questions ("What about the filter for that model?") and the system maintains conversation context without requiring the user to re-specify the model
   5. All queries that passed with the single agent in Phase 6 still pass with the multi-agent system (no regression)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 07-01: TBD
-- [ ] 07-02: TBD
-- [ ] 07-03: TBD
+- [ ] 07-01-PLAN.md -- Install langgraph-supervisor, create multi-agent graph with Concierge/Specialist agents, deterministic Validator, and unit tests
+- [ ] 07-02-PLAN.md -- Add conversation_id/thread_id support to FastAPI for multi-turn sessions
+- [ ] 07-03-PLAN.md -- Integration regression suite plus new multi-turn and disambiguation tests
 
 ### Phase 8: Response Quality
 **Goal**: Every response includes source attribution, cross-references, and a clean scannable format that a technician trusts
@@ -199,7 +199,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 4. Data Verification and Population | 3/3 | ✓ Complete | 2026-02-16 |
 | 5. MCP Data Access Layer | 2/2 | ✓ Complete | 2026-02-16 |
 | 6. Single Agent Core | 3/3 | ✓ Complete | 2026-02-16 |
-| 7. Multi-Agent Orchestration | 0/TBD | Not started | - |
+| 7. Multi-Agent Orchestration | 0/3 | Planned | - |
 | 8. Response Quality | 0/TBD | Not started | - |
 | 9. Frontend | 0/TBD | Not started | - |
 | 10. Deployment and Hardening | 0/TBD | Not started | - |
