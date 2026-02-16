@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: Single Agent Core** - Prove query accuracy with one agent before multi-agent split
 - [x] **Phase 7: Multi-Agent Orchestration** - Split into Concierge/Specialist/Validator with conversation context
 - [x] **Phase 8: Response Quality** - Source attribution, cross-references, and polished output format
-- [ ] **Phase 9: Frontend** - React chat interface with table rendering
+- [x] **Phase 9: Frontend** - React chat interface with table rendering
 - [ ] **Phase 10: Deployment and Hardening** - Hosted deployment for remote client testing
 
 ## Phase Details
@@ -167,9 +167,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 09-01-PLAN.md -- Add SSE streaming endpoint (/query/stream) to FastAPI backend
-- [ ] 09-02-PLAN.md -- Scaffold React + Vite + Tailwind frontend with chat UI, SSE hook, and markdown table rendering
-- [ ] 09-03-PLAN.md -- CORS middleware, end-to-end integration, and human verification of complete chat interface
+- [x] 09-01-PLAN.md -- Add SSE streaming endpoint (/query/stream) to FastAPI backend
+- [x] 09-02-PLAN.md -- Scaffold React + Vite + Tailwind frontend with chat UI, SSE hook, and markdown table rendering
+- [x] 09-03-PLAN.md -- CORS middleware, end-to-end integration, and human verification of complete chat interface
 
 ### Phase 10: Deployment and Hardening
 **Goal**: Dex is hosted and accessible by Adam and Stephen for remote testing, stable enough for demo sessions
@@ -202,5 +202,5 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 6. Single Agent Core | 3/3 | ✓ Complete | 2026-02-16 |
 | 7. Multi-Agent Orchestration | 3/3 | ✓ Complete | 2026-02-16 |
 | 8. Response Quality | 3/3 | ✓ Complete | 2026-02-16 |
-| 9. Frontend | 0/3 | In Progress | - |
+| 9. Frontend | 3/3 | Complete | 2026-02-16 |
 | 10. Deployment and Hardening | 0/TBD | Not started | - |
