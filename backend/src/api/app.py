@@ -2,6 +2,8 @@
 
 Exposes a /query endpoint that accepts natural language questions and
 returns answers via the multi-agent supervisor graph connected to MCP tools.
+Also exposes a /query/stream SSE endpoint that streams the response
+progressively via Server-Sent Events using LangGraph's astream().
 The graph and MCP client are created once at startup via the lifespan
 pattern and reused across all requests. Conversation state is maintained
 via LangGraph's InMemorySaver checkpointer keyed by thread_id.
@@ -9,10 +11,12 @@ via LangGraph's InMemorySaver checkpointer keyed by thread_id.
 
 from __future__ import annotations
 
+import json
 from contextlib import asynccontextmanager
 from uuid import uuid4
 
 from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
 
 from backend.src.api.models import QueryRequest, QueryResponse
 
@@ -107,4 +111,90 @@ async def query(request: QueryRequest):
         conversation_id=conv_id,
         tool_calls=tool_call_info,
         validation_warnings=validation_warnings,
+    )
+
+
+def _normalize_content(raw) -> str:
+    """Normalize message content, handling Gemini's list-of-blocks format.
+
+    Gemini may return content as a list of dicts with ``"text"`` keys or
+    plain strings. This helper collapses them into a single string.
+    """
+    if isinstance(raw, list):
+        parts = []
+        for block in raw:
+            if isinstance(block, dict) and "text" in block:
+                parts.append(block["text"])
+            elif isinstance(block, str):
+                parts.append(block)
+        return "\n".join(parts)
+    return str(raw)
+
+
+def _format_sse(event: str, data: dict) -> str:
+    """Format a Server-Sent Event string."""
+    return f"event: {event}\ndata: {json.dumps(data)}\n\n"
+
+
+@app.post("/query/stream")
+async def query_stream(request: QueryRequest):
+    """Stream agent response via Server-Sent Events.
+
+    Uses LangGraph's ``astream(stream_mode="updates")`` to yield node-level
+    updates as SSE events. The event sequence is:
+
+    1. ``metadata`` -- conversation_id (sent immediately)
+    2. ``token``    -- content from each agent node that produces messages
+    3. ``done``     -- signals streaming is complete
+    4. ``validation`` -- validator warnings on the accumulated response
+    """
+    if _agent is None:
+        from fastapi import HTTPException
+
+        raise HTTPException(status_code=503, detail="Agent not initialized")
+
+    # Generate or reuse conversation ID for checkpointer thread
+    conv_id = request.conversation_id or str(uuid4())
+    config = {"configurable": {"thread_id": conv_id}}
+
+    async def event_generator():
+        # Send conversation_id immediately
+        yield _format_sse("metadata", {"conversation_id": conv_id})
+
+        # Accumulate messages for the validator
+        accumulated_messages: list = []
+
+        async for chunk in _agent.astream(
+            {"messages": [{"role": "user", "content": request.question}]},
+            config=config,
+            stream_mode="updates",
+        ):
+            for node_name, node_output in chunk.items():
+                messages = node_output.get("messages", [])
+                for msg in messages:
+                    accumulated_messages.append(msg)
+                    if hasattr(msg, "content") and msg.content:
+                        content = _normalize_content(msg.content)
+                        if content.strip():
+                            yield _format_sse(
+                                "token",
+                                {"content": content, "node": node_name},
+                            )
+
+        # Signal streaming complete
+        yield _format_sse("done", {"status": "complete"})
+
+        # Run deterministic validator on accumulated state
+        from backend.src.agent.validator import validate_response
+
+        warnings = validate_response({"messages": accumulated_messages})
+        yield _format_sse("validation", {"warnings": warnings})
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+        },
     )
