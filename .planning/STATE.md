@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 5 complete. MCP data access layer with 3 enum-constrained tools and 219 tests passing. Next: Phase 6 (Single Agent Core -- prove query accuracy with one LangGraph agent before multi-agent split).
+**Current focus:** Phase 6 in progress. Agent package with LangGraph ReAct agent, anti-hallucination system prompt, and MCP tool connection. Next: Plan 02 (FastAPI endpoint) or Plan 03 (integration tests).
 
 ## Current Position
 
 Phase: 6 of 10 (Single Agent Core)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-16 -- Completed Phase 5 (MCP Data Access Layer)
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 06-01-PLAN.md (Agent Package and System Prompt)
 
-Progress: [██████████████░░░░░░] ~52%
+Progress: [███████████████░░░░░] ~55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 14.2 min
-- Total execution time: 3.3 hours
+- Total plans completed: 15
+- Average duration: 13.7 min
+- Total execution time: 3.4 hours
 
 **By Phase:**
 
@@ -32,8 +32,10 @@ Progress: [██████████████░░░░░░] ~52%
 | 3 - Web Scraping | 3/3 | 22 min | 7.3 min |
 | 4 - Data Verification | 3/3 | 14 min | 4.7 min |
 | 5 - MCP Data Access | 2/2 | 11 min | 5.5 min |
+| 6 - Single Agent Core | 1/? | 7 min | 7 min |
 
 **Recent Trend:**
+- Plan 06-01 completed in 7 min -- LangGraph agent package with system prompt and 25 unit tests
 - Plan 05-02 completed in 4 min -- 219 integration tests covering all MCP tools
 - Plan 05-01 completed in 7 min -- FastMCP server with 3 tools, enums, data store
 
@@ -100,6 +102,10 @@ Recent decisions affecting current work:
 - [05-01]: not_available_fields scoped per category by prefix matching on data_quality.not_available_fields
 - [05-02]: testpaths = ["tests"] relative to backend/ rootdir in pyproject.toml
 - [05-02]: parse_result() helper handles CallToolResult.content[0].text JSON parsing with future-proof fallbacks
+- [06-01]: Gemini 2.5 Flash for agent LLM -- already has API key, sub-500ms TTFT, temperature=0 for deterministic
+- [06-01]: sys.executable for MCP subprocess command -- works on both Windows and Linux
+- [06-01]: MultiServerMCPClient creates new session per tool call -- no persistent connection management needed
+- [06-01]: monkeypatch.setenv for GEMINI_API_KEY in unit tests -- avoids requiring real key for prompt/config tests
 
 ### Pending Todos
 
@@ -118,5 +124,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Phase 5 complete. Next: Phase 6 (Single Agent Core).
+Stopped at: Completed 06-01-PLAN.md. Next: 06-02 (FastAPI endpoint) or 06-03 (integration tests).
 Resume file: None
