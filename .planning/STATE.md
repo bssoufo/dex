@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 4 complete. All 19 models verified with data_quality metadata, 4 errors fixed, 460 not-available fields classified. Next: Phase 5 (MCP Data Access Layer).
+**Current focus:** Phase 5 in progress. MCP data access layer: FastMCP 2.14.5 server with 3 enum-constrained tools over 19 verified models. Plan 01 complete (server + tools). Next: Plan 02 (integration tests) or Phase 6 (agent).
 
 ## Current Position
 
 Phase: 5 of 10 (MCP Data Access Layer)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-16 -- Completed 04-03-PLAN.md (verification execution and data fixes)
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 05-01-PLAN.md (MCP server with 3 tools)
 
-Progress: [████████████░░░░░░░░] ~44%
+Progress: [█████████████░░░░░░░] ~48%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 16 min
-- Total execution time: 3.2 hours
+- Total plans completed: 13
+- Average duration: 15 min
+- Total execution time: 3.3 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [████████████░░░░░░░░] ~44%
 | 2 - PDF Extraction | 4/4 | 120 min | 30 min |
 | 3 - Web Scraping | 3/3 | 22 min | 7.3 min |
 | 4 - Data Verification | 3/3 | 14 min | 4.7 min |
+| 5 - MCP Data Access | 1/? | 7 min | 7 min |
 
 **Recent Trend:**
-- Plan 04-03 completed in 4 min -- verification apply script, data fixes, metadata population
+- Plan 05-01 completed in 7 min -- FastMCP server with 3 tools, enums, data store
 
 ## Accumulated Context
 
@@ -90,6 +91,12 @@ Recent decisions affecting current work:
 - [04-03]: Jet count mismatches marked as accepted (not fixed) -- different counting methods are both valid
 - [04-03]: seating_capacity=0 for M7 and Capris marked as accepted pending manual verification
 - [04-03]: Checkpoint auto-approved per user directive for autonomous execution
+- [05-01]: FastMCP 2.14.x (not v3 RC) per user MEMORY.md lock and stability
+- [05-01]: Literal type for ModelName (not StrEnum) -- JSON Schema enum constraint for LLM agents
+- [05-01]: Lazy-init singleton for data store -- loads on first access, not at import time
+- [05-01]: Case-insensitive lookup internally while Literal type enforces canonical case at protocol level
+- [05-01]: model_dump() without exclude_none to preserve null fields (shows what is missing)
+- [05-01]: not_available_fields scoped per category by prefix matching on data_quality.not_available_fields
 
 ### Pending Todos
 
@@ -103,10 +110,10 @@ None.
 - [03-Research]: Part numbers NOT available on manufacturer product pages. 274/274 still null. Must defer to Phase 4 manual entry or separate retailer-site scraping effort.
 - [03-03]: Jetsetter LX page returns 404, M7 returns 403 Forbidden. These models retain PDF-only data. May need alternative URLs or manual entry in Phase 4.
 - [04-03]: M7 seating_capacity=0 and Capris seating_capacity=0 remain as accepted anomalies -- correct values unknown from available sources.
-- [04-03]: 460 not-available fields (323 part numbers, 133 universal nulls, 4 mfr-specific) -- MCP tools must handle these gracefully.
+- [04-03]: 460 not-available fields (323 part numbers, 133 universal nulls, 4 mfr-specific) -- MCP tools handle these via not_available_fields in responses.
 
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 04-03-PLAN.md (verification execution). Phase 4 complete. Next: Phase 5 (MCP Data Access Layer).
+Stopped at: Completed 05-01-PLAN.md (MCP server with 3 tools). Next: Phase 5 Plan 02 (integration tests) or Phase 6 (agent).
 Resume file: None
