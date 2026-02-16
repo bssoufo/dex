@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 8 complete. Response quality with source attribution, cross-refs, scannable format. 332 tests. Next: Phase 9 (Frontend) then Phase 10 (Deployment).
+**Current focus:** Phase 9 in progress. SSE streaming endpoint complete. 348 tests (325 non-integration + 23 integration). Next: Phase 9 Plan 02 (Frontend Chat UI) then Phase 10 (Deployment).
 
 ## Current Position
 
 Phase: 9 of 10 (Frontend)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-16 -- Completed Phase 8 (Response Quality)
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 09-01-PLAN.md
 
-Progress: [█████████████████████████░░░░░] ~80%
+Progress: [██████████████████████████░░░░] ~83%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 23
-- Average duration: 13.3 min
-- Total execution time: 5.05 hours
+- Total plans completed: 24
+- Average duration: 13.1 min
+- Total execution time: 5.2 hours
 
 **By Phase:**
 
@@ -35,11 +35,12 @@ Progress: [███████████████████████
 | 6 - Single Agent Core | 3/3 | 38 min | 12.7 min |
 | 7 - Multi-Agent Orchestration | 3/3 | 30 min | 10 min |
 | 8 - Response Quality | 3/3 | 33 min | 11 min |
+| 9 - Frontend | 1/? | 9 min | 9 min |
 
 **Recent Trend:**
+- Plan 09-01 completed in 9 min -- SSE streaming endpoint with 16 new tests (325 non-integration, 348 total)
 - Plan 08-03 completed in 20 min -- 5 integration tests verifying source attribution, cross-references, formatting (332 total tests)
 - Plan 08-02 completed in 7 min -- specialist prompt rewrite + validator expansion (70 agent tests, 309 total non-integration)
-- Plan 08-01 completed in 6 min -- cross-reference MCP tool with 6 unit tests (225 MCP tests)
 
 ## Accumulated Context
 
@@ -133,6 +134,9 @@ Recent decisions affecting current work:
 - [08-02]: Prose density threshold: >200 chars with <3 lines triggers scannable format warning
 - [08-02]: max_output_tokens bumped from 1024 to 2048 for attribution + cross-references
 - [08-03]: Performance regression threshold 60s (not 45s) for integration tests -- MCP subprocess startup + Gemini API latency
+- [09-01]: StreamingResponse over sse-starlette -- built into FastAPI, no new dependency needed
+- [09-01]: Node-level streaming via astream(stream_mode="updates") -- supervisor graph has known issues with token-level stream_mode="messages"
+- [09-01]: pythonpath=[".."] added to pyproject.toml pytest config for reliable test imports
 
 ### Pending Todos
 
@@ -151,5 +155,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 08-03-PLAN.md. Phase 8 (Response Quality) complete. Next: Phase 9 (Performance Optimization).
+Stopped at: Completed 09-01-PLAN.md. SSE streaming endpoint added. Next: Phase 9 Plan 02 (Frontend Chat UI).
 Resume file: None
