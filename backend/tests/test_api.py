@@ -67,24 +67,53 @@ class TestQueryRequestModel:
         req = QueryRequest(question=" ")
         assert req.question == " "
 
+    def test_request_with_conversation_id(self):
+        req = QueryRequest(question="test", conversation_id="session-123")
+        assert req.conversation_id == "session-123"
+
+    def test_request_without_conversation_id(self):
+        req = QueryRequest(question="test")
+        assert req.conversation_id is None
+
 
 class TestQueryResponseModel:
     """Validate QueryResponse Pydantic model."""
 
     def test_basic_response(self):
-        resp = QueryResponse(answer="The Cameo has 3 pumps.")
+        resp = QueryResponse(answer="The Cameo has 3 pumps.", conversation_id="abc")
         assert resp.answer == "The Cameo has 3 pumps."
+        assert resp.conversation_id == "abc"
         assert resp.tool_calls is None
+        assert resp.validation_warnings is None
 
     def test_response_with_tool_calls(self):
         calls = [{"tool": "get_spec_category", "content": "..."}]
-        resp = QueryResponse(answer="Answer", tool_calls=calls)
+        resp = QueryResponse(answer="Answer", conversation_id="xyz", tool_calls=calls)
         assert resp.tool_calls == calls
 
     def test_serialization(self):
-        resp = QueryResponse(answer="test")
+        resp = QueryResponse(answer="test", conversation_id="conv-1")
         data = resp.model_dump()
-        assert data == {"answer": "test", "tool_calls": None}
+        assert data == {
+            "answer": "test",
+            "conversation_id": "conv-1",
+            "tool_calls": None,
+            "validation_warnings": None,
+        }
+
+    def test_response_with_validation_warnings(self):
+        resp = QueryResponse(
+            answer="Some answer",
+            conversation_id="conv-2",
+            validation_warnings=["No tool calls detected"],
+        )
+        assert resp.validation_warnings == ["No tool calls detected"]
+        data = resp.model_dump()
+        assert data["validation_warnings"] == ["No tool calls detected"]
+
+    def test_response_requires_conversation_id(self):
+        with pytest.raises(ValidationError):
+            QueryResponse(answer="test")
 
 
 # ---------------------------------------------------------------------------
