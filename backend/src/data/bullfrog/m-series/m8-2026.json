@@ -3,7 +3,7 @@
   "series": "M Series",
   "model_name": "M8",
   "year": 2026,
-  "seating_capacity": 0,
+  "seating_capacity": 9,
   "jet_pumps": {
     "pumps": [
       {
@@ -84,7 +84,7 @@
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": null,
+    "total_jet_count": 288,
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [],
     "jetpak_count": 4,
@@ -158,9 +158,9 @@
     "length_inches": 94.0,
     "width_inches": 94.0,
     "height_inches": 38.0,
-    "dry_weight_lbs": null,
-    "filled_weight_lbs": null,
-    "water_capacity_gallons": null
+    "dry_weight_lbs": 1024.0,
+    "filled_weight_lbs": 6249.0,
+    "water_capacity_gallons": 474.0
   },
   "voltage": 240,
   "amperage": 60,
@@ -244,6 +244,16 @@
       "page_number": 32,
       "section": null,
       "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "website",
+      "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9464",
+      "document_name": null,
+      "page_number": null,
+      "section": null,
+      "accessed_date": "2026-02-16",
       "verified_by": null,
       "verified_date": null
     }

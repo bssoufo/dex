@@ -204,10 +204,10 @@
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 0.0,
-    "width_inches": 0.0,
-    "height_inches": 0.0,
-    "dry_weight_lbs": null,
+    "length_inches": 76.0,
+    "width_inches": 91.0,
+    "height_inches": 34.0,
+    "dry_weight_lbs": 838.0,
     "filled_weight_lbs": null,
     "water_capacity_gallons": 295.0
   },
@@ -293,6 +293,16 @@
       "page_number": 71,
       "section": "Cover Care And Maintenance",
       "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "website",
+      "url": "https://www.sundancespas.com/en-us/marin-880-series/Marin.html",
+      "document_name": null,
+      "page_number": null,
+      "section": null,
+      "accessed_date": "2026-02-16",
       "verified_by": null,
       "verified_date": null
     }

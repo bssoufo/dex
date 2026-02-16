@@ -3,7 +3,7 @@
   "series": "880 Series",
   "model_name": "Aspen",
   "year": 2026,
-  "seating_capacity": 0,
+  "seating_capacity": 7,
   "jet_pumps": {
     "pumps": [
       {
@@ -29,7 +29,7 @@
         "part_number": null
       }
     ],
-    "diverter_valves": null,
+    "diverter_valves": 2,
     "total_brake_horsepower": null,
     "shared_with_series": false
   },
@@ -161,7 +161,7 @@
       {
         "system_name": "MicroClean Ultra",
         "filter_type": "pleated cartridge and insert",
-        "filtration_area_sqft": null,
+        "filtration_area_sqft": 130.0,
         "quantity": 2,
         "description": "outer pleated filter and center insert",
         "no_bypass": null,
@@ -213,12 +213,12 @@
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 0.0,
-    "width_inches": 0.0,
-    "height_inches": 0.0,
-    "dry_weight_lbs": null,
+    "length_inches": 89.0,
+    "width_inches": 110.0,
+    "height_inches": 40.0,
+    "dry_weight_lbs": 1240.0,
     "filled_weight_lbs": null,
-    "water_capacity_gallons": null
+    "water_capacity_gallons": 505.0
   },
   "voltage": 240,
   "amperage": 39,
@@ -282,6 +282,16 @@
       "page_number": 71,
       "section": "Cover Care And Maintenance",
       "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "website",
+      "url": "https://www.sundancespas.com/en-us/aspen-880-series/Aspen.html",
+      "document_name": null,
+      "page_number": null,
+      "section": null,
+      "accessed_date": "2026-02-16",
       "verified_by": null,
       "verified_date": null
     }

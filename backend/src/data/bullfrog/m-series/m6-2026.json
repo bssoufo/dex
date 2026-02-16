@@ -3,7 +3,7 @@
   "series": "M Series",
   "model_name": "M6",
   "year": 2026,
-  "seating_capacity": 0,
+  "seating_capacity": 7,
   "jet_pumps": {
     "pumps": [
       {
@@ -85,7 +85,7 @@
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": null,
+    "total_jet_count": 184,
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [],
     "jetpak_count": null,
@@ -153,9 +153,9 @@
     "length_inches": 80.0,
     "width_inches": 91.0,
     "height_inches": 34.0,
-    "dry_weight_lbs": null,
-    "filled_weight_lbs": null,
-    "water_capacity_gallons": null
+    "dry_weight_lbs": 800.0,
+    "filled_weight_lbs": 5053.0,
+    "water_capacity_gallons": 387.0
   },
   "voltage": 240,
   "amperage": 50,
@@ -209,6 +209,16 @@
       "page_number": 8,
       "section": null,
       "accessed_date": "2026-02-15",
+      "verified_by": null,
+      "verified_date": null
+    },
+    {
+      "source_type": "website",
+      "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9466",
+      "document_name": null,
+      "page_number": null,
+      "section": null,
+      "accessed_date": "2026-02-16",
       "verified_by": null,
       "verified_date": null
     }
