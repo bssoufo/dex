@@ -8,7 +8,7 @@
 ### Data Extraction (ETL)
 
 - [x] **ETL-01**: PDF extraction pipeline extracts specs from manufacturer PDF manuals into structured JSON
-- [ ] **ETL-02**: Web scraping pipeline extracts specs from manufacturer websites into structured JSON
+- [x] **ETL-02**: Web scraping pipeline extracts specs from manufacturer websites into structured JSON
 - [ ] **ETL-03**: AI-assisted extraction with human verification for every data point
 - [ ] **ETL-04**: Data completeness dashboard tracks 190 data points (19 models x 10 categories)
 - [ ] **ETL-05**: Source document tracking links each spec value to its source PDF/URL and page

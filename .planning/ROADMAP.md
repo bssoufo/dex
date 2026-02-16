@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Schema Design** - Define the canonical JSON schema for all 10 spec categories
 - [x] **Phase 2: PDF Extraction Pipeline** - Build automated extraction from manufacturer PDF manuals
-- [ ] **Phase 3: Web Scraping Pipeline** - Build automated extraction from manufacturer websites
+- [x] **Phase 3: Web Scraping Pipeline** - Build automated extraction from manufacturer websites
 - [ ] **Phase 4: Data Verification and Population** - Verify and populate all 190 data points with source tracking
 - [ ] **Phase 5: MCP Data Access Layer** - Build deterministic query tools over verified data
 - [ ] **Phase 6: Single Agent Core** - Prove query accuracy with one agent before multi-agent split
@@ -69,9 +69,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Install httpx/BS4/lxml/tenacity, create scrape module skeleton with URL registry, fetcher, parser base, and parsing utilities
-- [ ] 03-02-PLAN.md -- Build manufacturer-specific HTML parsers (Sundance, Hot Spring, Bullfrog) against live web pages
-- [ ] 03-03-PLAN.md -- Build merger and pipeline orchestrator, execute scraping against all 19 models, verify data gaps filled
+- [x] 03-01-PLAN.md -- Install httpx/BS4/lxml/tenacity, create scrape module skeleton with URL registry, fetcher, parser base, and parsing utilities
+- [x] 03-02-PLAN.md -- Build manufacturer-specific HTML parsers (Sundance, Hot Spring, Bullfrog) against live web pages
+- [x] 03-03-PLAN.md -- Build merger and pipeline orchestrator, execute scraping against all 19 models, verify data gaps filled
 
 ### Phase 4: Data Verification and Population
 **Goal**: All 190 data points (19 models x 10 categories) are human-verified and populated with full source tracking
@@ -195,7 +195,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 |-------|---------------|--------|-----------|
 | 1. Data Schema Design | 2/2 | ✓ Complete | 2026-02-14 |
 | 2. PDF Extraction Pipeline | 4/4 | ✓ Complete | 2026-02-15 |
-| 3. Web Scraping Pipeline | 0/3 | In progress | - |
+| 3. Web Scraping Pipeline | 3/3 | ✓ Complete | 2026-02-16 |
 | 4. Data Verification and Population | 0/TBD | Not started | - |
 | 5. MCP Data Access Layer | 0/TBD | Not started | - |
 | 6. Single Agent Core | 0/TBD | Not started | - |
