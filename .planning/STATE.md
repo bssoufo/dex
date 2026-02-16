@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 9 complete. React chat UI with SSE streaming. Next: Phase 10 (Deployment and Hardening -- final phase).
+**Current focus:** Phase 10 in progress. Containerization complete (Dockerfile + production-hardened FastAPI). Next: Plan 02 (Railway deployment).
 
 ## Current Position
 
 Phase: 10 of 10 (Deployment and Hardening)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-16 -- Completed Phase 9 (Frontend)
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 10-01-PLAN.md (Containerization)
 
-Progress: [████████████████████████████░░] ~93%
+Progress: [█████████████████████████████░] ~95%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 26
-- Average duration: 12.5 min
-- Total execution time: 5.5 hours
+- Total plans completed: 27
+- Average duration: 12.9 min
+- Total execution time: 5.9 hours
 
 **By Phase:**
 
@@ -36,11 +36,12 @@ Progress: [███████████████████████
 | 7 - Multi-Agent Orchestration | 3/3 | 30 min | 10 min |
 | 8 - Response Quality | 3/3 | 33 min | 11 min |
 | 9 - Frontend | 3/3 | 23 min | 7.7 min |
+| 10 - Deployment | 1/TBD | 27 min | 27 min |
 
 **Recent Trend:**
+- Plan 10-01 completed in 27 min -- Dockerfile, .dockerignore, production-hardened FastAPI (error handler, env-aware CORS, static serving)
 - Plan 09-03 completed in 5 min -- CORS middleware + 4 tests + end-to-end verification (checkpoint auto-approved)
 - Plan 09-02 completed in 9 min -- React+Vite+Tailwind chat UI with SSE streaming, GFM table rendering, 15 files created
-- Plan 09-01 completed in 9 min -- SSE streaming endpoint with 16 new tests (325 non-integration, 348 total)
 
 ## Accumulated Context
 
@@ -143,6 +144,11 @@ Recent decisions affecting current work:
 - [09-02]: Vite dev proxy strips /api prefix -- frontend /api/query/stream -> backend /query/stream
 - [09-03]: CORS allow_origins uses explicit localhost ports (5173, 4173), not wildcard -- Phase 10 will add production URL
 - [09-03]: Checkpoint auto-approved per user directive for autonomous execution
+- [10-01]: Shell-form CMD in Dockerfile (not exec form) so ${PORT:-8000} expands at runtime for Railway
+- [10-01]: Conditional static file serving (if FRONTEND_DIR.exists()) so tests and dev mode work without frontend build
+- [10-01]: VITE_API_BASE env var with nullish coalescing (?? "/api") for dev/prod API routing
+- [10-01]: Global exception handler logs full traceback but returns only friendly JSON to client
+- [10-01]: Environment-aware CORS: production reads ALLOWED_ORIGIN env var, dev keeps localhost origins
 
 ### Pending Todos
 
@@ -157,9 +163,10 @@ None.
 - [03-03]: Jetsetter LX page returns 404, M7 returns 403 Forbidden. These models retain PDF-only data. May need alternative URLs or manual entry in Phase 4.
 - [04-03]: M7 seating_capacity=0 and Capris seating_capacity=0 remain as accepted anomalies -- correct values unknown from available sources.
 - [04-03]: 460 not-available fields (323 part numbers, 133 universal nulls, 4 mfr-specific) -- MCP tools handle these via not_available_fields in responses.
+- [10-01]: Docker build not verified locally (daemon not running). Dockerfile follows research pattern exactly. Must verify on first Railway deployment or when Docker Desktop is started.
 
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 09-03-PLAN.md. Phase 9 (Frontend) complete. Next: Phase 10 (Deployment and Hardening).
+Stopped at: Completed 10-01-PLAN.md. Containerization complete. Next: Plan 02 (Railway deployment).
 Resume file: None
