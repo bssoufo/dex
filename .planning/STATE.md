@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 2 complete. All 19 models extracted from PDFs. Next: Phase 3 (Web Scraping Pipeline).
+**Current focus:** Phase 3 in progress. Scrape module foundation complete (03-01). Next: manufacturer-specific parsers (03-02).
 
 ## Current Position
 
-Phase: 2 of 10 (PDF Extraction Pipeline) -- COMPLETE
-Plan: 4 of 4 in current phase
-Status: Complete
-Last activity: 2026-02-15 -- All 19 models extracted successfully
+Phase: 3 of 10 (Web Scraping Pipeline) -- IN PROGRESS
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 03-01-PLAN.md (scrape foundation)
 
-Progress: [██████░░░░░░░░░░░░░░] ~25%
+Progress: [███████░░░░░░░░░░░░░] ~30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 25 min
-- Total execution time: 2.5 hours
+- Total plans completed: 7
+- Average duration: 22 min
+- Total execution time: 2.6 hours
 
 **By Phase:**
 
@@ -29,9 +29,10 @@ Progress: [██████░░░░░░░░░░░░░░] ~25%
 |-------|-------|-------|----------|
 | 1 - Data Schema | 2/2 | 31 min | 15.5 min |
 | 2 - PDF Extraction | 4/4 | 120 min | 30 min |
+| 3 - Web Scraping | 1/3 | 5 min | 5 min |
 
 **Recent Trend:**
-- Plan 02-04 required multiple iteration cycles to fix schema tolerance for Gemini extraction quirks
+- Plan 03-01 completed in 5 min -- pure module creation with no external API calls or iteration cycles
 
 ## Accumulated Context
 
@@ -65,6 +66,11 @@ Recent decisions affecting current work:
 - [02-04]: Gemini returns string "null" instead of actual null -- mapper must clean this
 - [02-04]: Multi-amp values like "20A & 30A" parsed to max integer in mapper
 - [02-04]: Retry with exponential backoff (5s base, 4 retries) handles Gemini 429 rate limits
+- [03-01]: Synchronous httpx.Client (not async) -- only 19 pages total, async adds complexity for no benefit
+- [03-01]: ScrapedSpecs as plain dataclass not Pydantic -- intermediate format before schema merge
+- [03-01]: Per-domain rate limits in config dict -- Bullfrog 10s per robots.txt, others 2s
+- [03-01]: validate_model_name logs warning but does not raise on mismatch
+- [03-01]: hotspas.com added as Bullfrog fallback since dealer unit_ids may change
 
 ### Pending Todos
 
@@ -76,9 +82,10 @@ None.
 - [02-01]: Bullfrog 2026 manual not yet published. Using 2025 v1.1 -- specs likely carry forward but must verify when 2026 becomes available.
 - [02-01]: Part numbers are sparse in all 3 owner's manuals. Phase 3 web scraping and Phase 4 manual entry will be critical for part number population.
 - [02-01]: Cover dimensions missing from Sundance manual entirely. Must fill from Phase 3 web scraping.
+- [03-Research]: Part numbers NOT available on manufacturer product pages. 274/274 still null. Must defer to Phase 4 manual entry or separate retailer-site scraping effort.
 
 ## Session Continuity
 
-Last session: 2026-02-15
-Stopped at: Phase 2 complete. All 19 models extracted.
+Last session: 2026-02-16
+Stopped at: Completed 03-01-PLAN.md (scrape foundation). Next: 03-02-PLAN.md (manufacturer parsers).
 Resume file: None
