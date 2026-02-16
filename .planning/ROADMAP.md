@@ -180,11 +180,11 @@ Plans:
   2. The system handles multiple concurrent users without crashes or data corruption during demo/testing sessions
   3. Error handling covers API downtime, malformed queries, and unexpected agent failures gracefully (user sees helpful error messages, not stack traces)
   4. The full 190-data-point test matrix passes in the deployed environment (not just local)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 10-01: TBD
-- [ ] 10-02: TBD
+- [ ] 10-01-PLAN.md -- Containerize: Dockerfile, .dockerignore, production-harden FastAPI (static serving, error handler, env-aware CORS), frontend env config
+- [ ] 10-02-PLAN.md -- Deploy to Railway, smoke test live URL, human verification of full chat experience
 
 ## Progress
 
@@ -203,4 +203,4 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 7. Multi-Agent Orchestration | 3/3 | ✓ Complete | 2026-02-16 |
 | 8. Response Quality | 3/3 | ✓ Complete | 2026-02-16 |
 | 9. Frontend | 3/3 | ✓ Complete | 2026-02-16 |
-| 10. Deployment and Hardening | 0/TBD | Not started | - |
+| 10. Deployment and Hardening | 0/2 | Planning complete | - |
