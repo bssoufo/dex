@@ -1,9 +1,10 @@
 """Dex MCP data server -- FastMCP instance and tool definitions.
 
-Three tools provide deterministic lookup of spa technical specifications:
+Four tools provide deterministic lookup of spa technical specifications:
   - get_spec_category: Get one spec category for one model
   - get_model_overview: Get identity/dimensions/available categories
   - list_models: List all models, optionally filtered by manufacturer
+  - find_cross_references: Find models sharing identical component specs
 
 All tool parameters are constrained by enums/Literal types so LLM agents
 cannot invent invalid model names or category names.
@@ -16,7 +17,7 @@ from typing import Annotated
 from fastmcp import FastMCP
 from pydantic import Field
 
-from backend.src.mcp.data_store import get_model, get_store
+from backend.src.mcp.data_store import get_model, get_store, find_cross_references as _find_xref
 from backend.src.mcp.enums import ModelName, SpecCategory
 from backend.src.schema.enums import Manufacturer
 
@@ -167,4 +168,34 @@ def list_models(
         "models": sorted(
             models, key=lambda m: (m["manufacturer"], m["model_name"])
         ),
+    }
+
+
+@mcp.tool
+def find_cross_references(
+    manufacturer: Manufacturer,
+    model_name: Annotated[ModelName, Field(description="Spa model name")],
+    category: Annotated[SpecCategory, Field(description="Spec category to cross-reference")],
+) -> dict:
+    """Find other models that share the same component specs for a given category.
+
+    Compares the target model's category data against all other models from the
+    same manufacturer. Useful for answering 'What other models use this same
+    pump/heater/filter?' Returns the list of matching model names and the total
+    count of models from that manufacturer for context.
+    """
+    matches = _find_xref(manufacturer.value, model_name, category.value)
+
+    # Count total models for this manufacturer
+    store = get_store()
+    total = sum(1 for (mfr, _) in store if mfr == manufacturer.value)
+
+    return {
+        "success": True,
+        "manufacturer": manufacturer.value,
+        "model_name": model_name,
+        "category": category.value,
+        "matching_models": matches,
+        "match_count": len(matches),
+        "total_manufacturer_models": total,
     }

@@ -1,16 +1,17 @@
 """Comprehensive MCP tool test suite for the Dex data server.
 
-Tests all 3 MCP tools (get_spec_category, get_model_overview, list_models)
-across all 19 spa models and 10 spec categories (190 combinations) using
-FastMCP's in-memory Client. No network or filesystem access beyond initial
-data store load.
+Tests all 4 MCP tools (get_spec_category, get_model_overview, list_models,
+find_cross_references) across all 19 spa models and 10 spec categories
+(190 combinations) using FastMCP's in-memory Client. No network or
+filesystem access beyond initial data store load.
 
-Organized into 5 test groups:
+Organized into 6 test groups:
   1. list_models -- count, filtering, sorting
   2. get_model_overview -- parametrized over all 19 models
   3. get_spec_category -- 190 parametrized model x category combinations
   4. Specific data verification -- real data assertions (not just structure)
   5. Not-found handling -- mismatched manufacturer/model
+  6. find_cross_references -- cross-reference lookups
 """
 
 from __future__ import annotations
@@ -345,3 +346,154 @@ class TestNotFoundHandling:
         )
         assert result["success"] is False
         assert "not found" in result["message"].lower()
+
+
+# ---------------------------------------------------------------------------
+# Group 6: find_cross_references
+# ---------------------------------------------------------------------------
+
+
+class TestFindCrossReferences:
+    """Tests for the find_cross_references MCP tool."""
+
+    async def test_find_cross_references_sundance_heater(
+        self, client: Client
+    ) -> None:
+        """Sundance Aspen heater matches all 6 other Sundance models (shared 5500W heater)."""
+        result = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "sundance",
+                    "model_name": "Aspen",
+                    "category": "heater",
+                },
+            )
+        )
+        assert result["success"] is True
+        assert result["match_count"] == 6
+        assert "Altamar" in result["matching_models"]
+        assert "Cameo" in result["matching_models"]
+        assert result["total_manufacturer_models"] == 7
+
+    async def test_find_cross_references_no_matches(
+        self, client: Client
+    ) -> None:
+        """Bullfrog M9 jets returns no matches (JetPak configurations differ per model)."""
+        result = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "bullfrog",
+                    "model_name": "M9",
+                    "category": "jets",
+                },
+            )
+        )
+        assert result["success"] is True
+        assert result["match_count"] == 0
+        assert result["matching_models"] == []
+
+    async def test_find_cross_references_invalid_model(
+        self, client: Client
+    ) -> None:
+        """Valid manufacturer + mismatched model returns empty matches gracefully."""
+        result = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "sundance",
+                    "model_name": "M9",
+                    "category": "heater",
+                },
+            )
+        )
+        assert result["success"] is True
+        assert result["matching_models"] == []
+        assert result["match_count"] == 0
+
+    async def test_find_cross_references_returns_total_count(
+        self, client: Client
+    ) -> None:
+        """total_manufacturer_models reflects the correct count per manufacturer."""
+        # Sundance = 7
+        result_s = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "sundance",
+                    "model_name": "Aspen",
+                    "category": "heater",
+                },
+            )
+        )
+        assert result_s["total_manufacturer_models"] == 7
+
+        # Hot Spring = 8
+        result_h = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "hotspring",
+                    "model_name": "Grandee",
+                    "category": "heater",
+                },
+            )
+        )
+        assert result_h["total_manufacturer_models"] == 8
+
+        # Bullfrog = 4
+        result_b = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "bullfrog",
+                    "model_name": "M9",
+                    "category": "circulation_pump",
+                },
+            )
+        )
+        assert result_b["total_manufacturer_models"] == 4
+
+    async def test_find_cross_references_bullfrog_circulation_pump(
+        self, client: Client
+    ) -> None:
+        """Bullfrog M9 circulation pump matches all 3 other Bullfrog models."""
+        result = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "bullfrog",
+                    "model_name": "M9",
+                    "category": "circulation_pump",
+                },
+            )
+        )
+        assert result["success"] is True
+        assert result["match_count"] == 3
+        assert sorted(result["matching_models"]) == ["M6", "M7", "M8"]
+
+    async def test_find_cross_references_response_structure(
+        self, client: Client
+    ) -> None:
+        """Response contains all expected keys."""
+        result = parse_result(
+            await client.call_tool(
+                "find_cross_references",
+                {
+                    "manufacturer": "sundance",
+                    "model_name": "Altamar",
+                    "category": "filters",
+                },
+            )
+        )
+        assert result["success"] is True
+        assert "manufacturer" in result
+        assert "model_name" in result
+        assert "category" in result
+        assert "matching_models" in result
+        assert "match_count" in result
+        assert "total_manufacturer_models" in result
+        assert isinstance(result["matching_models"], list)
+        assert isinstance(result["match_count"], int)
+        assert isinstance(result["total_manufacturer_models"], int)
