@@ -2,9 +2,10 @@
 
 Tests validate:
 - Per-agent prompt content (supervisor routing, concierge clarification,
-  specialist anti-hallucination rules, model listings)
-- Model creation configuration (Gemini 2.5 Flash, temperature=0)
-- Deterministic validator behavior (no tool calls, short answers, null detection)
+  specialist anti-hallucination rules, model listings, response format template)
+- Model creation configuration (Gemini 2.5 Flash, temperature=0, max tokens)
+- Deterministic validator behavior (no tool calls, short answers, null detection,
+  source attribution, prose density / scannable format)
 
 All tests are unit-level -- no LLM calls or MCP connections needed.
 """
@@ -198,7 +199,10 @@ def test_validate_response_clean():
                 "get_spec_category", '{"jet_pumps": {"hp": 2.5}}'
             ),
             _make_ai_message(
-                "The Sundance Aspen uses a 2.5 HP jet pump (Wavemaster 8000)."
+                "The Sundance Aspen uses a **2.5 HP** jet pump.\n"
+                "- Wavemaster 8000\n"
+                "- 1-speed, 56 Frame\n\n"
+                "Source: 880-series-2026.pdf, page 22"
             ),
         ]
     }
@@ -235,6 +239,100 @@ def test_validate_response_null_not_in_longer_words():
     assert not any("null" in w.lower() for w in warnings)
 
 
+# ---------- Source attribution validator tests ----------
+
+
+def test_validate_response_no_source_attribution():
+    """Validator warns when tool-using response lacks source attribution."""
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message(
+                "The Sundance Aspen uses a 2.5 HP jet pump (Wavemaster 8000)."
+            ),
+        ]
+    }
+    warnings = validate_response(state)
+    assert any("source attribution" in w.lower() for w in warnings)
+
+
+def test_validate_response_has_source_attribution():
+    """Validator does not warn when source attribution is present."""
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message(
+                "The Sundance Aspen uses a **2.5 HP** jet pump.\n"
+                "- Wavemaster 8000\n"
+                "- 1-speed, 56 Frame\n\n"
+                "Source: 880-series-2026.pdf, page 22"
+            ),
+        ]
+    }
+    warnings = validate_response(state)
+    assert not any("source attribution" in w.lower() for w in warnings)
+
+
+# ---------- Prose density / scannable format validator tests ----------
+
+
+def test_validate_response_prose_density_warning():
+    """Validator warns when long response is a single line (not scannable)."""
+    long_single_line = (
+        "The Sundance Aspen uses a 2.5 HP jet pump manufactured by Wavemaster "
+        "which is a continuous-duty motor with 56 Frame design running at 11A "
+        "maximum draw and it is compatible with the standard plumbing configuration. "
+        "Source: 880-series-2026.pdf, page 22"
+    )
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message(long_single_line),
+        ]
+    }
+    warnings = validate_response(state)
+    assert any("scannable" in w.lower() for w in warnings)
+
+
+def test_validate_response_scannable_format_no_warning():
+    """Validator does not warn when long response has multiple lines."""
+    multiline = (
+        "The Sundance Aspen uses a **2.5 HP** jet pump:\n"
+        "- Wavemaster 8000\n"
+        "- 1-speed, 56 Frame\n"
+        "- 11A max draw\n"
+        "- Compatible with standard plumbing\n\n"
+        "Source: 880-series-2026.pdf, page 22"
+    )
+    state = {
+        "messages": [
+            _make_tool_message(),
+            _make_ai_message(multiline),
+        ]
+    }
+    warnings = validate_response(state)
+    assert not any("scannable" in w.lower() for w in warnings)
+
+
+# ---------- Prompt content tests for response quality ----------
+
+
+def test_specialist_prompt_contains_source_attribution_rule():
+    """Specialist prompt must contain the source attribution rule."""
+    assert "ALWAYS include source attribution" in SPECIALIST_PROMPT
+
+
+def test_specialist_prompt_contains_find_cross_references():
+    """Specialist prompt must instruct use of find_cross_references tool."""
+    assert "find_cross_references" in SPECIALIST_PROMPT
+
+
+def test_specialist_prompt_contains_response_format_template():
+    """Specialist prompt must contain the structured response format template."""
+    assert "Direct Answer" in SPECIALIST_PROMPT
+    assert "Formatting Rules" in SPECIALIST_PROMPT
+
+
 # ---------- Model creation tests ----------
 
 
@@ -259,6 +357,16 @@ def test_create_model_temperature_zero(monkeypatch):
 
     model = create_model()
     assert model.temperature == 0
+
+
+def test_create_model_max_output_tokens(monkeypatch):
+    """create_model sets max_output_tokens to 2048 for response quality."""
+    monkeypatch.setenv("GEMINI_API_KEY", "test-dummy-key")
+
+    from backend.src.agent.config import create_model
+
+    model = create_model()
+    assert model.max_output_tokens == 2048
 
 
 # ---------- Graph structure tests ----------
