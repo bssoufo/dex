@@ -119,7 +119,7 @@
         "type": "pillow",
         "quantity": null,
         "part_number": null,
-        "description": "All Highlife Collection\u00ae models come with one or more comfortable headrests."
+        "description": "All Highlife Collection® models come with one or more comfortable headrests."
       }
     ],
     "shared_with_series": false
@@ -200,8 +200,8 @@
       "page_number": 25,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -210,8 +210,8 @@
       "page_number": 41,
       "section": "SILENT FLO 5000 CIRCULATION PUMP AND CIRCULATION PUMP THERMAL CUT-OFF",
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -220,8 +220,8 @@
       "page_number": 7,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -230,8 +230,8 @@
       "page_number": 17,
       "section": "MAIN CONTROL PANEL",
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -240,8 +240,8 @@
       "page_number": 25,
       "section": "JET PUMP 1-JET SYSTEM 1",
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -250,8 +250,8 @@
       "page_number": 7,
       "section": "Spa Features",
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -260,8 +260,8 @@
       "page_number": 3,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -270,8 +270,39 @@
       "page_number": 45,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     }
-  ]
+  ],
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "automated_checks_v1",
+    "not_available_fields": [
+      "circulation_pump.part_number",
+      "circulation_pump.wattage",
+      "cover.part_number",
+      "cover.thickness",
+      "filters.filters[0].part_number",
+      "headrests.headrests[0].part_number",
+      "heater.material",
+      "heater.part_number",
+      "jet_pumps.pumps[0].part_number",
+      "jet_pumps.pumps[1].part_number",
+      "jet_pumps.total_brake_horsepower",
+      "jets.jetpak_options",
+      "jets.jets_by_type[0].part_number",
+      "jets.jets_by_type[1].part_number",
+      "jets.jets_by_type[2].part_number",
+      "jets.jets_by_type[3].part_number",
+      "jets.max_jet_count",
+      "jets.therapy_jet_count",
+      "lighting.lights[0].part_number",
+      "lighting.lights[1].part_number",
+      "lighting.lights[2].part_number",
+      "spa_pak.part_number",
+      "topside_control.part_number"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 11.5
+  }
 }

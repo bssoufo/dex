@@ -158,7 +158,7 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra II",
+        "system_name": "MicroClean® Ultra II",
         "filter_type": "pleated cartridge and insert",
         "filtration_area_sqft": 130.0,
         "quantity": 2,
@@ -204,7 +204,7 @@
   "cover": {
     "model_name": null,
     "thickness": null,
-    "material": "SUNSTRONGM/SUNSTRONG\u2122 Extreme encasement",
+    "material": "SUNSTRONGM/SUNSTRONG™ Extreme encasement",
     "features": [],
     "length_inches": null,
     "width_inches": null,
@@ -231,8 +231,8 @@
       "page_number": 22,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -241,8 +241,8 @@
       "page_number": 20,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -251,8 +251,8 @@
       "page_number": 43,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -261,8 +261,8 @@
       "page_number": 34,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -271,8 +271,8 @@
       "page_number": 68,
       "section": "Cleaning/Replacing the Filter Cartridge",
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -281,8 +281,8 @@
       "page_number": 86,
       "section": null,
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "pdf",
@@ -291,8 +291,8 @@
       "page_number": 71,
       "section": "Cover Care And Maintenance",
       "accessed_date": "2026-02-15",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     },
     {
       "source_type": "website",
@@ -301,8 +301,50 @@
       "page_number": null,
       "section": null,
       "accessed_date": "2026-02-16",
-      "verified_by": null,
-      "verified_date": null
+      "verified_by": "automated_checks_v1",
+      "verified_date": "2026-02-16"
     }
-  ]
+  ],
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "automated_checks_v1",
+    "not_available_fields": [
+      "circulation_pump.part_number",
+      "circulation_pump.wattage",
+      "cover.part_number",
+      "cover.thickness",
+      "filters.filters[0].part_number",
+      "headrests.headrests[0].part_number",
+      "heater.material",
+      "heater.part_number",
+      "jet_pumps.pumps[0].part_number",
+      "jet_pumps.pumps[1].part_number",
+      "jet_pumps.total_brake_horsepower",
+      "jets.jetpak_options",
+      "jets.jets_by_type[0].part_number",
+      "jets.jets_by_type[1].part_number",
+      "jets.jets_by_type[2].part_number",
+      "jets.jets_by_type[3].part_number",
+      "jets.jets_by_type[4].part_number",
+      "jets.jets_by_type[5].part_number",
+      "jets.jets_by_type[6].part_number",
+      "jets.jets_by_type[7].part_number",
+      "jets.max_jet_count",
+      "jets.therapy_jet_count",
+      "lighting.lights[0].part_number",
+      "lighting.lights[1].part_number",
+      "lighting.lights[2].part_number",
+      "spa_pak.part_number",
+      "topside_control.part_number"
+    ],
+    "anomalies_reviewed": [
+      {
+        "field": "jets.total_jet_count vs jets.jets_by_type sum",
+        "issue": "total=41 vs sum_by_type=48",
+        "resolution": "Different counting methods: total is primary therapy jets, by_type includes all jet types including water features",
+        "status": "accepted"
+      }
+    ],
+    "completeness_pct": 0.0
+  }
 }
