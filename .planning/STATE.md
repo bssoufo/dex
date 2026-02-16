@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 3 complete. Web scraping pipeline filled 59 data gaps across 10 models. Next: Phase 4 (Data Verification and Population).
+**Current focus:** Phase 4 in progress. Schema extended with DataQuality model, automated verification checks detect 44 anomalies across 19 models. Next: 04-02 (completeness dashboard).
 
 ## Current Position
 
-Phase: 3 of 10 (Web Scraping Pipeline) -- COMPLETE
-Plan: 3 of 3 in current phase
-Status: Phase complete
-Last activity: 2026-02-16 -- Completed 03-03-PLAN.md (merge pipeline and execution)
+Phase: 4 of 10 (Data Verification and Population)
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 04-01-PLAN.md (schema extension and verification checks)
 
-Progress: [████████░░░░░░░░░░░░] ~40%
+Progress: [███████░░░░░░░░░░░░░] ~37%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 19 min
-- Total execution time: 2.9 hours
+- Total plans completed: 10
+- Average duration: 18 min
+- Total execution time: 3.0 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [████████░░░░░░░░░░░░] ~40%
 | 1 - Data Schema | 2/2 | 31 min | 15.5 min |
 | 2 - PDF Extraction | 4/4 | 120 min | 30 min |
 | 3 - Web Scraping | 3/3 | 22 min | 7.3 min |
+| 4 - Data Verification | 1/3 | 6 min | 6 min |
 
 **Recent Trend:**
-- Plan 03-03 completed in 7 min -- built merger and pipeline, scraped 17/19 models, filled 59 fields, all 19 pass Pydantic validation
+- Plan 04-01 completed in 6 min -- DataQuality model, 6 verification checks, 44 anomalies detected across 19 models
 
 ## Accumulated Context
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [03-03]: Website SourceReference only appended when at least one field was updated
 - [03-03]: Jetsetter LX 404 and M7 403 logged as failures, not blocking pipeline
 - [03-03]: Pipeline idempotent: re-running skips already-filled fields without duplicating source refs
+- [04-01]: DataQuality defaults to None on SpaModel so existing 19 JSON files without the field still pass Pydantic validation
+- [04-01]: Plausible ranges defined inline in checks.py rather than importing from validators.py (different input types)
+- [04-01]: Verification check function pattern: takes SpaModel, returns list[Anomaly]
 
 ### Pending Todos
 
@@ -91,9 +95,11 @@ None.
 - [02-01]: Part numbers are sparse in all 3 owner's manuals. Phase 3 web scraping and Phase 4 manual entry will be critical for part number population.
 - [03-Research]: Part numbers NOT available on manufacturer product pages. 274/274 still null. Must defer to Phase 4 manual entry or separate retailer-site scraping effort.
 - [03-03]: Jetsetter LX page returns 404, M7 returns 403 Forbidden. These models retain PDF-only data. May need alternative URLs or manual entry in Phase 4.
+- [04-01]: M7 seating_capacity=0 and Capris seating_capacity=0 detected by range checks -- genuine data issues needing fix in Plan 03.
+- [04-01]: M7 jets category structurally present but all fields null -- not in original research, needs review.
 
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 03-03-PLAN.md (merge pipeline). Phase 3 complete. Next: Phase 4 planning.
+Stopped at: Completed 04-01-PLAN.md (schema extension and verification checks). Next: 04-02 (completeness dashboard).
 Resume file: None
