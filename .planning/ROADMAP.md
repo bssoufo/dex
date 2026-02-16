@@ -83,12 +83,12 @@ Plans:
   3. Every spec value in the verified data store links back to its source document (PDF filename + page, or URL)
   4. All 19 POC model JSON files pass Pydantic schema validation with zero errors
   5. Any data point that could not be found in source documents is explicitly marked as "not available" (not left empty or guessed)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md -- Extend schema with DataQuality model, build automated verification checks (voltage, dimensions, jets, sources)
+- [ ] 04-02-PLAN.md -- Build completeness dashboard, not-available field marker, and anomaly report CLI
+- [ ] 04-03-PLAN.md -- Execute verification: fix confirmed errors, populate metadata on all 19 JSON files, human review checkpoint
 
 ### Phase 5: MCP Data Access Layer
 **Goal**: Deterministic, strongly-typed MCP tools provide the sole gateway to verified data -- zero LLM logic in the data layer
@@ -196,7 +196,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 1. Data Schema Design | 2/2 | ✓ Complete | 2026-02-14 |
 | 2. PDF Extraction Pipeline | 4/4 | ✓ Complete | 2026-02-15 |
 | 3. Web Scraping Pipeline | 3/3 | ✓ Complete | 2026-02-16 |
-| 4. Data Verification and Population | 0/TBD | Not started | - |
+| 4. Data Verification and Population | 0/3 | Not started | - |
 | 5. MCP Data Access Layer | 0/TBD | Not started | - |
 | 6. Single Agent Core | 0/TBD | Not started | - |
 | 7. Multi-Agent Orchestration | 0/TBD | Not started | - |
