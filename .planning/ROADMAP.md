@@ -148,11 +148,12 @@ Plans:
   1. Every response includes source attribution showing which PDF/URL and page the data came from
   2. When a part fits multiple models, the response includes cross-reference information ("This pump also fits: Optima, Cameo")
   3. Response format is clean and scannable: part numbers are prominently displayed, not buried in prose; specs are structured (not paragraph-form)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 08-01: TBD
-- [ ] 08-02: TBD
+- [ ] 08-01-PLAN.md -- Add find_cross_references MCP tool and data store function with unit tests
+- [ ] 08-02-PLAN.md -- Rewrite Specialist prompt response format, expand validator, bump max_output_tokens
+- [ ] 08-03-PLAN.md -- Integration tests verifying source attribution, cross-references, and scannable format with real Gemini
 
 ### Phase 9: Frontend
 **Goal**: A React chat interface that Spaparts staff can use to interact with Dex in a professional, efficient manner
@@ -200,6 +201,6 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 5. MCP Data Access Layer | 2/2 | ✓ Complete | 2026-02-16 |
 | 6. Single Agent Core | 3/3 | ✓ Complete | 2026-02-16 |
 | 7. Multi-Agent Orchestration | 3/3 | ✓ Complete | 2026-02-16 |
-| 8. Response Quality | 0/TBD | Not started | - |
+| 8. Response Quality | 0/3 | In progress | - |
 | 9. Frontend | 0/TBD | Not started | - |
 | 10. Deployment and Hardening | 0/TBD | Not started | - |
