@@ -1,0 +1,12 @@
+.git
+.planning
+.pytest_cache
+__pycache__
+*.pyc
+backend/.venv
+backend/.pytest_cache
+backend/src/etl/pdf_store
+frontend/node_modules
+frontend/.vite
+nul
+backend/.env
