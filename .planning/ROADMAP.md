@@ -58,7 +58,7 @@ Plans:
 - [x] 02-04-PLAN.md -- Execute extraction pipeline against all PDFs, validate output (switched to Gemini per user request)
 
 ### Phase 3: Web Scraping Pipeline
-**Goal**: Automated extraction of technical specs from manufacturer websites into structured JSON matching the Phase 1 schema
+**Goal**: Automated extraction of technical specs from manufacturer websites to fill data gaps left by PDF extraction (dimensions, weights, water capacity, seating) -- all via static HTML scraping with httpx + BeautifulSoup
 **Depends on**: Phase 1
 **Requirements**: ETL-02
 **Success Criteria** (what must be TRUE):
@@ -66,11 +66,12 @@ Plans:
   2. Extracted web data conforms to the Phase 1 Pydantic schema and passes validation
   3. JavaScript-heavy manufacturer sites (dynamic content) are handled correctly
   4. Scraper captures source URL for every extracted data point
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Install httpx/BS4/lxml/tenacity, create scrape module skeleton with URL registry, fetcher, parser base, and parsing utilities
+- [ ] 03-02-PLAN.md -- Build manufacturer-specific HTML parsers (Sundance, Hot Spring, Bullfrog) against live web pages
+- [ ] 03-03-PLAN.md -- Build merger and pipeline orchestrator, execute scraping against all 19 models, verify data gaps filled
 
 ### Phase 4: Data Verification and Population
 **Goal**: All 190 data points (19 models x 10 categories) are human-verified and populated with full source tracking
@@ -194,7 +195,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 |-------|---------------|--------|-----------|
 | 1. Data Schema Design | 2/2 | ✓ Complete | 2026-02-14 |
 | 2. PDF Extraction Pipeline | 4/4 | ✓ Complete | 2026-02-15 |
-| 3. Web Scraping Pipeline | 0/TBD | Not started | - |
+| 3. Web Scraping Pipeline | 0/3 | In progress | - |
 | 4. Data Verification and Population | 0/TBD | Not started | - |
 | 5. MCP Data Access Layer | 0/TBD | Not started | - |
 | 6. Single Agent Core | 0/TBD | Not started | - |
