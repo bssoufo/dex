@@ -19,6 +19,56 @@ from backend.src.api.models import QueryRequest, QueryResponse
 
 
 # ---------------------------------------------------------------------------
+# CORS middleware tests
+# ---------------------------------------------------------------------------
+
+
+class TestCORSMiddleware:
+    """Verify CORS middleware is configured for dev and preview servers."""
+
+    def _get_cors_middleware_config(self):
+        """Find CORS middleware config from FastAPI's user_middleware list."""
+        from starlette.middleware.cors import CORSMiddleware
+
+        for mw in app.user_middleware:
+            if mw.cls is CORSMiddleware:
+                return mw.kwargs
+        return None
+
+    def test_cors_middleware_registered(self):
+        config = self._get_cors_middleware_config()
+        assert config is not None, "CORSMiddleware not found in app user_middleware"
+
+    def test_cors_allows_vite_dev_server(self):
+        config = self._get_cors_middleware_config()
+        assert config is not None
+        assert "http://localhost:5173" in config["allow_origins"]
+
+    def test_cors_allows_vite_preview_server(self):
+        config = self._get_cors_middleware_config()
+        assert config is not None
+        assert "http://localhost:4173" in config["allow_origins"]
+
+    @pytest.mark.asyncio
+    async def test_cors_preflight_returns_headers(self):
+        """OPTIONS preflight request should return CORS headers."""
+        async with AsyncClient(
+            transport=ASGITransport(app=app), base_url="http://test"
+        ) as client:
+            response = await client.options(
+                "/query/stream",
+                headers={
+                    "Origin": "http://localhost:5173",
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "Content-Type",
+                },
+            )
+        assert response.status_code == 200
+        assert "access-control-allow-origin" in response.headers
+        assert response.headers["access-control-allow-origin"] == "http://localhost:5173"
+
+
+# ---------------------------------------------------------------------------
 # Route registration tests
 # ---------------------------------------------------------------------------
 
