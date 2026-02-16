@@ -116,11 +116,11 @@
 | QUERY-03 | Phase 5 | Complete |
 | QUERY-04 | Phase 5 | Complete |
 | QUERY-05 | Phase 6 | Complete |
-| RESP-01 | Phase 8 | Pending |
+| RESP-01 | Phase 8 | Complete |
 | RESP-02 | Phase 6 | Complete |
 | RESP-03 | Phase 6 | Complete |
-| RESP-04 | Phase 8 | Pending |
-| RESP-05 | Phase 8 | Pending |
+| RESP-04 | Phase 8 | Complete |
+| RESP-05 | Phase 8 | Complete |
 | RESP-06 | Phase 6 | Complete |
 | UI-01 | Phase 9 | Pending |
 | UI-02 | Phase 9 | Pending |
