@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 3 in progress. Scrape module foundation complete (03-01). Next: manufacturer-specific parsers (03-02).
+**Current focus:** Phase 3 in progress. Manufacturer parsers complete (03-02). Next: merge pipeline and orchestrator (03-03).
 
 ## Current Position
 
 Phase: 3 of 10 (Web Scraping Pipeline) -- IN PROGRESS
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-02-16 -- Completed 03-01-PLAN.md (scrape foundation)
+Last activity: 2026-02-16 -- Completed 03-02-PLAN.md (manufacturer parsers)
 
-Progress: [███████░░░░░░░░░░░░░] ~30%
+Progress: [████████░░░░░░░░░░░░] ~35%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 22 min
-- Total execution time: 2.6 hours
+- Total plans completed: 8
+- Average duration: 21 min
+- Total execution time: 2.8 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [███████░░░░░░░░░░░░░] ~30%
 |-------|-------|-------|----------|
 | 1 - Data Schema | 2/2 | 31 min | 15.5 min |
 | 2 - PDF Extraction | 4/4 | 120 min | 30 min |
-| 3 - Web Scraping | 1/3 | 5 min | 5 min |
+| 3 - Web Scraping | 2/3 | 15 min | 7.5 min |
 
 **Recent Trend:**
-- Plan 03-01 completed in 5 min -- pure module creation with no external API calls or iteration cycles
+- Plan 03-02 completed in 10 min -- fetched live pages, analyzed HTML structure, built 3 parsers, tested 6 model pages
 
 ## Accumulated Context
 
@@ -71,6 +71,10 @@ Recent decisions affecting current work:
 - [03-01]: Per-domain rate limits in config dict -- Bullfrog 10s per robots.txt, others 2s
 - [03-01]: validate_model_name logs warning but does not raise on mismatch
 - [03-01]: hotspas.com added as Bullfrog fallback since dealer unit_ids may change
+- [03-02]: Sundance seating extracted from prose description since not a structured spec field
+- [03-02]: Hot Spring jet count dual-format: standalone total (Format A) vs summed breakdown (Format B)
+- [03-02]: Bullfrog model validation returns empty ScrapedSpecs on mismatch instead of raising
+- [03-02]: Bullfrog span.label/span.value as primary data source, table rows as supplementary
 
 ### Pending Todos
 
@@ -87,5 +91,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 03-01-PLAN.md (scrape foundation). Next: 03-02-PLAN.md (manufacturer parsers).
+Stopped at: Completed 03-02-PLAN.md (manufacturer parsers). Next: 03-03-PLAN.md (merge pipeline and orchestrator).
 Resume file: None
