@@ -1,7 +1,7 @@
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 import type { StreamCallbacks } from "../types";
 
-export const API_BASE = "/api";
+export const API_BASE = import.meta.env.VITE_API_BASE ?? "/api";
 
 export async function streamQuery(
   question: string,

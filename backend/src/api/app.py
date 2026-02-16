@@ -12,14 +12,20 @@ via LangGraph's InMemorySaver checkpointer keyed by thread_id.
 from __future__ import annotations
 
 import json
+import logging
+import os
 from contextlib import asynccontextmanager
+from pathlib import Path
 from uuid import uuid4
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 
 from backend.src.api.models import QueryRequest, QueryResponse
+
+logger = logging.getLogger(__name__)
 
 # Module-level state managed by lifespan
 _agent = None
@@ -45,16 +51,36 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Dex API", version="0.1.0", lifespan=lifespan)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
+
+if ENVIRONMENT == "production":
+    _cors_origins = [os.getenv("ALLOWED_ORIGIN", "*")]
+else:
+    _cors_origins = [
         "http://localhost:5173",  # Vite dev server
         "http://localhost:4173",  # Vite preview server
-    ],
+    ]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    """Catch unhandled exceptions -- return friendly message, log details."""
+    logger.exception("Unhandled error on %s %s", request.method, request.url.path)
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": "An internal error occurred. Please try again.",
+            "type": type(exc).__name__,
+        },
+    )
 
 
 @app.get("/health")
@@ -210,3 +236,25 @@ async def query_stream(request: QueryRequest):
             "X-Accel-Buffering": "no",
         },
     )
+
+
+# ---------------------------------------------------------------------------
+# Static file serving + SPA catch-all (MUST be after all API routes)
+# ---------------------------------------------------------------------------
+
+FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent.parent / "frontend" / "dist"
+
+if FRONTEND_DIR.exists():
+    app.mount(
+        "/assets",
+        StaticFiles(directory=FRONTEND_DIR / "assets"),
+        name="static-assets",
+    )
+
+    @app.get("/{path:path}")
+    async def serve_frontend(path: str):
+        """Serve React SPA -- any non-API path falls through to index.html."""
+        file_path = FRONTEND_DIR / path
+        if file_path.is_file() and ".." not in path:
+            return FileResponse(file_path)
+        return FileResponse(FRONTEND_DIR / "index.html")
