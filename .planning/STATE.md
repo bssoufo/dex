@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 6 complete. Single agent with 269 tests (15 integration). Next: Phase 7 (Multi-Agent Orchestration -- Concierge/Specialist/Validator split with conversation context).
+**Current focus:** Phase 7 in progress. Multi-agent supervisor graph built (07-01). Next: Wire into API with conversation support (07-02).
 
 ## Current Position
 
 Phase: 7 of 10 (Multi-Agent Orchestration)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-16 -- Completed Phase 6 (Single Agent Core)
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-16 -- Completed 07-01-PLAN.md
 
-Progress: [███████████████████░] ~62%
+Progress: [████████████████████░] ~65%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: 14.0 min
-- Total execution time: 4.0 hours
+- Total plans completed: 18
+- Average duration: 13.7 min
+- Total execution time: 4.15 hours
 
 **By Phase:**
 
@@ -33,11 +33,12 @@ Progress: [███████████████████░] ~62%
 | 4 - Data Verification | 3/3 | 14 min | 4.7 min |
 | 5 - MCP Data Access | 2/2 | 11 min | 5.5 min |
 | 6 - Single Agent Core | 3/3 | 38 min | 12.7 min |
+| 7 - Multi-Agent Orchestration | 1/TBD | 9 min | 9 min |
 
 **Recent Trend:**
+- Plan 07-01 completed in 9 min -- langgraph-supervisor multi-agent with 62 unit tests (291 total)
 - Plan 06-03 completed in 26 min -- 15 integration tests with real Gemini + MCP (longer due to iterative debugging of MCP subprocess env and Gemini content format)
 - Plan 06-02 completed in 5 min -- FastAPI REST API with /query endpoint and 10 tests
-- Plan 06-01 completed in 7 min -- LangGraph agent package with system prompt and 25 unit tests
 
 ## Accumulated Context
 
@@ -113,6 +114,11 @@ Recent decisions affecting current work:
 - [06-03]: Heater test uses Sundance Altamar (not Bullfrog M8) -- all Bullfrog heater data is null
 - [06-03]: Performance CI threshold 30s (not 3s) -- MCP subprocess startup + Gemini API latency
 - [06-03]: Checkpoint auto-approved per user directive for autonomous execution
+- [07-01]: Concierge gets list_models tool (not empty) to avoid Gemini empty schema errors
+- [07-01]: Validator is pure Python function called by API layer, NOT a LangGraph node
+- [07-01]: include_agent_name="inline" on create_supervisor for Gemini compatibility
+- [07-01]: output_mode="last_message" on create_supervisor to keep history lean
+- [07-01]: create_dex_agent kept as deprecated wrapper for backward compatibility
 
 ### Pending Todos
 
@@ -120,7 +126,7 @@ None.
 
 ### Blockers/Concerns
 
-- [Research]: Three sequential LLM calls (Concierge + Specialist + Validator) may exceed 3-second response target. May need faster model for Validator or parallel execution. Address in Phase 7.
+- [07-01]: Supervisor adds one LLM call for routing on top of agent calls. Latency impact TBD in integration testing (07-02+).
 - [06-03]: Single agent response time is 8-15s due to MCP subprocess startup (~5s per tool call). Persistent MCP connections would reduce this significantly. Address in Phase 7+.
 - [02-01]: Bullfrog 2026 manual not yet published. Using 2025 v1.1 -- specs likely carry forward but must verify when 2026 becomes available.
 - [02-01]: Part numbers are sparse in all 3 owner's manuals. Phase 3 web scraping and Phase 4 manual entry will be critical for part number population.
@@ -132,5 +138,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 06-03-PLAN.md. Phase 6 complete. Next: Phase 7 (multi-agent architecture).
+Stopped at: Completed 07-01-PLAN.md. Next: 07-02 (wire multi-agent into API with conversation support).
 Resume file: None
