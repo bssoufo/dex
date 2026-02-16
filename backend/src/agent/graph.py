@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import os
 import sys
+from pathlib import Path
 
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -17,7 +18,10 @@ from langgraph.prebuilt import create_react_agent
 
 from backend.src.agent.prompts import SYSTEM_PROMPT
 
-load_dotenv(dotenv_path="backend/.env")
+# Project root: resolve from this file's location (backend/src/agent/graph.py -> root)
+_PROJECT_ROOT = str(Path(__file__).resolve().parents[3])
+
+load_dotenv(dotenv_path=Path(_PROJECT_ROOT) / "backend" / ".env")
 
 
 def _create_model() -> ChatGoogleGenerativeAI:
@@ -38,18 +42,24 @@ def _create_model() -> ChatGoogleGenerativeAI:
 def _create_mcp_client() -> MultiServerMCPClient:
     """Create MCP client with stdio transport to Dex data server.
 
-    The command must be run from the project root where PYTHONPATH=.
-    is set. On Windows, use "python" (not "python3").
+    Sets cwd and PYTHONPATH to the project root so the subprocess
+    can always resolve ``backend.src.mcp`` regardless of the caller's
+    working directory.
 
     Returns:
         MultiServerMCPClient configured with the dex_data server.
     """
+    # Build env from current process env + explicit PYTHONPATH to project root
+    env = {**os.environ, "PYTHONPATH": _PROJECT_ROOT}
+
     return MultiServerMCPClient(
         {
             "dex_data": {
                 "command": sys.executable,
                 "args": ["-m", "backend.src.mcp"],
                 "transport": "stdio",
+                "cwd": _PROJECT_ROOT,
+                "env": env,
             }
         }
     )

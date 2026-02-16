@@ -35,8 +35,7 @@ async def lifespan(app: FastAPI):
 
     yield
 
-    if _mcp_client:
-        await _mcp_client.close()
+    # MultiServerMCPClient uses transient stdio sessions; no explicit cleanup needed
     _agent = None
     _mcp_client = None
 
@@ -69,6 +68,19 @@ async def query(request: QueryRequest):
     # Extract the final AI message
     ai_message = result["messages"][-1]
 
+    # Normalize content: Gemini may return a list of content blocks
+    raw = ai_message.content
+    if isinstance(raw, list):
+        parts = []
+        for block in raw:
+            if isinstance(block, dict) and "text" in block:
+                parts.append(block["text"])
+            elif isinstance(block, str):
+                parts.append(block)
+        answer_text = "\n".join(parts)
+    else:
+        answer_text = str(raw)
+
     # Collect tool call info for debugging
     tool_call_info = None
     tool_messages = [
@@ -79,4 +91,4 @@ async def query(request: QueryRequest):
             {"tool": m.name, "content": m.content[:200]} for m in tool_messages
         ]
 
-    return QueryResponse(answer=ai_message.content, tool_calls=tool_call_info)
+    return QueryResponse(answer=answer_text, tool_calls=tool_call_info)
