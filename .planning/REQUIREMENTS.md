@@ -122,9 +122,9 @@
 | RESP-04 | Phase 8 | Complete |
 | RESP-05 | Phase 8 | Complete |
 | RESP-06 | Phase 6 | Complete |
-| UI-01 | Phase 9 | Pending |
-| UI-02 | Phase 9 | Pending |
-| UI-03 | Phase 9 | Pending |
+| UI-01 | Phase 9 | Complete |
+| UI-02 | Phase 9 | Complete |
+| UI-03 | Phase 9 | Complete |
 | DEPLOY-01 | Phase 10 | Pending |
 | DEPLOY-02 | Phase 10 | Pending |
 
