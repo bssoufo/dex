@@ -113,8 +113,8 @@
 | AGENT-05 | Phase 7 | Pending |
 | QUERY-01 | Phase 6 | Pending |
 | QUERY-02 | Phase 7 | Pending |
-| QUERY-03 | Phase 5 | Pending |
-| QUERY-04 | Phase 5 | Pending |
+| QUERY-03 | Phase 5 | Complete |
+| QUERY-04 | Phase 5 | Complete |
 | QUERY-05 | Phase 6 | Pending |
 | RESP-01 | Phase 8 | Pending |
 | RESP-02 | Phase 6 | Pending |
