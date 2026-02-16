@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Web Scraping Pipeline** - Build automated extraction from manufacturer websites
 - [x] **Phase 4: Data Verification and Population** - Verify and populate all 190 data points with source tracking
 - [x] **Phase 5: MCP Data Access Layer** - Build deterministic query tools over verified data
-- [ ] **Phase 6: Single Agent Core** - Prove query accuracy with one agent before multi-agent split
+- [x] **Phase 6: Single Agent Core** - Prove query accuracy with one agent before multi-agent split
 - [ ] **Phase 7: Multi-Agent Orchestration** - Split into Concierge/Specialist/Validator with conversation context
 - [ ] **Phase 8: Response Quality** - Source attribution, cross-references, and polished output format
 - [ ] **Phase 9: Frontend** - React chat interface with table rendering
@@ -119,9 +119,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01-PLAN.md -- Install LangGraph/MCP adapters/Gemini, create agent package with system prompt and ReAct graph
-- [ ] 06-02-PLAN.md -- Create FastAPI app with /query endpoint, lifespan-managed MCP client, and endpoint tests
-- [ ] 06-03-PLAN.md -- Run integration test matrix with real LLM across all 10 categories, anti-hallucination, and performance
+- [x] 06-01-PLAN.md -- Install LangGraph/MCP adapters/Gemini, create agent package with system prompt and ReAct graph
+- [x] 06-02-PLAN.md -- Create FastAPI app with /query endpoint, lifespan-managed MCP client, and endpoint tests
+- [x] 06-03-PLAN.md -- Run integration test matrix with real LLM across all 10 categories, anti-hallucination, and performance
 
 ### Phase 7: Multi-Agent Orchestration
 **Goal**: The single agent is split into Concierge/Specialist/Validator with supervised handoffs and multi-turn conversation support
@@ -198,7 +198,7 @@ Note: Phases 2 and 3 can execute in parallel (both depend only on Phase 1). Phas
 | 3. Web Scraping Pipeline | 3/3 | ✓ Complete | 2026-02-16 |
 | 4. Data Verification and Population | 3/3 | ✓ Complete | 2026-02-16 |
 | 5. MCP Data Access Layer | 2/2 | ✓ Complete | 2026-02-16 |
-| 6. Single Agent Core | 0/3 | Not started | - |
+| 6. Single Agent Core | 3/3 | ✓ Complete | 2026-02-16 |
 | 7. Multi-Agent Orchestration | 0/TBD | Not started | - |
 | 8. Response Quality | 0/TBD | Not started | - |
 | 9. Frontend | 0/TBD | Not started | - |
