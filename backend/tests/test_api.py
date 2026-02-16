@@ -1,17 +1,20 @@
 """Tests for the Dex FastAPI application.
 
-Validates API route registration, request/response models, and
-the health endpoint. Does NOT test real agent invocation (that
-requires MCP subprocess + Gemini API and belongs in integration tests).
+Validates API route registration, request/response models, the
+health endpoint, and the SSE streaming endpoint structure. Does NOT
+test real agent invocation (that requires MCP subprocess + Gemini API
+and belongs in integration tests).
 """
 
 from __future__ import annotations
+
+import json
 
 import pytest
 from httpx import ASGITransport, AsyncClient
 from pydantic import ValidationError
 
-from backend.src.api.app import app
+from backend.src.api.app import _format_sse, _normalize_content, app
 from backend.src.api.models import QueryRequest, QueryResponse
 
 
@@ -40,6 +43,11 @@ class TestRouteRegistration:
         route_map = self._get_route_map()
         assert "/health" in route_map, "/health route not registered"
         assert "GET" in route_map["/health"], "/health should accept GET"
+
+    def test_stream_endpoint_exists(self):
+        route_map = self._get_route_map()
+        assert "/query/stream" in route_map, "/query/stream route not registered"
+        assert "POST" in route_map["/query/stream"], "/query/stream should accept POST"
 
 
 # ---------------------------------------------------------------------------
@@ -135,3 +143,120 @@ class TestHealthEndpoint:
         assert body["status"] == "ok"
         # agent_ready is false because lifespan does not run with TestClient
         assert body["agent_ready"] is False
+
+
+# ---------------------------------------------------------------------------
+# SSE streaming endpoint tests
+# ---------------------------------------------------------------------------
+
+
+class TestStreamEndpoint:
+    """Verify SSE streaming endpoint registration and request model."""
+
+    def test_stream_request_model_compatible(self):
+        """The /query/stream endpoint uses the same QueryRequest as /query."""
+        # Verify QueryRequest works for stream endpoint (same model, same validation)
+        req = QueryRequest(question="What pumps does the Cameo have?")
+        assert req.question == "What pumps does the Cameo have?"
+        assert req.conversation_id is None
+
+        # With conversation_id
+        req2 = QueryRequest(
+            question="Tell me more", conversation_id="session-abc"
+        )
+        assert req2.conversation_id == "session-abc"
+
+        # Empty question still rejected (same min_length=1 validation)
+        with pytest.raises(ValidationError):
+            QueryRequest(question="")
+
+    @pytest.mark.asyncio
+    async def test_stream_returns_503_when_agent_not_initialized(self):
+        """Without lifespan, agent is None so /query/stream returns 503."""
+        async with AsyncClient(
+            transport=ASGITransport(app=app), base_url="http://test"
+        ) as client:
+            response = await client.post(
+                "/query/stream",
+                json={"question": "test question"},
+            )
+        assert response.status_code == 503
+        assert response.json()["detail"] == "Agent not initialized"
+
+
+class TestSSEEventFormat:
+    """Verify SSE event formatting helpers used by the stream endpoint."""
+
+    def test_format_sse_metadata_event(self):
+        result = _format_sse("metadata", {"conversation_id": "abc-123"})
+        assert result == 'event: metadata\ndata: {"conversation_id": "abc-123"}\n\n'
+
+    def test_format_sse_token_event(self):
+        result = _format_sse("token", {"content": "Hello world", "node": "specialist"})
+        parsed_data = json.loads(result.split("data: ", 1)[1].split("\n")[0])
+        assert parsed_data["content"] == "Hello world"
+        assert parsed_data["node"] == "specialist"
+        assert result.startswith("event: token\n")
+        assert result.endswith("\n\n")
+
+    def test_format_sse_done_event(self):
+        result = _format_sse("done", {"status": "complete"})
+        assert result == 'event: done\ndata: {"status": "complete"}\n\n'
+
+    def test_format_sse_validation_event(self):
+        warnings = ["No tool calls detected"]
+        result = _format_sse("validation", {"warnings": warnings})
+        parsed_data = json.loads(result.split("data: ", 1)[1].split("\n")[0])
+        assert parsed_data["warnings"] == ["No tool calls detected"]
+
+    def test_format_sse_validation_event_empty_warnings(self):
+        result = _format_sse("validation", {"warnings": []})
+        parsed_data = json.loads(result.split("data: ", 1)[1].split("\n")[0])
+        assert parsed_data["warnings"] == []
+
+    def test_format_sse_data_is_valid_json(self):
+        """All SSE data payloads must be valid JSON."""
+        events = [
+            _format_sse("metadata", {"conversation_id": "x"}),
+            _format_sse("token", {"content": "text", "node": "n"}),
+            _format_sse("done", {"status": "complete"}),
+            _format_sse("validation", {"warnings": []}),
+        ]
+        for event_str in events:
+            lines = event_str.strip().split("\n")
+            data_line = [l for l in lines if l.startswith("data: ")][0]
+            json_str = data_line[len("data: "):]
+            parsed = json.loads(json_str)
+            assert isinstance(parsed, dict)
+
+    def test_format_sse_special_characters_in_content(self):
+        """SSE with special chars (quotes, newlines) in content is valid JSON."""
+        result = _format_sse("token", {"content": 'He said "hello"\nnew line', "node": "s"})
+        data_line = [l for l in result.strip().split("\n") if l.startswith("data: ")][0]
+        parsed = json.loads(data_line[len("data: "):])
+        assert parsed["content"] == 'He said "hello"\nnew line'
+
+
+class TestNormalizeContent:
+    """Verify content normalization for Gemini list-of-blocks format."""
+
+    def test_normalize_string_content(self):
+        assert _normalize_content("Hello world") == "Hello world"
+
+    def test_normalize_list_of_text_blocks(self):
+        blocks = [{"text": "Part 1"}, {"text": "Part 2"}]
+        assert _normalize_content(blocks) == "Part 1\nPart 2"
+
+    def test_normalize_list_of_strings(self):
+        blocks = ["Part 1", "Part 2"]
+        assert _normalize_content(blocks) == "Part 1\nPart 2"
+
+    def test_normalize_mixed_list(self):
+        blocks = [{"text": "From dict"}, "Plain string"]
+        assert _normalize_content(blocks) == "From dict\nPlain string"
+
+    def test_normalize_empty_list(self):
+        assert _normalize_content([]) == ""
+
+    def test_normalize_non_string_fallback(self):
+        assert _normalize_content(42) == "42"
