@@ -14,6 +14,7 @@ Test groups:
   4. Performance (1) -- simple query completes within 45s threshold
   5. Multi-turn conversation (2) -- follow-up questions maintain context via thread_id
   6. Disambiguation (1) -- ambiguous queries trigger clarification from Concierge
+  7. Response quality (5) -- source attribution, formatting, cross-references
 
 LLM responses are non-deterministic, so tests use ``--reruns=2`` to handle
 occasional flaky answers from Gemini.  A test that passes on retry is
@@ -506,3 +507,163 @@ async def test_ambiguous_query_gets_clarification(agent_and_client):
     )
 
     print(f"\n  [disambiguation] answered in {elapsed:.1f}s: {answer[:100]}")
+
+
+# ---------------------------------------------------------------------------
+# Test Group 7: Response quality (5 tests)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.timeout(60)
+async def test_response_includes_source_attribution(agent_and_client):
+    """Agent response includes a Source: line citing the data origin.
+
+    Validates RESP-01: every response that uses tool data cites its source.
+    The specialist prompt mandates ending with 'Source: [document]'.
+    """
+    agent, _client = agent_and_client
+    answer, elapsed = await _ask(
+        agent, "What is the heater spec for the Sundance Cameo?"
+    )
+
+    import re
+
+    assert len(answer) > 20, f"Answer too short ({len(answer)} chars): {answer!r}"
+
+    # Check for source attribution (case-insensitive)
+    has_source = bool(re.search(r"[Ss]ources?:", answer))
+    assert has_source, (
+        f"Expected 'Source:' attribution line in response, got: {answer[:400]}"
+    )
+
+    print(f"\n  [source attribution] answered in {elapsed:.1f}s")
+    print(f"  [source attribution] answer: {answer[:200]}...")
+
+
+@pytest.mark.timeout(60)
+async def test_response_scannable_format(agent_and_client):
+    """Agent response uses bullet points and multiple lines, not prose paragraphs.
+
+    Validates RESP-05: clean scannable format with specs as bulleted lists.
+    """
+    agent, _client = agent_and_client
+    answer, elapsed = await _ask(
+        agent, "What jet pumps does the Sundance Aspen have?"
+    )
+
+    assert len(answer) > 20, f"Answer too short ({len(answer)} chars): {answer!r}"
+
+    # Check for bullet points (- or * at start of a line)
+    lines = answer.strip().split("\n")
+    bullet_lines = [
+        line for line in lines
+        if line.strip().startswith("-") or line.strip().startswith("*")
+    ]
+    has_bullets = len(bullet_lines) >= 1
+
+    assert has_bullets, (
+        f"Expected bullet points (- or *) in response, got:\n{answer[:400]}"
+    )
+
+    # Check for multi-line (at least 3 non-empty lines)
+    non_empty_lines = [line for line in lines if line.strip()]
+    assert len(non_empty_lines) >= 3, (
+        f"Expected 3+ non-empty lines for scannable format, got {len(non_empty_lines)}: {answer[:400]}"
+    )
+
+    print(f"\n  [scannable format] answered in {elapsed:.1f}s")
+    print(f"  [scannable format] {len(bullet_lines)} bullet lines, {len(non_empty_lines)} total lines")
+
+
+@pytest.mark.timeout(60)
+async def test_response_includes_cross_references(agent_and_client):
+    """Agent response mentions other models when querying a shared component.
+
+    Validates RESP-04: cross-reference information appears for shared components.
+    Sundance heater is shared across ALL 7 models in the 880 series.
+    """
+    agent, _client = agent_and_client
+    answer, elapsed = await _ask(
+        agent, "What heater does the Sundance Aspen use?"
+    )
+
+    assert len(answer) > 20, f"Answer too short ({len(answer)} chars): {answer!r}"
+
+    answer_lower = answer.lower()
+
+    # Check for cross-reference: either other model names or "shared across" language
+    other_sundance_models = ["altamar", "cameo", "optima", "marin", "capris", "vistamar"]
+    has_model_name = any(m in answer_lower for m in other_sundance_models)
+    has_shared_phrase = any(
+        phrase in answer_lower
+        for phrase in [
+            "shared across all",
+            "also used in",
+            "same heater",
+            "shared by",
+            "used in all",
+            "all sundance",
+            "all 880",
+            "other models",
+            "cross-reference",
+        ]
+    )
+
+    assert has_model_name or has_shared_phrase, (
+        f"Expected cross-reference info (other model names or 'shared across' phrase), "
+        f"got: {answer[:400]}"
+    )
+
+    print(f"\n  [cross-references] answered in {elapsed:.1f}s")
+    print(f"  [cross-references] model names found: {has_model_name}, shared phrase: {has_shared_phrase}")
+
+
+@pytest.mark.timeout(60)
+async def test_response_bold_formatting(agent_and_client):
+    """Agent response uses bold markdown markers for key values.
+
+    Validates RESP-05: part numbers and key values are prominently
+    displayed with emphasis using **bold** markers.
+    """
+    agent, _client = agent_and_client
+    answer, elapsed = await _ask(
+        agent, "What filter does the Sundance Cameo use?"
+    )
+
+    assert len(answer) > 20, f"Answer too short ({len(answer)} chars): {answer!r}"
+
+    # Check for bold markdown markers (**)
+    assert "**" in answer, (
+        f"Expected **bold** markdown markers in response, got: {answer[:400]}"
+    )
+
+    print(f"\n  [bold formatting] answered in {elapsed:.1f}s")
+    print(f"  [bold formatting] answer: {answer[:200]}...")
+
+
+@pytest.mark.timeout(60)
+async def test_response_quality_no_regression(agent_and_client):
+    """Enhanced prompt does not degrade accuracy or performance.
+
+    Sanity check that the response quality improvements (source attribution,
+    cross-references, formatting) do not break basic spec lookup behavior.
+    """
+    agent, _client = agent_and_client
+    answer, elapsed = await _ask(
+        agent, "What pump does the Hot Spring Grandee use?"
+    )
+
+    assert len(answer) > 20, f"Answer too short ({len(answer)} chars): {answer!r}"
+
+    # Domain keywords still present
+    answer_lower = answer.lower()
+    found = any(kw in answer_lower for kw in ["pump", "hp", "speed"])
+    assert found, (
+        f"Expected domain keywords (pump, hp, speed) in answer, got: {answer[:300]}"
+    )
+
+    # Performance not degraded (60s allows for MCP subprocess startup + Gemini API)
+    assert elapsed < 60, f"Response took {elapsed:.1f}s (limit 60s)"
+
+    print(f"\n  [no regression] answered in {elapsed:.1f}s")
+    print(f"  [no regression] answer: {answer[:200]}...")
