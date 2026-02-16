@@ -26,13 +26,13 @@ def create_model() -> ChatGoogleGenerativeAI:
 
     Returns:
         ChatGoogleGenerativeAI configured with gemini-2.5-flash,
-        temperature=0, and max 1024 output tokens.
+        temperature=0, and max 2048 output tokens.
     """
     return ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
         google_api_key=os.getenv("GEMINI_API_KEY"),
         temperature=0,
-        max_output_tokens=1024,
+        max_output_tokens=2048,
     )
 
 
