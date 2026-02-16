@@ -5,22 +5,22 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** 100% accurate retrieval of technical specifications and part numbers -- a wrong part is a failure.
-**Current focus:** Phase 5 in progress. MCP data access layer: FastMCP 2.14.5 server with 3 enum-constrained tools over 19 verified models. Plan 01 complete (server + tools). Next: Plan 02 (integration tests) or Phase 6 (agent).
+**Current focus:** Phase 5 complete. MCP data access layer fully tested: FastMCP 2.14.5 server with 3 enum-constrained tools, 219 integration tests covering all 190 model-category combinations. Next: Phase 6 (LangGraph agent).
 
 ## Current Position
 
 Phase: 5 of 10 (MCP Data Access Layer)
-Plan: 1 of TBD in current phase
-Status: In progress
-Last activity: 2026-02-16 -- Completed 05-01-PLAN.md (MCP server with 3 tools)
+Plan: 2 of 2 in current phase
+Status: Phase complete
+Last activity: 2026-02-16 -- Completed 05-02-PLAN.md (MCP integration tests)
 
-Progress: [█████████████░░░░░░░] ~48%
+Progress: [██████████████░░░░░░] ~52%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
-- Average duration: 15 min
+- Total plans completed: 14
+- Average duration: 14.2 min
 - Total execution time: 3.3 hours
 
 **By Phase:**
@@ -31,9 +31,10 @@ Progress: [█████████████░░░░░░░] ~48%
 | 2 - PDF Extraction | 4/4 | 120 min | 30 min |
 | 3 - Web Scraping | 3/3 | 22 min | 7.3 min |
 | 4 - Data Verification | 3/3 | 14 min | 4.7 min |
-| 5 - MCP Data Access | 1/? | 7 min | 7 min |
+| 5 - MCP Data Access | 2/2 | 11 min | 5.5 min |
 
 **Recent Trend:**
+- Plan 05-02 completed in 4 min -- 219 integration tests covering all MCP tools
 - Plan 05-01 completed in 7 min -- FastMCP server with 3 tools, enums, data store
 
 ## Accumulated Context
@@ -97,6 +98,8 @@ Recent decisions affecting current work:
 - [05-01]: Case-insensitive lookup internally while Literal type enforces canonical case at protocol level
 - [05-01]: model_dump() without exclude_none to preserve null fields (shows what is missing)
 - [05-01]: not_available_fields scoped per category by prefix matching on data_quality.not_available_fields
+- [05-02]: testpaths = ["tests"] relative to backend/ rootdir in pyproject.toml
+- [05-02]: parse_result() helper handles CallToolResult.content[0].text JSON parsing with future-proof fallbacks
 
 ### Pending Todos
 
@@ -115,5 +118,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 05-01-PLAN.md (MCP server with 3 tools). Next: Phase 5 Plan 02 (integration tests) or Phase 6 (agent).
+Stopped at: Completed 05-02-PLAN.md (MCP integration tests). Phase 5 complete. Next: Phase 6 (LangGraph agent).
 Resume file: None
