@@ -11,9 +11,20 @@
         "model_name": null,
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": null,
-        "speed": "2-speed",
-        "amperage_max": null,
-        "frame": null,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56",
+        "voltage": 240,
+        "part_number": null
+      },
+      {
+        "position": 2,
+        "model_name": null,
+        "horsepower_continuous": 2.5,
+        "horsepower_breakdown": null,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56",
         "voltage": 240,
         "part_number": null
       }
@@ -49,7 +60,7 @@
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 45,
+    "total_jet_count": 66,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
@@ -81,9 +92,9 @@
     "filters": [
       {
         "system_name": null,
-        "filter_type": "Pleated",
-        "filtration_area_sqft": 100.0,
-        "quantity": 1,
+        "filter_type": "MicroClean Ultra II",
+        "filtration_area_sqft": 130.0,
+        "quantity": 2,
         "description": null,
         "no_bypass": null,
         "part_number": null
@@ -115,12 +126,12 @@
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 91.0,
-    "width_inches": 91.0,
-    "height_inches": 38.5,
-    "dry_weight_lbs": 850.0,
-    "filled_weight_lbs": 4500.0,
-    "water_capacity_gallons": 420.0
+    "length_inches": 89.0,
+    "width_inches": 110.0,
+    "height_inches": 40.0,
+    "dry_weight_lbs": 1240.0,
+    "filled_weight_lbs": null,
+    "water_capacity_gallons": 505.0
   },
   "voltage": 240,
   "amperage": 50,
