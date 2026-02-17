@@ -1,6 +1,31 @@
 # Python
 __pycache__/
 *.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Environment / secrets
+.env
+backend/.env
 
 # Downloaded manufacturer PDFs (large binaries)
 backend/src/etl/pdf_store/**/*.pdf
+
+# IDE
+.vscode/
+.idea/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+nul
+
+# Node
+node_modules/
+frontend/dist/
+
+# Debug / temp
+mcp_stderr.txt
+*.log
