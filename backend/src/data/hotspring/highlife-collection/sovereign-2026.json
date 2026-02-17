@@ -84,14 +84,21 @@
       },
       {
         "jet_type": "Directional Hydromassage jet",
-        "quantity": 3,
+        "quantity": 1,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "HydroStream jet",
+        "quantity": 4,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
         "jet_type": "Directional Precision jet",
-        "quantity": 18,
+        "quantity": 16,
         "zone": null,
         "part_number": null,
         "description": null
