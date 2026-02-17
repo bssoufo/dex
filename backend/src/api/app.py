@@ -86,8 +86,24 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 @app.get("/health")
 async def health():
-    """Health check endpoint."""
-    return {"status": "ok", "agent_ready": _agent is not None}
+    """Health check endpoint with data freshness info."""
+    from backend.src.mcp.data_store import get_store
+
+    store = get_store()
+    # Show latest verification date across all models for quick freshness check
+    latest_verified = None
+    for model in store.values():
+        dq = model.data_quality
+        if dq and dq.verification_date:
+            if latest_verified is None or dq.verification_date > latest_verified:
+                latest_verified = dq.verification_date
+
+    return {
+        "status": "ok",
+        "agent_ready": _agent is not None,
+        "models_loaded": len(store),
+        "data_verified": latest_verified,
+    }
 
 
 @app.get("/data-quality")
@@ -135,6 +151,8 @@ async def query(request: QueryRequest):
     Runs the deterministic validator on every response and includes
     any warnings in the response payload.
     """
+    logger.info("POST /query: %r", request.question)
+
     if _agent is None:
         from fastapi import HTTPException
 
@@ -180,6 +198,10 @@ async def query(request: QueryRequest):
 
     warnings = validate_response(result)
     validation_warnings = warnings if warnings else None
+
+    logger.info("POST /query: answered (conv=%s, tools=%d, warnings=%s)",
+                conv_id[:8], len(tool_call_info) if tool_call_info else 0,
+                len(validation_warnings) if validation_warnings else 0)
 
     return QueryResponse(
         answer=answer_text,
@@ -236,6 +258,8 @@ async def query_stream(request: QueryRequest):
     3. ``done``     -- signals streaming is complete
     4. ``validation`` -- validator warnings on the accumulated response
     """
+    logger.info("POST /query/stream: %r", request.question)
+
     if _agent is None:
         from fastapi import HTTPException
 

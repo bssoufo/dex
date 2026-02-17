@@ -49,7 +49,18 @@ def load_all_models() -> dict[ModelKey, SpaModel]:
         model = SpaModel.model_validate(raw)
         key: ModelKey = (model.manufacturer.value, model.model_name.lower())
         store[key] = model
-        logger.debug("Loaded model: %s %s", model.manufacturer.value, model.model_name)
+
+        # Log each model with quality info so we can verify data freshness
+        dq = model.data_quality
+        verified = dq.verification_date if dq else "N/A"
+        completeness = f"{dq.completeness_pct}%" if dq else "N/A"
+        logger.info(
+            "  Loaded %-12s %-14s verified=%s completeness=%s",
+            model.manufacturer.value,
+            model.model_name,
+            verified,
+            completeness,
+        )
 
     if len(store) != 19:
         raise RuntimeError(
@@ -57,7 +68,7 @@ def load_all_models() -> dict[ModelKey, SpaModel]:
             f"Found {len(json_files)} JSON files in {DATA_DIR}"
         )
 
-    logger.info("Data store initialized: %d models loaded", len(store))
+    logger.info("Data store ready: %d models loaded from %s", len(store), DATA_DIR)
     return store
 
 

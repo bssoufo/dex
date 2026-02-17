@@ -12,6 +12,7 @@ cannot invent invalid model names or category names.
 
 from __future__ import annotations
 
+import logging
 from typing import Annotated
 
 from fastmcp import FastMCP
@@ -20,6 +21,8 @@ from pydantic import Field
 from backend.src.mcp.data_store import get_model, get_store, find_cross_references as _find_xref
 from backend.src.mcp.enums import ModelName, SpecCategory
 from backend.src.schema.enums import Manufacturer
+
+logger = logging.getLogger(__name__)
 
 mcp = FastMCP(
     name="DexDataServer",
@@ -48,8 +51,11 @@ def get_spec_category(
     are confirmed unavailable from manufacturer documentation, and
     source_documents for provenance tracking.
     """
+    logger.info("get_spec_category: %s %s -> %s", manufacturer.value, model_name, category.value)
+
     model = get_model(manufacturer.value, model_name)
     if model is None:
+        logger.warning("get_spec_category: model not found %s/%s", manufacturer.value, model_name)
         return {
             "success": False,
             "message": (
@@ -57,6 +63,15 @@ def get_spec_category(
                 f"manufacturer '{manufacturer.value}'"
             ),
         }
+
+    dq = model.data_quality
+    logger.info(
+        "get_spec_category: serving %s %s (verified=%s, completeness=%s%%)",
+        manufacturer.value,
+        model_name,
+        dq.verification_date if dq else "N/A",
+        dq.completeness_pct if dq else "N/A",
+    )
 
     category_data = getattr(model, category.value, None)
     if category_data is None:
@@ -101,8 +116,11 @@ def get_model_overview(
     Use this to understand what data exists for a model before querying
     specific categories with get_spec_category.
     """
+    logger.info("get_model_overview: %s %s", manufacturer.value, model_name)
+
     model = get_model(manufacturer.value, model_name)
     if model is None:
+        logger.warning("get_model_overview: model not found %s/%s", manufacturer.value, model_name)
         return {
             "success": False,
             "message": (
@@ -147,6 +165,8 @@ def list_models(
     for each model (manufacturer, series, model name, year, seating capacity).
     Use this for discovery before querying specific models.
     """
+    logger.info("list_models: manufacturer=%s", manufacturer.value if manufacturer else "all")
+
     store = get_store()
     models: list[dict] = []
     for spa_model in store.values():
@@ -184,6 +204,8 @@ def find_cross_references(
     pump/heater/filter?' Returns the list of matching model names and the total
     count of models from that manufacturer for context.
     """
+    logger.info("find_cross_references: %s %s -> %s", manufacturer.value, model_name, category.value)
+
     matches = _find_xref(manufacturer.value, model_name, category.value)
 
     # Count total models for this manufacturer
