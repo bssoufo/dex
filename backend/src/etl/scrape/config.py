@@ -2,6 +2,8 @@
 
 Contains the URL registry for all 19 spa models across 3 manufacturers,
 per-domain rate limits, and helper functions for URL-based configuration.
+
+All URLs point to manufacturer websites only (no dealer sites).
 """
 
 from __future__ import annotations
@@ -13,6 +15,7 @@ from src.etl.config import DATA_OUTPUT_DIR  # noqa: F401 -- re-export for scrape
 # === URL Registry ===
 # Maps manufacturer key -> list of model entries.
 # Each entry: model_name (matches MANUFACTURERS config), url, optional alt_url.
+# All URLs are manufacturer-owned domains.
 
 SCRAPE_URLS: dict[str, list[dict[str, str | None]]] = {
     "sundance": [
@@ -56,81 +59,79 @@ SCRAPE_URLS: dict[str, list[dict[str, str | None]]] = {
         {
             "model_name": "Grandee",
             "url": "https://www.hotspring.com/shop/highlife/grandee",
-            "alt_url": "https://www.hotspringhottubs.com/grandee/",
+            "alt_url": None,
         },
         {
             "model_name": "Envoy",
             "url": "https://www.hotspring.com/shop/highlife/envoy",
-            "alt_url": "https://www.hotspringhottubs.com/envoy/",
+            "alt_url": None,
         },
         {
             "model_name": "Aria",
             "url": "https://www.hotspring.com/shop/highlife/aria",
-            "alt_url": "https://www.hotspringhottubs.com/aria/",
+            "alt_url": None,
         },
         {
             "model_name": "Vanguard",
             "url": "https://www.hotspring.com/shop/highlife/vanguard",
-            "alt_url": "https://www.hotspringhottubs.com/vanguard/",
+            "alt_url": None,
         },
         {
             "model_name": "Sovereign",
             "url": "https://www.hotspring.com/shop/highlife/sovereign",
-            "alt_url": "https://www.hotspringhottubs.com/sovereign/",
+            "alt_url": None,
         },
         {
             "model_name": "Prodigy",
             "url": "https://www.hotspring.com/shop/highlife/prodigy",
-            "alt_url": "https://www.hotspringhottubs.com/prodigy/",
+            "alt_url": None,
         },
         {
             "model_name": "Jetsetter LX",
-            "url": "https://olympichottub.com/hot-tub/jetsetter-lx/",
-            "alt_url": "https://www.hotspring.com/shop/highlife/jetsetter-lx",
+            "url": "https://www.hotspring.com/shop/highlife/jetsetter-lx",
+            "alt_url": None,
         },
         {
             "model_name": "Jetsetter",
             "url": "https://www.hotspring.com/shop/highlife/jetsetter",
-            "alt_url": "https://www.hotspringhottubs.com/jetsetter/",
+            "alt_url": None,
         },
     ],
     "bullfrog": [
         {
             "model_name": "M9",
-            "url": "https://www.skillfulhome.com/products/bullfrog-spas-hot-tubs/bullfrog-spas-m-series-hot-tubs/bullfrog-spas-model-m9/",
-            "alt_url": "https://patiosplash.com/bullfrog-spas/m-series/m9/",
+            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m9/",
+            "alt_url": None,
         },
         {
             "model_name": "M8",
-            "url": "https://patiosplash.com/bullfrog-spas/m-series/m8/",
-            "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m8/",
+            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m8/",
+            "alt_url": None,
         },
         {
             "model_name": "M7",
-            "url": "https://patiosplash.com/bullfrog-spas/m-series/m7/",
-            "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m7/",
+            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m7/",
+            "alt_url": None,
         },
         {
             "model_name": "M6",
-            "url": "https://www.skillfulhome.com/products/bullfrog-spas-hot-tubs/bullfrog-spas-m-series-hot-tubs/bullfrog-spas-m6/",
-            "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m6/",
+            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m6/",
+            "alt_url": None,
         },
     ],
 }
 
+# === Domains requiring a browser (JS-rendered content) ===
+
+REQUIRES_BROWSER: set[str] = {"bullfrogspas.com", "hotspring.com"}
+
 # === Rate Limits ===
 # Per-domain delay in seconds between requests.
-# Bullfrog robots.txt specifies crawl-delay of 10 seconds.
 
 RATE_LIMITS: dict[str, float] = {
     "sundancespas.com": 2.0,
     "hotspring.com": 2.0,
-    "hotspringhottubs.com": 2.0,
-    "olympichottub.com": 2.0,
-    "patiosplash.com": 2.0,
-    "skillfulhome.com": 2.0,
-    "bullfrogfactorystores.com": 10.0,
-    "hotspas.com": 2.0,
+    "bullfrogspas.com": 3.0,
 }
 
 DEFAULT_RATE_LIMIT: float = 2.0
@@ -144,3 +145,9 @@ def get_delay_for_url(url: str) -> float:
     """
     domain = urlparse(url).netloc.removeprefix("www.")
     return RATE_LIMITS.get(domain, DEFAULT_RATE_LIMIT)
+
+
+def needs_browser(url: str) -> bool:
+    """Return True if the URL requires a browser (Playwright) to render."""
+    domain = urlparse(url).netloc.removeprefix("www.")
+    return domain in REQUIRES_BROWSER

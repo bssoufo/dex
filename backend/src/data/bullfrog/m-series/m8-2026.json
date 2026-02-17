@@ -3,7 +3,7 @@
   "series": "M Series",
   "model_name": "M8",
   "year": 2026,
-  "seating_capacity": 8,
+  "seating_capacity": 9,
   "jet_pumps": {
     "pumps": [
       {
@@ -63,33 +63,23 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "Premium Touch Screen Main Control",
-    "type": "Touch Screen",
+    "model_name": null,
+    "type": "écran tactile",
     "features": [
-      "capacitive touch interface",
-      "resistant to water interference",
-      "thoughtful user experience",
-      "easy to understand",
-      "simple to navigate"
+      "réglage de la piste et du volume via la commande principale",
+      "réglage du volume via les commandes auxiliaires multifonctions",
+      "Commandes auxiliaires à 4 fonctions de qualité supérieure"
     ],
-    "smart_connectivity": null,
+    "smart_connectivity": "Module Wifi CloudControl +™",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 36,
+    "total_jet_count": null,
     "jet_system_type": "modular_jetpak",
-    "jets_by_type": [
-      {
-        "jet_type": "Therapy Jets",
-        "quantity": 36,
-        "zone": "Foot, Wrist, Hip, Leg, Elevated Seat",
-        "part_number": null,
-        "description": null
-      }
-    ],
+    "jets_by_type": [],
     "jetpak_count": 6,
-    "jetpak_options": null,
+    "jetpak_options": 33,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -97,10 +87,10 @@
   "headrests": {
     "headrests": [
       {
-        "type": "Adjustable",
+        "type": "réglables",
         "quantity": null,
         "part_number": null,
-        "description": "ultra-comfortable adjustable headrests that adjust upward to meet your head in just the right position"
+        "description": null
       }
     ],
     "shared_with_series": false
@@ -108,11 +98,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity™ Filtration System",
-        "filter_type": "Flat Filter",
+        "system_name": "Simplicity™",
+        "filter_type": "plat",
         "filtration_area_sqft": null,
         "quantity": null,
-        "description": "Featuring dual intakes for more effective skimming, an in-wall design that saves an incredible amount of space for seating, and an industry-first flat filter.",
+        "description": null,
         "no_bypass": null,
         "part_number": null
       }
@@ -130,34 +120,27 @@
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
-        "type": "LED",
-        "description": "full-color in-spa lighting",
+        "location": "intérieur",
+        "type": "LED Premium M Series",
+        "description": null,
         "part_number": null
       },
       {
-        "location": "Exterior",
-        "type": "LED",
-        "description": "impressive exterior rim lighting",
-        "part_number": null
-      },
-      {
-        "location": "Headrests",
-        "type": "LED",
-        "description": "lighted headrests",
+        "location": "extérieur",
+        "type": "Premium M Series",
+        "description": null,
         "part_number": null
       }
     ],
-    "water_feature": "Integrated Waterfalls",
+    "water_feature": "Jeu d’eau Premium activé par la commande M Series",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "Patio Performance™ Cover",
+    "model_name": "M Series Premium Patio Performance",
     "thickness": null,
-    "material": null,
+    "material": "Patio Performance",
     "features": [
-      "Smart Sensor Functionality",
-      "Smart sensor technology"
+      "technologie de capteur intelligent"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -168,22 +151,22 @@
     "length_inches": 94.0,
     "width_inches": 94.0,
     "height_inches": 38.0,
-    "dry_weight_lbs": 1085.0,
-    "filled_weight_lbs": 6310.0,
+    "dry_weight_lbs": 1024.0,
+    "filled_weight_lbs": 6249.0,
     "water_capacity_gallons": 474.0
   },
   "voltage": 240,
-  "amperage": 60,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://patiosplash.com/bullfrog-spas/m-series/m8/",
+      "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m8/",
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -192,13 +175,15 @@
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
+      "amperage",
       "circulation_pump.model_name",
+      "jets.total_jet_count",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage",
       "jet_pumps.pumps[].horsepower_continuous"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 75.0
+    "completeness_pct": 65.0
   }
 }

@@ -26,6 +26,9 @@ nul
 node_modules/
 frontend/dist/
 
+# HTML cache (web extraction pipeline)
+backend/src/etl/scrape/cache/
+
 # Debug / temp
 mcp_stderr.txt
 *.log

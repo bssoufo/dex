@@ -44,25 +44,26 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": 240,
+    "voltage": null,
     "amperage": null,
-    "frequency_hz": 60,
+    "frequency_hz": null,
     "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": "Advanced Touch Control Panel",
-    "type": "color touchscreen",
+    "type": "Touch Control Panel",
     "features": [
+      "glowing, color touchscreen control",
       "icon-driven menus"
     ],
-    "smart_connectivity": "SmartTub™ System",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 49,
+    "total_jet_count": null,
     "jet_system_type": "fixed",
     "jets_by_type": [],
     "jetpak_count": null,
@@ -78,8 +79,8 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean® Ultra Filtration",
-        "filter_type": "MicroClean® Ultra II Filtration System",
+        "system_name": "MicroClean® Ultra II Filtration System",
+        "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
         "quantity": 1,
         "description": "2 interlocking cartridge filters",
@@ -106,6 +107,12 @@
         "part_number": null
       },
       {
+        "location": "waterfall",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
         "location": "footwell",
         "type": "Multicolor SunGlow™ LED",
         "description": null,
@@ -120,7 +127,7 @@
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant exterior LED lighting",
+        "description": "elegant",
         "part_number": null
       }
     ],
@@ -131,7 +138,9 @@
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [],
+    "features": [
+      "designed for cold, harsh climates"
+    ],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
@@ -156,7 +165,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -168,10 +177,12 @@
       "amperage",
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
+      "jets.total_jet_count",
       "heater.wattage",
-      "heater.voltage"
+      "heater.voltage",
+      "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 75.0
+    "completeness_pct": 65.0
   }
 }

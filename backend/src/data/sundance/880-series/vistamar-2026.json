@@ -52,28 +52,20 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": "Advanced Touch Control Panel",
+    "model_name": "Advanced Touch Control Panel",
+    "type": "Touch Control Panel",
     "features": [
       "glowing, color touchscreen control",
       "icon-driven menus"
     ],
-    "smart_connectivity": "Compatible with optional SmartTub™ System.",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
     "total_jet_count": 41,
     "jet_system_type": "fixed",
-    "jets_by_type": [
-      {
-        "jet_type": "Fluidix® PT",
-        "quantity": 1,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      }
-    ],
+    "jets_by_type": [],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -109,7 +101,25 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa interior, waterfall, footwell and backlit grab bar",
+        "location": "spa interior",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "waterfall",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "footwell",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "backlit grab bar",
         "type": "Multicolor SunGlow™ LED",
         "description": null,
         "part_number": null
@@ -117,7 +127,7 @@
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant exterior LED lighting",
+        "description": null,
         "part_number": null
       }
     ],
@@ -155,7 +165,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }

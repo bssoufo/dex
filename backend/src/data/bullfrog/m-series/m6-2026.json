@@ -35,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": null,
+    "description": "dedicated",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -43,39 +43,48 @@
   },
   "spa_pak": {
     "model_name": null,
-    "display_type": null,
+    "display_type": "écran tactile",
     "voltage": null,
     "amperage": null,
     "frequency_hz": null,
-    "features": [],
+    "features": [
+      "Commandes auxiliaires multifonctions",
+      "réglage de la piste et du volume via la commande principale",
+      "réglage du volume via les commandes auxiliaires multifonctions"
+    ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": null,
-    "type": null,
+    "type": "écran tactile",
     "features": [
-      "multi-functional controls throughout the spa",
-      "track and volume adjustment through main control",
-      "volume adjustment through multi-function auxiliary controls"
+      "Commandes auxiliaires multifonctions"
     ],
-    "smart_connectivity": null,
+    "smart_connectivity": "CloudControl+™",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
     "total_jet_count": 184,
-    "jet_system_type": "modular_jetpak",
+    "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy",
+        "jet_type": null,
         "quantity": 16,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": null,
+        "quantity": 168,
         "zone": null,
         "part_number": null,
         "description": null
       }
     ],
-    "jetpak_count": 4,
+    "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
@@ -84,7 +93,7 @@
   "headrests": {
     "headrests": [
       {
-        "type": "Adjustable",
+        "type": "adjustable",
         "quantity": null,
         "part_number": null,
         "description": null
@@ -95,8 +104,8 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity™ Filtration System",
-        "filter_type": "Flat Filter",
+        "system_name": "Simplicity™",
+        "filter_type": "plat",
         "filtration_area_sqft": null,
         "quantity": null,
         "description": null,
@@ -117,27 +126,29 @@
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
+        "location": "interior",
         "type": "LED",
-        "description": "Premium",
+        "description": "haut de gamme",
         "part_number": null
       },
       {
-        "location": "Exterior",
-        "type": null,
-        "description": "Premium",
+        "location": "exterior",
+        "type": "LED",
+        "description": "haut de gamme",
         "part_number": null
       }
     ],
-    "water_feature": "Control-activated",
+    "water_feature": "Fonction d’eau activée par commande Premium de la série M",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "M Series Premium Patio Performance Spa Cover",
+    "model_name": "Premium Patio Performance de la série M",
     "thickness": null,
-    "material": null,
+    "material": "Patio Performance®",
     "features": [
-      "smart sensor technology"
+      "technologie de capteur intelligent",
+      "capteurs intelligents intégrés",
+      "notifications push lorsque votre couverture de spa a été retirée"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -146,7 +157,7 @@
   },
   "dimensions": {
     "length_inches": 91.0,
-    "width_inches": 78.0,
+    "width_inches": 80.0,
     "height_inches": 34.0,
     "dry_weight_lbs": 800.0,
     "filled_weight_lbs": 5053.0,
@@ -159,11 +170,11 @@
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://www.skillfulhome.com/products/bullfrog-spas-hot-tubs/bullfrog-spas-m-series-hot-tubs/bullfrog-spas-m6/",
+      "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m6/",
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }

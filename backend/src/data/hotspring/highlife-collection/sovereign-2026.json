@@ -3,12 +3,12 @@
   "series": "Highlife Collection",
   "model_name": "Sovereign",
   "year": 2026,
-  "seating_capacity": 6,
+  "seating_capacity": 5,
   "jet_pumps": {
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster 9200",
+        "model_name": "Wavemaster® 9200",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "2-speed",
@@ -23,82 +23,86 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "SilentFlo 5000",
-    "description": "for quiet, continuous filtration",
+    "model_name": "SilentFlo 5000®",
+    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "IQ 2020",
-    "display_type": "LCD control panel",
+    "model_name": "IQ 2020®",
+    "display_type": "Color LCD Touchscreen",
     "voltage": 230,
     "amperage": 50,
     "frequency_hz": 60,
     "features": [
-      "Includes G.F.C.I. protected sub-panel"
+      "Includes G.F.C.I. Protected Subpanel",
+      "Diagnostic/Ready Light"
     ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": null,
-    "features": [],
-    "smart_connectivity": null,
+    "model_name": "IQ 2020®",
+    "type": "Color LCD Touchscreen",
+    "features": [
+      "Comfort Control®",
+      "SmartJet® System"
+    ],
+    "smart_connectivity": "FreshWater® IQ System Ready, Smart Monitoring System, Hot Spring Spas App, powered by the Connected Spa Kit",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 28,
+    "total_jet_count": 32,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Moto-Massage DX jet",
+        "jet_type": "Moto-Massage® DX",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SoothingStream jet",
+        "jet_type": "SoothingStream®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream jet",
+        "jet_type": "JetStream®",
+        "quantity": 3,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Rotary Hydromassage",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Directional Hydromassage",
         "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Rotary Hydromassage jet",
+        "jet_type": "Rotary Precision®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Hydromassage jet",
-        "quantity": 1,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "HydroStream jet",
-        "quantity": 4,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Directional Precision jet",
-        "quantity": 16,
+        "jet_type": "Directional Precision®",
+        "quantity": 20,
         "zone": null,
         "part_number": null,
         "description": null
@@ -117,19 +121,28 @@
   "filters": {
     "filters": [
       {
-        "system_name": null,
-        "filter_type": "Tri-X filters",
+        "system_name": "High-Flow Tri-X® Filters",
+        "filter_type": "Tri-X®",
         "filtration_area_sqft": 195.0,
         "quantity": null,
-        "description": "top loading",
+        "description": "no-pleat, multi-channel design",
         "no_bypass": true,
+        "part_number": null
+      },
+      {
+        "system_name": null,
+        "filter_type": "Polyester",
+        "filtration_area_sqft": null,
+        "quantity": null,
+        "description": "with Free-Flow Core",
+        "no_bypass": null,
         "part_number": null
       }
     ],
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault",
+    "model_name": "No-Fault®",
     "wattage": 6000,
     "voltage": 230,
     "material": null,
@@ -139,26 +152,32 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa",
-        "type": "Luminescence multi-color",
-        "description": "four-zone",
+        "location": "Interior",
+        "type": "LED",
+        "description": "Customizable LED Zone Lighting",
+        "part_number": null
+      },
+      {
+        "location": "Exterior",
+        "type": "LED",
+        "description": "Multi-Color LED Lighting with Timer",
         "part_number": null
       }
     ],
-    "water_feature": "BellaFontana with 3 illuminated arcs of water",
+    "water_feature": "BellaFontana® with Three Illuminated Arcs of Water",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": null,
-    "thickness": "3.5” to 2.5” tapered",
-    "material": "Vinyl",
+    "model_name": "WeatherPro™",
+    "thickness": "4\" Tapered Core",
+    "material": "WeatherPro™",
     "features": [
-      "2 lb. density foam core",
-      "with hinge seal",
-      "Available in Caramel, Chocolate, Slate, or Evergreen"
+      "Custom-Fit Insulated Cover",
+      "Hinge Seal",
+      "Bottom Seal"
     ],
-    "length_inches": null,
-    "width_inches": null,
+    "length_inches": 93.0,
+    "width_inches": 80.0,
     "part_number": null,
     "shared_with_series": false
   },
@@ -166,9 +185,9 @@
     "length_inches": 93.0,
     "width_inches": 80.0,
     "height_inches": 33.0,
-    "dry_weight_lbs": 745.0,
-    "filled_weight_lbs": 4425.0,
-    "water_capacity_gallons": 315.0
+    "dry_weight_lbs": 600.0,
+    "filled_weight_lbs": 4230.0,
+    "water_capacity_gallons": 330.0
   },
   "voltage": 230,
   "amperage": 50,
@@ -181,7 +200,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }

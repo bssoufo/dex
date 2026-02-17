@@ -20,13 +20,121 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from backend.src.schema.models import (
+from ...schema.models import (
     CoverSpec,
     HeaterSpec,
     JetPumpSpecs,
     SpaModel,
     SpaPakSpec,
 )
+
+# ---------------------------------------------------------------------------
+# Extraction-time cross-field checks (operate on raw dicts, pre-Pydantic)
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class ExtractionError:
+    """An error found during post-extraction cross-field validation."""
+
+    category: str
+    message: str
+
+
+def check_jet_sum_consistency(data: dict) -> list[ExtractionError]:
+    """Error if sum of jets_by_type quantities differs from total by > 2."""
+    errors: list[ExtractionError] = []
+    jets = data.get("jets")
+    if not isinstance(jets, dict):
+        return errors
+
+    total = jets.get("total_jet_count")
+    by_type = jets.get("jets_by_type")
+    if total is None or not isinstance(by_type, list) or not by_type:
+        return errors
+
+    type_sum = sum(j.get("quantity") or 0 for j in by_type if isinstance(j, dict))
+    if abs(total - type_sum) > 2:
+        errors.append(ExtractionError(
+            category="jets",
+            message=(
+                f"Jet count mismatch: total_jet_count={total} but "
+                f"sum of jets_by_type={type_sum} (diff={abs(total - type_sum)})"
+            ),
+        ))
+    return errors
+
+
+def check_pump_count_reasonable(data: dict) -> list[ExtractionError]:
+    """Error if pump count is outside 1-4 range."""
+    errors: list[ExtractionError] = []
+    pumps_data = data.get("jet_pumps")
+    if not isinstance(pumps_data, dict):
+        return errors
+
+    pumps = pumps_data.get("pumps")
+    if not isinstance(pumps, list):
+        return errors
+
+    count = len(pumps)
+    if count < 1 or count > 4:
+        errors.append(ExtractionError(
+            category="jet_pumps",
+            message=f"Pump count {count} outside reasonable range 1-4",
+        ))
+    return errors
+
+
+def check_dimension_ranges(data: dict) -> list[ExtractionError]:
+    """Error if dimensions are outside plausible ranges."""
+    errors: list[ExtractionError] = []
+    dims = data.get("dimensions")
+    if not isinstance(dims, dict):
+        return errors
+
+    checks = [
+        ("length_inches", 40.0, 150.0),
+        ("width_inches", 40.0, 150.0),
+        ("height_inches", 20.0, 60.0),
+    ]
+    for field, lo, hi in checks:
+        val = dims.get(field)
+        if val is not None and (val < lo or val > hi):
+            errors.append(ExtractionError(
+                category="dimensions",
+                message=f"{field}={val} outside range [{lo}, {hi}]",
+            ))
+    return errors
+
+
+def check_jet_count_range(data: dict) -> list[ExtractionError]:
+    """Error if total jet count is outside 5-100 (catches hallucinations)."""
+    errors: list[ExtractionError] = []
+    jets = data.get("jets")
+    if not isinstance(jets, dict):
+        return errors
+
+    total = jets.get("total_jet_count")
+    if total is not None and (total < 5 or total > 100):
+        errors.append(ExtractionError(
+            category="jets",
+            message=f"total_jet_count={total} outside plausible range [5, 100]",
+        ))
+    return errors
+
+
+def get_extraction_errors(data: dict) -> list[ExtractionError]:
+    """Run all cross-field checks and return error-severity issues.
+
+    These errors are used by the pipeline to trigger targeted re-extraction
+    of failing categories with explicit error context.
+    """
+    errors: list[ExtractionError] = []
+    errors.extend(check_jet_sum_consistency(data))
+    errors.extend(check_pump_count_reasonable(data))
+    errors.extend(check_dimension_ranges(data))
+    errors.extend(check_jet_count_range(data))
+    return errors
 
 
 # ---------------------------------------------------------------------------

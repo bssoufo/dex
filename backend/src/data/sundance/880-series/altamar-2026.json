@@ -13,7 +13,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56 Frame",
+        "frame": "56",
         "voltage": null,
         "part_number": null
       },
@@ -24,7 +24,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56 Frame",
+        "frame": "56",
         "voltage": null,
         "part_number": null
       }
@@ -44,26 +44,27 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": 240,
+    "voltage": null,
     "amperage": null,
-    "frequency_hz": 60,
+    "frequency_hz": null,
     "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": "Advanced Touch Control Panel",
+    "model_name": "Advanced Touch Control Panel",
+    "type": "Touch Control Panel",
     "features": [
       "glowing, color touchscreen control",
-      "icon-driven menus"
+      "icon-driven menus",
+      "easy programming"
     ],
     "smart_connectivity": "SmartTub™ System compatible",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 40,
+    "total_jet_count": null,
     "jet_system_type": "fixed",
     "jets_by_type": [],
     "jetpak_count": null,
@@ -80,9 +81,9 @@
     "filters": [
       {
         "system_name": "MicroClean® Ultra II Filtration System",
-        "filter_type": "interlocking cartridge filters",
+        "filter_type": "cartridge",
         "filtration_area_sqft": 130.0,
-        "quantity": 1,
+        "quantity": 2,
         "description": "2 interlocking cartridge filters",
         "no_bypass": null,
         "part_number": null
@@ -102,13 +103,13 @@
     "lights": [
       {
         "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow™ LED lighting",
+        "type": "Multicolor SunGlow™ LED",
         "description": null,
         "part_number": null
       },
       {
         "location": "exterior",
-        "type": "LED lighting",
+        "type": "LED",
         "description": "elegant",
         "part_number": null
       }
@@ -145,7 +146,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -158,10 +159,12 @@
       "amperage",
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
+      "jets.total_jet_count",
       "heater.wattage",
-      "heater.voltage"
+      "heater.voltage",
+      "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 70.0
+    "completeness_pct": 60.0
   }
 }

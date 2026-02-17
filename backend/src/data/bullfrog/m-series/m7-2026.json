@@ -3,7 +3,7 @@
   "series": "M Series",
   "model_name": "M7",
   "year": 2026,
-  "seating_capacity": 8,
+  "seating_capacity": 9,
   "jet_pumps": {
     "pumps": [
       {
@@ -35,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "calibrated for filtration system effectiveness as it circulates all of the water in your spa many times per day. In addition, a dedicated filtration pump operates much more quietly and more efficiently than systems that use a jet pump for filtration.",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -52,33 +52,30 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "M Series touch screen control center",
-    "type": "touch screen",
+    "model_name": null,
+    "type": "écran tactile",
     "features": [
-      "capacitive touch interface",
-      "resistant to water interference",
-      "thoughtful user experience",
-      "easy to understand",
-      "simple to navigate"
+      "Contrôle par écran tactile haut de gamme",
+      "Commandes auxiliaires à 4 fonctions de qualité supérieure"
     ],
-    "smart_connectivity": null,
+    "smart_connectivity": "Module Wifi CloudControl+ permet de se connecter et contrôler le spa depuis n’importe où via un appareil connecté.",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": null,
+    "total_jet_count": 18,
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": "Therapy Jets",
+        "jet_type": "thérapie pour le pied, le poignet, la hanche, la jambe, le siège surélevé",
         "quantity": 18,
-        "zone": "Foot, Wrist, Hip, Leg, Elevated Seat",
+        "zone": null,
         "part_number": null,
         "description": null
       }
     ],
     "jetpak_count": 6,
-    "jetpak_options": null,
+    "jetpak_options": 33,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -86,10 +83,10 @@
   "headrests": {
     "headrests": [
       {
-        "type": "Adjustable",
+        "type": "réglables",
         "quantity": null,
         "part_number": null,
-        "description": "ultra-comfortable adjustable headrests that adjust upward to meet your head in just the right position"
+        "description": null
       }
     ],
     "shared_with_series": false
@@ -97,11 +94,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity™ Filtration System",
-        "filter_type": "Flat Filter",
+        "system_name": "Simplicity™",
+        "filter_type": "plat",
         "filtration_area_sqft": null,
         "quantity": null,
-        "description": "Featuring dual intakes for more effective skimming, an in-wall design that saves an incredible amount of space for seating, and an industry-first flat filter.",
+        "description": null,
         "no_bypass": null,
         "part_number": null
       }
@@ -119,34 +116,27 @@
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
-        "type": "LED",
-        "description": "premium LED surround lighting, full-color in-spa lighting",
+        "location": "intérieur",
+        "type": "DEL",
+        "description": "haut de gamme",
         "part_number": null
       },
       {
-        "location": "Headrests",
-        "type": "LED",
-        "description": "lighted headrests",
-        "part_number": null
-      },
-      {
-        "location": "Exterior",
-        "type": "LED",
-        "description": "impressive exterior rim lighting",
+        "location": "extérieur",
+        "type": "DEL",
+        "description": "haut de gamme",
         "part_number": null
       }
     ],
-    "water_feature": "Control-activated Water Feature",
+    "water_feature": "activée par commande Premium",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "Patio Performance™ Spa Cover",
+    "model_name": "Premium Patio Performance de la série M",
     "thickness": null,
     "material": null,
     "features": [
-      "smart sensor technology",
-      "built-in smart sensors"
+      "technologie de capteur intelligent"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -157,22 +147,22 @@
     "length_inches": 91.0,
     "width_inches": 91.0,
     "height_inches": 37.0,
-    "dry_weight_lbs": 1000.0,
-    "filled_weight_lbs": 6029.0,
+    "dry_weight_lbs": 900.0,
+    "filled_weight_lbs": 5929.0,
     "water_capacity_gallons": 453.0
   },
   "voltage": 240,
-  "amperage": 50,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://patiosplash.com/bullfrog-spas/m-series/m7/",
+      "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m7/",
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -181,8 +171,8 @@
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
+      "amperage",
       "circulation_pump.model_name",
-      "jets.total_jet_count",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage",

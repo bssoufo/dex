@@ -11,21 +11,10 @@
         "model_name": null,
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": null,
-        "speed": "1-speed",
-        "amperage_max": 11.3,
-        "frame": "56 Frame",
-        "voltage": null,
-        "part_number": null
-      },
-      {
-        "position": 2,
-        "model_name": null,
-        "horsepower_continuous": 2.5,
-        "horsepower_breakdown": null,
-        "speed": "1-speed",
-        "amperage_max": 11.3,
-        "frame": "56 Frame",
-        "voltage": null,
+        "speed": "2-speed",
+        "amperage_max": null,
+        "frame": null,
+        "voltage": 240,
         "part_number": null
       }
     ],
@@ -35,37 +24,49 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "Dynamic Flow Circulation System",
+    "description": "Silent circulation",
     "is_dedicated": true,
-    "wattage": null,
+    "wattage": 85.0,
     "part_number": null,
     "shared_with_series": false
   },
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": null,
+    "voltage": 240,
     "amperage": null,
-    "frequency_hz": null,
+    "frequency_hz": 60,
     "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "Advanced Touch Control Panel",
-    "type": "Touch Control Panel",
-    "features": [
-      "glowing, color touchscreen control",
-      "icon-driven menus"
-    ],
-    "smart_connectivity": "Compatible with optional SmartTub™ System",
+    "model_name": null,
+    "type": null,
+    "features": [],
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 66,
+    "total_jet_count": 45,
     "jet_system_type": "fixed",
-    "jets_by_type": [],
+    "jets_by_type": [
+      {
+        "jet_type": "Rotary",
+        "quantity": 25,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Directional",
+        "quantity": 20,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      }
+    ],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -79,11 +80,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean® Ultra II Filtration System",
-        "filter_type": "cartridge",
-        "filtration_area_sqft": 130.0,
-        "quantity": 2,
-        "description": "2 interlocking cartridge filters",
+        "system_name": null,
+        "filter_type": "Pleated",
+        "filtration_area_sqft": 100.0,
+        "quantity": 1,
+        "description": null,
         "no_bypass": null,
         "part_number": null
       }
@@ -92,52 +93,37 @@
   },
   "heater": {
     "model_name": null,
-    "wattage": null,
-    "voltage": null,
+    "wattage": 4000,
+    "voltage": 240,
     "material": null,
     "part_number": null,
     "shared_with_series": false
   },
   "lighting": {
-    "lights": [
-      {
-        "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow™ LED lighting",
-        "description": null,
-        "part_number": null
-      },
-      {
-        "location": "exterior",
-        "type": "LED lighting",
-        "description": null,
-        "part_number": null
-      }
-    ],
-    "water_feature": "waterfall",
+    "lights": [],
+    "water_feature": null,
     "shared_with_series": false
   },
   "cover": {
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [
-      "designed for cold, harsh climates"
-    ],
+    "features": [],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 89.0,
-    "width_inches": 110.0,
-    "height_inches": 40.0,
-    "dry_weight_lbs": 1240.0,
-    "filled_weight_lbs": 5460.7,
-    "water_capacity_gallons": 505.0
+    "length_inches": 91.0,
+    "width_inches": 91.0,
+    "height_inches": 38.5,
+    "dry_weight_lbs": 850.0,
+    "filled_weight_lbs": 4500.0,
+    "water_capacity_gallons": 420.0
   },
   "voltage": 240,
-  "amperage": null,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -147,22 +133,10 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-17",
-    "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [
-      "amperage",
-      "circulation_pump.model_name",
-      "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage"
-    ],
-    "anomalies_reviewed": [],
-    "completeness_pct": 75.0
-  }
+  "data_quality": null
 }

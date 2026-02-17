@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster 9000",
+        "model_name": "Wavemaster® 9000",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "1-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": "Wavemaster 9200",
+        "model_name": "Wavemaster® 9200",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "2-speed",
@@ -27,83 +27,104 @@
         "frame": null,
         "voltage": null,
         "part_number": null
+      },
+      {
+        "position": 3,
+        "model_name": null,
+        "horsepower_continuous": null,
+        "horsepower_breakdown": null,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
+        "part_number": null
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": null,
+    "total_brake_horsepower": 10.4,
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "SilentFlo 5000",
-    "description": "for quiet, continuous filtration",
+    "model_name": "SilentFlo 5000®",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "IQ 2020",
-    "display_type": null,
+    "model_name": "IQ 2020®",
+    "display_type": "Color LCD Touchscreen",
     "voltage": 230,
     "amperage": 50,
     "frequency_hz": 60,
     "features": [
-      "wireless remote control",
-      "Includes G.F.C.I. protected sub-panel"
+      "Includes G.F.C.I. Protected Subpanel",
+      "Diagnostic/Ready Light"
     ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": null,
-    "type": "wireless remote control",
-    "features": [],
-    "smart_connectivity": null,
+    "type": "Touchscreen",
+    "features": [
+      "Comfort Control®",
+      "SmartJet® System"
+    ],
+    "smart_connectivity": "Smart Monitoring System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 43,
+    "total_jet_count": 49,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Moto-Massage DX jets",
+        "jet_type": "Moto-Massage® DX",
+        "quantity": 4,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "SoothingStream®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SoothingStream jets",
+        "jet_type": "JetStream®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream jets",
+        "jet_type": "Rotary Hydromassage",
         "quantity": 3,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Rotary Hydromassage jets",
+        "jet_type": "Directional Hydromassage",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Hydromassage jets",
-        "quantity": 2,
+        "jet_type": "Hydrostream®",
+        "quantity": 10,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Precision jets",
-        "quantity": 30,
+        "jet_type": "Directional Precision®",
+        "quantity": 26,
         "zone": null,
         "part_number": null,
         "description": null
@@ -122,11 +143,20 @@
   "filters": {
     "filters": [
       {
-        "system_name": null,
-        "filter_type": "Tri-X filters",
+        "system_name": "High-Flow Tri-X® Filters",
+        "filter_type": "Tri-X® Filters",
         "filtration_area_sqft": 325.0,
         "quantity": null,
-        "description": "top loading",
+        "description": "no-pleat, multi-channel design to maximize water exposure for better filtration and powerful flow",
+        "no_bypass": true,
+        "part_number": null
+      },
+      {
+        "system_name": null,
+        "filter_type": "Polyester Filters",
+        "filtration_area_sqft": null,
+        "quantity": null,
+        "description": "with Free-Flow Core",
         "no_bypass": true,
         "part_number": null
       }
@@ -134,7 +164,7 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault",
+    "model_name": "No-Fault®",
     "wattage": 4000,
     "voltage": 230,
     "material": null,
@@ -144,22 +174,29 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa",
-        "type": "Luminescence multi-color four-zone",
-        "description": null,
+        "location": "Interior",
+        "type": "LED Zone Lighting",
+        "description": "Customizable LED Zone Lighting",
+        "part_number": null
+      },
+      {
+        "location": "Exterior",
+        "type": "Multi-Color LED Lighting",
+        "description": "Multi-Color LED Lighting with Timer",
         "part_number": null
       }
     ],
-    "water_feature": "BellaFontana with 3 illuminated arcs of water",
+    "water_feature": "BellaFontana® with Three Illuminated Arcs of Water",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": null,
-    "thickness": "3.5” to 2.5” tapered",
-    "material": "Vinyl",
+    "model_name": "WeatherPro™",
+    "thickness": "4\" Tapered Core",
+    "material": null,
     "features": [
-      "2 lb. density foam core",
-      "hinge seal"
+      "4\" Tapered Core with Hinge Seal",
+      "Bottom Seal",
+      "Custom-Fit Insulated Cover"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -170,12 +207,12 @@
     "length_inches": 100.0,
     "width_inches": 91.0,
     "height_inches": 38.0,
-    "dry_weight_lbs": 1060.0,
-    "filled_weight_lbs": 6040.0,
-    "water_capacity_gallons": 450.0
+    "dry_weight_lbs": 790.0,
+    "filled_weight_lbs": 5810.0,
+    "water_capacity_gallons": 455.0
   },
   "voltage": 230,
-  "amperage": 50,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -185,7 +222,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -193,8 +230,10 @@
   "data_quality": {
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [],
+    "not_available_fields": [
+      "amperage"
+    ],
     "anomalies_reviewed": [],
-    "completeness_pct": 100.0
+    "completeness_pct": 95.0
   }
 }

@@ -40,48 +40,48 @@
         "part_number": null
       }
     ],
-    "diverter_valves": null,
+    "diverter_valves": 3,
     "total_brake_horsepower": null,
     "shared_with_series": false
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "Dedicated",
+    "description": "Pompe de circulation dédiée",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
-  "spa_pak": null,
+  "spa_pak": {
+    "model_name": null,
+    "display_type": "écran tactile",
+    "voltage": null,
+    "amperage": null,
+    "frequency_hz": null,
+    "features": [
+      "Contrôle par écran tactile haut de gamme",
+      "Commandes auxiliaires à 4 fonctions de qualité supérieure"
+    ],
+    "part_number": null,
+    "shared_with_series": false
+  },
   "topside_control": {
     "model_name": null,
-    "type": "multi-functional",
+    "type": "écran tactile",
     "features": [
-      "multi-functional controls throughout the spa",
-      "smart sensor technology",
-      "track and volume adjustment through main control",
-      "volume adjustment through multi-function auxiliary controls",
-      "adjust temperature, jet intensity, lighting, and more with ease",
-      "Bluetooth compatibility"
+      "Contrôle par écran tactile haut de gamme",
+      "Commandes auxiliaires à 4 fonctions de qualité supérieure"
     ],
-    "smart_connectivity": "Bluetooth compatibility",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 323,
+    "total_jet_count": null,
     "jet_system_type": "modular_jetpak",
-    "jets_by_type": [
-      {
-        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
-        "quantity": 29,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      }
-    ],
+    "jets_by_type": [],
     "jetpak_count": 7,
-    "jetpak_options": null,
+    "jetpak_options": 32,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -92,7 +92,7 @@
         "type": "Adjustable",
         "quantity": null,
         "part_number": null,
-        "description": null
+        "description": "avec capuchon JetPak éclairé"
       }
     ],
     "shared_with_series": false
@@ -100,17 +100,8 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity™ Filtration System",
-        "filter_type": null,
-        "filtration_area_sqft": null,
-        "quantity": null,
-        "description": null,
-        "no_bypass": null,
-        "part_number": null
-      },
-      {
-        "system_name": "Simplicity™ Flat Filter",
-        "filter_type": "Flat Filter",
+        "system_name": "Simplicity™",
+        "filter_type": "plat",
         "filtration_area_sqft": null,
         "quantity": null,
         "description": null,
@@ -120,31 +111,38 @@
     ],
     "shared_with_series": false
   },
-  "heater": null,
+  "heater": {
+    "model_name": null,
+    "wattage": null,
+    "voltage": null,
+    "material": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
   "lighting": {
     "lights": [
       {
-        "location": "Interior",
+        "location": "intérieur",
         "type": "LED",
-        "description": null,
+        "description": "haut de gamme",
         "part_number": null
       },
       {
-        "location": "Exterior",
-        "type": null,
-        "description": null,
+        "location": "extérieur",
+        "type": "LED",
+        "description": "haut de gamme",
         "part_number": null
       }
     ],
-    "water_feature": "Control-activated Water Feature",
+    "water_feature": "Fonction d’eau activée par commande Premium de la série M",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "M Series Premium Patio Performance Spa Cover",
+    "model_name": "Premium Patio Performance de la série M",
     "thickness": null,
-    "material": null,
+    "material": "Patio Performance",
     "features": [
-      "smart sensor technology"
+      "technologie de capteur intelligent"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -152,8 +150,8 @@
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 94.0,
-    "width_inches": 110.0,
+    "length_inches": 110.0,
+    "width_inches": 94.0,
     "height_inches": 38.0,
     "dry_weight_lbs": 1209.0,
     "filled_weight_lbs": 7664.0,
@@ -166,11 +164,11 @@
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://www.skillfulhome.com/products/bullfrog-spas-hot-tubs/bullfrog-spas-m-series-hot-tubs/bullfrog-spas-model-m9/",
+      "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m9/",
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -181,12 +179,13 @@
     "not_available_fields": [
       "amperage",
       "circulation_pump.model_name",
+      "jets.total_jet_count",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage",
       "jet_pumps.pumps[].horsepower_continuous"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 70.0
+    "completeness_pct": 65.0
   }
 }

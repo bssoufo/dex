@@ -13,7 +13,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56",
+        "frame": "56 Frame",
         "voltage": null,
         "part_number": null
       }
@@ -23,8 +23,8 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "High Output Dynamic Flow",
-    "description": "24-Hour programmable, factory default set to 8-Hour Filter/ Circulation Pump (35 gp m), Programmable for Daily Start Time and Duration",
+    "model_name": null,
+    "description": "High Output Dynamic Flow, 24-Hour programmable, factory default set to 8-Hour Filter/ Circulation Pump (35 gp m), Programmable for Daily Start Time and Duration",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -48,7 +48,7 @@
       "icon-driven menus",
       "easy programming"
     ],
-    "smart_connectivity": "SmartTub™ System compatible",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -91,7 +91,25 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa interior, waterfall, footwell and backlit grab bar",
+        "location": "spa interior",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "waterfall",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "footwell",
+        "type": "Multicolor SunGlow™ LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "backlit grab bar",
         "type": "Multicolor SunGlow™ LED",
         "description": null,
         "part_number": null
@@ -99,7 +117,7 @@
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant",
+        "description": null,
         "part_number": null
       }
     ],
@@ -137,7 +155,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -149,11 +167,12 @@
       "seating_capacity",
       "amperage",
       "dimensions.filled_weight_lbs",
+      "circulation_pump.model_name",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 70.0
+    "completeness_pct": 65.0
   }
 }

@@ -29,6 +29,9 @@ ENV PATH="/app/backend/.venv/bin:$PATH"
 ENV PYTHONPATH="/app"
 ENV PYTHONUNBUFFERED=1
 
+# Install Playwright Chromium for JS-rendered sites (Bullfrog)
+RUN playwright install --with-deps chromium
+
 EXPOSE 8000
 # Shell form so ${PORT:-8000} expands at runtime (Railway sets PORT dynamically)
 CMD uvicorn backend.src.api.app:app --host 0.0.0.0 --port ${PORT:-8000}

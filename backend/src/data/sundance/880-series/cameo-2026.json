@@ -34,7 +34,7 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": null,
+    "model_name": "Dynamic Flow Circulation System",
     "description": null,
     "is_dedicated": true,
     "wattage": null,
@@ -44,9 +44,9 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": 240,
+    "voltage": null,
     "amperage": null,
-    "frequency_hz": 60,
+    "frequency_hz": null,
     "features": [],
     "part_number": null,
     "shared_with_series": false
@@ -56,8 +56,7 @@
     "type": "Touch Control Panel",
     "features": [
       "glowing, color touchscreen control",
-      "icon-driven menus",
-      "programming your spa is easy day or night"
+      "icon-driven menus"
     ],
     "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
@@ -80,10 +79,10 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean® Ultra II Filtration System",
-        "filter_type": "interlocking cartridge filters",
+        "system_name": "MicroClean® Ultra Filtration",
+        "filter_type": "MicroClean® Ultra II Filtration System",
         "filtration_area_sqft": 130.0,
-        "quantity": 1,
+        "quantity": 2,
         "description": "2 interlocking cartridge filters",
         "no_bypass": null,
         "part_number": null
@@ -102,25 +101,7 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa interior",
-        "type": "Multicolor SunGlow™ LED lighting",
-        "description": null,
-        "part_number": null
-      },
-      {
-        "location": "waterfall",
-        "type": "Multicolor SunGlow™ LED lighting",
-        "description": null,
-        "part_number": null
-      },
-      {
-        "location": "footwell",
-        "type": "Multicolor SunGlow™ LED lighting",
-        "description": null,
-        "part_number": null
-      },
-      {
-        "location": "backlit grab bar",
+        "location": "spa interior, waterfall, footwell and backlit grab bar",
         "type": "Multicolor SunGlow™ LED lighting",
         "description": null,
         "part_number": null
@@ -139,7 +120,9 @@
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [],
+    "features": [
+      "designed for cold, harsh climates"
+    ],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
@@ -164,7 +147,7 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-16",
+      "accessed_date": "2026-02-17",
       "verified_by": null,
       "verified_date": null
     }
@@ -175,9 +158,9 @@
     "not_available_fields": [
       "amperage",
       "dimensions.filled_weight_lbs",
-      "circulation_pump.model_name",
       "heater.wattage",
-      "heater.voltage"
+      "heater.voltage",
+      "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
     "completeness_pct": 75.0
