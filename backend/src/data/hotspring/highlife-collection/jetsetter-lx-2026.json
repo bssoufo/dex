@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster\u00ae 9000",
+        "model_name": "Wavemaster® 9000",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "1-speed",
@@ -23,7 +23,7 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "SilentFlo 5000\u00ae",
+    "model_name": "SilentFlo 5000®",
     "description": "Quiet Continuous Filtration",
     "is_dedicated": true,
     "wattage": null,
@@ -41,7 +41,7 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "IQ 2020\u00ae",
+    "model_name": "IQ 2020®",
     "type": "Color LCD Touchscreen",
     "features": [],
     "smart_connectivity": null,
@@ -53,21 +53,21 @@
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Moto-Massage\u00ae DX",
+        "jet_type": "Moto-Massage® DX",
         "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SoothingStream\u00ae",
+        "jet_type": "SoothingStream®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream\u00ae",
+        "jet_type": "JetStream®",
         "quantity": 3,
         "zone": null,
         "part_number": null,
@@ -81,14 +81,14 @@
         "description": null
       },
       {
-        "jet_type": "Rotary Precision\u00ae",
+        "jet_type": "Rotary Precision®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Precision\u00ae",
+        "jet_type": "Directional Precision®",
         "quantity": 20,
         "zone": null,
         "part_number": null,
@@ -109,7 +109,7 @@
     "filters": [
       {
         "system_name": null,
-        "filter_type": "Tri-X\u00ae",
+        "filter_type": "Tri-X®",
         "filtration_area_sqft": 65.0,
         "quantity": 3,
         "description": "Top-Loading",
@@ -120,7 +120,7 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault\u00ae",
+    "model_name": "No-Fault®",
     "wattage": 6000,
     "voltage": 230,
     "material": null,
@@ -132,7 +132,7 @@
       {
         "location": "spa",
         "type": "Multi-Color LED",
-        "description": "Luminescence\u00ae with 4 Zone Mood Settings",
+        "description": "Luminescence® with 4 Zone Mood Settings",
         "part_number": null
       }
     ],
@@ -173,5 +173,13 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "spa_pak.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 95.0
+  }
 }

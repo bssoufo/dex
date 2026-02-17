@@ -196,6 +196,44 @@ class TestHealthEndpoint:
 
 
 # ---------------------------------------------------------------------------
+# Data quality endpoint tests
+# ---------------------------------------------------------------------------
+
+
+class TestDataQualityEndpoint:
+    """Verify /data-quality endpoint."""
+
+    @pytest.mark.anyio
+    async def test_data_quality_returns_200(self):
+        async with AsyncClient(
+            transport=ASGITransport(app=app), base_url="http://test"
+        ) as client:
+            response = await client.get("/data-quality")
+        assert response.status_code == 200
+        body = response.json()
+        assert "total_models" in body
+        assert body["total_models"] == 19
+        assert "average_completeness_pct" in body
+        assert body["average_completeness_pct"] > 0
+        assert "models" in body
+        assert len(body["models"]) == 19
+
+    @pytest.mark.anyio
+    async def test_data_quality_model_structure(self):
+        async with AsyncClient(
+            transport=ASGITransport(app=app), base_url="http://test"
+        ) as client:
+            response = await client.get("/data-quality")
+        body = response.json()
+        model = body["models"][0]
+        assert "manufacturer" in model
+        assert "model_name" in model
+        assert "completeness_pct" in model
+        assert "gaps" in model
+        assert "gap_count" in model
+
+
+# ---------------------------------------------------------------------------
 # SSE streaming endpoint tests
 # ---------------------------------------------------------------------------
 

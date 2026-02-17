@@ -90,6 +90,42 @@ async def health():
     return {"status": "ok", "agent_ready": _agent is not None}
 
 
+@app.get("/data-quality")
+async def data_quality():
+    """Return data quality scores for all loaded spa models."""
+    from backend.src.mcp.data_store import get_store
+
+    store = get_store()
+    results = []
+    for key, model in store.items():
+        dq = model.data_quality
+        results.append({
+            "manufacturer": model.manufacturer,
+            "model_name": model.model_name,
+            "series": model.series,
+            "year": model.year,
+            "completeness_pct": dq.completeness_pct if dq else None,
+            "gaps": dq.not_available_fields if dq else [],
+            "gap_count": len(dq.not_available_fields) if dq else 0,
+            "verified_by": dq.verified_by if dq else None,
+            "verification_date": dq.verification_date if dq else None,
+        })
+
+    results.sort(key=lambda r: (r["manufacturer"], r["model_name"]))
+    avg = (
+        sum(r["completeness_pct"] for r in results if r["completeness_pct"])
+        / len(results)
+        if results
+        else 0
+    )
+
+    return {
+        "total_models": len(results),
+        "average_completeness_pct": round(avg, 1),
+        "models": results,
+    }
+
+
 @app.post("/query", response_model=QueryResponse)
 async def query(request: QueryRequest):
     """Answer a natural language question about spa specifications.

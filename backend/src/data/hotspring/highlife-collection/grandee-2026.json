@@ -155,7 +155,7 @@
   },
   "cover": {
     "model_name": null,
-    "thickness": "3.5\u201d to 2.5\u201d tapered",
+    "thickness": "3.5” to 2.5” tapered",
     "material": "Vinyl",
     "features": [
       "2 lb. density foam core",
@@ -190,5 +190,11 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [],
+    "anomalies_reviewed": [],
+    "completeness_pct": 100.0
+  }
 }

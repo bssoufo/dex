@@ -57,7 +57,7 @@
     "features": [
       "icon-driven menus"
     ],
-    "smart_connectivity": "SmartTub\u2122 System",
+    "smart_connectivity": "SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -78,8 +78,8 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra Filtration",
-        "filter_type": "MicroClean\u00ae Ultra II Filtration System",
+        "system_name": "MicroClean® Ultra Filtration",
+        "filter_type": "MicroClean® Ultra II Filtration System",
         "filtration_area_sqft": 130.0,
         "quantity": 1,
         "description": "2 interlocking cartridge filters",
@@ -101,19 +101,19 @@
     "lights": [
       {
         "location": "spa interior",
-        "type": "Multicolor SunGlow\u2122 LED",
+        "type": "Multicolor SunGlow™ LED",
         "description": null,
         "part_number": null
       },
       {
         "location": "footwell",
-        "type": "Multicolor SunGlow\u2122 LED",
+        "type": "Multicolor SunGlow™ LED",
         "description": null,
         "part_number": null
       },
       {
         "location": "backlit grab bar",
-        "type": "Multicolor SunGlow\u2122 LED",
+        "type": "Multicolor SunGlow™ LED",
         "description": null,
         "part_number": null
       },
@@ -161,5 +161,17 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "amperage",
+      "dimensions.filled_weight_lbs",
+      "circulation_pump.model_name",
+      "heater.wattage",
+      "heater.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 75.0
+  }
 }

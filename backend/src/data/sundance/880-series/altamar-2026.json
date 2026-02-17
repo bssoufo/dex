@@ -58,7 +58,7 @@
       "glowing, color touchscreen control",
       "icon-driven menus"
     ],
-    "smart_connectivity": "SmartTub\u2122 System compatible",
+    "smart_connectivity": "SmartTub™ System compatible",
     "part_number": null,
     "shared_with_series": false
   },
@@ -79,7 +79,7 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra II Filtration System",
+        "system_name": "MicroClean® Ultra II Filtration System",
         "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
         "quantity": 1,
@@ -102,7 +102,7 @@
     "lights": [
       {
         "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow\u2122 LED lighting",
+        "type": "Multicolor SunGlow™ LED lighting",
         "description": null,
         "part_number": null
       },
@@ -150,5 +150,18 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "seating_capacity",
+      "amperage",
+      "dimensions.filled_weight_lbs",
+      "circulation_pump.model_name",
+      "heater.wattage",
+      "heater.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 70.0
+  }
 }

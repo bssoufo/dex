@@ -58,7 +58,7 @@
       "glowing, color touchscreen control",
       "icon-driven menus"
     ],
-    "smart_connectivity": "Compatible with optional SmartTub\u2122 System",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -79,11 +79,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra Filtration",
+        "system_name": "MicroClean® Ultra Filtration",
         "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
         "quantity": 2,
-        "description": "MicroClean\u00ae Ultra II Filtration System",
+        "description": "MicroClean® Ultra II Filtration System",
         "no_bypass": null,
         "part_number": null
       }
@@ -103,25 +103,25 @@
       {
         "location": "spa interior",
         "type": "LED",
-        "description": "Multicolor SunGlow\u2122",
+        "description": "Multicolor SunGlow™",
         "part_number": null
       },
       {
         "location": "waterfall",
         "type": "LED",
-        "description": "Multicolor SunGlow\u2122",
+        "description": "Multicolor SunGlow™",
         "part_number": null
       },
       {
         "location": "footwell",
         "type": "LED",
-        "description": "Multicolor SunGlow\u2122",
+        "description": "Multicolor SunGlow™",
         "part_number": null
       },
       {
         "location": "backlit grab bar",
         "type": "LED",
-        "description": "Multicolor SunGlow\u2122",
+        "description": "Multicolor SunGlow™",
         "part_number": null
       },
       {
@@ -170,5 +170,17 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-16",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "amperage",
+      "circulation_pump.model_name",
+      "heater.wattage",
+      "heater.voltage",
+      "spa_pak.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 75.0
+  }
 }
