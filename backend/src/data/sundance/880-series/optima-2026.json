@@ -63,7 +63,7 @@
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": null,
+    "total_jet_count": 49,
     "jet_system_type": "fixed",
     "jets_by_type": [],
     "jetpak_count": null,
@@ -177,12 +177,11 @@
       "amperage",
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
-      "jets.total_jet_count",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 65.0
+    "completeness_pct": 70.0
   }
 }

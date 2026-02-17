@@ -64,7 +64,7 @@
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": null,
+    "total_jet_count": 40,
     "jet_system_type": "fixed",
     "jets_by_type": [],
     "jetpak_count": null,
@@ -83,7 +83,7 @@
         "system_name": "MicroClean® Ultra II Filtration System",
         "filter_type": "cartridge",
         "filtration_area_sqft": 130.0,
-        "quantity": 2,
+        "quantity": 1,
         "description": "2 interlocking cartridge filters",
         "no_bypass": null,
         "part_number": null
@@ -159,12 +159,11 @@
       "amperage",
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
-      "jets.total_jet_count",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 60.0
+    "completeness_pct": 65.0
   }
 }
