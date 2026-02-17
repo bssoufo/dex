@@ -8,10 +8,10 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster 7000",
-        "horsepower_continuous": 1.65,
-        "horsepower_breakdown": 3.5,
-        "speed": "1-speed",
+        "model_name": "Wavemaster 9200",
+        "horsepower_continuous": 2.5,
+        "horsepower_breakdown": 5.2,
+        "speed": "2-speed",
         "amperage_max": null,
         "frame": null,
         "voltage": null,
@@ -51,7 +51,7 @@
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 22,
+    "total_jet_count": 28,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
@@ -62,36 +62,43 @@
         "description": null
       },
       {
-        "jet_type": "SoothingStream",
+        "jet_type": "SoothingStream jet",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream",
+        "jet_type": "JetStream jet",
         "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Rotary Hydromassage",
+        "jet_type": "Rotary Hydromassage jet",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Hydromassage",
+        "jet_type": "Directional Hydromassage jet",
         "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Precision",
-        "quantity": 14,
+        "jet_type": "HydroStream jet",
+        "quantity": 4,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Directional Precision jet",
+        "quantity": 16,
         "zone": null,
         "part_number": null,
         "description": null
