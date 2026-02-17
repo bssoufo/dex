@@ -56,7 +56,7 @@
     "jets_by_type": [
       {
         "jet_type": "Moto-Massage DX jet",
-        "quantity": 1,
+        "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
@@ -123,8 +123,8 @@
   },
   "heater": {
     "model_name": "No-Fault",
-    "wattage": null,
-    "voltage": null,
+    "wattage": 6000,
+    "voltage": 230,
     "material": null,
     "part_number": null,
     "shared_with_series": false
@@ -179,15 +179,13 @@
     }
   ],
   "data_quality": {
-    "verification_date": "2026-02-16",
+    "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
       "amperage",
-      "heater.wattage",
-      "heater.voltage",
       "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 80.0
+    "completeness_pct": 90.0
   }
 }
