@@ -12,13 +12,13 @@ from __future__ import annotations
 
 import json
 import logging
-import sys
 from pathlib import Path
 
 from backend.src.schema.models import SpaModel
 
-# Configure logging to stderr to avoid corrupting STDIO transport
-logging.basicConfig(stream=sys.stderr, level=logging.INFO)
+# Logger inherits config from the "backend" package logger set up in app.py.
+# When running under MCP STDIO transport (not via app.py), the fallback is
+# the root logger -- still safe because we never write to stdout here.
 logger = logging.getLogger(__name__)
 
 # Path to the data directory containing manufacturer/series/model.json files

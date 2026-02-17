@@ -26,6 +26,17 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.src.api.models import QueryRequest, QueryResponse
 
+# Configure logging for the entire backend package.
+# Uvicorn sets up the root logger before our code runs, so basicConfig()
+# in submodules is a no-op.  Explicitly attach a handler to the "backend"
+# namespace so all backend.src.* loggers emit to stdout (Docker captures it).
+_pkg_logger = logging.getLogger("backend")
+_pkg_logger.setLevel(logging.INFO)
+if not _pkg_logger.handlers:
+    _handler = logging.StreamHandler()  # defaults to stderr
+    _handler.setFormatter(logging.Formatter("%(levelname)s:%(name)s:%(message)s"))
+    _pkg_logger.addHandler(_handler)
+
 logger = logging.getLogger(__name__)
 
 # Module-level state managed by lifespan
