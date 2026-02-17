@@ -79,7 +79,12 @@ async def create_multi_agent(mcp_tools=None):
     )
 
     checkpointer = InMemorySaver()
-    app = workflow.compile(checkpointer=checkpointer)
+    app = workflow.compile(
+        checkpointer=checkpointer,
+    )
+    # Safety net: prevent runaway loops if supervisor fails to terminate.
+    # Default LangGraph recursion_limit is 25; we set it explicitly.
+    app.recursion_limit = 25
 
     return app, client
 

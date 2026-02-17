@@ -8,13 +8,13 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": null,
-        "horsepower_continuous": 1.0,
-        "horsepower_breakdown": null,
-        "speed": null,
+        "model_name": "Wavemaster 7000",
+        "horsepower_continuous": 1.65,
+        "horsepower_breakdown": 3.5,
+        "speed": "1-speed",
         "amperage_max": null,
         "frame": null,
-        "voltage": 240,
+        "voltage": null,
         "part_number": null
       }
     ],
@@ -23,110 +23,75 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": null,
-    "description": "SILENT FLO 5000 circulation pump",
+    "model_name": "SilentFlo 5000",
+    "description": "for quiet, continuous filtration",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "PRODIGY (MODEL HN)",
-    "display_type": "LCD touchscreen",
-    "voltage": 230,
-    "amperage": 20,
+    "model_name": "IQ 2020",
+    "display_type": "LCD control panel",
+    "voltage": null,
+    "amperage": null,
     "frequency_hz": 60,
     "features": [
-      "Temperature setting",
-      "Jets control",
-      "Lights control",
-      "Memory settings",
-      "Clean Cycle",
-      "FreshWater Salt System integration",
-      "Smart Monitoring System integration"
+      "G.F.C.I. protected power cord"
     ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "PRODIGY",
-    "type": "IQ 2020",
-    "features": [
-      "Temperature Setting",
-      "Jets Control",
-      "Lights Control",
-      "Memory",
-      "Clean Cycle",
-      "Music (if installed)",
-      "Soak Timer"
-    ],
-    "smart_connectivity": "Bluetooth, WiFi",
+    "model_name": "LCD control panel",
+    "type": "LCD",
+    "features": [],
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 30,
+    "total_jet_count": 22,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "MOTO-MASSAGE DX",
+        "jet_type": "Moto-Massage DX jet",
         "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "directional PRECISION",
-        "quantity": 4,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "HYDROSTREAM",
+        "jet_type": "SoothingStream",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "directional PRECISION",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "directional PRECISION",
-        "quantity": 10,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "HYDROSTREAM",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "SOOTHINGSTREAM",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "JETSTREAM",
+        "jet_type": "JetStream",
         "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SOOTHINGSTREAM",
-        "quantity": 3,
+        "jet_type": "Rotary Hydromassage",
+        "quantity": 2,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Directional Hydromassage",
+        "quantity": 1,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Directional Precision",
+        "quantity": 14,
         "zone": null,
         "part_number": null,
         "description": null
@@ -139,24 +104,17 @@
     "shared_with_series": false
   },
   "headrests": {
-    "headrests": [
-      {
-        "type": "Comfort Pillow",
-        "quantity": null,
-        "part_number": null,
-        "description": "All Highlife Collection models come with one or more comfortable headrests."
-      }
-    ],
+    "headrests": [],
     "shared_with_series": false
   },
   "filters": {
     "filters": [
       {
         "system_name": null,
-        "filter_type": "Tri-X",
-        "filtration_area_sqft": 1.95,
+        "filter_type": null,
+        "filtration_area_sqft": 90.0,
         "quantity": null,
-        "description": "100% No-Bypass filtration",
+        "description": "top loading",
         "no_bypass": true,
         "part_number": null
       }
@@ -164,9 +122,9 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": null,
-    "wattage": 1500,
-    "voltage": 230,
+    "model_name": "No-Fault",
+    "wattage": null,
+    "voltage": null,
     "material": null,
     "part_number": null,
     "shared_with_series": false
@@ -174,34 +132,25 @@
   "lighting": {
     "lights": [
       {
-        "location": "underwater",
-        "type": "LED",
-        "description": null,
-        "part_number": null
-      },
-      {
-        "location": "bartop & pillows",
-        "type": "LED",
-        "description": null,
-        "part_number": null
-      },
-      {
-        "location": "exterior",
-        "type": "LED",
-        "description": null,
+        "location": null,
+        "type": "multi-color",
+        "description": "Luminescence multi-color four-zone",
         "part_number": null
       }
     ],
-    "water_feature": "illuminated arcs of dancing water",
+    "water_feature": null,
     "shared_with_series": false
   },
   "cover": {
     "model_name": null,
-    "thickness": null,
+    "thickness": "3.5\u201d to 2.5\u201d tapered",
     "material": null,
-    "features": [],
-    "length_inches": 84.0,
-    "width_inches": 78.0,
+    "features": [
+      "2 lb. density foam core",
+      "hinge seal"
+    ],
+    "length_inches": null,
+    "width_inches": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -209,132 +158,25 @@
     "length_inches": 84.0,
     "width_inches": 78.0,
     "height_inches": 33.0,
-    "dry_weight_lbs": 575.0,
-    "filled_weight_lbs": 3705.0,
-    "water_capacity_gallons": 270.0
+    "dry_weight_lbs": 645.0,
+    "filled_weight_lbs": 3940.0,
+    "water_capacity_gallons": 290.0
   },
-  "voltage": 230,
-  "amperage": 30,
+  "voltage": 240,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
     {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 30,
+      "source_type": "website",
+      "url": "https://www.hotspring.com/shop/highlife/prodigy",
+      "document_name": null,
+      "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 41,
-      "section": "SILENT FLO 5000 CIRCULATION PUMP AND CIRCULATION PUMP THERMAL CUT-OFF",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 7,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 17,
-      "section": "OPERATING INSTRUCTIONS",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 7,
-      "section": "Spa Features",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 3,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "highlife-2026.pdf",
-      "page_number": 45,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
+      "accessed_date": "2026-02-16",
+      "verified_by": null,
+      "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-16",
-    "verified_by": "automated_checks_v1",
-    "not_available_fields": [
-      "circulation_pump.part_number",
-      "circulation_pump.wattage",
-      "cover.part_number",
-      "cover.thickness",
-      "filters.filters[0].part_number",
-      "headrests.headrests[0].part_number",
-      "heater.material",
-      "heater.part_number",
-      "jet_pumps.pumps[0].part_number",
-      "jet_pumps.total_brake_horsepower",
-      "jets.jetpak_options",
-      "jets.jets_by_type[0].part_number",
-      "jets.jets_by_type[1].part_number",
-      "jets.jets_by_type[2].part_number",
-      "jets.jets_by_type[3].part_number",
-      "jets.jets_by_type[4].part_number",
-      "jets.jets_by_type[5].part_number",
-      "jets.jets_by_type[6].part_number",
-      "jets.jets_by_type[7].part_number",
-      "jets.jets_by_type[8].part_number",
-      "jets.max_jet_count",
-      "jets.therapy_jet_count",
-      "lighting.lights[0].part_number",
-      "lighting.lights[1].part_number",
-      "lighting.lights[2].part_number",
-      "spa_pak.part_number",
-      "topside_control.part_number"
-    ],
-    "anomalies_reviewed": [
-      {
-        "field": "spa_pak.voltage",
-        "issue": "spa_pak.voltage=115 did not match top-level voltage=230",
-        "resolution": "Set spa_pak.voltage to 230 (primary electrical input voltage)",
-        "status": "fixed"
-      },
-      {
-        "field": "jets.total_jet_count vs jets.jets_by_type sum",
-        "issue": "total=30 vs sum_by_type=27",
-        "resolution": "Different counting methods: total is primary therapy jets, by_type includes all jet types including water features",
-        "status": "accepted"
-      }
-    ],
-    "completeness_pct": 13.6
-  }
+  "data_quality": null
 }

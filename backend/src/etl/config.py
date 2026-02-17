@@ -16,9 +16,9 @@ DATA_OUTPUT_DIR: Path = _PACKAGE_DIR.parent / "data"
 
 # === Gemini model selection ===
 # Switched from Claude to Gemini per user request (02-04 plan).
-# Gemini 2.0 Flash for cost-efficient extraction with PDF understanding.
+# Upgraded to Gemini 3 Flash Preview for better PDF extraction accuracy.
 
-GEMINI_MODEL: str = "gemini-2.0-flash"
+GEMINI_MODEL: str = "gemini-3-flash-preview"
 GEMINI_MODEL_CHEAP: str = "gemini-2.0-flash-lite"
 MAX_TOKENS: int = 8192
 

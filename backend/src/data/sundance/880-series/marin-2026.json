@@ -9,33 +9,22 @@
       {
         "position": 1,
         "model_name": null,
-        "horsepower_continuous": 1.1,
+        "horsepower_continuous": 2.5,
         "horsepower_breakdown": null,
         "speed": "1-speed",
-        "amperage_max": 11.0,
-        "frame": null,
-        "voltage": 240,
+        "amperage_max": 11.3,
+        "frame": "56 Frame",
+        "voltage": null,
         "part_number": null
       },
       {
         "position": 2,
         "model_name": null,
-        "horsepower_continuous": 1.0,
+        "horsepower_continuous": 2.5,
         "horsepower_breakdown": null,
-        "speed": null,
-        "amperage_max": null,
-        "frame": null,
-        "voltage": null,
-        "part_number": null
-      },
-      {
-        "position": 3,
-        "model_name": null,
-        "horsepower_continuous": 1.0,
-        "horsepower_breakdown": null,
-        "speed": null,
-        "amperage_max": null,
-        "frame": null,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56 Frame",
         "voltage": null,
         "part_number": null
       }
@@ -45,7 +34,7 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "Marin",
+    "model_name": null,
     "description": null,
     "is_dedicated": true,
     "wattage": null,
@@ -53,108 +42,30 @@
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "Marin",
+    "model_name": null,
     "display_type": null,
-    "voltage": 240,
+    "voltage": null,
     "amperage": null,
-    "frequency_hz": 60,
-    "features": [
-      "Ozone",
-      "Audio System",
-      "Chromazone",
-      "Clim8zone",
-      "Wifi"
-    ],
+    "frequency_hz": null,
+    "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": "touch-sensitive",
+    "model_name": "Advanced Touch Control Panel",
+    "type": "Touch Control Panel",
     "features": [
-      "icon-driven menus",
-      "LCD display",
-      "interactive control panel"
+      "glowing, color touchscreen control",
+      "icon-driven menus"
     ],
-    "smart_connectivity": "SmartTub System",
+    "smart_connectivity": "Compatible with optional SmartTub\u2122 System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 53,
+    "total_jet_count": 45,
     "jet_system_type": "fixed",
-    "jets_by_type": [
-      {
-        "jet_type": "Fluidix Nex",
-        "quantity": 6,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix Intelli-Jet",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix Reflex",
-        "quantity": 6,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix ST",
-        "quantity": 12,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Vortex",
-        "quantity": 6,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Fluidix PT",
-        "quantity": 1,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Focus-Relief",
-        "quantity": 10,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Accu-Pressure",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Whirlpool",
-        "quantity": 4,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": null,
-        "quantity": 4,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      }
-    ],
+    "jets_by_type": [],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -162,21 +73,27 @@
     "shared_with_series": false
   },
   "headrests": {
-    "headrests": [
+    "headrests": [],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
       {
-        "type": "Pillows",
-        "quantity": 4,
-        "part_number": null,
-        "description": null
+        "system_name": "MicroClean\u00ae Ultra Filtration",
+        "filter_type": "interlocking cartridge filters",
+        "filtration_area_sqft": 130.0,
+        "quantity": 2,
+        "description": "MicroClean\u00ae Ultra II Filtration System",
+        "no_bypass": null,
+        "part_number": null
       }
     ],
     "shared_with_series": false
   },
-  "filters": null,
   "heater": {
     "model_name": null,
-    "wattage": 5500,
-    "voltage": 240,
+    "wattage": null,
+    "voltage": null,
     "material": null,
     "part_number": null,
     "shared_with_series": false
@@ -184,20 +101,46 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior",
-        "type": "SunGlow LED",
-        "description": null,
+        "location": "spa interior",
+        "type": "LED",
+        "description": "Multicolor SunGlow\u2122",
+        "part_number": null
+      },
+      {
+        "location": "waterfall",
+        "type": "LED",
+        "description": "Multicolor SunGlow\u2122",
+        "part_number": null
+      },
+      {
+        "location": "footwell",
+        "type": "LED",
+        "description": "Multicolor SunGlow\u2122",
+        "part_number": null
+      },
+      {
+        "location": "backlit grab bar",
+        "type": "LED",
+        "description": "Multicolor SunGlow\u2122",
+        "part_number": null
+      },
+      {
+        "location": "exterior",
+        "type": "LED",
+        "description": "elegant exterior LED lighting",
         "part_number": null
       }
     ],
-    "water_feature": "Waterfall",
+    "water_feature": "waterfall",
     "shared_with_series": false
   },
   "cover": {
     "model_name": null,
     "thickness": null,
-    "material": "SUNSTRONG™/SUNSTRONG™ Extreme encasement",
-    "features": [],
+    "material": null,
+    "features": [
+      "designed for cold, harsh climates"
+    ],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
@@ -208,94 +151,14 @@
     "width_inches": 91.0,
     "height_inches": 34.0,
     "dry_weight_lbs": 838.0,
-    "filled_weight_lbs": null,
+    "filled_weight_lbs": 3298.3,
     "water_capacity_gallons": 295.0
   },
   "voltage": 240,
-  "amperage": 39,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 22,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 20,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 90,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 43,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 68,
-      "section": "Cleaning/Replacing the Filter Cartridge",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 86,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 37,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "880-series-2026.pdf",
-      "page_number": 71,
-      "section": "Cover Care And Maintenance",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
     {
       "source_type": "website",
       "url": "https://www.sundancespas.com/en-us/marin-880-series/Marin.html",
@@ -303,50 +166,9 @@
       "page_number": null,
       "section": null,
       "accessed_date": "2026-02-16",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
+      "verified_by": null,
+      "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-16",
-    "verified_by": "automated_checks_v1",
-    "not_available_fields": [
-      "circulation_pump.part_number",
-      "circulation_pump.wattage",
-      "cover.part_number",
-      "cover.thickness",
-      "headrests.headrests[0].part_number",
-      "heater.material",
-      "heater.part_number",
-      "jet_pumps.pumps[0].part_number",
-      "jet_pumps.pumps[1].part_number",
-      "jet_pumps.pumps[2].part_number",
-      "jet_pumps.total_brake_horsepower",
-      "jets.jetpak_options",
-      "jets.jets_by_type[0].part_number",
-      "jets.jets_by_type[1].part_number",
-      "jets.jets_by_type[2].part_number",
-      "jets.jets_by_type[3].part_number",
-      "jets.jets_by_type[4].part_number",
-      "jets.jets_by_type[5].part_number",
-      "jets.jets_by_type[6].part_number",
-      "jets.jets_by_type[7].part_number",
-      "jets.jets_by_type[8].part_number",
-      "jets.jets_by_type[9].part_number",
-      "jets.max_jet_count",
-      "jets.therapy_jet_count",
-      "lighting.lights[0].part_number",
-      "spa_pak.part_number",
-      "topside_control.part_number"
-    ],
-    "anomalies_reviewed": [
-      {
-        "field": "filters",
-        "issue": "Category entirely null -- extraction failed",
-        "resolution": "Data not extractable from available sources",
-        "status": "accepted_not_available"
-      }
-    ],
-    "completeness_pct": 0.0
-  }
+  "data_quality": null
 }

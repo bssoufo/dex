@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 from contextlib import asynccontextmanager
 from pathlib import Path
 from uuid import uuid4
@@ -152,6 +153,19 @@ async def query(request: QueryRequest):
     )
 
 
+_HANDOFF_RE = re.compile(
+    r"(?:Transferring (?:back )?to \w+\.?"
+    r"|Successfully transferred (?:back )?to \w+\.?"
+    r"|transfer_to_\w+)",
+    re.IGNORECASE,
+)
+
+
+def _strip_handoff_text(text: str) -> str:
+    """Remove LangGraph supervisor handoff artifacts from agent output."""
+    return _HANDOFF_RE.sub("", text).strip()
+
+
 def _normalize_content(raw) -> str:
     """Normalize message content, handling Gemini's list-of-blocks format.
 
@@ -201,23 +215,45 @@ async def query_stream(request: QueryRequest):
 
         # Accumulate messages for the validator
         accumulated_messages: list = []
+        # Track the last agent that produced content (for deduplication)
+        last_content = ""
 
-        async for chunk in _agent.astream(
-            {"messages": [{"role": "user", "content": request.question}]},
-            config=config,
-            stream_mode="updates",
-        ):
-            for node_name, node_output in chunk.items():
-                messages = node_output.get("messages", [])
-                for msg in messages:
-                    accumulated_messages.append(msg)
-                    if hasattr(msg, "content") and msg.content:
+        try:
+            async for chunk in _agent.astream(
+                {"messages": [{"role": "user", "content": request.question}]},
+                config=config,
+                stream_mode="updates",
+            ):
+                for node_name, node_output in chunk.items():
+                    # Skip supervisor routing messages — internal only
+                    if node_name == "supervisor":
+                        continue
+                    messages = node_output.get("messages", [])
+                    for msg in messages:
+                        accumulated_messages.append(msg)
+                        # Skip tool messages (internal tool responses)
+                        msg_type = getattr(msg, "type", None)
+                        if msg_type == "tool":
+                            continue
+                        if not (hasattr(msg, "content") and msg.content):
+                            continue
                         content = _normalize_content(msg.content)
-                        if content.strip():
+                        # Strip handoff artifacts from content
+                        content = _strip_handoff_text(content)
+                        if not content.strip():
+                            continue
+                        if content != last_content:
+                            last_content = content
                             yield _format_sse(
                                 "token",
                                 {"content": content, "node": node_name},
                             )
+        except Exception as exc:
+            logger.exception("Streaming error")
+            yield _format_sse(
+                "error",
+                {"message": f"Agent error: {type(exc).__name__}"},
+            )
 
         # Signal streaming complete
         yield _format_sse("done", {"status": "complete"})

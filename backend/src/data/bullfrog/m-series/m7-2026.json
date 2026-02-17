@@ -3,40 +3,29 @@
   "series": "M Series",
   "model_name": "M7",
   "year": 2026,
-  "seating_capacity": 0,
+  "seating_capacity": 8,
   "jet_pumps": {
     "pumps": [
       {
         "position": 1,
         "model_name": null,
-        "horsepower_continuous": 1.0,
+        "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
         "amperage_max": null,
         "frame": null,
-        "voltage": 240,
+        "voltage": null,
         "part_number": null
       },
       {
         "position": 2,
         "model_name": null,
-        "horsepower_continuous": 1.0,
+        "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
         "amperage_max": null,
         "frame": null,
-        "voltage": 240,
-        "part_number": null
-      },
-      {
-        "position": 3,
-        "model_name": null,
-        "horsepower_continuous": 1.0,
-        "horsepower_breakdown": null,
-        "speed": "2-speed",
-        "amperage_max": null,
-        "frame": null,
-        "voltage": 240,
+        "voltage": null,
         "part_number": null
       }
     ],
@@ -46,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "Circulation pump / O3",
+    "description": "calibrated for filtration system effectiveness as it circulates all of the water in your spa many times per day. In addition, a dedicated filtration pump operates much more quietly and more efficiently than systems that use a jet pump for filtration.",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -55,24 +44,22 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": 240,
+    "voltage": null,
     "amperage": null,
-    "frequency_hz": 60,
+    "frequency_hz": null,
     "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": "Premium Touch Screen Control (K1000)",
+    "model_name": "M Series touch screen control center",
+    "type": "touch screen",
     "features": [
-      "Adjustable Temperature",
-      "Water Care Presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
-      "Maintenance Reminders",
-      "Invert Screen",
-      "Standby/Lock",
-      "Light control",
-      "Audio System Controls (Optional)"
+      "capacitive touch interface",
+      "resistant to water interference",
+      "thoughtful user experience",
+      "easy to understand",
+      "simple to navigate"
     ],
     "smart_connectivity": null,
     "part_number": null,
@@ -81,8 +68,16 @@
   "jets": {
     "total_jet_count": null,
     "jet_system_type": "modular_jetpak",
-    "jets_by_type": [],
-    "jetpak_count": null,
+    "jets_by_type": [
+      {
+        "jet_type": "Therapy Jets",
+        "quantity": 18,
+        "zone": "Foot, Wrist, Hip, Leg, Elevated Seat",
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "jetpak_count": 6,
     "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
@@ -94,7 +89,7 @@
         "type": "Adjustable",
         "quantity": null,
         "part_number": null,
-        "description": "Item 4 in the overview diagram"
+        "description": "ultra-comfortable adjustable headrests that adjust upward to meet your head in just the right position"
       }
     ],
     "shared_with_series": false
@@ -102,11 +97,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity",
-        "filter_type": "pleated flat",
+        "system_name": "Simplicity\u2122 Filtration System",
+        "filter_type": "Flat Filter",
         "filtration_area_sqft": null,
-        "quantity": 1,
-        "description": "used in M Series spas, can be cleaned by spraying along the pleats from one side of the filter to the other with a garden hose and nozzle, then rinsing thoroughly. Even with regular cleaning, Simplicity filters will eventually become less effective and should be replaced at least every 12-16 weeks.",
+        "quantity": null,
+        "description": "Featuring dual intakes for more effective skimming, an in-wall design that saves an incredible amount of space for seating, and an industry-first flat filter.",
         "no_bypass": null,
         "part_number": null
       }
@@ -124,28 +119,37 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior",
+        "location": "Interior",
         "type": "LED",
-        "description": null,
+        "description": "premium LED surround lighting, full-color in-spa lighting",
         "part_number": null
       },
       {
-        "location": "exterior",
-        "type": "sconce",
-        "description": null,
+        "location": "Headrests",
+        "type": "LED",
+        "description": "lighted headrests",
+        "part_number": null
+      },
+      {
+        "location": "Exterior",
+        "type": "LED",
+        "description": "impressive exterior rim lighting",
         "part_number": null
       }
     ],
-    "water_feature": null,
+    "water_feature": "Control-activated Water Feature",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": null,
+    "model_name": "Patio Performance\u2122 Spa Cover",
     "thickness": null,
     "material": null,
-    "features": [],
-    "length_inches": 91.0,
-    "width_inches": 91.0,
+    "features": [
+      "smart sensor technology",
+      "built-in smart sensors"
+    ],
+    "length_inches": null,
+    "width_inches": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -153,9 +157,9 @@
     "length_inches": 91.0,
     "width_inches": 91.0,
     "height_inches": 37.0,
-    "dry_weight_lbs": null,
-    "filled_weight_lbs": null,
-    "water_capacity_gallons": null
+    "dry_weight_lbs": 1000.0,
+    "filled_weight_lbs": 6029.0,
+    "water_capacity_gallons": 453.0
   },
   "voltage": 240,
   "amperage": 50,
@@ -163,95 +167,15 @@
   "compatibility_notes": [],
   "source_documents": [
     {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 9,
+      "source_type": "website",
+      "url": "https://patiosplash.com/bullfrog-spas/m-series/m7/",
+      "document_name": null,
+      "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 4,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 8,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 8,
-      "section": "Spa Overview",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 32,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
+      "accessed_date": "2026-02-16",
+      "verified_by": null,
+      "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-16",
-    "verified_by": "automated_checks_v1",
-    "not_available_fields": [
-      "circulation_pump.part_number",
-      "circulation_pump.wattage",
-      "cover.part_number",
-      "cover.thickness",
-      "filters.filters[0].part_number",
-      "headrests.headrests[0].part_number",
-      "heater.*",
-      "heater.material",
-      "heater.part_number",
-      "jet_pumps.pumps[0].part_number",
-      "jet_pumps.pumps[1].part_number",
-      "jet_pumps.pumps[2].part_number",
-      "jet_pumps.total_brake_horsepower",
-      "jets.jetpak_options",
-      "jets.max_jet_count",
-      "jets.therapy_jet_count",
-      "lighting.lights[0].part_number",
-      "lighting.lights[1].part_number",
-      "spa_pak.part_number",
-      "topside_control.part_number"
-    ],
-    "anomalies_reviewed": [
-      {
-        "field": "heater",
-        "issue": "Category present but all fields null",
-        "resolution": "Bullfrog manuals do not include this specification",
-        "status": "accepted_not_available"
-      },
-      {
-        "field": "seating_capacity",
-        "issue": "seating_capacity=0 outside plausible range [2, 10]",
-        "resolution": "Value not available from extraction sources; retained as 0 pending manual verification",
-        "status": "accepted"
-      }
-    ],
-    "completeness_pct": 0.0
-  }
+  "data_quality": null
 }

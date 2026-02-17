@@ -55,64 +55,64 @@ SCRAPE_URLS: dict[str, list[dict[str, str | None]]] = {
     "hotspring": [
         {
             "model_name": "Grandee",
-            "url": "https://www.hotspringhottubs.com/grandee/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/grandee",
+            "alt_url": "https://www.hotspringhottubs.com/grandee/",
         },
         {
             "model_name": "Envoy",
-            "url": "https://www.hotspringhottubs.com/envoy/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/envoy",
+            "alt_url": "https://www.hotspringhottubs.com/envoy/",
         },
         {
             "model_name": "Aria",
-            "url": "https://www.hotspringhottubs.com/aria/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/aria",
+            "alt_url": "https://www.hotspringhottubs.com/aria/",
         },
         {
             "model_name": "Vanguard",
-            "url": "https://www.hotspringhottubs.com/vanguard/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/vanguard",
+            "alt_url": "https://www.hotspringhottubs.com/vanguard/",
         },
         {
             "model_name": "Sovereign",
-            "url": "https://www.hotspringhottubs.com/sovereign/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/sovereign",
+            "alt_url": "https://www.hotspringhottubs.com/sovereign/",
         },
         {
             "model_name": "Prodigy",
-            "url": "https://www.hotspringhottubs.com/prodigy/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/prodigy",
+            "alt_url": "https://www.hotspringhottubs.com/prodigy/",
         },
         {
             "model_name": "Jetsetter LX",
-            "url": "https://www.hotspringhottubs.com/jetsetter-lx/",
-            "alt_url": None,
+            "url": "https://olympichottub.com/hot-tub/jetsetter-lx/",
+            "alt_url": "https://www.hotspring.com/shop/highlife/jetsetter-lx",
         },
         {
             "model_name": "Jetsetter",
-            "url": "https://www.hotspringhottubs.com/jetsetter/",
-            "alt_url": None,
+            "url": "https://www.hotspring.com/shop/highlife/jetsetter",
+            "alt_url": "https://www.hotspringhottubs.com/jetsetter/",
         },
     ],
     "bullfrog": [
         {
             "model_name": "M9",
-            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9463",
-            "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m9/",
+            "url": "https://www.skillfulhome.com/products/bullfrog-spas-hot-tubs/bullfrog-spas-m-series-hot-tubs/bullfrog-spas-model-m9/",
+            "alt_url": "https://patiosplash.com/bullfrog-spas/m-series/m9/",
         },
         {
             "model_name": "M8",
-            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9464",
+            "url": "https://patiosplash.com/bullfrog-spas/m-series/m8/",
             "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m8/",
         },
         {
             "model_name": "M7",
-            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=18476",
+            "url": "https://patiosplash.com/bullfrog-spas/m-series/m7/",
             "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m7/",
         },
         {
             "model_name": "M6",
-            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9466",
+            "url": "https://www.skillfulhome.com/products/bullfrog-spas-hot-tubs/bullfrog-spas-m-series-hot-tubs/bullfrog-spas-m6/",
             "alt_url": "https://www.hotspas.com/hot-tubs/bullfrog-spas/m-series/bullfrog-model-m6/",
         },
     ],
@@ -124,7 +124,11 @@ SCRAPE_URLS: dict[str, list[dict[str, str | None]]] = {
 
 RATE_LIMITS: dict[str, float] = {
     "sundancespas.com": 2.0,
+    "hotspring.com": 2.0,
     "hotspringhottubs.com": 2.0,
+    "olympichottub.com": 2.0,
+    "patiosplash.com": 2.0,
+    "skillfulhome.com": 2.0,
     "bullfrogfactorystores.com": 10.0,
     "hotspas.com": 2.0,
 }

@@ -3,40 +3,40 @@
   "series": "M Series",
   "model_name": "M8",
   "year": 2026,
-  "seating_capacity": 9,
+  "seating_capacity": 8,
   "jet_pumps": {
     "pumps": [
       {
         "position": 1,
         "model_name": null,
-        "horsepower_continuous": 1.0,
+        "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
         "amperage_max": null,
         "frame": null,
-        "voltage": 240,
+        "voltage": null,
         "part_number": null
       },
       {
         "position": 2,
         "model_name": null,
-        "horsepower_continuous": 1.0,
+        "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
         "amperage_max": null,
         "frame": null,
-        "voltage": 240,
+        "voltage": null,
         "part_number": null
       },
       {
         "position": 3,
         "model_name": null,
-        "horsepower_continuous": 1.0,
+        "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
         "amperage_max": null,
         "frame": null,
-        "voltage": 240,
+        "voltage": null,
         "part_number": null
       }
     ],
@@ -46,7 +46,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "Circulation pump / O3",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -63,31 +63,32 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": "Premium Touch Screen Control (K1000)",
+    "model_name": "Premium Touch Screen Main Control",
+    "type": "Touch Screen",
     "features": [
-      "Time display",
-      "Jet control",
-      "Light control",
-      "Screen orientation",
-      "Water temperature display",
-      "Heating/cooling status",
-      "Settings menu",
-      "Water Care presets (Energy Saver, Standard, Super Clean, Weekender, Vacation)",
-      "Maintenance Reminders",
-      "Standby/Lock",
-      "Electrical Configuration",
-      "Audio System Controls (Optional)"
+      "capacitive touch interface",
+      "resistant to water interference",
+      "thoughtful user experience",
+      "easy to understand",
+      "simple to navigate"
     ],
-    "smart_connectivity": "Bluetooth (Optional)",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 288,
+    "total_jet_count": 36,
     "jet_system_type": "modular_jetpak",
-    "jets_by_type": [],
-    "jetpak_count": 4,
+    "jets_by_type": [
+      {
+        "jet_type": "Therapy Jets",
+        "quantity": 36,
+        "zone": "Foot, Wrist, Hip, Leg, Elevated Seat",
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "jetpak_count": 6,
     "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
@@ -96,10 +97,10 @@
   "headrests": {
     "headrests": [
       {
-        "type": "adjustable",
+        "type": "Adjustable",
         "quantity": null,
         "part_number": null,
-        "description": "Adjustable headrest"
+        "description": "ultra-comfortable adjustable headrests that adjust upward to meet your head in just the right position"
       }
     ],
     "shared_with_series": false
@@ -107,11 +108,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity",
-        "filter_type": "pleated flat",
+        "system_name": "Simplicity\u2122 Filtration System",
+        "filter_type": "Flat Filter",
         "filtration_area_sqft": null,
-        "quantity": 1,
-        "description": "It is recommended that the pleated flat Simplicity filter used in M Series spas be cleaned or replaced every 4 weeks, or sooner if needed. You may prefer to simply replace monthly, or Simplicity filters can be cleaned by spraying along the pleats from one side of the filter to the other with a garden hose and nozzle, then rinsing thoroughly. Even with regular cleaning, Simplicity filters will eventually become less effective and should be replaced at least every 12-16 weeks.",
+        "quantity": null,
+        "description": "Featuring dual intakes for more effective skimming, an in-wall design that saves an incredible amount of space for seating, and an industry-first flat filter.",
         "no_bypass": null,
         "part_number": null
       }
@@ -129,28 +130,37 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior",
+        "location": "Interior",
         "type": "LED",
-        "description": null,
+        "description": "full-color in-spa lighting",
         "part_number": null
       },
       {
-        "location": "exterior sconce",
+        "location": "Exterior",
         "type": "LED",
-        "description": null,
+        "description": "impressive exterior rim lighting",
+        "part_number": null
+      },
+      {
+        "location": "Headrests",
+        "type": "LED",
+        "description": "lighted headrests",
         "part_number": null
       }
     ],
-    "water_feature": null,
+    "water_feature": "Integrated Waterfalls",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "M8",
+    "model_name": "Patio Performance\u2122 Cover",
     "thickness": null,
     "material": null,
-    "features": [],
-    "length_inches": 94.0,
-    "width_inches": 94.0,
+    "features": [
+      "Smart Sensor Functionality",
+      "Smart sensor technology"
+    ],
+    "length_inches": null,
+    "width_inches": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -158,8 +168,8 @@
     "length_inches": 94.0,
     "width_inches": 94.0,
     "height_inches": 38.0,
-    "dry_weight_lbs": 1024.0,
-    "filled_weight_lbs": 6249.0,
+    "dry_weight_lbs": 1085.0,
+    "filled_weight_lbs": 6310.0,
     "water_capacity_gallons": 474.0
   },
   "voltage": 240,
@@ -168,135 +178,15 @@
   "compatibility_notes": [],
   "source_documents": [
     {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 9,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 9,
-      "section": "Equipment Compartment Overview",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 12,
-      "section": "PREMIUM TOUCH SCREEN CONTROL (K1000)",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 4,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 8,
-      "section": "Spa Overview",
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 25,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 8,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
-      "source_type": "pdf",
-      "url": null,
-      "document_name": "m-series.pdf",
-      "page_number": 32,
-      "section": null,
-      "accessed_date": "2026-02-15",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
-    },
-    {
       "source_type": "website",
-      "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9464",
+      "url": "https://patiosplash.com/bullfrog-spas/m-series/m8/",
       "document_name": null,
       "page_number": null,
       "section": null,
       "accessed_date": "2026-02-16",
-      "verified_by": "automated_checks_v1",
-      "verified_date": "2026-02-16"
+      "verified_by": null,
+      "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-16",
-    "verified_by": "automated_checks_v1",
-    "not_available_fields": [
-      "circulation_pump.part_number",
-      "circulation_pump.wattage",
-      "cover.part_number",
-      "cover.thickness",
-      "filters.filters[0].part_number",
-      "headrests.headrests[0].part_number",
-      "heater.*",
-      "heater.material",
-      "heater.part_number",
-      "jet_pumps.pumps[0].part_number",
-      "jet_pumps.pumps[1].part_number",
-      "jet_pumps.pumps[2].part_number",
-      "jet_pumps.total_brake_horsepower",
-      "jets.jetpak_options",
-      "jets.max_jet_count",
-      "jets.therapy_jet_count",
-      "lighting.lights[0].part_number",
-      "lighting.lights[1].part_number",
-      "spa_pak.part_number",
-      "topside_control.part_number"
-    ],
-    "anomalies_reviewed": [
-      {
-        "field": "heater",
-        "issue": "Category present but all fields null",
-        "resolution": "Bullfrog manuals do not include this specification",
-        "status": "accepted_not_available"
-      },
-      {
-        "field": "spa_pak",
-        "issue": "Category present but all fields null",
-        "resolution": "Bullfrog manuals do not include this specification",
-        "status": "accepted_not_available"
-      }
-    ],
-    "completeness_pct": 6.9
-  }
+  "data_quality": null
 }

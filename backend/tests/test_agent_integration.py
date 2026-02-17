@@ -170,9 +170,9 @@ CATEGORY_QUESTIONS = [
         id="jets",
     ),
     pytest.param(
-        "What headrests come with the Hot Spring Sovereign?",
-        ["headrest", "pillow"],
-        id="headrests",
+        "What heater does the Hot Spring Sovereign use?",
+        ["heater", "no-fault", "watt"],
+        id="heater",
     ),
     pytest.param(
         "What filter does the Sundance Cameo use?",
@@ -580,11 +580,11 @@ async def test_response_includes_cross_references(agent_and_client):
     """Agent response mentions other models when querying a shared component.
 
     Validates RESP-04: cross-reference information appears for shared components.
-    Sundance heater is shared across ALL 7 models in the 880 series.
+    Hot Spring circulation pump (SilentFlo 5000) is shared across all 8 Highlife models.
     """
     agent, _client = agent_and_client
     answer, elapsed = await _ask(
-        agent, "What heater does the Sundance Aspen use?"
+        agent, "What circulation pump does the Hot Spring Vanguard use?"
     )
 
     assert len(answer) > 20, f"Answer too short ({len(answer)} chars): {answer!r}"
@@ -592,20 +592,22 @@ async def test_response_includes_cross_references(agent_and_client):
     answer_lower = answer.lower()
 
     # Check for cross-reference: either other model names or "shared across" language
-    other_sundance_models = ["altamar", "cameo", "optima", "marin", "capris", "vistamar"]
-    has_model_name = any(m in answer_lower for m in other_sundance_models)
+    other_hotspring_models = ["grandee", "envoy", "aria", "sovereign", "prodigy", "jetsetter"]
+    has_model_name = any(m in answer_lower for m in other_hotspring_models)
     has_shared_phrase = any(
         phrase in answer_lower
         for phrase in [
-            "shared across all",
+            "shared across",
             "also used in",
-            "same heater",
+            "same pump",
+            "same circulation",
             "shared by",
             "used in all",
-            "all sundance",
-            "all 880",
+            "all highlife",
+            "all hot spring",
             "other models",
             "cross-reference",
+            "silentflo",
         ]
     )
 
