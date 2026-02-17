@@ -27,15 +27,16 @@ from fastapi.staticfiles import StaticFiles
 from backend.src.api.models import QueryRequest, QueryResponse
 
 # Configure logging for the entire backend package.
-# Uvicorn sets up the root logger before our code runs, so basicConfig()
-# in submodules is a no-op.  Explicitly attach a handler to the "backend"
-# namespace so all backend.src.* loggers emit to stdout (Docker captures it).
+# Uvicorn uses dictConfig which may not cover our loggers. We configure the
+# "backend" namespace explicitly and write to stdout so Docker captures it.
+import sys as _sys
+
 _pkg_logger = logging.getLogger("backend")
 _pkg_logger.setLevel(logging.INFO)
-if not _pkg_logger.handlers:
-    _handler = logging.StreamHandler()  # defaults to stderr
-    _handler.setFormatter(logging.Formatter("%(levelname)s:%(name)s:%(message)s"))
-    _pkg_logger.addHandler(_handler)
+_handler = logging.StreamHandler(_sys.stdout)
+_handler.setFormatter(logging.Formatter("%(levelname)s:%(name)s:%(message)s"))
+_pkg_logger.addHandler(_handler)
+_pkg_logger.propagate = False  # avoid duplicate lines from root logger
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +49,20 @@ _mcp_client = None
 async def lifespan(app: FastAPI):
     """Start multi-agent graph at boot, clean up at shutdown."""
     global _agent, _mcp_client
+
+    # Force data store initialization at startup so we see loaded models in logs
+    from backend.src.mcp.data_store import get_store
+
+    store = get_store()
+    logger.info("=== Dex startup: %d models loaded ===", len(store))
+    for (mfr, name), model in sorted(store.items()):
+        dq = model.data_quality
+        logger.info(
+            "  %s / %s — verified=%s completeness=%s%%",
+            mfr, model.model_name,
+            dq.verification_date if dq else "N/A",
+            dq.completeness_pct if dq else "N/A",
+        )
 
     from backend.src.agent.graph import create_multi_agent
 
