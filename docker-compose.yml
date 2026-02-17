@@ -1,6 +1,6 @@
 services:
   dex:
-    image: ghcr.io/${GITHUB_REPOSITORY:-spaparts/dex}:latest
+    image: ghcr.io/bssoufo/dex:latest
     restart: always
     ports:
       - "${PORT:-8000}:${PORT:-8000}"
