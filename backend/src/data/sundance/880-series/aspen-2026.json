@@ -1,0 +1,151 @@
+{
+  "manufacturer": "sundance",
+  "series": "880 Series",
+  "model_name": "Aspen",
+  "year": 2026,
+  "seating_capacity": 7,
+  "jet_pumps": {
+    "pumps": [
+      {
+        "position": 1,
+        "model_name": null,
+        "horsepower_continuous": 2.5,
+        "horsepower_breakdown": null,
+        "speed": "2-speed",
+        "amperage_max": null,
+        "frame": null,
+        "voltage": 240,
+        "part_number": null
+      }
+    ],
+    "diverter_valves": 2,
+    "total_brake_horsepower": null,
+    "shared_with_series": false
+  },
+  "circulation_pump": {
+    "model_name": null,
+    "description": "Silent circulation",
+    "is_dedicated": true,
+    "wattage": 85.0,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "spa_pak": {
+    "model_name": null,
+    "display_type": null,
+    "voltage": 240,
+    "amperage": null,
+    "frequency_hz": 60,
+    "features": [],
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "topside_control": {
+    "model_name": null,
+    "type": null,
+    "features": [],
+    "smart_connectivity": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "jets": {
+    "total_jet_count": 45,
+    "jet_system_type": "fixed",
+    "jets_by_type": [
+      {
+        "jet_type": "Rotary",
+        "quantity": 25,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": "Directional",
+        "quantity": 20,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "jetpak_count": null,
+    "jetpak_options": null,
+    "therapy_jet_count": null,
+    "max_jet_count": null,
+    "shared_with_series": false
+  },
+  "headrests": {
+    "headrests": [],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
+      {
+        "system_name": null,
+        "filter_type": "Pleated",
+        "filtration_area_sqft": 100.0,
+        "quantity": 1,
+        "description": null,
+        "no_bypass": null,
+        "part_number": null
+      }
+    ],
+    "shared_with_series": false
+  },
+  "heater": {
+    "model_name": null,
+    "wattage": 4000,
+    "voltage": 240,
+    "material": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "lighting": {
+    "lights": [],
+    "water_feature": null,
+    "shared_with_series": false
+  },
+  "cover": {
+    "model_name": null,
+    "thickness": null,
+    "material": null,
+    "features": [],
+    "length_inches": null,
+    "width_inches": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "dimensions": {
+    "length_inches": 91.0,
+    "width_inches": 91.0,
+    "height_inches": 38.5,
+    "dry_weight_lbs": 850.0,
+    "filled_weight_lbs": 4500.0,
+    "water_capacity_gallons": 420.0
+  },
+  "voltage": 240,
+  "amperage": 50,
+  "requires_gfci": true,
+  "compatibility_notes": [],
+  "source_documents": [
+    {
+      "source_type": "website",
+      "url": "https://www.sundancespas.com/en-us/aspen-880-series/Aspen.html",
+      "document_name": null,
+      "page_number": null,
+      "section": null,
+      "accessed_date": "2026-02-17",
+      "verified_by": null,
+      "verified_date": null
+    }
+  ],
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "circulation_pump.model_name",
+      "lighting.lights"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 90.0
+  }
+}

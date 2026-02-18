@@ -1,17 +1,17 @@
 {
   "manufacturer": "hotspring",
   "series": "Highlife Collection",
-  "model_name": "Sovereign",
+  "model_name": "Jetsetter",
   "year": 2026,
-  "seating_capacity": 5,
+  "seating_capacity": 3,
   "jet_pumps": {
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster® 9200",
-        "horsepower_continuous": 2.5,
-        "horsepower_breakdown": 5.2,
-        "speed": "2-speed",
+        "model_name": "Wavemaster® 7000",
+        "horsepower_continuous": 1.65,
+        "horsepower_breakdown": 3.5,
+        "speed": "1-speed",
         "amperage_max": null,
         "frame": null,
         "voltage": null,
@@ -19,12 +19,12 @@
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": 5.2,
+    "total_brake_horsepower": 3.5,
     "shared_with_series": false
   },
   "circulation_pump": {
     "model_name": "SilentFlo 5000®",
-    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -33,11 +33,14 @@
   "spa_pak": {
     "model_name": "IQ 2020®",
     "display_type": "Color LCD Touchscreen",
-    "voltage": 230,
-    "amperage": 50,
+    "voltage": null,
+    "amperage": null,
     "frequency_hz": 60,
     "features": [
-      "Includes G.F.C.I. Protected Subpanel",
+      "115 V / 20 amp, 60 Hz",
+      "Includes G.F.C.I. Protected Power Cord",
+      "or 230 V / 50 amp, 60 Hz",
+      "G.F.C.I. Protected Subpanel Required for 230 V Mode",
       "Diagnostic/Ready Light"
     ],
     "part_number": null,
@@ -47,16 +50,15 @@
     "model_name": "IQ 2020®",
     "type": "Color LCD Touchscreen",
     "features": [
-      "Personalized Control",
       "Comfort Control® system",
       "SmartJet® system"
     ],
-    "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
+    "smart_connectivity": "Hot Spring Spas App, Connected Spa Kit",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 32,
+    "total_jet_count": 22,
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
@@ -75,20 +77,13 @@
       },
       {
         "jet_type": "JetStream®",
-        "quantity": 3,
+        "quantity": 1,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
         "jet_type": "Rotary Hydromassage",
-        "quantity": 2,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Directional Hydromassage",
         "quantity": 1,
         "zone": null,
         "part_number": null,
@@ -103,7 +98,7 @@
       },
       {
         "jet_type": "Directional Precision®",
-        "quantity": 20,
+        "quantity": 14,
         "zone": null,
         "part_number": null,
         "description": null
@@ -122,7 +117,7 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Tri-X® Filters",
+        "system_name": "High-Flow Tri-X® Filters",
         "filter_type": "Polyester Filters with Free-Flow Core",
         "filtration_area_sqft": 195.0,
         "quantity": null,
@@ -134,9 +129,9 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault®",
+    "model_name": null,
     "wattage": 6000,
-    "voltage": 230,
+    "voltage": null,
     "material": null,
     "part_number": null,
     "shared_with_series": false
@@ -156,7 +151,7 @@
         "part_number": null
       }
     ],
-    "water_feature": "BellaFontana® with Three Illuminated Arcs of Water",
+    "water_feature": null,
     "shared_with_series": false
   },
   "cover": {
@@ -172,21 +167,21 @@
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 93.0,
-    "width_inches": 80.0,
+    "length_inches": 84.0,
+    "width_inches": 68.0,
     "height_inches": 33.0,
-    "dry_weight_lbs": 600.0,
-    "filled_weight_lbs": 4230.0,
-    "water_capacity_gallons": 330.0
+    "dry_weight_lbs": 500.0,
+    "filled_weight_lbs": 3070.0,
+    "water_capacity_gallons": 245.0
   },
   "voltage": 230,
-  "amperage": 50,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://www.hotspring.com/shop/highlife/sovereign",
+      "url": "https://www.hotspring.com/shop/highlife/jetsetter",
       "document_name": null,
       "page_number": null,
       "section": null,
@@ -198,8 +193,12 @@
   "data_quality": {
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [],
+    "not_available_fields": [
+      "amperage",
+      "heater.voltage",
+      "spa_pak.voltage"
+    ],
     "anomalies_reviewed": [],
-    "completeness_pct": 100.0
+    "completeness_pct": 85.0
   }
 }

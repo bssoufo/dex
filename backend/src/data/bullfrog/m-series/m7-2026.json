@@ -1,0 +1,183 @@
+{
+  "manufacturer": "bullfrog",
+  "series": "M Series",
+  "model_name": "M7",
+  "year": 2026,
+  "seating_capacity": 9,
+  "jet_pumps": {
+    "pumps": [
+      {
+        "position": 1,
+        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "horsepower_continuous": null,
+        "horsepower_breakdown": null,
+        "speed": "2-speed",
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
+        "part_number": null
+      },
+      {
+        "position": 2,
+        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "horsepower_continuous": null,
+        "horsepower_breakdown": null,
+        "speed": "2-speed",
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
+        "part_number": null
+      }
+    ],
+    "diverter_valves": null,
+    "total_brake_horsepower": 9.6,
+    "shared_with_series": false
+  },
+  "circulation_pump": {
+    "model_name": "Wellspring™ Quiet Filtration Pump",
+    "description": null,
+    "is_dedicated": true,
+    "wattage": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "spa_pak": {
+    "model_name": null,
+    "display_type": null,
+    "voltage": null,
+    "amperage": null,
+    "frequency_hz": null,
+    "features": [],
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "topside_control": {
+    "model_name": null,
+    "type": "Touchscreen Control",
+    "features": [
+      "track and volume adjustment through main control",
+      "volume adjustment through multi-function auxiliary controls"
+    ],
+    "smart_connectivity": "CloudControl 2™ Module",
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "jets": {
+    "total_jet_count": 18,
+    "jet_system_type": "modular_jetpak",
+    "jets_by_type": [
+      {
+        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
+        "quantity": 18,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "jetpak_count": 6,
+    "jetpak_options": null,
+    "therapy_jet_count": null,
+    "max_jet_count": null,
+    "shared_with_series": false
+  },
+  "headrests": {
+    "headrests": [
+      {
+        "type": "M Series Adjustable Headrests",
+        "quantity": null,
+        "part_number": null,
+        "description": null
+      }
+    ],
+    "shared_with_series": false
+  },
+  "filters": {
+    "filters": [
+      {
+        "system_name": "Simplicity™ Filtration System",
+        "filter_type": "Flat Filter",
+        "filtration_area_sqft": null,
+        "quantity": null,
+        "description": null,
+        "no_bypass": null,
+        "part_number": null
+      }
+    ],
+    "shared_with_series": false
+  },
+  "heater": {
+    "model_name": null,
+    "wattage": null,
+    "voltage": null,
+    "material": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "lighting": {
+    "lights": [
+      {
+        "location": "Interior",
+        "type": "LED",
+        "description": "M Series Premium Interior LED Lighting",
+        "part_number": null
+      },
+      {
+        "location": "Exterior",
+        "type": "LED",
+        "description": "M Series Premium Exterior Lighting",
+        "part_number": null
+      }
+    ],
+    "water_feature": "M Series Premium Control-activated Water Feature",
+    "shared_with_series": false
+  },
+  "cover": {
+    "model_name": "M Series Premium Patio Performance Spa Cover",
+    "thickness": null,
+    "material": null,
+    "features": [
+      "smart sensor technology"
+    ],
+    "length_inches": null,
+    "width_inches": null,
+    "part_number": null,
+    "shared_with_series": false
+  },
+  "dimensions": {
+    "length_inches": 91.0,
+    "width_inches": 91.0,
+    "height_inches": 37.0,
+    "dry_weight_lbs": 900.0,
+    "filled_weight_lbs": 5929.0,
+    "water_capacity_gallons": 453.0
+  },
+  "voltage": 240,
+  "amperage": null,
+  "requires_gfci": true,
+  "compatibility_notes": [],
+  "source_documents": [
+    {
+      "source_type": "website",
+      "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9465",
+      "document_name": null,
+      "page_number": null,
+      "section": null,
+      "accessed_date": "2026-02-17",
+      "verified_by": null,
+      "verified_date": null
+    }
+  ],
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "amperage",
+      "heater.wattage",
+      "heater.voltage",
+      "spa_pak.voltage",
+      "jet_pumps.pumps[].horsepower_continuous"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 75.0
+  }
+}
