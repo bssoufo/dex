@@ -11,10 +11,21 @@
         "model_name": null,
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": null,
-        "speed": "2-speed",
-        "amperage_max": null,
-        "frame": null,
-        "voltage": 240,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56",
+        "voltage": null,
+        "part_number": null
+      },
+      {
+        "position": 2,
+        "model_name": null,
+        "horsepower_continuous": 2.5,
+        "horsepower_breakdown": null,
+        "speed": "1-speed",
+        "amperage_max": 11.3,
+        "frame": "56",
+        "voltage": null,
         "part_number": null
       }
     ],
@@ -24,9 +35,9 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "Silent circulation",
+    "description": "Dynamic Flow Circulation System",
     "is_dedicated": true,
-    "wattage": 85.0,
+    "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -34,39 +45,26 @@
     "model_name": null,
     "display_type": null,
     "voltage": 240,
-    "amperage": null,
+    "amperage": 50,
     "frequency_hz": 60,
     "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
-    "type": null,
-    "features": [],
-    "smart_connectivity": null,
+    "model_name": "Advanced Touch Control Panel",
+    "type": "color touchscreen control",
+    "features": [
+      "icon-driven menus"
+    ],
+    "smart_connectivity": "Compatible with optional SmartTub\u2122 System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 45,
+    "total_jet_count": 66,
     "jet_system_type": "fixed",
-    "jets_by_type": [
-      {
-        "jet_type": "Rotary",
-        "quantity": 25,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": "Directional",
-        "quantity": 20,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      }
-    ],
+    "jets_by_type": [],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -80,11 +78,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": null,
-        "filter_type": "Pleated",
-        "filtration_area_sqft": 100.0,
-        "quantity": 1,
-        "description": null,
+        "system_name": "MicroClean\u00ae Ultra Filtration",
+        "filter_type": "interlocking cartridge filters",
+        "filtration_area_sqft": 130.0,
+        "quantity": 2,
+        "description": "MicroClean\u00ae Ultra II Filtration System, 130 ft\u00b2 (2 interlocking cartridge filters)",
         "no_bypass": null,
         "part_number": null
       }
@@ -93,34 +91,67 @@
   },
   "heater": {
     "model_name": null,
-    "wattage": 4000,
-    "voltage": 240,
+    "wattage": null,
+    "voltage": null,
     "material": null,
     "part_number": null,
     "shared_with_series": false
   },
   "lighting": {
-    "lights": [],
-    "water_feature": null,
+    "lights": [
+      {
+        "location": "spa interior",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "waterfall",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "footwell",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "backlit grab bar",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "exterior",
+        "type": "elegant LED",
+        "description": null,
+        "part_number": null
+      }
+    ],
+    "water_feature": "waterfall",
     "shared_with_series": false
   },
   "cover": {
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [],
+    "features": [
+      "designed for cold, harsh climates"
+    ],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 91.0,
-    "width_inches": 91.0,
-    "height_inches": 38.5,
-    "dry_weight_lbs": 850.0,
-    "filled_weight_lbs": 4500.0,
-    "water_capacity_gallons": 420.0
+    "length_inches": 89.0,
+    "width_inches": 110.0,
+    "height_inches": 40.0,
+    "dry_weight_lbs": 1240.0,
+    "filled_weight_lbs": null,
+    "water_capacity_gallons": 505.0
   },
   "voltage": 240,
   "amperage": 50,
