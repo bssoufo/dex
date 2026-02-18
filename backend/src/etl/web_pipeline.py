@@ -112,6 +112,26 @@ def _apply_defaults(data: dict) -> dict:
                 mapped = _SPEED_MAP.get(pump["speed"].lower(), pump["speed"])
                 pump["speed"] = mapped if mapped in _VALID_SPEEDS else None
 
+        # Remove phantom pump: when a dedicated circ pump exists and the last
+        # jet pump entry has speed=None with all other fields null, it's likely
+        # the circulation pump double-counted as a jet pump.
+        circ_data = data.get("circulation_pump")
+        pumps_list = pumps_data.get("pumps") or []
+        if (
+            circ_data
+            and isinstance(circ_data, dict)
+            and circ_data.get("is_dedicated")
+            and len(pumps_list) > 1
+        ):
+            last = pumps_list[-1]
+            if isinstance(last, dict) and last.get("speed") is None:
+                spec_fields = ("model_name", "horsepower_continuous",
+                               "horsepower_breakdown", "amperage_max", "frame",
+                               "voltage", "part_number")
+                if all(last.get(f) is None for f in spec_fields):
+                    pumps_list.pop()
+                    pumps_data["pumps"] = pumps_list
+
     jets = data.get("jets")
     if isinstance(jets, dict):
         if jets.get("jet_system_type") not in ("fixed", "modular_jetpak"):

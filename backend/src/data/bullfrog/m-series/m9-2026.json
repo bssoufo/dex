@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pumps",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pumps",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -30,7 +30,7 @@
       },
       {
         "position": 3,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pumps",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -41,12 +41,12 @@
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": null,
+    "total_brake_horsepower": 14.4,
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": null,
-    "description": "Pompe de circulation d\u00e9di\u00e9e (Standard)",
+    "model_name": "Wellspring\u2122 Quiet Filtration Pump",
+    "description": "Quiet Filtration Pump",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -63,13 +63,10 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": null,
+    "model_name": "Touchscreen Control",
     "type": "Touchscreen",
-    "features": [
-      "Track and volume adjustment via main control",
-      "Volume adjustment via multi-function auxiliary controls"
-    ],
-    "smart_connectivity": "CloudControl+",
+    "features": [],
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -78,7 +75,7 @@
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": "Jets de th\u00e9rapie pour le pied, le poignet, la hanche, la jambe, le si\u00e8ge sur\u00e9lev\u00e9",
+        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
         "quantity": 29,
         "zone": null,
         "part_number": null,
@@ -86,7 +83,7 @@
       }
     ],
     "jetpak_count": 7,
-    "jetpak_options": 33,
+    "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -97,7 +94,7 @@
         "type": "Adjustable",
         "quantity": null,
         "part_number": null,
-        "description": "Appuie-t\u00eate r\u00e9glables de la s\u00e9rie M (Standard)"
+        "description": "M Series Adjustable Headrests"
       }
     ],
     "shared_with_series": false
@@ -105,11 +102,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity\u2122",
-        "filter_type": "Flat",
+        "system_name": "Simplicity\u2122 Filtration System",
+        "filter_type": "Flat Filter",
         "filtration_area_sqft": null,
         "quantity": null,
-        "description": null,
+        "description": "Simplicity\u2122 Flat Filter",
         "no_bypass": null,
         "part_number": null
       }
@@ -129,35 +126,34 @@
       {
         "location": "Interior",
         "type": "LED",
-        "description": "\u00c9clairage int\u00e9rieur \u00e0 DEL haut de gamme de la s\u00e9rie M (Standard)",
+        "description": "M Series Premium Interior LED Lighting",
         "part_number": null
       },
       {
         "location": "Exterior",
         "type": "LED",
-        "description": "\u00c9clairage ext\u00e9rieur haut de gamme de la s\u00e9rie M (Standard)",
+        "description": "M Series Premium Exterior Lighting",
         "part_number": null
       }
     ],
-    "water_feature": "Fonction d\u2019eau activ\u00e9e par commande Premium de la s\u00e9rie M",
+    "water_feature": "M Series Premium Control-activated Water Feature",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "Couverture de spa Premium Patio Performance de la s\u00e9rie M (avec technologie de capteur intelligent)",
+    "model_name": "M Series Premium Patio Performance Spa Cover",
     "thickness": null,
-    "material": "Patio Performance\u00ae",
+    "material": null,
     "features": [
-      "Technologie de capteur intelligent",
-      "Notifications push de retrait de couverture avec module wifi CloudControl 2\u2122 en option"
+      "smart sensor technology"
     ],
-    "length_inches": null,
-    "width_inches": null,
+    "length_inches": 110.0,
+    "width_inches": 94.0,
     "part_number": null,
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 94.0,
-    "width_inches": 110.0,
+    "length_inches": 110.0,
+    "width_inches": 94.0,
     "height_inches": 38.0,
     "dry_weight_lbs": 1209.0,
     "filled_weight_lbs": 7664.0,
@@ -170,7 +166,7 @@
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m9/",
+      "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9463",
       "document_name": null,
       "page_number": null,
       "section": null,

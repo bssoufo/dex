@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -34,8 +34,8 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": null,
-    "description": "Pompe de circulation d\u00e9di\u00e9e (Standard)",
+    "model_name": "Wellspring\u2122 Quiet Filtration Pump",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -53,12 +53,11 @@
   },
   "topside_control": {
     "model_name": null,
-    "type": "\u00c9cran tactile",
+    "type": "Touchscreen",
     "features": [
-      "Contr\u00f4le par \u00e9cran tactile haut de gamme",
-      "Commandes auxiliaires \u00e0 4 fonctions de qualit\u00e9 sup\u00e9rieure"
+      "Multi-function auxiliary control"
     ],
-    "smart_connectivity": "Module Wifi CloudControl+",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -67,7 +66,7 @@
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": "Jets de th\u00e9rapie pour le pied, le poignet, la hanche, la jambe, le si\u00e8ge sur\u00e9lev\u00e9",
+        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
         "quantity": 16,
         "zone": null,
         "part_number": null,
@@ -75,7 +74,7 @@
       }
     ],
     "jetpak_count": 4,
-    "jetpak_options": 33,
+    "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -83,7 +82,7 @@
   "headrests": {
     "headrests": [
       {
-        "type": "Appuie-t\u00eate r\u00e9glables de la s\u00e9rie M",
+        "type": "M Series Adjustable Headrests",
         "quantity": null,
         "part_number": null,
         "description": "Standard"
@@ -94,11 +93,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity\u2122",
-        "filter_type": "Filtre plat Simplicity\u2122",
+        "system_name": "Simplicity\u2122 Filtration System",
+        "filter_type": "Flat Filter",
         "filtration_area_sqft": null,
         "quantity": null,
-        "description": null,
+        "description": "Simplicity\u2122 Flat Filter",
         "no_bypass": null,
         "part_number": null
       }
@@ -116,27 +115,27 @@
   "lighting": {
     "lights": [
       {
-        "location": "int\u00e9rieur",
-        "type": "DEL",
-        "description": "\u00c9clairage int\u00e9rieur \u00e0 DEL haut de gamme de la s\u00e9rie M (Standard)",
+        "location": "Interior",
+        "type": "LED",
+        "description": "M Series Premium Interior LED Lighting",
         "part_number": null
       },
       {
-        "location": "ext\u00e9rieur",
-        "type": null,
-        "description": "\u00c9clairage ext\u00e9rieur haut de gamme de la s\u00e9rie M (Standard)",
+        "location": "Exterior",
+        "type": "Lighting",
+        "description": "M Series Premium Exterior Lighting",
         "part_number": null
       }
     ],
-    "water_feature": "Fonction d\u2019eau activ\u00e9e par commande Premium de la s\u00e9rie M",
+    "water_feature": "M Series Premium Control-activated Water Feature",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "Couverture de spa Premium Patio Performance de la s\u00e9rie M",
+    "model_name": "M Series Premium Patio Performance Spa Cover",
     "thickness": null,
     "material": null,
     "features": [
-      "technologie de capteur intelligent"
+      "Smart sensor technology"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -158,7 +157,7 @@
   "source_documents": [
     {
       "source_type": "website",
-      "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m6/",
+      "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9466",
       "document_name": null,
       "page_number": null,
       "section": null,

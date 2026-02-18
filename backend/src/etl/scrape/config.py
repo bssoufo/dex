@@ -2,8 +2,7 @@
 
 Contains the URL registry for all 19 spa models across 3 manufacturers,
 per-domain rate limits, and helper functions for URL-based configuration.
-
-All URLs point to manufacturer websites only (no dealer sites).
+All pages are fetched via Playwright (no httpx branching).
 """
 
 from __future__ import annotations
@@ -100,30 +99,26 @@ SCRAPE_URLS: dict[str, list[dict[str, str | None]]] = {
     "bullfrog": [
         {
             "model_name": "M9",
-            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m9/",
-            "alt_url": None,
+            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9463",
+            "alt_url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m9/",
         },
         {
             "model_name": "M8",
-            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m8/",
-            "alt_url": None,
+            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9464",
+            "alt_url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m8/",
         },
         {
             "model_name": "M7",
-            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m7/",
-            "alt_url": None,
+            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9465",
+            "alt_url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m7/",
         },
         {
             "model_name": "M6",
-            "url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m6/",
-            "alt_url": None,
+            "url": "https://www.bullfrogfactorystores.com/models/detail/?unit_id=9466",
+            "alt_url": "https://www.bullfrogspas.com/spas/m-series-hot-tubs/m6/",
         },
     ],
 }
-
-# === Domains requiring a browser (JS-rendered content) ===
-
-REQUIRES_BROWSER: set[str] = {"bullfrogspas.com", "hotspring.com"}
 
 # === Rate Limits ===
 # Per-domain delay in seconds between requests.
@@ -132,6 +127,7 @@ RATE_LIMITS: dict[str, float] = {
     "sundancespas.com": 2.0,
     "hotspring.com": 2.0,
     "bullfrogspas.com": 3.0,
+    "bullfrogfactorystores.com": 2.0,
 }
 
 DEFAULT_RATE_LIMIT: float = 2.0
@@ -146,8 +142,3 @@ def get_delay_for_url(url: str) -> float:
     domain = urlparse(url).netloc.removeprefix("www.")
     return RATE_LIMITS.get(domain, DEFAULT_RATE_LIMIT)
 
-
-def needs_browser(url: str) -> bool:
-    """Return True if the URL requires a browser (Playwright) to render."""
-    domain = urlparse(url).netloc.removeprefix("www.")
-    return domain in REQUIRES_BROWSER
