@@ -149,6 +149,7 @@ def get_model_overview(
         "amperage": model.amperage,
         "categories_available": categories_available,
         "categories_missing": categories_missing,
+        "source_documents": [s.model_dump() for s in model.source_documents],
     }
 
 
