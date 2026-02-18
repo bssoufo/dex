@@ -133,13 +133,13 @@
       "document_name": null,
       "page_number": null,
       "section": null,
-      "accessed_date": "2026-02-17",
+      "accessed_date": "2026-02-18",
       "verified_by": null,
       "verified_date": null
     }
   ],
   "data_quality": {
-    "verification_date": "2026-02-17",
+    "verification_date": "2026-02-18",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
       "circulation_pump.model_name",
