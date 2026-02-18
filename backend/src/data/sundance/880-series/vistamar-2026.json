@@ -45,16 +45,20 @@
     "model_name": null,
     "display_type": null,
     "voltage": 240,
-    "amperage": 40,
+    "amperage": 50,
     "frequency_hz": 60,
-    "features": [],
+    "features": [
+      "Factory installed ClearRay Active Oxygen® System",
+      "CLEARRAY® On-Demand"
+    ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": "Advanced Touch Control Panel",
-    "type": "color touchscreen control",
+    "type": "Touch Control Panel",
     "features": [
+      "glowing, color touchscreen control",
       "icon-driven menus"
     ],
     "smart_connectivity": "Compatible with optional SmartTub™ System",
@@ -64,7 +68,15 @@
   "jets": {
     "total_jet_count": 41,
     "jet_system_type": "fixed",
-    "jets_by_type": [],
+    "jets_by_type": [
+      {
+        "jet_type": "Fluidix® jets",
+        "quantity": 41,
+        "zone": null,
+        "part_number": null,
+        "description": "Includes Fluidix PT jets for lower back therapy and Focus-Relief jets"
+      }
+    ],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -78,11 +90,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean® Ultra II Filtration System",
+        "system_name": "MicroClean® Ultra Filtration",
         "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
         "quantity": 2,
-        "description": null,
+        "description": "MicroClean® Ultra II Filtration System, 130 ft² (2 interlocking cartridge filters)",
         "no_bypass": null,
         "part_number": null
       }
@@ -100,15 +112,15 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior",
-        "type": "Multicolor SunGlow™ LED",
-        "description": "brightens up the spa interior, waterfall, footwell and backlit grab bar.",
+        "location": "spa interior, waterfall, footwell and backlit grab bar",
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
         "part_number": null
       },
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant exterior LED lighting.",
+        "description": "Exterior LED accent lighting",
         "part_number": null
       }
     ],
@@ -119,9 +131,7 @@
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [
-      "designed for cold, harsh climates"
-    ],
+    "features": [],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
@@ -136,7 +146,7 @@
     "water_capacity_gallons": 330.0
   },
   "voltage": 240,
-  "amperage": 40,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [

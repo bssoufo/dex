@@ -24,7 +24,7 @@
   },
   "circulation_pump": {
     "model_name": "SilentFlo 5000®",
-    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -47,9 +47,9 @@
     "model_name": "IQ 2020®",
     "type": "Color LCD Touchscreen",
     "features": [
-      "Personalized Control",
       "Comfort Control® system",
-      "SmartJet® system"
+      "SmartJet® system",
+      "Diagnostic/Ready Light"
     ],
     "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
     "part_number": null,
@@ -122,7 +122,7 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Tri-X® Filters",
+        "system_name": "High-Flow Tri-X® Filters",
         "filter_type": "Polyester Filters with Free-Flow Core",
         "filtration_area_sqft": 195.0,
         "quantity": null,
@@ -172,8 +172,8 @@
     "shared_with_series": false
   },
   "dimensions": {
-    "length_inches": 93.0,
-    "width_inches": 80.0,
+    "length_inches": 80.0,
+    "width_inches": 93.0,
     "height_inches": 33.0,
     "dry_weight_lbs": 600.0,
     "filled_weight_lbs": 4230.0,

@@ -30,12 +30,12 @@
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": null,
+    "total_brake_horsepower": 10.4,
     "shared_with_series": false
   },
   "circulation_pump": {
     "model_name": "SilentFlo 5000®",
-    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -58,9 +58,11 @@
     "model_name": "IQ 2020®",
     "type": "Color LCD Touchscreen",
     "features": [
+      "Comfort Control® system",
+      "SmartJet® system",
       "Diagnostic/Ready Light"
     ],
-    "smart_connectivity": null,
+    "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
     "part_number": null,
     "shared_with_series": false
   },
@@ -132,10 +134,10 @@
     "filters": [
       {
         "system_name": "High-Flow Tri-X® Filters",
-        "filter_type": "Tri-X",
+        "filter_type": "Polyester Filters with Free-Flow Core",
         "filtration_area_sqft": 325.0,
         "quantity": null,
-        "description": "Polyester Filters with Free-Flow Core",
+        "description": "Dual-Action Filtration",
         "no_bypass": true,
         "part_number": null
       }

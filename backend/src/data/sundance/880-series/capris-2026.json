@@ -3,7 +3,7 @@
   "series": "880 Series",
   "model_name": "Capris",
   "year": 2026,
-  "seating_capacity": 0,
+  "seating_capacity": 2,
   "jet_pumps": {
     "pumps": [
       {
@@ -24,7 +24,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "High Output Dynamic Flow, 24-Hour programmable, factory default set to 8-Hour Filter/ Circulation Pump (35 gp m), Programmable for Daily Start Time and Duration",
+    "description": "High Output Dynamic Flow, 24-hour programmable, factory default 8-hour filter cycle (35 gpm)",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -33,29 +33,40 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": null,
-    "amperage": null,
-    "frequency_hz": null,
-    "features": [],
+    "voltage": 240,
+    "amperage": 50,
+    "frequency_hz": 60,
+    "features": [
+      "Factory installed ClearRay Active Oxygen® System",
+      "CLEARRAY® On-Demand"
+    ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": "Advanced Touch Control Panel",
-    "type": "touchscreen",
+    "type": "Touch Control Panel",
     "features": [
       "glowing, color touchscreen control",
       "icon-driven menus",
       "easy programming"
     ],
-    "smart_connectivity": "SmartTub™ System",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
     "total_jet_count": 36,
     "jet_system_type": "fixed",
-    "jets_by_type": [],
+    "jets_by_type": [
+      {
+        "jet_type": "Fluidix® jets",
+        "quantity": 36,
+        "zone": null,
+        "part_number": null,
+        "description": "Includes lounge seat jets, wrist jets, Swedish-style massage jets, leg/feet massage jets, Silent Air Injector Jets"
+      }
+    ],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -70,9 +81,9 @@
     "filters": [
       {
         "system_name": "MicroClean® Ultra Filtration",
-        "filter_type": "cartridge",
+        "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
-        "quantity": 1,
+        "quantity": 2,
         "description": "MicroClean® Ultra II Filtration System, 130 ft² (2 interlocking cartridge filters)",
         "no_bypass": null,
         "part_number": null
@@ -91,25 +102,7 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa interior",
-        "type": "LED",
-        "description": "Multicolor SunGlow™ LED lighting",
-        "part_number": null
-      },
-      {
-        "location": "waterfall",
-        "type": "LED",
-        "description": "Multicolor SunGlow™ LED lighting",
-        "part_number": null
-      },
-      {
-        "location": "footwell",
-        "type": "LED",
-        "description": "Multicolor SunGlow™ LED lighting",
-        "part_number": null
-      },
-      {
-        "location": "backlit grab bar",
+        "location": "spa interior, waterfall, footwell and backlit grab bar",
         "type": "LED",
         "description": "Multicolor SunGlow™ LED lighting",
         "part_number": null
@@ -117,7 +110,7 @@
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant exterior LED lighting",
+        "description": "Exterior LED accent lighting",
         "part_number": null
       }
     ],
@@ -143,7 +136,7 @@
     "water_capacity_gallons": 195.0
   },
   "voltage": 240,
-  "amperage": 40,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -162,14 +155,12 @@
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
-      "seating_capacity",
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
       "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage"
+      "heater.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 70.0
+    "completeness_pct": 80.0
   }
 }

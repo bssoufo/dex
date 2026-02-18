@@ -37,10 +37,8 @@
     "amperage": null,
     "frequency_hz": 60,
     "features": [
-      "115 V / 20 amp, 60 Hz",
-      "Includes G.F.C.I. Protected Power Cord",
-      "or 230 V / 50 amp, 60 Hz",
-      "G.F.C.I. Protected Subpanel Required for 230 V Mode",
+      "115 V / 20 amp with G.F.C.I. Protected Power Cord",
+      "or 230 V / 50 amp with G.F.C.I. Protected Subpanel",
       "Diagnostic/Ready Light"
     ],
     "part_number": null,
@@ -51,9 +49,10 @@
     "type": "Color LCD Touchscreen",
     "features": [
       "Comfort Control® system",
-      "SmartJet® system"
+      "SmartJet® system",
+      "Diagnostic/Ready Light"
     ],
-    "smart_connectivity": "Hot Spring Spas App, Connected Spa Kit",
+    "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
     "part_number": null,
     "shared_with_series": false
   },
@@ -129,9 +128,9 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": null,
+    "model_name": "No-Fault®",
     "wattage": 6000,
-    "voltage": null,
+    "voltage": 230,
     "material": null,
     "part_number": null,
     "shared_with_series": false
@@ -177,7 +176,9 @@
   "voltage": 230,
   "amperage": null,
   "requires_gfci": true,
-  "compatibility_notes": [],
+  "compatibility_notes": [
+    "Dual voltage: supports 115V/20A (G.F.C.I. power cord) or 230V/50A (G.F.C.I. subpanel required)"
+  ],
   "source_documents": [
     {
       "source_type": "website",
@@ -195,10 +196,9 @@
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
       "amperage",
-      "heater.voltage",
       "spa_pak.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 85.0
+    "completeness_pct": 90.0
   }
 }

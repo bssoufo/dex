@@ -44,10 +44,13 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": null,
-    "amperage": null,
-    "frequency_hz": null,
-    "features": [],
+    "voltage": 240,
+    "amperage": 50,
+    "frequency_hz": 60,
+    "features": [
+      "Factory installed ClearRay Active Oxygen® System",
+      "CLEARRAY® On-Demand"
+    ],
     "part_number": null,
     "shared_with_series": false
   },
@@ -65,7 +68,15 @@
   "jets": {
     "total_jet_count": 49,
     "jet_system_type": "fixed",
-    "jets_by_type": [],
+    "jets_by_type": [
+      {
+        "jet_type": "Fluidix® jets",
+        "quantity": 49,
+        "zone": null,
+        "part_number": null,
+        "description": "Shoulder, back, hip massage with Accu-Ssage seat and jetted foot dome"
+      }
+    ],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -102,14 +113,14 @@
     "lights": [
       {
         "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow™ LED lighting",
-        "description": "brightens up the spa interior, waterfall, footwell and backlit grab bar",
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
         "part_number": null
       },
       {
         "location": "exterior",
-        "type": "LED lighting",
-        "description": "elegant exterior LED lighting",
+        "type": "LED",
+        "description": "Exterior LED accent lighting",
         "part_number": null
       }
     ],
@@ -135,7 +146,7 @@
     "water_capacity_gallons": 355.0
   },
   "voltage": 240,
-  "amperage": 40,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -157,10 +168,9 @@
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
       "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage"
+      "heater.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 75.0
+    "completeness_pct": 80.0
   }
 }

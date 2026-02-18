@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -53,12 +53,11 @@
   },
   "topside_control": {
     "model_name": null,
-    "type": "Touchscreen Control",
+    "type": "Touchscreen",
     "features": [
-      "track and volume adjustment through main control",
-      "volume adjustment through multi-function auxiliary controls"
+      "Multi-function auxiliary buttons"
     ],
-    "smart_connectivity": "CloudControl 2™ Module",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -67,17 +66,17 @@
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
+        "jet_type": "Base Therapy Jets",
         "quantity": 18,
         "zone": null,
         "part_number": null,
-        "description": null
+        "description": "Foot, wrist, hip, leg, elevated seat therapy jets"
       }
     ],
     "jetpak_count": 6,
     "jetpak_options": null,
     "therapy_jet_count": null,
-    "max_jet_count": null,
+    "max_jet_count": 270,
     "shared_with_series": false
   },
   "headrests": {
@@ -128,7 +127,7 @@
         "part_number": null
       }
     ],
-    "water_feature": "M Series Premium Control-activated Water Feature",
+    "water_feature": "Two control-activated waterfalls",
     "shared_with_series": false
   },
   "cover": {
@@ -136,7 +135,7 @@
     "thickness": null,
     "material": null,
     "features": [
-      "smart sensor technology"
+      "Smart sensor technology"
     ],
     "length_inches": null,
     "width_inches": null,

@@ -55,7 +55,7 @@
     "model_name": null,
     "type": "Touchscreen",
     "features": [
-      "Multi-function auxiliary control"
+      "Multi-function auxiliary buttons"
     ],
     "smart_connectivity": null,
     "part_number": null,
@@ -66,17 +66,17 @@
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
+        "jet_type": "Base Therapy Jets",
         "quantity": 16,
         "zone": null,
         "part_number": null,
-        "description": null
+        "description": "Foot, wrist, hip, leg, elevated seat therapy jets"
       }
     ],
     "jetpak_count": 4,
     "jetpak_options": null,
     "therapy_jet_count": null,
-    "max_jet_count": null,
+    "max_jet_count": 184,
     "shared_with_series": false
   },
   "headrests": {

@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -30,7 +30,7 @@
       },
       {
         "position": 3,
-        "model_name": null,
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -46,7 +46,7 @@
   },
   "circulation_pump": {
     "model_name": "Wellspring™ Quiet Filtration Pump",
-    "description": "Quiet Filtration Pump",
+    "description": null,
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -63,9 +63,11 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "Touchscreen Control",
+    "model_name": null,
     "type": "Touchscreen",
-    "features": [],
+    "features": [
+      "Multi-function auxiliary buttons"
+    ],
     "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
@@ -75,26 +77,26 @@
     "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": "Foot, Wrist, Hip, Leg, Elevated Seat Therapy Jets",
+        "jet_type": "Base Therapy Jets",
         "quantity": 29,
         "zone": null,
         "part_number": null,
-        "description": null
+        "description": "Foot, wrist, hip, leg, elevated seat therapy jets"
       }
     ],
     "jetpak_count": 7,
     "jetpak_options": null,
     "therapy_jet_count": null,
-    "max_jet_count": null,
+    "max_jet_count": 323,
     "shared_with_series": false
   },
   "headrests": {
     "headrests": [
       {
-        "type": "Adjustable",
+        "type": "M Series Adjustable Headrests",
         "quantity": null,
         "part_number": null,
-        "description": "M Series Adjustable Headrests"
+        "description": null
       }
     ],
     "shared_with_series": false
@@ -106,7 +108,7 @@
         "filter_type": "Flat Filter",
         "filtration_area_sqft": null,
         "quantity": null,
-        "description": "Simplicity™ Flat Filter",
+        "description": null,
         "no_bypass": null,
         "part_number": null
       }
@@ -136,15 +138,15 @@
         "part_number": null
       }
     ],
-    "water_feature": "M Series Premium Control-activated Water Feature",
+    "water_feature": "Two control-activated waterfalls",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "M Series Premium Patio Performance Spa Cover (w/ smart sensor technology)",
+    "model_name": "M Series Premium Patio Performance Spa Cover",
     "thickness": null,
     "material": null,
     "features": [
-      "smart sensor technology"
+      "Smart sensor technology"
     ],
     "length_inches": null,
     "width_inches": null,

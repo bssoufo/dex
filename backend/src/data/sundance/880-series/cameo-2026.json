@@ -13,7 +13,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56",
+        "frame": "56 Frame",
         "voltage": null,
         "part_number": null
       },
@@ -24,7 +24,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56",
+        "frame": "56 Frame",
         "voltage": null,
         "part_number": null
       }
@@ -45,11 +45,11 @@
     "model_name": null,
     "display_type": null,
     "voltage": 240,
-    "amperage": null,
+    "amperage": 50,
     "frequency_hz": 60,
     "features": [
       "Factory installed ClearRay Active Oxygen® System",
-      "Includes CLEARRAY® On-Demand"
+      "CLEARRAY® On-Demand"
     ],
     "part_number": null,
     "shared_with_series": false
@@ -68,7 +68,15 @@
   "jets": {
     "total_jet_count": 53,
     "jet_system_type": "fixed",
-    "jets_by_type": [],
+    "jets_by_type": [
+      {
+        "jet_type": "Fluidix® jets",
+        "quantity": 53,
+        "zone": null,
+        "part_number": null,
+        "description": "Includes Focus-Relief jets, Accu-Ssage seat, full body massage lounge seat"
+      }
+    ],
     "jetpak_count": null,
     "jetpak_options": null,
     "therapy_jet_count": null,
@@ -82,11 +90,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean® Ultra II Filtration System",
+        "system_name": "MicroClean® Ultra Filtration",
         "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
         "quantity": 2,
-        "description": null,
+        "description": "MicroClean® Ultra II Filtration System, 130 ft² (2 interlocking cartridge filters)",
         "no_bypass": null,
         "part_number": null
       }
@@ -105,14 +113,14 @@
     "lights": [
       {
         "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow™ LED lighting",
-        "description": null,
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
         "part_number": null
       },
       {
         "location": "exterior",
-        "type": "LED lighting",
-        "description": null,
+        "type": "LED",
+        "description": "Exterior LED accent lighting",
         "part_number": null
       }
     ],
@@ -123,9 +131,7 @@
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [
-      "upgraded spa cover designed for cold, harsh climates"
-    ],
+    "features": [],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
@@ -140,7 +146,7 @@
     "water_capacity_gallons": 350.0
   },
   "voltage": 240,
-  "amperage": null,
+  "amperage": 50,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -159,13 +165,12 @@
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
-      "amperage",
       "dimensions.filled_weight_lbs",
       "circulation_pump.model_name",
       "heater.wattage",
       "heater.voltage"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 75.0
+    "completeness_pct": 80.0
   }
 }

@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -30,7 +30,7 @@
       },
       {
         "position": 3,
-        "model_name": "High-Performance 2-Speed Jet Pumps",
+        "model_name": "High-Performance 2-Speed Jet Pump",
         "horsepower_continuous": null,
         "horsepower_breakdown": null,
         "speed": "2-speed",
@@ -66,31 +66,37 @@
     "model_name": null,
     "type": "Touchscreen",
     "features": [
-      "Bluetooth compatibility",
-      "Track and volume adjustment through main control",
-      "Volume adjustment through multi-function auxiliary controls"
+      "Multi-function auxiliary buttons"
     ],
-    "smart_connectivity": "CloudControl 2™ Module",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": null,
+    "total_jet_count": 36,
     "jet_system_type": "modular_jetpak",
-    "jets_by_type": [],
+    "jets_by_type": [
+      {
+        "jet_type": "Base Therapy Jets",
+        "quantity": 36,
+        "zone": null,
+        "part_number": null,
+        "description": "Foot, wrist, hip, leg, elevated seat therapy jets"
+      }
+    ],
     "jetpak_count": 6,
     "jetpak_options": null,
     "therapy_jet_count": null,
-    "max_jet_count": null,
+    "max_jet_count": 288,
     "shared_with_series": false
   },
   "headrests": {
     "headrests": [
       {
-        "type": "Adjustable",
+        "type": "M Series Adjustable Headrests",
         "quantity": null,
         "part_number": null,
-        "description": "M Series Adjustable Headrests"
+        "description": null
       }
     ],
     "shared_with_series": false
@@ -102,7 +108,7 @@
         "filter_type": "Flat Filter",
         "filtration_area_sqft": null,
         "quantity": null,
-        "description": "Simplicity™ Flat Filter",
+        "description": null,
         "no_bypass": null,
         "part_number": null
       }
@@ -127,16 +133,16 @@
       },
       {
         "location": "Exterior",
-        "type": null,
+        "type": "LED",
         "description": "M Series Premium Exterior Lighting",
         "part_number": null
       }
     ],
-    "water_feature": "M Series Premium Control-activated Water Feature",
+    "water_feature": "Two control-activated waterfalls",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "M Series Premium Patio Performance Spa Cover (w/ smart sensor technology)",
+    "model_name": "M Series Premium Patio Performance Spa Cover",
     "thickness": null,
     "material": null,
     "features": [
@@ -176,13 +182,12 @@
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
       "amperage",
-      "jets.total_jet_count",
       "heater.wattage",
       "heater.voltage",
       "spa_pak.voltage",
       "jet_pumps.pumps[].horsepower_continuous"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 70.0
+    "completeness_pct": 75.0
   }
 }
