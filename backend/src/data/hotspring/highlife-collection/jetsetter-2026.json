@@ -37,8 +37,8 @@
     "amperage": null,
     "frequency_hz": 60,
     "features": [
-      "115 V / 20 amp with G.F.C.I. Protected Power Cord",
-      "or 230 V / 50 amp with G.F.C.I. Protected Subpanel",
+      "115V/20A with G.F.C.I. Protected Power Cord",
+      "or 230V/50A with G.F.C.I. Protected Subpanel",
       "Diagnostic/Ready Light"
     ],
     "part_number": null,
@@ -128,9 +128,9 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault®",
-    "wattage": 6000,
-    "voltage": 230,
+    "model_name": "No-Fault® (1,500W/115V or 6,000W/230V)",
+    "wattage": null,
+    "voltage": null,
     "material": null,
     "part_number": null,
     "shared_with_series": false
@@ -173,11 +173,11 @@
     "filled_weight_lbs": 3070.0,
     "water_capacity_gallons": 245.0
   },
-  "voltage": 230,
+  "voltage": null,
   "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [
-    "Dual voltage: supports 115V/20A (G.F.C.I. power cord) or 230V/50A (G.F.C.I. subpanel required)"
+    "Dual voltage: supports 115V/20A (1,500W heater, G.F.C.I. power cord) or 230V/50A (6,000W heater, G.F.C.I. subpanel required)"
   ],
   "source_documents": [
     {
@@ -195,10 +195,9 @@
     "verification_date": "2026-02-17",
     "verified_by": "web_extraction_pipeline",
     "not_available_fields": [
-      "amperage",
-      "spa_pak.voltage"
+      "heater.material"
     ],
     "anomalies_reviewed": [],
-    "completeness_pct": 90.0
+    "completeness_pct": 85.0
   }
 }

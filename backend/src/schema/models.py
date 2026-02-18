@@ -273,7 +273,7 @@ class SpaModel(BaseModel):
     dimensions: DimensionsSpec
 
     # Electrical
-    voltage: int = 240
+    voltage: int | None = 240
     amperage: int | None = None
     requires_gfci: bool = True
 
