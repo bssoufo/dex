@@ -42,7 +42,7 @@ def load_all_models() -> dict[ModelKey, SpaModel]:
         RuntimeError: If the number of loaded models is not exactly 19.
     """
     store: dict[ModelKey, SpaModel] = {}
-    json_files = list(DATA_DIR.rglob("*.json"))
+    json_files = [f for f in DATA_DIR.rglob("*.json") if "-RAW" not in f.stem]
 
     for json_file in json_files:
         raw = json.loads(json_file.read_text(encoding="utf-8"))

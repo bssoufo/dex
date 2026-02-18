@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster\u00ae 9000",
+        "model_name": "Wavemaster® 9000",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "1-speed",
@@ -19,21 +19,10 @@
       },
       {
         "position": 2,
-        "model_name": "Wavemaster\u00ae 9200",
+        "model_name": "Wavemaster® 9200",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "2-speed",
-        "amperage_max": null,
-        "frame": null,
-        "voltage": null,
-        "part_number": null
-      },
-      {
-        "position": 3,
-        "model_name": null,
-        "horsepower_continuous": null,
-        "horsepower_breakdown": null,
-        "speed": null,
         "amperage_max": null,
         "frame": null,
         "voltage": null,
@@ -45,15 +34,15 @@
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "SilentFlo 5000\u00ae",
-    "description": null,
+    "model_name": "SilentFlo 5000®",
+    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "IQ 2020\u00ae",
+    "model_name": "IQ 2020®",
     "display_type": "Color LCD Touchscreen",
     "voltage": 230,
     "amperage": 50,
@@ -66,10 +55,12 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "IQ 2020\u00ae",
+    "model_name": "IQ 2020®",
     "type": "Color LCD Touchscreen",
-    "features": [],
-    "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
+    "features": [
+      "Diagnostic/Ready Light"
+    ],
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -78,21 +69,21 @@
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Moto-Massage\u00ae DX",
+        "jet_type": "Moto-Massage® DX",
         "quantity": 4,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SoothingStream\u00ae",
+        "jet_type": "SoothingStream®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream\u00ae",
+        "jet_type": "JetStream®",
         "quantity": 4,
         "zone": null,
         "part_number": null,
@@ -106,21 +97,21 @@
         "description": null
       },
       {
-        "jet_type": "HydroStream\u00ae",
+        "jet_type": "HydroStream®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Rotary Precision\u00ae",
+        "jet_type": "Rotary Precision®",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Precision\u00ae",
+        "jet_type": "Directional Precision®",
         "quantity": 26,
         "zone": null,
         "part_number": null,
@@ -140,11 +131,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "High-Flow Tri-X\u00ae Filters",
-        "filter_type": "Polyester Filters with Free-Flow Core",
+        "system_name": "High-Flow Tri-X® Filters",
+        "filter_type": "Tri-X",
         "filtration_area_sqft": 325.0,
         "quantity": null,
-        "description": "100% No-Bypass Filtration; Dual-Action Filtration",
+        "description": "Polyester Filters with Free-Flow Core",
         "no_bypass": true,
         "part_number": null
       }
@@ -152,7 +143,7 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault\u00ae",
+    "model_name": "No-Fault®",
     "wattage": 4000,
     "voltage": 230,
     "material": null,
@@ -174,11 +165,11 @@
         "part_number": null
       }
     ],
-    "water_feature": "BellaFontana\u00ae with Three Illuminated Arcs of Water",
+    "water_feature": "BellaFontana® with Three Illuminated Arcs of Water",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "WeatherPro\u2122",
+    "model_name": "WeatherPro™",
     "thickness": "4\" Tapered Core with Hinge Seal",
     "material": null,
     "features": [
@@ -213,5 +204,11 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [],
+    "anomalies_reviewed": [],
+    "completeness_pct": 100.0
+  }
 }

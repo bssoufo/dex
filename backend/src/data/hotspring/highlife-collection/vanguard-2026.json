@@ -27,26 +27,15 @@
         "frame": null,
         "voltage": null,
         "part_number": null
-      },
-      {
-        "position": 3,
-        "model_name": null,
-        "horsepower_continuous": null,
-        "horsepower_breakdown": null,
-        "speed": null,
-        "amperage_max": null,
-        "frame": null,
-        "voltage": null,
-        "part_number": null
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": null,
+    "total_brake_horsepower": 10.4,
     "shared_with_series": false
   },
   "circulation_pump": {
     "model_name": "SilentFlo 5000",
-    "description": null,
+    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -69,7 +58,7 @@
     "model_name": "IQ 2020",
     "type": "Color LCD Touchscreen",
     "features": [],
-    "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
+    "smart_connectivity": null,
     "part_number": null,
     "shared_with_series": false
   },
@@ -133,11 +122,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Tri-X",
-        "filter_type": "High-Flow",
+        "system_name": "High-Flow Tri-X Filters",
+        "filter_type": "Polyester Filters with Free-Flow Core",
         "filtration_area_sqft": 325.0,
         "quantity": null,
-        "description": "Polyester Filters with Free-Flow Core",
+        "description": "100% No-Bypass Filtration, Dual-Action Filtration",
         "no_bypass": true,
         "part_number": null
       }
@@ -156,13 +145,13 @@
     "lights": [
       {
         "location": "Interior",
-        "type": "LED",
+        "type": null,
         "description": "Customizable LED Zone Lighting",
         "part_number": null
       },
       {
         "location": "Exterior",
-        "type": "LED",
+        "type": null,
         "description": "Multi-Color LED Lighting with Timer",
         "part_number": null
       }
@@ -175,7 +164,8 @@
     "thickness": "4\" Tapered Core with Hinge Seal",
     "material": null,
     "features": [
-      "Bottom Seal"
+      "Bottom Seal",
+      "Custom-Fit Insulated Cover"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -191,7 +181,7 @@
     "water_capacity_gallons": 375.0
   },
   "voltage": 230,
-  "amperage": 50,
+  "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -206,5 +196,13 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "amperage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 95.0
+  }
 }

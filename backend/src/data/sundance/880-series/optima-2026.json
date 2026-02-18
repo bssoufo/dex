@@ -35,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": null,
+    "description": "Dynamic Flow Circulation System",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -46,7 +46,7 @@
     "display_type": null,
     "voltage": null,
     "amperage": null,
-    "frequency_hz": 60,
+    "frequency_hz": null,
     "features": [],
     "part_number": null,
     "shared_with_series": false
@@ -58,7 +58,7 @@
       "glowing, color touchscreen control",
       "icon-driven menus"
     ],
-    "smart_connectivity": "Compatible with optional SmartTub\u2122 System",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -79,11 +79,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra II Filtration System",
+        "system_name": "MicroClean® Ultra Filtration",
         "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
-        "quantity": 1,
-        "description": "MicroClean\u00ae Ultra II Filtration System, 130 ft\u00b2 (2 interlocking cartridge filters)",
+        "quantity": 2,
+        "description": "MicroClean® Ultra II Filtration System, 130 ft² (2 interlocking cartridge filters)",
         "no_bypass": null,
         "part_number": null
       }
@@ -102,7 +102,7 @@
     "lights": [
       {
         "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow\u2122 LED lighting",
+        "type": "Multicolor SunGlow™ LED lighting",
         "description": "brightens up the spa interior, waterfall, footwell and backlit grab bar",
         "part_number": null
       },
@@ -135,7 +135,7 @@
     "water_capacity_gallons": 355.0
   },
   "voltage": 240,
-  "amperage": null,
+  "amperage": 40,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -150,5 +150,17 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "dimensions.filled_weight_lbs",
+      "circulation_pump.model_name",
+      "heater.wattage",
+      "heater.voltage",
+      "spa_pak.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 75.0
+  }
 }

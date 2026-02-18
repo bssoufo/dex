@@ -42,13 +42,13 @@
   },
   "topside_control": {
     "model_name": "Advanced Touch Control Panel",
-    "type": "Touchscreen",
+    "type": "touchscreen",
     "features": [
       "glowing, color touchscreen control",
       "icon-driven menus",
-      "easy programming day or night"
+      "easy programming"
     ],
-    "smart_connectivity": "Compatible with optional SmartTub\u2122 System.",
+    "smart_connectivity": "SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -69,11 +69,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra Filtration",
-        "filter_type": "interlocking cartridge filters",
+        "system_name": "MicroClean® Ultra Filtration",
+        "filter_type": "cartridge",
         "filtration_area_sqft": 130.0,
         "quantity": 1,
-        "description": null,
+        "description": "MicroClean® Ultra II Filtration System, 130 ft² (2 interlocking cartridge filters)",
         "no_bypass": null,
         "part_number": null
       }
@@ -91,9 +91,27 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior",
-        "type": "Multicolor SunGlow\u2122 LED",
-        "description": "brightens up the spa interior, waterfall, footwell and backlit grab bar",
+        "location": "spa interior",
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
+        "part_number": null
+      },
+      {
+        "location": "waterfall",
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
+        "part_number": null
+      },
+      {
+        "location": "footwell",
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
+        "part_number": null
+      },
+      {
+        "location": "backlit grab bar",
+        "type": "LED",
+        "description": "Multicolor SunGlow™ LED lighting",
         "part_number": null
       },
       {
@@ -110,9 +128,7 @@
     "model_name": null,
     "thickness": null,
     "material": null,
-    "features": [
-      "designed for cold, harsh climates"
-    ],
+    "features": [],
     "length_inches": null,
     "width_inches": null,
     "part_number": null,
@@ -127,7 +143,7 @@
     "water_capacity_gallons": 195.0
   },
   "voltage": 240,
-  "amperage": null,
+  "amperage": 40,
   "requires_gfci": true,
   "compatibility_notes": [],
   "source_documents": [
@@ -142,5 +158,18 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "seating_capacity",
+      "dimensions.filled_weight_lbs",
+      "circulation_pump.model_name",
+      "heater.wattage",
+      "heater.voltage",
+      "spa_pak.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 70.0
+  }
 }

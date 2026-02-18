@@ -44,24 +44,20 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": null,
-    "amperage": null,
-    "frequency_hz": null,
-    "features": [
-      "Factory installed ClearRay Active Oxygen\u00ae System",
-      "Factory installed ClearRay Active Oxygen\u00ae System; Includes CLEARRAY\u00ae On-Demand"
-    ],
+    "voltage": 240,
+    "amperage": 40,
+    "frequency_hz": 60,
+    "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": "Advanced Touch Control Panel",
-    "type": "Touch Control Panel",
+    "type": "color touchscreen control",
     "features": [
-      "glowing, color touchscreen control",
       "icon-driven menus"
     ],
-    "smart_connectivity": "Compatible with optional SmartTub\u2122 System",
+    "smart_connectivity": "Compatible with optional SmartTub™ System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -82,10 +78,10 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean\u00ae Ultra Filtration",
-        "filter_type": "MicroClean\u00ae Ultra II Filtration System, 130 ft\u00b2 (2 interlocking cartridge filters)",
+        "system_name": "MicroClean® Ultra II Filtration System",
+        "filter_type": "interlocking cartridge filters",
         "filtration_area_sqft": 130.0,
-        "quantity": 1,
+        "quantity": 2,
         "description": null,
         "no_bypass": null,
         "part_number": null
@@ -104,15 +100,15 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior, waterfall, footwell, grab bar",
-        "type": "Multicolor SunGlow\u2122 LED",
-        "description": null,
+        "location": "interior",
+        "type": "Multicolor SunGlow™ LED",
+        "description": "brightens up the spa interior, waterfall, footwell and backlit grab bar.",
         "part_number": null
       },
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant",
+        "description": "elegant exterior LED lighting.",
         "part_number": null
       }
     ],
@@ -155,5 +151,16 @@
       "verified_date": null
     }
   ],
-  "data_quality": null
+  "data_quality": {
+    "verification_date": "2026-02-17",
+    "verified_by": "web_extraction_pipeline",
+    "not_available_fields": [
+      "dimensions.filled_weight_lbs",
+      "circulation_pump.model_name",
+      "heater.wattage",
+      "heater.voltage"
+    ],
+    "anomalies_reviewed": [],
+    "completeness_pct": 80.0
+  }
 }

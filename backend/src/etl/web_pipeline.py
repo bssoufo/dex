@@ -34,6 +34,7 @@ from .extract.web_extractor_v2 import extract, extract_categories
 from .scrape.browser import PlaywrightFetcher
 from .scrape.config import SCRAPE_URLS, get_delay_for_url
 from .scrape.content import cache_html, get_cached_html, html_to_text
+from .quality_scorer import score_model
 from .verify.checks import ExtractionError, get_extraction_errors
 
 logger = logging.getLogger(__name__)
@@ -93,11 +94,48 @@ def _clean_none_strings(data):
     return data
 
 
+def _coerce_int(value, *, pick: str = "max") -> int | None:
+    """Coerce a value to int, handling strings and lists from LLM output.
+
+    LLMs sometimes return "115 V or 230 V", "20 amp (115 V) or 50 amp (230 V)",
+    or [1500, 6000] for fields that require a single integer.
+
+    Args:
+        value: The value to coerce.
+        pick: "max" to pick the largest number, "min" for smallest.
+
+    Returns:
+        An integer, or None if no numbers could be extracted.
+    """
+    import re
+
+    if value is None:
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    if isinstance(value, list):
+        nums = [v for v in value if isinstance(v, (int, float))]
+        if not nums:
+            return None
+        return int(max(nums) if pick == "max" else min(nums))
+    if isinstance(value, str):
+        found = re.findall(r"\d+", value)
+        if not found:
+            return None
+        ints = [int(n) for n in found]
+        return max(ints) if pick == "max" else min(ints)
+    return None
+
+
 def _apply_defaults(data: dict) -> dict:
     """Apply null-safe defaults for fields the Pydantic schema requires.
 
     Gemini may return null for fields that the schema does not allow to be
     None (e.g., jet_system_type, is_dedicated, feature lists, dimensions).
+    Also coerces string/list values to int for voltage, amperage, and wattage
+    fields at both top-level and nested levels.
     """
     # Normalize pump speed values (Gemini may return "One-Speed" vs "1-speed")
     _SPEED_MAP = {
@@ -161,6 +199,16 @@ def _apply_defaults(data: dict) -> dict:
     if isinstance(spa_pak, dict):
         if spa_pak.get("features") is None:
             spa_pak["features"] = []
+        # Coerce voltage/amperage: LLMs return "115 V or 230 V" etc.
+        spa_pak["voltage"] = _coerce_int(spa_pak.get("voltage"))
+        spa_pak["amperage"] = _coerce_int(spa_pak.get("amperage"))
+        spa_pak["frequency_hz"] = _coerce_int(spa_pak.get("frequency_hz"))
+
+    heater = data.get("heater")
+    if isinstance(heater, dict):
+        # Coerce wattage/voltage: LLMs return [1500, 6000] or "6000 W" etc.
+        heater["wattage"] = _coerce_int(heater.get("wattage"))
+        heater["voltage"] = _coerce_int(heater.get("voltage"))
 
     cover = data.get("cover")
     if isinstance(cover, dict):
@@ -173,27 +221,18 @@ def _apply_defaults(data: dict) -> dict:
             if dims.get(field) is None:
                 dims[field] = 0.0
 
-    # Voltage must be a single int; dual-voltage spas use the higher value
-    voltage = data.get("voltage")
-    if isinstance(voltage, list):
-        nums = [v for v in voltage if isinstance(v, (int, float))]
-        data["voltage"] = max(nums) if nums else 240
-    elif isinstance(voltage, str):
-        import re
-        found = re.findall(r"\d+", voltage)
-        data["voltage"] = max(int(n) for n in found) if found else 240
-    elif voltage is None:
-        data["voltage"] = 240
+    # Top-level voltage/amperage: coerce and apply defaults
+    data["voltage"] = _coerce_int(data.get("voltage")) or 240
+    data["amperage"] = _coerce_int(data.get("amperage"))
 
-    # Amperage must be a single int; multi-option spas use the max value
-    amperage = data.get("amperage")
-    if isinstance(amperage, list):
-        nums = [v for v in amperage if isinstance(v, (int, float))]
-        data["amperage"] = max(nums) if nums else None
-    elif isinstance(amperage, str):
+    # Seating capacity: LLMs sometimes return string "7" or null
+    seat = data.get("seating_capacity")
+    if isinstance(seat, str):
         import re
-        found = re.findall(r"\d+", amperage)
-        data["amperage"] = max(int(n) for n in found) if found else None
+        found = re.findall(r"\d+", seat)
+        data["seating_capacity"] = int(found[0]) if found else 0
+    elif seat is None:
+        data["seating_capacity"] = 0
 
     return data
 
@@ -396,15 +435,19 @@ def run_web_model(
         print(f"  Raw data saved to: {debug_path}")
         return None
 
-    # 11. Write JSON
+    # 11. Write JSON with quality scoring
     output_dir = DATA_OUTPUT_DIR / manufacturer / _slugify(series)
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"{_slugify(model_name)}-{year}.json"
+
+    model_dict = spa_model.model_dump()
+    model_dict["data_quality"] = score_model(model_dict)
     output_path.write_text(
-        json.dumps(spa_model.model_dump(), indent=2, default=str),
+        json.dumps(model_dict, indent=2, default=str, ensure_ascii=False),
         encoding="utf-8",
     )
-    print(f"  Output: {output_path} ({output_path.stat().st_size} bytes)")
+    completeness = model_dict["data_quality"]["completeness_pct"]
+    print(f"  Output: {output_path} ({output_path.stat().st_size} bytes, {completeness}% complete)")
     return spa_model
 
 
