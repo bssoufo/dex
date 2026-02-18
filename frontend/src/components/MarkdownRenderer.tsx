@@ -43,6 +43,16 @@ const components: Components = {
       {children}
     </h4>
   ),
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 hover:text-blue-800 underline"
+    >
+      {children}
+    </a>
+  ),
 };
 
 export function MarkdownRenderer({ content }: Props) {
