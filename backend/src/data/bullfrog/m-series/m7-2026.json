@@ -35,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": null,
+    "description": "Pompe de circulation d\u00e9di\u00e9e (Standard)",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -53,29 +53,35 @@
   },
   "topside_control": {
     "model_name": null,
-    "type": "écran tactile",
+    "type": "\u00e9cran tactile",
     "features": [
-      "Contrôle par écran tactile haut de gamme",
-      "Commandes auxiliaires à 4 fonctions de qualité supérieure"
+      "contr\u00f4le par \u00e9cran tactile haut de gamme"
     ],
-    "smart_connectivity": "Module Wifi CloudControl+ permet de se connecter et contrôler le spa depuis n’importe où via un appareil connecté.",
+    "smart_connectivity": "Module Wifi CloudControl +\u2122",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 18,
-    "jet_system_type": "modular_jetpak",
+    "total_jet_count": 270,
+    "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "thérapie pour le pied, le poignet, la hanche, la jambe, le siège surélevé",
+        "jet_type": null,
         "quantity": 18,
+        "zone": null,
+        "part_number": null,
+        "description": null
+      },
+      {
+        "jet_type": null,
+        "quantity": 252,
         "zone": null,
         "part_number": null,
         "description": null
       }
     ],
-    "jetpak_count": 6,
-    "jetpak_options": 33,
+    "jetpak_count": null,
+    "jetpak_options": null,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -83,10 +89,10 @@
   "headrests": {
     "headrests": [
       {
-        "type": "réglables",
+        "type": "r\u00e9glables",
         "quantity": null,
         "part_number": null,
-        "description": null
+        "description": "Appuie-t\u00eate r\u00e9glables de la s\u00e9rie M (Standard)"
       }
     ],
     "shared_with_series": false
@@ -94,8 +100,8 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity™",
-        "filter_type": "plat",
+        "system_name": "Simplicity\u2122",
+        "filter_type": "Filtre plat Simplicity\u2122",
         "filtration_area_sqft": null,
         "quantity": null,
         "description": null,
@@ -116,23 +122,23 @@
   "lighting": {
     "lights": [
       {
-        "location": "intérieur",
+        "location": "int\u00e9rieur",
         "type": "DEL",
-        "description": "haut de gamme",
+        "description": "haut de gamme de la s\u00e9rie M (Standard)",
         "part_number": null
       },
       {
-        "location": "extérieur",
+        "location": "ext\u00e9rieur",
         "type": "DEL",
-        "description": "haut de gamme",
+        "description": "haut de gamme de la s\u00e9rie M (Standard)",
         "part_number": null
       }
     ],
-    "water_feature": "activée par commande Premium",
+    "water_feature": "Fonction d\u2019eau activ\u00e9e par commande Premium de la s\u00e9rie M (Standard)",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "Premium Patio Performance de la série M",
+    "model_name": "Couverture de spa Premium Patio Performance de la s\u00e9rie M",
     "thickness": null,
     "material": null,
     "features": [
@@ -167,18 +173,5 @@
       "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-17",
-    "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [
-      "amperage",
-      "circulation_pump.model_name",
-      "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage",
-      "jet_pumps.pumps[].horsepower_continuous"
-    ],
-    "anomalies_reviewed": [],
-    "completeness_pct": 70.0
-  }
+  "data_quality": null
 }

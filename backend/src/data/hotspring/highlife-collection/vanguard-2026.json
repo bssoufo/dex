@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster® 9000",
+        "model_name": "Wavemaster 9000",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "1-speed",
@@ -19,7 +19,7 @@
       },
       {
         "position": 2,
-        "model_name": "Wavemaster® 9200",
+        "model_name": "Wavemaster 9200",
         "horsepower_continuous": 2.5,
         "horsepower_breakdown": 5.2,
         "speed": "2-speed",
@@ -27,14 +27,25 @@
         "frame": null,
         "voltage": null,
         "part_number": null
+      },
+      {
+        "position": 3,
+        "model_name": null,
+        "horsepower_continuous": null,
+        "horsepower_breakdown": null,
+        "speed": null,
+        "amperage_max": null,
+        "frame": null,
+        "voltage": null,
+        "part_number": null
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": 10.4,
+    "total_brake_horsepower": null,
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "SilentFlo 5000®",
+    "model_name": "SilentFlo 5000",
     "description": null,
     "is_dedicated": true,
     "wattage": null,
@@ -42,7 +53,7 @@
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "IQ 2020®",
+    "model_name": "IQ 2020",
     "display_type": "Color LCD Touchscreen",
     "voltage": 230,
     "amperage": 50,
@@ -55,13 +66,9 @@
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "IQ 2020®",
-    "type": "Touchscreen",
-    "features": [
-      "Smart Monitoring System",
-      "Hot Spring Spas App",
-      "Connected Spa Kit"
-    ],
+    "model_name": "IQ 2020",
+    "type": "Color LCD Touchscreen",
+    "features": [],
     "smart_connectivity": "Hot Spring Spas App, powered by the Connected Spa Kit",
     "part_number": null,
     "shared_with_series": false
@@ -71,21 +78,21 @@
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Moto-Massage® DX",
+        "jet_type": "Moto-Massage DX",
         "quantity": 4,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SoothingStream®",
+        "jet_type": "SoothingStream",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream®",
+        "jet_type": "JetStream",
         "quantity": 2,
         "zone": null,
         "part_number": null,
@@ -99,14 +106,14 @@
         "description": null
       },
       {
-        "jet_type": "HydroStream®",
+        "jet_type": "HydroStream",
         "quantity": 10,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Precision®",
+        "jet_type": "Directional Precision",
         "quantity": 22,
         "zone": null,
         "part_number": null,
@@ -126,11 +133,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "High-Flow Tri-X® Filters",
-        "filter_type": "Polyester Filters with Free-Flow Core",
+        "system_name": "Tri-X",
+        "filter_type": "High-Flow",
         "filtration_area_sqft": 325.0,
         "quantity": null,
-        "description": "Dual-Action Filtration",
+        "description": "Polyester Filters with Free-Flow Core",
         "no_bypass": true,
         "part_number": null
       }
@@ -138,7 +145,7 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault®",
+    "model_name": "No-Fault",
     "wattage": 4000,
     "voltage": 230,
     "material": null,
@@ -160,17 +167,15 @@
         "part_number": null
       }
     ],
-    "water_feature": "BellaFontana® with Three Illuminated Arcs of Water",
+    "water_feature": "BellaFontana with Three Illuminated Arcs of Water",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "WeatherPro™",
-    "thickness": "4\" Tapered Core",
+    "model_name": "WeatherPro",
+    "thickness": "4\" Tapered Core with Hinge Seal",
     "material": null,
     "features": [
-      "Hinge Seal",
-      "Bottom Seal",
-      "Custom-Fit Insulated Cover"
+      "Bottom Seal"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -201,11 +206,5 @@
       "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-17",
-    "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [],
-    "anomalies_reviewed": [],
-    "completeness_pct": 100.0
-  }
+  "data_quality": null
 }

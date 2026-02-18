@@ -1,8 +1,8 @@
-"""Website-first extraction pipeline with validation feedback loop.
+"""Website-first extraction pipeline: Gemini extracts, OpenAI reviews.
 
-Fetches manufacturer web pages (httpx for static, Playwright for JS-rendered),
-extracts specs via Gemini v2, validates with cross-field checks, and
-re-extracts failing categories with error context. Writes fresh JSON files.
+Fetches manufacturer web pages via Playwright, extracts specs with Gemini,
+reviews with OpenAI, merges at field level, validates with cross-field
+checks, and writes fresh JSON files.
 
 Usage:
     # Extract all manufacturers
@@ -28,11 +28,12 @@ from pydantic import ValidationError
 from ..schema.models import SpaModel
 from ..schema.parts import SourceReference
 from .config import DATA_OUTPUT_DIR, MANUFACTURERS
+from .extract import openai_extractor
+from .extract.dual_resolver import merge_reviewed
 from .extract.web_extractor_v2 import extract, extract_categories
 from .scrape.browser import PlaywrightFetcher
-from .scrape.config import SCRAPE_URLS, get_delay_for_url, needs_browser
+from .scrape.config import SCRAPE_URLS, get_delay_for_url
 from .scrape.content import cache_html, get_cached_html, html_to_text
-from .scrape.fetcher import PageFetcher
 from .verify.checks import ExtractionError, get_extraction_errors
 
 logger = logging.getLogger(__name__)
@@ -46,25 +47,17 @@ def _slugify(name: str) -> str:
 def _fetch_html(
     url: str,
     alt_url: str | None,
-    http_fetcher: PageFetcher,
-    browser_fetcher: PlaywrightFetcher | None,
+    browser_fetcher: PlaywrightFetcher,
 ) -> str | None:
-    """Fetch raw HTML, using cache if available, correct fetcher by domain."""
+    """Fetch raw HTML via Playwright, using cache if available."""
     # Check cache first
     cached = get_cached_html(url)
     if cached is not None:
         return cached
 
     try:
-        if needs_browser(url):
-            if browser_fetcher is None:
-                logger.error("Browser fetcher required but not available for %s", url)
-                return None
-            delay = get_delay_for_url(url)
-            html = browser_fetcher.fetch_with_fallback(url, alt_url=alt_url, delay=delay)
-        else:
-            delay = get_delay_for_url(url)
-            html = http_fetcher.fetch_with_fallback(url, alt_url=alt_url, delay=delay)
+        delay = get_delay_for_url(url)
+        html = browser_fetcher.fetch_with_fallback(url, alt_url=alt_url, delay=delay)
 
         # Cache for re-extraction retries
         cache_html(url, html)
@@ -111,15 +104,17 @@ def _apply_defaults(data: dict) -> dict:
         "one-speed": "1-speed", "one speed": "1-speed", "single-speed": "1-speed",
         "two-speed": "2-speed", "two speed": "2-speed", "dual-speed": "2-speed",
     }
+    _VALID_SPEEDS = {"1-speed", "2-speed", "variable"}
     pumps_data = data.get("jet_pumps")
     if isinstance(pumps_data, dict):
         for pump in pumps_data.get("pumps") or []:
             if isinstance(pump, dict) and isinstance(pump.get("speed"), str):
-                pump["speed"] = _SPEED_MAP.get(pump["speed"].lower(), pump["speed"])
+                mapped = _SPEED_MAP.get(pump["speed"].lower(), pump["speed"])
+                pump["speed"] = mapped if mapped in _VALID_SPEEDS else None
 
     jets = data.get("jets")
     if isinstance(jets, dict):
-        if jets.get("jet_system_type") is None:
+        if jets.get("jet_system_type") not in ("fixed", "modular_jetpak"):
             jets["jet_system_type"] = "fixed"
         # jets_by_type must be a list, not None
         if jets.get("jets_by_type") is None:
@@ -158,8 +153,27 @@ def _apply_defaults(data: dict) -> dict:
             if dims.get(field) is None:
                 dims[field] = 0.0
 
-    if data.get("voltage") is None:
+    # Voltage must be a single int; dual-voltage spas use the higher value
+    voltage = data.get("voltage")
+    if isinstance(voltage, list):
+        nums = [v for v in voltage if isinstance(v, (int, float))]
+        data["voltage"] = max(nums) if nums else 240
+    elif isinstance(voltage, str):
+        import re
+        found = re.findall(r"\d+", voltage)
+        data["voltage"] = max(int(n) for n in found) if found else 240
+    elif voltage is None:
         data["voltage"] = 240
+
+    # Amperage must be a single int; multi-option spas use the max value
+    amperage = data.get("amperage")
+    if isinstance(amperage, list):
+        nums = [v for v in amperage if isinstance(v, (int, float))]
+        data["amperage"] = max(nums) if nums else None
+    elif isinstance(amperage, str):
+        import re
+        found = re.findall(r"\d+", amperage)
+        data["amperage"] = max(int(n) for n in found) if found else None
 
     return data
 
@@ -225,17 +239,18 @@ def _run_validation_loop(
 def run_web_model(
     manufacturer: str,
     model_name: str,
-    http_fetcher: PageFetcher,
-    browser_fetcher: PlaywrightFetcher | None = None,
+    browser_fetcher: PlaywrightFetcher,
     year: int = 2026,
 ) -> SpaModel | None:
     """Extract specs for a single model from its web page.
 
+    Uses Gemini for extraction and OpenAI for review, then merges
+    at field level.
+
     Args:
         manufacturer: Manufacturer key (e.g. "hotspring").
         model_name: Model name (e.g. "Vanguard").
-        http_fetcher: HTTP fetcher for static sites.
-        browser_fetcher: Playwright fetcher for JS-rendered sites. Optional.
+        browser_fetcher: Playwright fetcher for all sites.
         year: Model year.
 
     Returns:
@@ -263,9 +278,9 @@ def run_web_model(
     print(f"URL: {url}")
     print(f"{'='*60}")
 
-    # 1. Fetch HTML (cached or fresh)
+    # 1. Fetch HTML (cached or fresh) — always Playwright
     print(f"  Fetching page...")
-    html = _fetch_html(url, alt_url, http_fetcher, browser_fetcher)
+    html = _fetch_html(url, alt_url, browser_fetcher)
     if not html:
         print(f"  FAILED: Could not fetch page")
         return None
@@ -274,35 +289,60 @@ def run_web_model(
     page_text = html_to_text(html)
     print(f"  Page text: {len(page_text)} chars")
 
-    # 3. Extract with Gemini v2
+    # 3. Extract with Gemini
     print(f"  Extracting with Gemini...")
-    raw_data = extract(
+    gemini_data = extract(
         page_text=page_text,
         model_name=model_name,
         manufacturer=manufacturer,
         series=series,
         year=year,
     )
-    if not raw_data:
+    if not gemini_data:
         print(f"  FAILED: Gemini extraction returned nothing")
         return None
-    print(f"  Extraction complete: {len(raw_data)} top-level keys")
+    print(f"  Gemini extraction complete: {len(gemini_data)} top-level keys")
 
-    # 4. Clean data
+    # 4. OpenAI reviews Gemini's extraction
+    print(f"  Reviewing with OpenAI...")
+    review_data = openai_extractor.review(
+        gemini_data=gemini_data,
+        page_text=page_text,
+        model_name=model_name,
+        manufacturer=manufacturer,
+        series=series,
+        year=year,
+    )
+    if not review_data:
+        print(f"  WARNING: OpenAI review returned nothing, using Gemini only")
+        raw_data = gemini_data
+    else:
+        print(f"  OpenAI review complete: {len(review_data)} top-level keys")
+
+        # 5. Field-level merge
+        raw_data, report = merge_reviewed(gemini_data, review_data, model_name)
+        print(f"  Merge: {report.confirmed} confirmed, {report.corrected} corrected, "
+              f"{report.filled} filled, {report.nulled} nulled")
+        if report.changes:
+            for change in report.changes:
+                print(f"    [{change.change_type}] {change.field_path}: "
+                      f"{change.gemini_value} -> {change.review_value}")
+
+    # 6. Clean data
     raw_data = _clean_none_strings(raw_data)
 
-    # 5. Cross-field validation loop (max 1 re-extraction)
+    # 7. Cross-field validation loop (max 1 re-extraction)
     raw_data = _run_validation_loop(
         raw_data, page_text, model_name, manufacturer, series, year,
     )
 
-    # 6. Apply null-safe defaults for required schema fields
+    # 8. Apply null-safe defaults for required schema fields
     raw_data = _apply_defaults(raw_data)
 
-    # 7. Build source reference
+    # 9. Build source reference
     source_ref = _build_source_ref(url)
 
-    # 8. Assemble into SpaModel
+    # 10. Assemble into SpaModel
     model_data = {
         "manufacturer": manufacturer,
         "series": series,
@@ -336,7 +376,7 @@ def run_web_model(
         print(f"  Raw data saved to: {debug_path}")
         return None
 
-    # 9. Write JSON
+    # 11. Write JSON
     output_dir = DATA_OUTPUT_DIR / manufacturer / _slugify(series)
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"{_slugify(model_name)}-{year}.json"
@@ -350,8 +390,7 @@ def run_web_model(
 
 def run_web_manufacturer(
     manufacturer: str,
-    http_fetcher: PageFetcher,
-    browser_fetcher: PlaywrightFetcher | None = None,
+    browser_fetcher: PlaywrightFetcher,
     year: int = 2026,
 ) -> list[SpaModel]:
     """Extract specs for all models of a manufacturer from web pages."""
@@ -369,7 +408,7 @@ def run_web_manufacturer(
     for model_name in models:
         try:
             spa_model = run_web_model(
-                manufacturer, model_name, http_fetcher, browser_fetcher, year,
+                manufacturer, model_name, browser_fetcher, year,
             )
             if spa_model:
                 results.append(spa_model)
@@ -422,8 +461,9 @@ def run_web_extraction(
 ) -> dict[str, list[SpaModel]]:
     """Run the full website-first extraction pipeline.
 
-    Uses httpx for static sites and Playwright for JS-rendered sites.
-    Includes validation feedback loop for cross-field error correction.
+    Uses Playwright for all sites. Extracts with Gemini, reviews with
+    OpenAI, merges at field level. Includes validation feedback loop
+    for cross-field error correction.
 
     Args:
         year: Model year.
@@ -436,7 +476,7 @@ def run_web_extraction(
     mfr_keys = manufacturers or list(MANUFACTURERS.keys())
 
     print(f"\n{'#'*60}")
-    print(f"DEX Web Extraction Pipeline v2")
+    print(f"DEX Extract + Review Pipeline")
     print(f"Year: {year}")
     print(f"Manufacturers: {', '.join(mfr_keys)}")
     print(f"{'#'*60}")
@@ -444,20 +484,8 @@ def run_web_extraction(
     if clean:
         delete_existing_data(manufacturers=mfr_keys)
 
-    # Determine if we need browser for any requested manufacturer
-    any_needs_browser = any(
-        needs_browser(entry["url"])
-        for mfr in mfr_keys
-        for entry in SCRAPE_URLS.get(mfr, [])
-        if entry.get("url")
-    )
-
-    http_fetcher = PageFetcher()
-    browser_fetcher: PlaywrightFetcher | None = None
-
-    if any_needs_browser:
-        print("  Launching Playwright browser for JS-rendered sites...")
-        browser_fetcher = PlaywrightFetcher()
+    print("  Launching Playwright browser...")
+    browser_fetcher = PlaywrightFetcher()
 
     try:
         all_results: dict[str, list[SpaModel]] = {}
@@ -465,7 +493,7 @@ def run_web_extraction(
         total_success = 0
 
         for mfr in mfr_keys:
-            results = run_web_manufacturer(mfr, http_fetcher, browser_fetcher, year)
+            results = run_web_manufacturer(mfr, browser_fetcher, year)
             all_results[mfr] = results
             mfr_total = len(MANUFACTURERS[mfr]["models"])
             total_models += mfr_total
@@ -481,9 +509,7 @@ def run_web_extraction(
 
         return all_results
     finally:
-        http_fetcher.close()
-        if browser_fetcher is not None:
-            browser_fetcher.close()
+        browser_fetcher.close()
 
 
 # CLI entry point
@@ -495,24 +521,11 @@ if __name__ == "__main__":
         model = sys.argv[2] if len(sys.argv) > 2 else None
 
         if model:
-            http_fetcher = PageFetcher()
-            # Check if this specific model needs a browser
-            url_entry = None
-            for entry in SCRAPE_URLS.get(mfr, []):
-                if entry["model_name"] == model:
-                    url_entry = entry
-                    break
-
-            browser_fetcher = None
-            if url_entry and needs_browser(url_entry["url"]):
-                browser_fetcher = PlaywrightFetcher()
-
+            browser_fetcher = PlaywrightFetcher()
             try:
-                run_web_model(mfr, model, http_fetcher, browser_fetcher)
+                run_web_model(mfr, model, browser_fetcher)
             finally:
-                http_fetcher.close()
-                if browser_fetcher:
-                    browser_fetcher.close()
+                browser_fetcher.close()
         else:
             run_web_extraction(manufacturers=[mfr])
     else:

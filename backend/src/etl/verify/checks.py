@@ -123,6 +123,100 @@ def check_jet_count_range(data: dict) -> list[ExtractionError]:
     return errors
 
 
+def check_seating_capacity_range(data: dict) -> list[ExtractionError]:
+    """Error if seating capacity is outside 2-10 or non-numeric."""
+    errors: list[ExtractionError] = []
+    val = data.get("seating_capacity")
+    if val is not None:
+        if not isinstance(val, (int, float)):
+            errors.append(ExtractionError(
+                category="seating_capacity",
+                message=f"seating_capacity={val!r} is not numeric",
+            ))
+        elif val < 2 or val > 10:
+            errors.append(ExtractionError(
+                category="seating_capacity",
+                message=f"seating_capacity={val} outside plausible range [2, 10]",
+            ))
+    return errors
+
+
+def check_electrical_ranges(data: dict) -> list[ExtractionError]:
+    """Error if voltage or amperage are non-numeric or outside plausible ranges."""
+    errors: list[ExtractionError] = []
+    voltage = data.get("voltage")
+    if voltage is not None:
+        if not isinstance(voltage, (int, float)):
+            errors.append(ExtractionError(
+                category="voltage",
+                message=f"voltage={voltage!r} is not numeric",
+            ))
+        elif voltage not in (110, 115, 120, 220, 230, 240):
+            errors.append(ExtractionError(
+                category="voltage",
+                message=f"voltage={voltage} not a standard spa voltage",
+            ))
+    amperage = data.get("amperage")
+    if amperage is not None:
+        if not isinstance(amperage, (int, float)):
+            errors.append(ExtractionError(
+                category="amperage",
+                message=f"amperage={amperage!r} is not numeric",
+            ))
+        elif amperage < 10 or amperage > 60:
+            errors.append(ExtractionError(
+                category="amperage",
+                message=f"amperage={amperage} outside plausible range [10, 60]",
+            ))
+    return errors
+
+
+def check_heater_wattage_range(data: dict) -> list[ExtractionError]:
+    """Error if heater wattage is outside 1000-6000 or non-numeric."""
+    errors: list[ExtractionError] = []
+    heater = data.get("heater")
+    if not isinstance(heater, dict):
+        return errors
+    wattage = heater.get("wattage")
+    if wattage is not None:
+        if not isinstance(wattage, (int, float)):
+            errors.append(ExtractionError(
+                category="heater",
+                message=f"heater wattage={wattage!r} is not numeric",
+            ))
+        elif wattage < 1000 or wattage > 6000:
+            errors.append(ExtractionError(
+                category="heater",
+                message=f"heater wattage={wattage} outside plausible range [1000, 6000]",
+            ))
+    return errors
+
+
+def check_pump_hp_range(data: dict) -> list[ExtractionError]:
+    """Error if any pump HP is outside 0.5-10.0 or non-numeric."""
+    errors: list[ExtractionError] = []
+    pumps_data = data.get("jet_pumps")
+    if not isinstance(pumps_data, dict):
+        return errors
+    for pump in pumps_data.get("pumps") or []:
+        if not isinstance(pump, dict):
+            continue
+        hp = pump.get("horsepower_continuous")
+        if hp is not None:
+            pos = pump.get("position", "?")
+            if not isinstance(hp, (int, float)):
+                errors.append(ExtractionError(
+                    category="jet_pumps",
+                    message=f"pump[{pos}] HP={hp!r} is not numeric",
+                ))
+            elif hp < 0.5 or hp > 10.0:
+                errors.append(ExtractionError(
+                    category="jet_pumps",
+                    message=f"pump[{pos}] HP={hp} outside plausible range [0.5, 10.0]",
+                ))
+    return errors
+
+
 def get_extraction_errors(data: dict) -> list[ExtractionError]:
     """Run all cross-field checks and return error-severity issues.
 
@@ -134,6 +228,10 @@ def get_extraction_errors(data: dict) -> list[ExtractionError]:
     errors.extend(check_pump_count_reasonable(data))
     errors.extend(check_dimension_ranges(data))
     errors.extend(check_jet_count_range(data))
+    errors.extend(check_seating_capacity_range(data))
+    errors.extend(check_electrical_ranges(data))
+    errors.extend(check_heater_wattage_range(data))
+    errors.extend(check_pump_hp_range(data))
     return errors
 
 

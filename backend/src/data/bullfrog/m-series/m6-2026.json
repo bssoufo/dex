@@ -35,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": "dedicated",
+    "description": "Pompe de circulation d\u00e9di\u00e9e (Standard)",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -43,49 +43,39 @@
   },
   "spa_pak": {
     "model_name": null,
-    "display_type": "écran tactile",
+    "display_type": null,
     "voltage": null,
     "amperage": null,
     "frequency_hz": null,
-    "features": [
-      "Commandes auxiliaires multifonctions",
-      "réglage de la piste et du volume via la commande principale",
-      "réglage du volume via les commandes auxiliaires multifonctions"
-    ],
+    "features": [],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
     "model_name": null,
-    "type": "écran tactile",
+    "type": "\u00c9cran tactile",
     "features": [
-      "Commandes auxiliaires multifonctions"
+      "Contr\u00f4le par \u00e9cran tactile haut de gamme",
+      "Commandes auxiliaires \u00e0 4 fonctions de qualit\u00e9 sup\u00e9rieure"
     ],
-    "smart_connectivity": "CloudControl+™",
+    "smart_connectivity": "Module Wifi CloudControl+",
     "part_number": null,
     "shared_with_series": false
   },
   "jets": {
-    "total_jet_count": 184,
-    "jet_system_type": "fixed",
+    "total_jet_count": 16,
+    "jet_system_type": "modular_jetpak",
     "jets_by_type": [
       {
-        "jet_type": null,
+        "jet_type": "Jets de th\u00e9rapie pour le pied, le poignet, la hanche, la jambe, le si\u00e8ge sur\u00e9lev\u00e9",
         "quantity": 16,
-        "zone": null,
-        "part_number": null,
-        "description": null
-      },
-      {
-        "jet_type": null,
-        "quantity": 168,
         "zone": null,
         "part_number": null,
         "description": null
       }
     ],
-    "jetpak_count": null,
-    "jetpak_options": null,
+    "jetpak_count": 4,
+    "jetpak_options": 33,
     "therapy_jet_count": null,
     "max_jet_count": null,
     "shared_with_series": false
@@ -93,10 +83,10 @@
   "headrests": {
     "headrests": [
       {
-        "type": "adjustable",
+        "type": "Appuie-t\u00eate r\u00e9glables de la s\u00e9rie M",
         "quantity": null,
         "part_number": null,
-        "description": null
+        "description": "Standard"
       }
     ],
     "shared_with_series": false
@@ -104,8 +94,8 @@
   "filters": {
     "filters": [
       {
-        "system_name": "Simplicity™",
-        "filter_type": "plat",
+        "system_name": "Simplicity\u2122",
+        "filter_type": "Filtre plat Simplicity\u2122",
         "filtration_area_sqft": null,
         "quantity": null,
         "description": null,
@@ -126,29 +116,27 @@
   "lighting": {
     "lights": [
       {
-        "location": "interior",
-        "type": "LED",
-        "description": "haut de gamme",
+        "location": "int\u00e9rieur",
+        "type": "DEL",
+        "description": "\u00c9clairage int\u00e9rieur \u00e0 DEL haut de gamme de la s\u00e9rie M (Standard)",
         "part_number": null
       },
       {
-        "location": "exterior",
-        "type": "LED",
-        "description": "haut de gamme",
+        "location": "ext\u00e9rieur",
+        "type": null,
+        "description": "\u00c9clairage ext\u00e9rieur haut de gamme de la s\u00e9rie M (Standard)",
         "part_number": null
       }
     ],
-    "water_feature": "Fonction d’eau activée par commande Premium de la série M",
+    "water_feature": "Fonction d\u2019eau activ\u00e9e par commande Premium de la s\u00e9rie M",
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "Premium Patio Performance de la série M",
+    "model_name": "Couverture de spa Premium Patio Performance de la s\u00e9rie M",
     "thickness": null,
-    "material": "Patio Performance®",
+    "material": null,
     "features": [
-      "technologie de capteur intelligent",
-      "capteurs intelligents intégrés",
-      "notifications push lorsque votre couverture de spa a été retirée"
+      "technologie de capteur intelligent"
     ],
     "length_inches": null,
     "width_inches": null,
@@ -179,18 +167,5 @@
       "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-17",
-    "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [
-      "amperage",
-      "circulation_pump.model_name",
-      "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage",
-      "jet_pumps.pumps[].horsepower_continuous"
-    ],
-    "anomalies_reviewed": [],
-    "completeness_pct": 70.0
-  }
+  "data_quality": null
 }

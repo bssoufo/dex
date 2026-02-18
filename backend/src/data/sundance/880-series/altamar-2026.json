@@ -13,7 +13,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56",
+        "frame": "56 Frame",
         "voltage": null,
         "part_number": null
       },
@@ -24,7 +24,7 @@
         "horsepower_breakdown": null,
         "speed": "1-speed",
         "amperage_max": 11.3,
-        "frame": "56",
+        "frame": "56 Frame",
         "voltage": null,
         "part_number": null
       }
@@ -35,7 +35,7 @@
   },
   "circulation_pump": {
     "model_name": null,
-    "description": null,
+    "description": "Dynamic Flow Circulation System",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
@@ -44,10 +44,13 @@
   "spa_pak": {
     "model_name": null,
     "display_type": null,
-    "voltage": null,
+    "voltage": 240,
     "amperage": null,
-    "frequency_hz": null,
-    "features": [],
+    "frequency_hz": 60,
+    "features": [
+      "Factory installed ClearRay Active Oxygen\u00ae System",
+      "CLEARRAY\u00ae On-Demand"
+    ],
     "part_number": null,
     "shared_with_series": false
   },
@@ -56,10 +59,9 @@
     "type": "Touch Control Panel",
     "features": [
       "glowing, color touchscreen control",
-      "icon-driven menus",
-      "easy programming"
+      "icon-driven menus"
     ],
-    "smart_connectivity": "SmartTub™ System compatible",
+    "smart_connectivity": "Compatible with optional SmartTub\u2122 System",
     "part_number": null,
     "shared_with_series": false
   },
@@ -80,11 +82,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "MicroClean® Ultra II Filtration System",
-        "filter_type": "cartridge",
+        "system_name": "MicroClean\u00ae Ultra II Filtration System",
+        "filter_type": "interlocking cartridge filter",
         "filtration_area_sqft": 130.0,
-        "quantity": 1,
-        "description": "2 interlocking cartridge filters",
+        "quantity": 2,
+        "description": null,
         "no_bypass": null,
         "part_number": null
       }
@@ -102,15 +104,33 @@
   "lighting": {
     "lights": [
       {
-        "location": "spa interior, waterfall, footwell and backlit grab bar",
-        "type": "Multicolor SunGlow™ LED",
+        "location": "spa interior",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "waterfall",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "footwell",
+        "type": "Multicolor SunGlow\u2122 LED",
+        "description": null,
+        "part_number": null
+      },
+      {
+        "location": "backlit grab bar",
+        "type": "Multicolor SunGlow\u2122 LED",
         "description": null,
         "part_number": null
       },
       {
         "location": "exterior",
         "type": "LED",
-        "description": "elegant",
+        "description": "elegant exterior LED lighting",
         "part_number": null
       }
     ],
@@ -151,19 +171,5 @@
       "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-17",
-    "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [
-      "seating_capacity",
-      "amperage",
-      "dimensions.filled_weight_lbs",
-      "circulation_pump.model_name",
-      "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage"
-    ],
-    "anomalies_reviewed": [],
-    "completeness_pct": 65.0
-  }
+  "data_quality": null
 }

@@ -8,7 +8,7 @@
     "pumps": [
       {
         "position": 1,
-        "model_name": "Wavemaster® 7000",
+        "model_name": "Wavemaster\u00ae 7000",
         "horsepower_continuous": 1.65,
         "horsepower_breakdown": 3.5,
         "speed": "1-speed",
@@ -19,44 +19,41 @@
       }
     ],
     "diverter_valves": null,
-    "total_brake_horsepower": null,
+    "total_brake_horsepower": 3.5,
     "shared_with_series": false
   },
   "circulation_pump": {
-    "model_name": "SilentFlo 5000®",
-    "description": null,
+    "model_name": "SilentFlo 5000\u00ae",
+    "description": "A low-energy pump circulates water using less energy than a 40-watt light bulb.",
     "is_dedicated": true,
     "wattage": null,
     "part_number": null,
     "shared_with_series": false
   },
   "spa_pak": {
-    "model_name": "IQ 2020®",
+    "model_name": "IQ 2020\u00ae",
     "display_type": "Color LCD Touchscreen",
     "voltage": null,
     "amperage": null,
     "frequency_hz": 60,
     "features": [
-      "115 V / 20 amp, 60 Hz operation",
-      "230 V / 50 amp, 60 Hz operation",
-      "Includes G.F.C.I. Protected Power Cord (for 115 V mode)",
-      "G.F.C.I. Protected Subpanel Required (for 230 V mode)",
-      "Diagnostic/Ready Light",
-      "Comfort Control® system",
-      "SmartJet® system",
-      "FreshWater® IQ System Ready"
+      "115 V / 20 amp, 60 Hz",
+      "Includes G.F.C.I. Protected Power Cord",
+      "or 230 V / 50 amp, 60 Hz",
+      "G.F.C.I. Protected Subpanel Required for 230 V Mode",
+      "Diagnostic/Ready Light"
     ],
     "part_number": null,
     "shared_with_series": false
   },
   "topside_control": {
-    "model_name": "Color LCD Touchscreen",
-    "type": "Touchscreen",
+    "model_name": "IQ 2020\u00ae",
+    "type": "Color LCD Touchscreen",
     "features": [
-      "Color LCD",
-      "Diagnostic/Ready Light"
+      "Customizable LED Zone Lighting",
+      "Multi-Color LED Lighting with Timer"
     ],
-    "smart_connectivity": "Hot Spring Spas App / Connected Spa Kit",
+    "smart_connectivity": "The Hot Spring Spas App, powered by the Connected Spa Kit",
     "part_number": null,
     "shared_with_series": false
   },
@@ -65,21 +62,21 @@
     "jet_system_type": "fixed",
     "jets_by_type": [
       {
-        "jet_type": "Moto-Massage® DX",
+        "jet_type": "Moto-Massage\u00ae DX",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "SoothingStream®",
+        "jet_type": "SoothingStream\u00ae",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "JetStream®",
+        "jet_type": "JetStream\u00ae",
         "quantity": 1,
         "zone": null,
         "part_number": null,
@@ -93,14 +90,14 @@
         "description": null
       },
       {
-        "jet_type": "Rotary Precision®",
+        "jet_type": "Rotary Precision\u00ae",
         "quantity": 2,
         "zone": null,
         "part_number": null,
         "description": null
       },
       {
-        "jet_type": "Directional Precision®",
+        "jet_type": "Directional Precision\u00ae",
         "quantity": 14,
         "zone": null,
         "part_number": null,
@@ -120,11 +117,11 @@
   "filters": {
     "filters": [
       {
-        "system_name": "100% No-Bypass Filtration",
-        "filter_type": "Tri-X®",
+        "system_name": "Dual-Action Filtration",
+        "filter_type": "Tri-X\u00ae",
         "filtration_area_sqft": 195.0,
         "quantity": null,
-        "description": "High-Flow Tri-X® Filters, Dual-Action Filtration, Polyester Filters with Free-Flow Core",
+        "description": "Polyester Filters with Free-Flow Core",
         "no_bypass": true,
         "part_number": null
       }
@@ -132,7 +129,7 @@
     "shared_with_series": false
   },
   "heater": {
-    "model_name": "No-Fault®",
+    "model_name": "No-Fault\u00ae",
     "wattage": null,
     "voltage": null,
     "material": null,
@@ -149,7 +146,7 @@
       },
       {
         "location": "Exterior",
-        "type": "Multi-Color LED",
+        "type": "LED",
         "description": "Multi-Color LED Lighting with Timer",
         "part_number": null
       }
@@ -158,14 +155,11 @@
     "shared_with_series": false
   },
   "cover": {
-    "model_name": "WeatherPro™",
-    "thickness": "4\" Tapered Core",
+    "model_name": "WeatherPro\u2122",
+    "thickness": "4\" Tapered Core with Hinge Seal",
     "material": null,
     "features": [
-      "Custom-Fit",
-      "Insulated",
-      "Tapered Core",
-      "Hinge Seal",
+      "Custom-Fit Insulated Cover",
       "Bottom Seal"
     ],
     "length_inches": null,
@@ -181,7 +175,7 @@
     "filled_weight_lbs": 3070.0,
     "water_capacity_gallons": 245.0
   },
-  "voltage": 240,
+  "voltage": 230,
   "amperage": null,
   "requires_gfci": true,
   "compatibility_notes": [],
@@ -197,16 +191,5 @@
       "verified_date": null
     }
   ],
-  "data_quality": {
-    "verification_date": "2026-02-17",
-    "verified_by": "web_extraction_pipeline",
-    "not_available_fields": [
-      "amperage",
-      "heater.wattage",
-      "heater.voltage",
-      "spa_pak.voltage"
-    ],
-    "anomalies_reviewed": [],
-    "completeness_pct": 80.0
-  }
+  "data_quality": null
 }
